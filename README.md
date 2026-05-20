@@ -12,15 +12,44 @@
 
 Version **1.1.0**
 
-## Install
+**仓库：** [github.com/sakikoTGW/STS2_Skills](https://github.com/sakikoTGW/STS2_Skills)  
+**推荐同学用：** [Releases](https://github.com/sakikoTGW/STS2_Skills/releases) 里下载 `STS2_Skills-1.1.0.zip`（不用 clone 整个仓库）
 
-```bash
+## 同学快速安装（Releases  zip）
+
+1. 打开 [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest) → 下载 **Source code (zip)** 或发布包 `STS2_Skills-1.1.0.zip`
+2. 解压到任意目录，例如 `D:\STS2_Skills`
+3. 安装 Python 3.11+，在解压目录打开终端：
+
+```powershell
+cd D:\STS2_Skills
+python -m venv .venv
+.\.venv\Scripts\activate
 pip install -e ".[mcp]"
-# or from GitHub after you publish:
-# pip install "git+https://github.com/Brs/hermes-sts2.git"
+copy config.example.yaml %USERPROFILE%\.config\sts2\config.yaml
+# 若目录不存在：mkdir %USERPROFILE%\.config\sts2
 ```
 
-Copy `config.example.yaml` → `~/.config/sts2/config.yaml` (or merge `sts2:` into `~/.hermes/config.yaml`).
+4. 游戏里装好 [STS2MCP](https://github.com/Gennadiyev/STS2MCP) 模组后：
+
+```powershell
+sts2 install-mod
+# 启动杀戮尖塔 2 单机并启用 MCP 模组
+sts2 ping
+```
+
+5. **OpenClaw / AstrBot**：`sts2 integration-config --platform openclaw`（或 `astrbot --json-only`），把输出的 JSON 贴进对应 MCP 配置。
+
+## Install（开发者 / git clone）
+
+```bash
+git clone https://github.com/sakikoTGW/STS2_Skills.git
+cd STS2_Skills
+pip install -e ".[mcp]"
+# 或：pip install "git+https://github.com/sakikoTGW/STS2_Skills.git[mcp]"
+```
+
+Copy `config.example.yaml` → `~/.config/sts2/config.yaml` (Windows: `%USERPROFILE%\.config\sts2\config.yaml`) or merge `sts2:` into `~/.hermes/config.yaml`.
 
 ## Quick start
 
