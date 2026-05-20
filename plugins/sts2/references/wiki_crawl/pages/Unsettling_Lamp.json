@@ -1,0 +1,26 @@
+{
+  "page": "Slay_the_Spire_2:Unsettling Lamp",
+  "short_name": "Unsettling Lamp",
+  "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS",
+  "sections": {
+    "Interactions": [
+      "effect will be used up even if  prevents the debuff(s) from being applied.",
+      "If a card applies multiple debuffs at once (such as ), ALL the debuffs will be doubled.",
+      "If a card applies a debuff(s) to multiple enemies (such as ), all the enemies will have double the debuff(s) applied.",
+      "If a card applies multiple instances of a debuff(s) to an enemy in one play (such as ), all instances of the debuff(s) will be doubled.",
+      "does ''not'' affect:",
+      "Debuffs applied to the player, such as with  or .",
+      "Debuffs applied by other  or .",
+      "Debuffs applied by buffs on the player (such as  or )."
+    ],
+    "Sources": [
+      "Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at .",
+      "Can be obtained from the relics ,  and .",
+      "Can be obtained from the following events:"
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Unsettling Lamp</span>",
+  "fetched_at": "2026-05-20T06:20:32Z",
+  "wikitext_chars": 2824,
+  "wikitext": "{{Relic Infobox|Unsettling Lamp|2}}\n{{R|Unsettling Lamp||2}} is a {{QueryLink|Relics|rarity:Rare|Rare|2}} {{2|Relics|Relic}}.\n\n== Sources ==\n* Can be dropped by fighting {{2|Elites}}, by buying from the {{2|Merchant}} or from {{2|Mechanics#Chests|Chests}}. See Chest and non-Chest chance at {{2|Relics}}.\n\n* Can be obtained from the relics {{R|Calling Bell||2}}, {{R|Shovel||2}} and {{R|Black Star||2}}.\n<!--\n* Can be obtained from the following events:\n\nTODO: FIND RELIC SOURCES FROM EVENTS\n\n-->\n== Unlocking Unsettling Lamp==\n{{R|Unsettling Lamp||2}} is unlocked along with {{R|Reptile Trinket||2}} and {{R|Intimidating Helmet||2}} in the {{2|Timeline#Scribbles|Scribbles}} Epoch.\n\n== Interactions ==\n* {{R|Unsettling Lamp|Unsettling Lamp's|2}} effect will be used up even if {{BD|Artifact||2}} prevents the debuff(s) from being applied.\n* If a card applies multiple debuffs at once (such as {{C|Uppercut||2}}), ALL the debuffs will be doubled.\n* If a card applies a debuff(s) to multiple enemies (such as {{C|Thunderclap||2}}), all the enemies will have double the debuff(s) applied.\n* If a card applies multiple instances of a debuff(s) to an enemy in one play (such as {{C|Bouncing Flask||2}}), all instances of the debuff(s) will be doubled.\n* {{R|Unsettling Lamp||2}} does ''not'' affect:\n** Debuffs applied to the player, such as with {{C|Doubt||2}} or {{C|Neurosurge||2}}.\n** Debuffs applied by other {{2|Relics}} or {{2|Potions}}.\n** Debuffs applied by buffs on the player (such as {{BD|Noxious Fumes||2}} or {{BD|Reaper Form||2}}).\n* Note that many cards apply special debuffs for their effects, even when their text does not explicitly state \"Apply X [debuff].\" These cards will be affected by {{R|Unsettling Lamp||2}}.\n\n=== Synergies ===\n* {{C|Assassinate||2}} and {{C|Suppress||2}} are {{KW|Innate||2}}, guaranteeing they can double their debuffs at the start of each battle.\n* {{R|Royal Stamp||2}} {{KW|Royally Approved|Royally Approves|2}} a card to make it {{KW|Innate||2}}.\n* {{R|Electric Shrymp||2}} {{KW|Imbued|Imbues|2}} a Skill to play it immediately for free at the start of each battle. \n\n=== Neutral ===\n* {{C|Molten Fist||2}} works by applying {{KW|Vulnerable||2}} equal to the enemy's existing {{KW|Vulnerable||2}}. With {{R|Unsettling Lamp||2}}, it will effectively triple the enemy's {{KW|Vulnerable||2}} (not quadruple it, as might be expected). However, this requires the enemy to have {{KW|Vulnerable||2}} from a non-card source (e.g. a {{P|Vulnerable Potion||2}}) or another player.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Unsettling Lamp to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]] <!-- If you believe this page has enough information and can stand without any big changes, remove the ToUpdate category from this page. -->"
+}

@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Unrest Site",
+  "short_name": "Unrest Site",
+  "summary": "is an  found exclusively in the . This event only appears if the player's HP is at or below 70% of their Max HP.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Unrest Site</span>",
+  "fetched_at": "2026-05-20T06:17:35Z",
+  "wikitext_chars": 1591,
+  "wikitext": "{{Event Header|StS2 Unrest Site.png}}\n{{E|Unrest Site|2}} is an {{2|Events|Event}} found exclusively in the {{2|Overgrowth}}.\n\nThis event only appears if the player's HP is at or below 70% of their Max HP.\n\n== Options ==\n{{Frame|Rest Anyways}} {{TS|positive||Heal to full HP.}} {{TS|negative||Receive {{C|Poor Sleep||2}} (curse).}}\n<br>\n{{Frame|Kill the Trees}} {{TS|negative||Lose 8 Max HP.}} {{TS|positive||Obtain a random {{2|Relics|Relic}}.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nYou find a secluded Rest Site and start a fire to get some rest.\nOr so you thought.\n\nOnce the fire is started, it begins to swell, reaching not upwards but sideways towards a grove of oil-seeping trees.\n\nShould you try resting anyways?\n</div>\n\n{{Frame|Rest Anyways}}\n<blockquote><div style=\"font-style:italic\">\nAll this adventuring has left you exhausted, and despite the oddities, you decide to sleep.\n\nYou toss and turn as the fire roars and crackles through the night. The disgusting trees give off a wretched scent from their pitch-black sap.\n\nYou wake up, recovered, but not replenished.\n</div></blockquote>\n\n{{Frame|Kill the Trees}}\n<blockquote><div style=\"font-style:italic\">\nThese trees are clearly malicious so you decide to get rid of them.\nDays later, you're covered in ash and oily goop.\n\nA massive flock of little byrd spirits rise from the slain trees and drop a small box at your feet.\n\"Thank you for freeing us from those trees... cheep cheep!\"\n\nYou should really sleep more.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

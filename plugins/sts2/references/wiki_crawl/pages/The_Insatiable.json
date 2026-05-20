@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:The_Insatiable",
+  "short_name": "The_Insatiable",
+  "summary": "The Insatiable is a  found in .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">The Insatiable</span>",
+  "fetched_at": "2026-05-20T05:42:40Z",
+  "wikitext_chars": 538,
+  "wikitext": "{{Enemy Infobox|The Insatiable|2}}\n{{Keyword Infobox|Sandpit|2}}\n'''The Insatiable''' is a {{2|Bosses|Boss}} found in {{2|Hive}}.\n\n== Pattern ==\n{{Intents|The Insatiable|2}}\nThe Insatiable always opens with {{Int|The Insatiable|Liquify Ground||2}}, then repeats the following cycle:\n# {{Int|The Insatiable|Thrash||2}}\n# {{Int|The Insatiable|Lunging Bite||2}}\n# {{Int|The Insatiable|Salivate||2}}\n# {{Int|The Insatiable|Thrash||2}}\n# Back to {{Int|The Insatiable|Lunging Bite||2}}\n\n[[Category:Bosses]]\n[[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Infused Core",
+  "short_name": "Infused Core",
+  "summary": "is the Starter Upgrade of the 's . It  3  at the start of combat instead of 1.",
+  "sections": {
+    "Interactions": [
+      "will  1  after the 3  is ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Infused Core</span>",
+  "fetched_at": "2026-05-20T06:18:30Z",
+  "wikitext_chars": 1954,
+  "wikitext": "{{Relic Infobox|Infused Core|2|Name=}} {{Keyword Infobox|Lightning|2}}\n{{R|Infused Core|3=2}} is the Starter Upgrade of the {{KW|Defect||2}}'s {{R|Cracked Core|3=2}}. It {{KW|Channel|Channels|2}} 3 {{KW|Lightning||2}} at the start of combat instead of 1.\n\n== Sources ==\nCan be obtained by taking the {{R|Touch of Orobas||2}} from {{KW|Orobas||2}}. Replaces {{R|Cracked Core|3=2}}.\n\n== Spawn Restrictions ==\nCan only be obtained by {{KW|Defect||2}}.\n\n== Interactions ==\n=== Order ===\n* {{R|Symbiotic Virus||2}} will {{KW|Channel||2}} 1 {{KW|Dark||2}} after the 3 {{KW|Lightning||2}} is {{KW|Channel|Channeled|2}}.\n=== Synergies ===\n* Cards and Relics that provide {{BD|Focus||2}}, such as {{R|Data Disk||2}}, {{C|Hotfix||2}}, and {{C|Defragment||2}}, will increase the damage of the {{KW|Lightning||2}} channeled by {{R|Infused Core||2}}.\n* {{R|Gold-Plated Cables||2}}, {{C|Tesla Coil||2}}, and {{C|Loop||2}} will allow the {{KW|Lightning|Lightning's|2}} passive to trigger multiple times in a turn.\n* {{R|Metronome||2}} will get 3 stacks from {{R|Infused Core||2}} {{KW|Channel|Channeling|2}} 3 {{KW|Lightning||2}}.\n* {{C|Voltaic||2}} will be able to {{KW|Channel||2}} 3 additional {{KW|Lightning||2}}\n* {{C|Dualcast||2}}, {{C|Quadcast||2}}, and {{C|Multi-Cast||2}} can be used to {{KW|Evoke|Evoke|2}} the {{KW|Lightning||2}}.\n* {{C|Thunder||2}} will deal additional damage to each enemy hit when the {{KW|Lightning||2}} is {{KW|Evoke|Evoked|2}}.\n* {{C|Coolant||2}}, {{C|Compile Driver||2}}, and {{C|Synchronize||2}} will increase their effectiveness for each Orb type {{KW|Channel|Channeled|2}}.\n=== Anti-Synergies ===\n* {{C|Hyperbeam||2}} will reduce the damage dealt by the {{KW|Lightning||2}}.\n== Update History ==\n*'''Early Access v0.105.0 (BETA)'''\n**Buffed Infused Core: Now also gains \"Lighting Orbs deal 1 additional damage.\"\n* '''Early Access v0.98'''\n** Added Infused Core to the game.\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]]"
+}

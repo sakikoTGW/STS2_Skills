@@ -1,0 +1,97 @@
+{
+  "page": "Slay_the_Spire_2:Glory",
+  "short_name": "Glory",
+  "summary": "Glory is the third  in Slay the Spire 2.",
+  "sections": {},
+  "tables": [
+    [
+      "[[File:Devoted Sculptor Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Devoted Sculptor]]"
+    ],
+    [
+      "A single {{2",
+      "Devoted Sculptor}}."
+    ],
+    [
+      "[[File:Scroll of Biting Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Scroll of Biting]][[File:Scroll of Biting Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Scroll of Biting]][[File:Scroll of Biting Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Scroll of Biting]]"
+    ],
+    [
+      "3 {{2",
+      "Scroll of Biting",
+      "Scrolls of Biting}}."
+    ],
+    [
+      "[[File:Living Shield Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Turret Operator#Living Shield",
+      "Living Shield]][[File:Turret Operator Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Turret Operator]]"
+    ],
+    [
+      "1 {{2",
+      "Turret Operator#Living Shield",
+      "Living Shield}} + 1 {{2",
+      "Turret Operator}}."
+    ],
+    [
+      "}"
+    ],
+    [
+      "[[File:Axebot Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Axebot]][[File:Axebot Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Axebot]]"
+    ],
+    [
+      "2 {{2",
+      "Axebot}}s."
+    ],
+    [
+      "[[File:Punch Construct Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Punch Construct]][[File:Cubex Construct Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Cubex Construct]][[File:Cubex Construct Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Cubex Construct]]"
+    ],
+    [
+      "1 {{2",
+      "Punch Construct}} + 2 {{2",
+      "Cubex Construct}}s."
+    ],
+    [
+      "[[File:Fabricator Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Fabricator]]File:Summon Divider Icon.png[[File:Fabricator Bots Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Fabricator]]"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Glory</span>",
+  "fetched_at": "2026-05-20T05:43:06Z",
+  "wikitext_chars": 7863,
+  "wikitext": "'''Glory''' is the third {{2|Acts|Act}} in [[Slay the Spire 2:Main|Slay the Spire 2]].\n\n== Overview ==\nGlory is the third act of the game. The act spans 13 rooms, with the first 2 encounters drawn from a pool of weaker enemies.\n\n== Events ==\n=== Exclusive Events ===\n* {{E|Battleworn Dummy|2}}\n* {{E|Grave of the Forgotten|2}}\n* {{E|Hungry for Mushrooms|2}}\n* {{E|Ranwid the Elder|2}}\n* {{E|Relic Trader|2}}\n* {{E|Reflections snoitcelfeR|2}}\n* {{E|The Round Tea Party|2}}\n* {{E|The Trial|2}}\n* {{E|Tinker Time|2}}\n* {{E|War Historian, Repy|2}}\n\n=== Shared Events ===\n* {{E|Crystal Sphere|2}}\n* {{E|Potion Courier|2}}\n* {{E|Self-Help Book|2}}\n* {{E|Slippery Bridge|2}}\n* {{E|Symbiote|2}}\n* {{E|The Future of Potions?|2}}\n* {{E|This or That?|2}}\n\n== Monsters ==\nThe following monsters debut in Glory:\n\n<div class=\"center-table\">\n<div class=\"monster\">\n[[File:StS2 Axebot.png|class=monster-img|link=StS2:Axebot]]\n<div class=\"monster-name\">{{2|Axebot}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Devoted Sculptor.png|class=monster-img|link=StS2:Devoted Sculptor]]\n<div class=\"monster-name\">{{2|Devoted Sculptor}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Fabricator.png|class=monster-img|link=StS2:Fabricator]]\n<div class=\"monster-name\">{{2|Fabricator}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Guardbot.png|class=monster-img|link=StS2:Fabricator#Guardbot]]\n<div class=\"monster-name\">{{2|Fabricator#Guardbot|Guardbot}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Noisebot.png|class=monster-img|link=StS2:Fabricator#Noisebot]]\n<div class=\"monster-name\">{{2|Fabricator#Noisebot|Noisebot}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Stabbot.png|class=monster-img|link=StS2:Fabricator#Stabbot]]\n<div class=\"monster-name\">{{2|Fabricator#Stabbot|Stabbot}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Zapbot.png|class=monster-img|link=StS2:Fabricator#Zapbot]]\n<div class=\"monster-name\">{{2|Fabricator#Zapbot|Zapbot}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Frog Knight.png|class=monster-img|link=StS2:Frog Knight]]\n<div class=\"monster-name\">{{2|Frog Knight}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Globe Head.png|class=monster-img|link=StS2:Globe Head]]\n<div class=\"monster-name\">{{2|Globe Head}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Living Shield.png|class=monster-img|link=StS2:Turret Operator#Living Shield]]\n<div class=\"monster-name\">{{2|Turret Operator#Living Shield|Living Shield}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Turret Operator.png|class=monster-img|link=StS2:Turret Operator]]\n<div class=\"monster-name\">{{2|Turret Operator}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Owl Magistrate.png|class=monster-img|link=StS2:Owl Magistrate]]\n<div class=\"monster-name\">{{2|Owl Magistrate}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Scroll of Biting.png|class=monster-img|link=StS2:Scroll of Biting]]\n<div class=\"monster-name\">{{2|Scroll of Biting}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Slimed Berserker.png|class=monster-img|link=StS2:Slimed Berserker]]\n<div class=\"monster-name\">{{2|Slimed Berserker}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 The Lost.png|class=monster-img|link=StS2:The Lost and Forgotten]]\n<div class=\"monster-name\">{{2|The Lost and Forgotten#The Lost|The Lost}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 The Forgotten.png|class=monster-img|link=StS2:The Lost and Forgotten]]\n<div class=\"monster-name\">{{2|The Lost and Forgotten#The Forgotten|The Forgotten}}</div>\n</div>\n</div>\n\n=== First 2 Encounters ===\nThe first 2 encounters are drawn from a pool of weaker enemies. 2 of the 3 possible encounters are selected each run, each with equal probability.\n\n{| class=\"wikitable\"\n! style=\"width: 230px;\" | Encounter\n! style=\"width: 550px;\" | Details\n|-\n| [[File:Devoted Sculptor Icon.png|class=monster-icon|48px|link=StS2:Devoted Sculptor]]\n| A single {{2|Devoted Sculptor}}.\n|-\n| [[File:Scroll of Biting Icon.png|class=monster-icon|48px|link=StS2:Scroll of Biting]][[File:Scroll of Biting Icon.png|class=monster-icon|48px|link=StS2:Scroll of Biting]][[File:Scroll of Biting Icon.png|class=monster-icon|48px|link=StS2:Scroll of Biting]]\n| 3 {{2|Scroll of Biting|Scrolls of Biting}}.\n|-\n| [[File:Living Shield Icon.png|class=monster-icon|48px|link=StS2:Turret Operator#Living Shield|Living Shield]][[File:Turret Operator Icon.png|class=monster-icon|48px|link=StS2:Turret Operator]]\n| 1 {{2|Turret Operator#Living Shield|Living Shield}} + 1 {{2|Turret Operator}}.\n|}\n\n=== Remaining Encounters ===\nAfter the first 2 encounters, the remaining monster fights are drawn from the normal pool with equal probability.\n\n{| class=\"wikitable\"\n! style=\"width: 230px;\" | Encounter\n! style=\"width: 550px;\" | Details\n|-\n| [[File:Axebot Icon.png|class=monster-icon|48px|link=StS2:Axebot]][[File:Axebot Icon.png|class=monster-icon|48px|link=StS2:Axebot]]\n| 2 {{2|Axebot}}s.\n|-\n| [[File:Punch Construct Icon.png|class=monster-icon|48px|link=StS2:Punch Construct]][[File:Cubex Construct Icon.png|class=monster-icon|48px|link=StS2:Cubex Construct]][[File:Cubex Construct Icon.png|class=monster-icon|48px|link=StS2:Cubex Construct]]\n| 1 {{2|Punch Construct}} + 2 {{2|Cubex Construct}}s.\n|-\n| [[File:Fabricator Icon.png|class=monster-icon|48px|link=StS2:Fabricator]][[File:Summon Divider Icon.png]][[File:Fabricator Bots Icon.png|class=monster-icon|48px|link=StS2:Fabricator]]\n| A single {{2|Fabricator}} (spawns [[Slay_the_Spire_2:Fabricator#Guardbot|Guardbot]]s, [[Slay_the_Spire_2:Fabricator#Noisebot|Noisebot]]s, [[Slay_the_Spire_2:Fabricator#Stabbot|Stabbot]]s, and [[Slay_the_Spire_2:Fabricator#Zapbot|Zapbot]]s during combat).\n|-\n| [[File:Frog Knight Icon.png|class=monster-icon|48px|link=StS2:Frog Knight]]\n| A single {{2|Frog Knight}}.\n|-\n| [[File:Globe Head Icon.png|class=monster-icon|48px|link=StS2:Globe Head]]\n| A single {{2|Globe Head}}.\n|-\n| [[File:Owl Magistrate Icon.png|class=monster-icon|48px|link=StS2:Owl Magistrate]]\n| A single {{2|Owl Magistrate}}.\n|-\n| [[File:Scroll of Biting Icon.png|class=monster-icon|48px|link=StS2:Scroll of Biting]][[File:Scroll of Biting Icon.png|class=monster-icon|48px|link=StS2:Scroll of Biting]][[File:Scroll of Biting Icon.png|class=monster-icon|48px|link=StS2:Scroll of Biting]][[File:Scroll of Biting Icon.png|class=monster-icon|48px|link=StS2:Scroll of Biting]]\n| 4 {{2|Scroll of Biting|Scrolls of Biting}}.\n|-\n| [[File:Slimed Berserker Icon.png|class=monster-icon|48px|link=StS2:Slimed Berserker]]\n| A single {{2|Slimed Berserker}}.\n|-\n| [[File:The Lost Icon.png|class=monster-icon|48px|link=StS2:The Lost and Forgotten#The Lost|The Lost]][[File:The Forgotten Icon.png|class=monster-icon|48px|link=StS2:The Lost and Forgotten#The Forgotten|The Forgotten]]\n| 1 {{2|The Lost and Forgotten#The Lost|The Lost}} + 1 {{2|The Lost and Forgotten#The Forgotten|The Forgotten}}.\n|}\n\n== Elites ==\n<div class=\"center-table\">\n<div class=\"elite\">\n[[File:StS2 Mysterious Knight.png|class=elite-img|link=Slay_the_Spire_2:Knights]]\n<div class=\"elite-name\">{{2|Knights}}</div>\n</div>\n<div class=\"elite\">\n[[File:StS2 Mecha Knight.png|class=elite-img|link=Slay_the_Spire_2:Mecha Knight]]\n<div class=\"elite-name\">{{2|Mecha Knight}}</div>\n</div>\n<div class=\"elite\">\n[[File:StS2 Soul Nexus.png|class=elite-img|link=Slay_the_Spire_2:Soul Nexus]]\n<div class=\"elite-name\">{{2|Soul Nexus}}</div>\n</div>\n</div>\n\n== Bosses ==\n<div class=\"center-table\">\n<div class=\"elite\">\n[[File:StS2 Queen.png|class=elite-img|link=Slay_the_Spire_2:Queen]]\n<div class=\"elite-name\">{{2|Queen}}</div>\n</div>\n<div class=\"elite\">\n[[File:StS2 Test Subject.png|class=elite-img|link=Slay_the_Spire_2:Test Subject]]\n<div class=\"elite-name\">{{2|Test Subject}}</div>\n</div>\n<div class=\"elite\">\n[[File:StS2 Doormaker.png|class=elite-img|link=Slay_the_Spire_2:Doormaker]]\n<div class=\"elite-name\">{{2|Doormaker}}</div>\n</div>\n</div>\n\n[[Category:Acts]]\n[[Category:Slay the Spire 2 Content]]"
+}

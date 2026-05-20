@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Music Box",
+  "short_name": "Music Box",
+  "summary": "is an  . It creates an  copy of the first  you play each turn.",
+  "sections": {
+    "Interactions": [
+      "The copy is created after the  resolves, meaning a copied  will have its damage already increased and a copied  will not be immediately ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Music Box</span>",
+  "fetched_at": "2026-05-20T06:22:50Z",
+  "wikitext_chars": 800,
+  "wikitext": "{{Relic Infobox|Music Box|2}}{{Keyword Infobox|Ethereal|2}}\n{{R|Music Box||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}. It creates an {{KW|Ethereal||2}} copy of the first {{QueryLink|Cards|type:Attack|Attack|2}} you play each turn.\n\n== Obtaining Music Box ==\nCan be offered at the start of {{2|Acts#Act 3|Act 3}} by {{KW|Vakuu||2}}.\n\n== Interactions ==\n=== Order ===\n* The copy is created after the {{QueryLink|Cards|type:Attack|Attack|2}} resolves, meaning a copied {{C|Rampage||2}} will have its damage already increased and a copied {{C|Fiend Fire||2}} will not be immediately {{KW|Exhaust|Exhausted|2}}.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Music Box to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

@@ -1,0 +1,24 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Rewards",
+  "combat": {
+    "card_reward": true,
+    "gold": true,
+    "potion_drop_chance": 0.4,
+    "relic_on_elite": true,
+    "relic_on_boss": true
+  },
+  "card_reward": {
+    "choices": 3,
+    "can_skip": true,
+    "rare_from_elite_extra": true
+  },
+  "treasure": {
+    "relic": true,
+    "gold_range": [42, 53]
+  },
+  "agent_hints": [
+    "战后选牌可跳过；精英额外遗物",
+    "Boss 后三选一稀有 + 大量金币",
+    "选牌/遗物/药水奖励互斥规则以当前屏 state 为准"
+  ]
+}

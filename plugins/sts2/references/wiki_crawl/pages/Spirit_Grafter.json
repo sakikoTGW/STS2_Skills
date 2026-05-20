@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Spirit Grafter",
+  "short_name": "Spirit Grafter",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Spirit Grafter</span>",
+  "fetched_at": "2026-05-20T06:17:57Z",
+  "wikitext_chars": 1213,
+  "wikitext": "{{Event Header|StS2 Spirit Grafter.png}}\n{{E|Spirit Grafter|2}} is an {{2|Events|Event}} found exclusively in the {{2|Hive}}.\n\n== Options ==\n{{Frame|Let It In}} {{TS|positive||Heal 25 HP.}} {{TS|positive||Add {{C|Metamorphosis||2}} to Deck.}}\n<br>\n{{Frame|Rejection}} {{TS|negative||Lose 9 HP.}} {{TS|positive||Remove 1 card from your Deck.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nAbove, a cocoon is shaking and wriggling, about to burst forth!\n\n...it stops wriggling. The cocoon ignites! What is going on?\nIn a flash of light and flame, a Spirit Grafter rushes into you, threatening to merge with your being to become complete.\n</div>\n\n{{Frame|Let It In}}\n<blockquote><div style=\"font-style:italic\">\nThe Spirit Grafter merges with you. The vital kindred spirit swiftly heals you up.\n\nYou are reborn.\n</div></blockquote>\n\n{{Frame|Rejection}}\n<blockquote><div style=\"font-style:italic\">\nThe {{TS|gold||Spirit Grafter}} is easily stopped by your will.\n\nHowever, it repeatedly flies into you, desperate for a host. Its strength runs out and it dissolves with a {{TS|purple||poof}}.\n\nA fleeting spirit.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

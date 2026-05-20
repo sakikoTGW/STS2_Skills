@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Terror_Eel",
+  "short_name": "Terror_Eel",
+  "summary": "Terror Eel is an   found in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Terror Eel</span>",
+  "fetched_at": "2026-05-20T05:42:25Z",
+  "wikitext_chars": 1097,
+  "wikitext": "{{Enemy Infobox|Terror Eel|2}}\n'''Terror Eel''' is an {{2|Elites|Elite}} {{2|Monsters|Enemy}} found in the {{2|Underdocks}}.\n\n== Pattern ==\n{{Intents|Terror Eel|2}}\nThe Terror Eel alternates between {{Int|Terror Eel|Crash||2}} and {{Int|Terror Eel|Thrash||2}}, starting with {{Int|Terror Eel|Crash||2}}.\n\nWhen its HP drops to its {{BD|Shriek||2}} threshold (70, or {{Asc|8|75}}), it becomes {{BD|Stunned||2}} and then uses {{Int|Terror Eel|Terror||2}} before resuming the Crash/Thrash cycle.\n\n* {{Int|Terror Eel|Terror||2}} applies 99 {{BD|Vulnerable||2}}, which effectively makes the player take 50% more damage from attacks for the rest of the fight.\n\n== Notes ==\n\n== Trivia ==\n\nTerror Eel's name and {{Int|Terror Eel|Terror||2}} skill are a reference to the card {{C|Terror||1}} from Slay the Spire.\n\n== Version History ==\n* '''Early Access v0.100.0 (BETA)'''\n** Nerfed '''Terror Eel''':\n***Crash damage now scales from 17(19) -> 16(18)\n***Thrash Vigor now scales from 7 -> 6\n* '''Early Access v0.98'''\n** Added Terror Eel to the game.\n\n[[Category:Elites]]\n[[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,39 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Rest_Sites",
+  "standard_options": {
+    "rest": {
+      "name_zh": "休息",
+      "heal_ratio_max_hp": 0.3,
+      "round_down": true,
+      "available_at_full_hp": true
+    },
+    "smith": {
+      "name_zh": "锻造",
+      "action": "upgrade_one_card",
+      "greyed_if_all_upgraded": true
+    }
+  },
+  "relic_modifiers": {
+    "REGAL_PILLOW": {"match": ["REGAL_PILLOW", "Regal Pillow", "皇家枕头"], "heal_flat": 15},
+    "STONE_HUMIDIFIER": {
+      "match": ["STONE_HUMIDIFIER", "Stone Humidifier", "石质加湿器"],
+      "max_hp_on_rest": 5
+    },
+    "DREAM_CATCHER": {"match": ["DREAM_CATCHER", "Dream Catcher"], "card_reward_after_rest": true},
+    "TINY_MAILBOX": {"match": ["TINY_MAILBOX", "Tiny Mailbox"], "potion_on_rest": true},
+    "VENERABLE_TEA_SET": {
+      "match": ["VENERABLE_TEA_SET", "Venerable Tea Set", "古茶具"],
+      "energy_next_combat": 2
+    }
+  },
+  "special_options": {
+    "GIRYA": {"match": ["GIRYA", "Girya"], "lift_strength": 1, "max_lifts": 3},
+    "SHOVEL": {"match": ["SHOVEL", "Shovel"], "dig_relic": true},
+    "MEAT_CLEAVER": {"match": ["MEAT_CLEAVER", "Meat Cleaver"], "cook_remove_cards": 2, "max_hp_gain": 9}
+  },
+  "decision_hints": {
+    "heal_first_hp_below": 0.55,
+    "smith_if_upgrade_score_at_least": 55,
+    "smith_over_heal_hp_above": 0.72
+  }
+}

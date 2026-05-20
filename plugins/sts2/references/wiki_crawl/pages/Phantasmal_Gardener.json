@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Phantasmal_Gardener",
+  "short_name": "Phantasmal_Gardener",
+  "summary": "Phantasmal Gardener is an   found in the . Four appear together in the encounter.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Phantasmal Gardener</span>",
+  "fetched_at": "2026-05-20T05:42:23Z",
+  "wikitext_chars": 847,
+  "wikitext": "{{Enemy Infobox|Phantasmal Gardener|2}}\n'''Phantasmal Gardener''' is an {{2|Elites|Elite}} {{2|Monsters|Enemy}} found in the {{2|Underdocks}}. Four appear together in the encounter.\n\n== Pattern ==\n{{Intents|Phantasmal Gardener|2}}\nAll four Gardeners cycle through the same four moves in order: {{Int|Phantasmal Gardener|Bite||2}}, {{Int|Phantasmal Gardener|Lash||2}}, {{Int|Phantasmal Gardener|Flail||2}}, {{Int|Phantasmal Gardener|Enlarge||2}}, repeating. Each one starts at a different point in the cycle, so they always use different moves from each other.\n\n== Notes ==\n\n== Version History ==\n* '''Early Access v0.100.0 (BETA)'''\n** Nerfed '''Phantasmal Gardeners''': HP decreased from 28(29)-32(33) -> 26(27)-31(32)\n* '''Early Access v0.98'''\n** Added Phantasmal Gardener to the game.\n\n[[Category:Elites]]\n[[Category:Slay the Spire 2 Content]]"
+}

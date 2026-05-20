@@ -1,0 +1,26 @@
+{
+  "page": "Slay_the_Spire_2:Pendulum",
+  "short_name": "Pendulum",
+  "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS",
+  "sections": {
+    "Interactions": [
+      "'s additional draw for turn occurs ''after'' the following triggers:",
+      "",
+      "",
+      "",
+      "",
+      "While 's trigger doesn't inherently deal in hand information, it ''could'' potentially play a card that affects the player's hand in some way (selective discard or , for example.).",
+      "'s additional draw for turn occurs ''before'' the following triggers:",
+      ""
+    ],
+    "Sources": [
+      "Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at .",
+      "Can be obtained from the relics ,  and .",
+      "Can be obtained from the following events:"
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Pendulum</span>",
+  "fetched_at": "2026-05-20T06:18:42Z",
+  "wikitext_chars": 1625,
+  "wikitext": "{{Relic Infobox|Pendulum|2}}\n{{R|Pendulum||2}} is a {{QueryLink|Relics|rarity:Common|Common|2}} {{2|Relics|Relic}}.\n\n== Sources ==\n* Can be dropped by fighting {{2|Elites}}, by buying from the {{2|Merchant}} or from {{2|Mechanics#Chests|Chests}}. See Chest and non-Chest chance at {{2|Relics}}.\n\n* Can be obtained from the relics {{R|Calling Bell||2}}, {{R|Shovel||2}} and {{R|Black Star||2}}.\n<!--\n* Can be obtained from the following events:\nTODO: FIND RELIC SOURCES FROM EVENTS\n-->\n\n== Interactions ==\n=== Order ===\n*{{R|Pendulum||2}}'s additional draw for turn occurs ''after'' the following triggers:\n**{{C|Tools of the Trade||2}}\n**{{C|Tyranny||2}}\n**{{C|Entropy||2}}\n**{{C|Mayhem||2}}\n***While {{C|Mayhem||2}}'s trigger doesn't inherently deal in hand information, it ''could'' potentially play a card that affects the player's hand in some way (selective discard or {{KW|Exhaust||2}}, for example.).\n*{{R|Pendulum||2}}'s additional draw for turn occurs ''before'' the following triggers:\n**{{R|History Course||2}}\n***Similar to {{C|Mayhem||2}}, {{R|History Course||2}} could potentially play a card wherein hand information matters.\n===Synergies===\n*{{R|Pendulum||2}} syncs up perfectly with {{R|Happy Flower||2}}.\n== Update History ==\n*'''Early Access v0.103.2'''\n**BETA changes incorporated into main branch.\n* '''Early Access v0.101.0 (BETA)'''\n** Reworked Pendulum relic: \"Common - Whenever you shuffle your Draw Pile, draw a card.\" -> \"Common - Every 3 turns, draw 1 card.\"\n* '''Early Access v0.98'''\n** Added Pendulum to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

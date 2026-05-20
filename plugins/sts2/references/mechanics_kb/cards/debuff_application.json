@@ -1,0 +1,24 @@
+{
+  "description": "牌面施加 Debuff（Duration=回合 / Intensity=层数）",
+  "cards": {
+    "BASH": {"vulnerable_turns": [2, 3], "damage": [8, 10]},
+    "SHOCKWAVE": {"vulnerable_turns": [3, 5], "weak_turns": [3, 5], "aoe": true},
+    "UPPERCUT": {"vulnerable_turns": [1, 2], "weak_turns": [1, 2]},
+    "THUNDERCLAP": {"vulnerable_turns": [2, 3], "aoe": true},
+    "TREMBLE": {"vulnerable_turns": [2, 3], "exhaust": true},
+    "BREAK": {"vulnerable_turns": [5, 7]},
+    "INTIMIDATE": {"weak_turns": [1, 2], "aoe": true},
+    "NEUTRALIZE": {"weak_turns": [1, 2]},
+    "LEG_SWEEP": {"weak_turns": [2, 3]},
+    "SUPPRESS": {"weak_turns": [3, 5]},
+    "GO_FOR_THE_EYES": {"weak_turns": [1, 2]},
+    "NULL": {"weak_turns": [2, 3]},
+    "DEADLY_POISON": {"poison": [5, 7]},
+    "POISONED_STAB": {"poison": [3, 4], "damage": [6, 7]},
+    "SNAKEBITE": {"poison": [7, 10]},
+    "BOUNCING_FLASK": {"poison": [3, 3]},
+    "MALAISE": {"weak_turns": "X", "strength_down": "X"},
+    "DISARM": {"strength_down": [2, 3]},
+    "POMMEL_STRIKE": {"vulnerable_turns": [2, 3]}
+  }
+}

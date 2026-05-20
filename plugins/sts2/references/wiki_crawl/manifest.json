@@ -1,0 +1,125 @@
+{
+  "version": 3,
+  "api_base": "https://slaythespire.wiki.gg/api.php",
+  "user_agent": "Hermes-STS2-KB-Crawl/1.0 (wiki.gg; local agent)",
+  "categories": {
+    "combat_powers": [
+      "Slay_the_Spire_2:Vulnerable",
+      "Slay_the_Spire_2:Weak",
+      "Slay_the_Spire_2:Frail",
+      "Slay_the_Spire_2:Strength",
+      "Slay_the_Spire_2:Dexterity",
+      "Slay_the_Spire_2:Poison",
+      "Slay_the_Spire_2:Block",
+      "Slay_the_Spire_2:Debuffs",
+      "Slay_the_Spire_2:Buffs",
+      "Slay_the_Spire_2:Orbs",
+      "Slay_the_Spire_2:Focus",
+      "Slay_the_Spire_2:Artifact",
+      "Slay_the_Spire_2:Intangible",
+      "Slay_the_Spire_2:Hang",
+      "Slay_the_Spire_2:Slow"
+    ],
+    "wiki_lists": [
+      "Slay_the_Spire_2:Events_List",
+      "Slay_the_Spire_2:Relics_List"
+    ],
+    "game_flow": [
+      "Slay_the_Spire_2:Ascension",
+      "Slay_the_Spire_2:Rest_Sites",
+      "Slay_the_Spire_2:Ancients",
+      "Slay_the_Spire_2:Neow",
+      "Slay_the_Spire_2:Acts",
+      "Slay_the_Spire_2:Map_Locations",
+      "Slay_the_Spire_2:The_Merchant",
+      "Slay_the_Spire_2:Elites",
+      "Slay_the_Spire_2:Bosses",
+      "Slay_the_Spire_2:Events",
+      "Slay_the_Spire_2:Gold",
+      "Slay_the_Spire_2:Potions",
+      "Slay_the_Spire_2:Keywords",
+      "Slay_the_Spire_2:Upgrade",
+      "Slay_the_Spire_2:Rewards",
+      "Slay_the_Spire_2:Relics"
+    ],
+    "core_cards": [
+      "Slay_the_Spire_2:Strike",
+      "Slay_the_Spire_2:Defend",
+      "Slay_the_Spire_2:Bash",
+      "Slay_the_Spire_2:Bludgeon",
+      "Slay_the_Spire_2:Twin_Strike",
+      "Slay_the_Spire_2:Pommel_Strike",
+      "Slay_the_Spire_2:Shockwave",
+      "Slay_the_Spire_2:Uppercut",
+      "Slay_the_Spire_2:Thunderclap",
+      "Slay_the_Spire_2:Deadly_Poison",
+      "Slay_the_Spire_2:Neutralize",
+      "Slay_the_Spire_2:Bully",
+      "Slay_the_Spire_2:Iron_Wave",
+      "Slay_the_Spire_2:Flame_Barrier"
+    ],
+    "act1_elites": [
+      "Slay_the_Spire_2:Bygone_Effigy",
+      "Slay_the_Spire_2:Byrdonis",
+      "Slay_the_Spire_2:Phrog_Parasite",
+      "Slay_the_Spire_2:Skulking_Colony",
+      "Slay_the_Spire_2:Phantasmal_Gardener",
+      "Slay_the_Spire_2:Terror_Eel"
+    ],
+    "act2_elites": [
+      "Slay_the_Spire_2:Decimillipede",
+      "Slay_the_Spire_2:Entomancer",
+      "Slay_the_Spire_2:Infested_Prism"
+    ],
+    "act3_elites": [
+      "Slay_the_Spire_2:Knights",
+      "Slay_the_Spire_2:Mecha_Knight",
+      "Slay_the_Spire_2:Soul_Nexus"
+    ],
+    "act_bosses": [
+      "Slay_the_Spire_2:Ceremonial_Beast",
+      "Slay_the_Spire_2:The_Kin",
+      "Slay_the_Spire_2:Vantom",
+      "Slay_the_Spire_2:Waterfall_Giant",
+      "Slay_the_Spire_2:Soul_Fysh",
+      "Slay_the_Spire_2:Lagavulin_Matriarch",
+      "Slay_the_Spire_2:The_Insatiable",
+      "Slay_the_Spire_2:Knowledge_Demon",
+      "Slay_the_Spire_2:Kaiser_Crab",
+      "Slay_the_Spire_2:Queen",
+      "Slay_the_Spire_2:Test_Subject",
+      "Slay_the_Spire_2:Doormaker"
+    ],
+    "shop_relics": [
+      "Slay_the_Spire_2:Membership_Card",
+      "Slay_the_Spire_2:The_Courier",
+      "Slay_the_Spire_2:Maw_Bank",
+      "Slay_the_Spire_2:Meal_Ticket",
+      "Slay_the_Spire_2:Lord's_Parasol",
+      "Slay_the_Spire_2:Pantograph",
+      "Slay_the_Spire_2:Black_Star",
+      "Slay_the_Spire_2:White_Star"
+    ],
+    "combat_relics": [
+      "Slay_the_Spire_2:Paper_Phrog",
+      "Slay_the_Spire_2:Paper_Krane",
+      "Slay_the_Spire_2:Pen_Nib",
+      "Slay_the_Spire_2:Strike_Dummy",
+      "Slay_the_Spire_2:Snecko_Skull"
+    ],
+    "characters": [
+      "Slay_the_Spire_2:Ironclad",
+      "Slay_the_Spire_2:Silent",
+      "Slay_the_Spire_2:Defect",
+      "Slay_the_Spire_2:Regent",
+      "Slay_the_Spire_2:Necrobinder",
+      "Slay_the_Spire_2:Burning_Blood"
+    ],
+    "acts": [
+      "Slay_the_Spire_2:Overgrowth",
+      "Slay_the_Spire_2:Underdocks",
+      "Slay_the_Spire_2:Hive",
+      "Slay_the_Spire_2:Glory"
+    ]
+  }
+}

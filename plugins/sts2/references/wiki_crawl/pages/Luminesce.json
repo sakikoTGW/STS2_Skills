@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Luminesce",
+  "short_name": "Luminesce",
+  "summary": "is a 0  cost   Card. It gives 2 (3 if upgraded) , then . It has , so it will not discard at the end of the player turn.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Luminesce</span>",
+  "fetched_at": "2026-05-20T06:21:34Z",
+  "wikitext_chars": 1079,
+  "wikitext": "{{Card Infobox|Luminesce||2}}{{Keyword Infobox|Retain|2}}{{Keyword Infobox|Exhaust|2}}\n{{C|Luminesce||2}} is a 0 {{Icon|CE|2}} cost {{QueryLink|Cards|rarity:Token|Token|2}} {{QueryLink|Cards|type:Skill|Skill|2}} Card. It gives 2 (3 if upgraded) {{Icon|CE|2}}, then {{KW|Exhaust|Exhausts|2}}. It has {{KW|Retain||2}}, so it will not discard at the end of the player turn.\n\n== Creating Luminesce ==\n{{C|Luminesce||2}} cannot be added to the player's deck and can only be created in combat via the {{R|Radiant Pearl||2}}, which can be offered by {{KW|Orobas||2}} at the start of [[StS2:Acts#Act 2|Act 2]].\n\nBecause {{C|Luminesce||2}} is not part of the deck and only exists in combat, it cannot be {{KW|Upgrade|Upgraded|2}} except by {{C|Armaments||2}}, the {{R|Toxic Egg||2}}, or {{R|Bone Tea||2}}.\n\n== Trivia ==\n* {{C|Luminesce||2}} is similar to {{C|Miracle}} from Slay the Spire 1, but it gives 1 extra {{Icon|CE|2}}.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Luminesce to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

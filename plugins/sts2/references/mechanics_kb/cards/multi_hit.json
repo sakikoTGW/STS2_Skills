@@ -1,0 +1,16 @@
+{
+  "description": "多段攻击：每段独立套用完整管道（力量每段加）",
+  "cards": {
+    "SWORD_BOOMERANG": {"hits": [3, 4]},
+    "RAGNAROK": {"hits": [3, 4, 5]},
+    "FLURRY_OF_BLOWS": {"hits": [2, 3]},
+    "THRASH": {"hits": [3, 5]},
+    "TWIN_STRIKE": {"hits": [2, 2]},
+    "POMMEL_STRIKE": {"hits": [1, 1]},
+    "WHIRLWIND": {"per_energy": 5, "base_per_hit": 5}
+  },
+  "parse_patterns": [
+    {"regex": "(\\d+)\\s*次", "group": 1},
+    {"regex": "(\\d+)\\s*times", "group": 1, "flags": "i"}
+  ]
+}

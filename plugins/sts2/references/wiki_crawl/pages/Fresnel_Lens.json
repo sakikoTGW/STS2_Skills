@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Fresnel Lens",
+  "short_name": "Fresnel Lens",
+  "summary": "is an   from the  event. It adds Nimble 2 to future block cards.",
+  "sections": {
+    "Interactions": [
+      "Cards that apply block multiple times, such as , ,  , ,  and , benefits from the Nimble enchantment each time block is applied.",
+      "If  steals an applicable card and is defeated, the returned card will gain Nimble."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Fresnel Lens</span>",
+  "fetched_at": "2026-05-20T06:24:26Z",
+  "wikitext_chars": 957,
+  "wikitext": "{{Relic Infobox|Fresnel Lens|2}}{{Keyword Infobox|Enchant|2}}{{Keyword Infobox|Nimble|2}}\n{{R|Fresnel Lens||2}} is an {{QueryLink|Relics|rarity:Event|Event|2}} {{2|Relics|Relic}} from the {{E|Drowning Beacon|2}} event. It adds Nimble 2 to future block cards.\n\n== Sources ==\nCan only be obtained from the {{E|Drowning Beacon|2}} event by selecting the {{Frame|Climb}} option and losing 13 Max HP. \n\n== Interactions ==\n\n=== Synergies ===\n\n* Cards that apply block multiple times, such as {{C|Evil Eye||2}}, {{C|Second Wind||2}},  {{C|Dodge and Roll||2}}, {{C|Glitterstream||2}},  and {{C|Death's Door||2}}, benefits from the Nimble enchantment each time block is applied.\n* If {{M|Thieving Hopper||2}} steals an applicable card and is defeated, the returned card will gain Nimble.\n\n== Trivia ==\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Fresnel Lens to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

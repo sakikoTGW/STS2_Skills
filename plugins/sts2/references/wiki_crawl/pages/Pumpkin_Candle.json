@@ -1,0 +1,19 @@
+{
+  "page": "Slay_the_Spire_2:Pumpkin Candle",
+  "short_name": "Pumpkin Candle",
+  "summary": "Can be offered at the start of Act 2 by .",
+  "sections": {
+    "Interactions": [
+      "Early Access v0.105.0 (BETA)",
+      "Reworked Pumpkin Candle:",
+      "Old: \"Gain 1 Energy at the start of each turn. Extinguishes at the start of Act 3.\"",
+      "New: \"Gain 1 Energy at the start of each turn. Extinguishes after 5 combats. Can be Kindled at rest sites.\"",
+      "Early Access v0.98",
+      "Added Pumpkin Candle to the game."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Pumpkin Candle</span>",
+  "fetched_at": "2026-05-20T06:21:58Z",
+  "wikitext_chars": 886,
+  "wikitext": "{{Relic Infobox|Pumpkin Candle|2}}{{Keyword Infobox|Energy|2}}\n{{R|Pumpkin Candle||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}.\n\n\n== Sources ==\nCan be offered at the start of [[StS2:Acts#Act 2|Act 2]] by {{KW|Tezcatara||2}}.\n\n===Spawn Restrictions===\n*Because '''Pumpkin Candle''' shares a relic pool with {{R|Golden Compass||2}} and {{R|Toy Box||2}}, only 1 of the 3 can be offered by {{KW|Tezcatara||2}}.\n\n== Interactions ==\n\n== Update History ==\n* '''Early Access v0.105.0 (BETA)'''\n**Reworked Pumpkin Candle:\n***Old: \"Gain 1 Energy at the start of each turn. Extinguishes at the start of Act 3.\"\n***New: \"Gain 1 Energy at the start of each turn. Extinguishes after 5 combats. Can be Kindled at rest sites.\"\n* '''Early Access v0.98'''\n** Added Pumpkin Candle to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

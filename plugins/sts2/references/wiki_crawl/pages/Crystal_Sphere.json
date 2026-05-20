@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Crystal Sphere",
+  "short_name": "Crystal Sphere",
+  "summary": "is an  found exclusively in the  and .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Crystal Sphere</span>",
+  "fetched_at": "2026-05-20T06:17:47Z",
+  "wikitext_chars": 1064,
+  "wikitext": "{{Event Header|StS2 Crystal Sphere.png}}\n{{E|Crystal Sphere|2}} is an {{2|Events|Event}} found exclusively in the {{2|Hive}} and {{2|Glory}}.\n\n== Options ==\n{{Frame|Uncover Future}} {{TS|negative||Pay 80 Gold.}} {{TS|positive||Divine 3 times.}}\n<br>\n{{Frame|Payment Plan}} {{TS|negative||Gain a Debt.}} {{TS|positive||Divine 6 times.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\n{{TS|blue|up|\"I predicted you'd enter...!\"}}\n\nA {{TS||shake|raspy}} voice calls out as you enter a {{TS|purple||mystic hut.}}\n\n{{TS|blue|up|\"Your destiny has brought you here. We must uncover your future and fortunes so you can SAVE US ALL!!\"}}<br/>\n\"Okay, here are the options for the {{TS|gold||Crystal Sphere reading}}. Be sure to sign this waiver as well,\" she says while bringing out pen and parchment.\n</div>\n\n{{Frame|Uncover Future}}\n<blockquote><div style=\"font-style:italic\">\n\n</div></blockquote>\n\n{{Frame|Payment Plan}}\n<blockquote><div style=\"font-style:italic\">\n\n</div></blockquote>\n</blockquote>\n\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

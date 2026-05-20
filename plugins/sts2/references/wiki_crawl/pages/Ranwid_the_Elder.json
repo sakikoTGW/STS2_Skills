@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Ranwid the Elder",
+  "short_name": "Ranwid the Elder",
+  "summary": "is an  found exclusively in .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Ranwid the Elder</span>",
+  "fetched_at": "2026-05-20T06:17:54Z",
+  "wikitext_chars": 959,
+  "wikitext": "{{Event Header|StS2 Ranwid The Elder.png}}\n{{E|Ranwid the Elder|2}} is an {{2|Events|Event}} found exclusively in {{2|Glory}}.\n\n== Options ==\n{{Frame|Give <specific> Potion}} {{TS|positive||Obtain a random {{2|Relics|Relic}}.}}\n\n{{Frame|Give 100 Gold}} {{TS|positive||Obtain a random {{2|Relics|Relic}}.}}\n\n{{Frame|Give <specific Relic>}} {{TS|positive||Obtain 2 random {{2|Relics|Relics}}.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nYou are approached by the {{TS|purple||oldest person you have ever seen}}.\n\n\"We meet once more... it's me, Ranwid!\"\n\n\nYou do not know this man.\n\n{{Frame|Give <specified> Potion}}\n<blockquote><div style=\"font-style:italic\">\n\"Exquisite...\"\n\n{{TS|blue||Glup glup glup}}\n\nHe downs the {{TS|gold||<specified> Potion}} in one go.\n</div></blockquote>\n</div>\n</blockquote>\n\n== Notes ==\nRanwid seems to be the same character found in {{E|We Meet Again!}}.\n\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

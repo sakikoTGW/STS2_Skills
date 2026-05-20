@@ -1,0 +1,18 @@
+{
+  "page": "Slay_the_Spire_2:Strike",
+  "short_name": "Strike",
+  "summary": "Strikes are a group of cards with special support. While every character has a basic Strike and access to cards with \"Strike\", the  has specific support around these cards.",
+  "sections": {
+    "Interactions": [
+      ": Deals 2 additional damage for ALL your cards containing “Strike”.",
+      ": Whenever you draw a card containing “Strike”, it is played against a random enemy.",
+      ": Cards containing “Strike” deal 3 additional damage.",
+      ": Cards containing “Strike” deal 1 additional damage.",
+      ": All cards containing \"Strike\" gain 1  this combat."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Strike</span>",
+  "fetched_at": "2026-05-20T05:42:00Z",
+  "wikitext_chars": 2115,
+  "wikitext": "'''Strikes''' are a group of cards with special support. While every character has a basic Strike and access to cards with \"Strike\", the {{KW|Ironclad||2}} has specific support around these cards.\n\n==Cards with '''Strike'''==\n===Ironclad===\n* {{C|Strike (Ironclad)||2}}\n* {{C|Perfected Strike||2}}\n* {{C|Pommel Strike||2}}\n* {{C|Setup Strike||2}}\n* {{C|Twin Strike||2}}\n* {{C|Ashen Strike||2}}\n\n===Silent===\n* {{C|Strike (Silent)||2}}\n* {{C|Leading Strike||2}}\n\n===Regent===\n* {{C|Strike (Regent)||2}}\n* {{C|Solar Strike||2}}\n* {{C|Shining Strike||2}}\n* {{C|Minion Strike||2}}\n\n===Necrobinder===\n* {{C|Strike (Necrobinder)||2}}\n* {{C|Blight Strike||2}}\n* {{C|Sculpting Strike||2}}\n\n===Defect===\n* {{C|Strike (Defect)||2}}\n* {{C|Focused Strike||2}}\n* {{C|Momentum Strike||2}}\n* {{C|Adaptive Strike||2}}\n* {{C|Meteor Strike||2}}\n\n===Colorless===\n* {{C|Seeker Strike||2}}\n* {{C|Ultimate Strike||2}}\n\n==Interactions==\nWhile \"Strike\" cards are generally character specific, cards of different colors can be added by means of the {{R|Prismatic Gem||2}}, {{R|Sea Glass||2}}, or the {{E|Colorful Philosophers|2}}\n* {{C|Perfected Strike||2}}: Deals 2 additional damage for ALL your cards containing “Strike”.\n* {{C|Hellraiser||2}}: Whenever you draw a card containing “Strike”, it is played against a random enemy.\n* {{R|Strike Dummy||2}}: Cards containing “Strike” deal 3 additional damage.\n* {{R|Strike Dummy???||2}}: Cards containing “Strike” deal 1 additional damage.\n* {{P|Soldier's Stew||2}}: All cards containing \"Strike\" gain 1 {{KW|Replay||2}} this combat.\n\n===Starter Strike===\n* {{R|Large Capsule||2}}: Upon pickup, add an additional Strike and Defend to your Deck.\n* {{R|Leafy Poultice||2}}: Upon pickup, Transform 1 of your Strikes.\n* {{R|Nutritious Soup||2}}: Upon pickup, {{KW|Enchant||2}} all Strikes in your Deck with {{KW|Tezcatara's Ember||2}}.\n* {{R|Pandora's Box||2}}: Transform ALL Strikes.\n* {{R|Ghost Seed||2}}: Strikes gain {{KW|Ethereal||2}}.\n* {{E|Spirlaing Whirlpool|2}}: {{Frame|Observe}} {{KW|Enchant||2}} a [[Strike]] or [[Defend]] with {{KW|Spiral||2}}.\n\n[[Category:Slay the Spire 2 Content]]"
+}

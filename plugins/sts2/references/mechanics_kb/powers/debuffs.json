@@ -1,0 +1,186 @@
+{
+  "entries": [
+    {
+      "id": "VULNERABLE",
+      "name_en": "Vulnerable",
+      "name_zh": "易伤",
+      "stack_type": "duration",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Vulnerable",
+      "scope": "incoming_attack_on_holder",
+      "damage_multiplier": 1.5,
+      "stacks_mean_turns": true,
+      "debilitate_doubles": true,
+      "only_attack_type": true,
+      "wiki_summary": "is a  both players and enemies can apply to their targets. While available to all characters, the  has the most dedicated support for . While a character or enemy has , the damage received from  and enemy Attacks is increased by 50% (typically), then rounded down. At the end of its turn, one point of  is decremented from the player or enemy."
+    },
+    {
+      "id": "WEAK",
+      "name_en": "Weak",
+      "name_zh": "虚弱",
+      "stack_type": "duration",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Weak",
+      "scope": "outgoing_attack_from_holder",
+      "damage_multiplier": 0.75,
+      "debilitate_doubles": true,
+      "paper_krane_multiplier": 0.6,
+      "only_attack_type": true,
+      "wiki_summary": "is a  both players and enemies can apply to their targets. While available to all characters, the  has the some dedicated support for . While a character or enemy has , the damage of their  or enemy Attacks is decreased by 25% (typically), then rounded down. At the end of its turn, one point of  is decremented from the player or enemy."
+    },
+    {
+      "id": "FRAIL",
+      "name_en": "Frail",
+      "name_zh": "脆弱",
+      "stack_type": "duration",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Frail",
+      "scope": "block_from_cards_on_holder",
+      "block_multiplier": 0.75,
+      "wiki_summary": "is a  enemies can apply to the players. It is impossible for an enemy to be afflicted with . While a character has , the amount of  received from cards played is decreased by 25% (typically), then rounded down. At the end of its turn, one point of  is decremented from the player or enemy."
+    },
+    {
+      "id": "POISON",
+      "name_en": "Poison",
+      "name_zh": "中毒",
+      "stack_type": "intensity",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Poison",
+      "scope": "turn_start_hp_loss",
+      "damage_per_stack": 1,
+      "not_attack_damage": true
+    },
+    {
+      "id": "SLOW",
+      "name_en": "Slow",
+      "name_zh": "缓慢",
+      "stack_type": "intensity",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Debuffs",
+      "scope": "incoming_attack_this_turn",
+      "formula": "1 + 0.1 * stacks * cards_played_this_turn",
+      "notes": "Debuffs表: 每打出一张牌，受攻击伤害+10%×缓慢层数"
+    },
+    {
+      "id": "SHRINK",
+      "name_en": "Shrink",
+      "name_zh": "缩小",
+      "stack_type": "special",
+      "scope": "outgoing_attack_from_holder",
+      "damage_multiplier": 0.7
+    },
+    {
+      "id": "DEBILITATE",
+      "name_en": "Debilitate",
+      "name_zh": "致残",
+      "stack_type": "duration",
+      "scope": "amplifier_on_holder",
+      "doubles_weak_and_vulnerable_on_holder": true
+    },
+    {
+      "id": "HANG",
+      "name_en": "Hang",
+      "name_zh": "悬挂",
+      "stack_type": "intensity",
+      "scope": "hang_attacks_only",
+      "damage_multiplier_equals_stacks": true,
+      "notes": "仅 Hang 类攻击享受；层数=倍率"
+    },
+    {
+      "id": "DOOM",
+      "name_en": "Doom",
+      "name_zh": "末日",
+      "stack_type": "intensity",
+      "scope": "execute",
+      "not_attack_damage": true
+    },
+    {
+      "id": "SURROUNDED",
+      "name_en": "Surrounded",
+      "name_zh": "包围",
+      "stack_type": "none",
+      "scope": "incoming_if_from_behind",
+      "damage_multiplier": 1.5
+    },
+    {
+      "id": "FLANKING",
+      "name_en": "Flanking",
+      "name_zh": "侧翼",
+      "stack_type": "intensity",
+      "scope": "incoming_multiplayer",
+      "multiplier_formula": "pow(2, stacks)"
+    },
+    {
+      "id": "KNOCKDOWN",
+      "name_en": "Knockdown",
+      "name_zh": "击倒",
+      "stack_type": "intensity",
+      "scope": "incoming_multiplayer",
+      "multiplier_equals_stacks": true
+    },
+    {
+      "id": "STRENGTH_DOWN",
+      "name_en": "Strength Down",
+      "name_zh": "力量降低",
+      "stack_type": "intensity",
+      "scope": "temporary_strength_loss"
+    }
+  ],
+  "power_match": {
+    "VULNERABLE": [
+      "易伤",
+      "vulnerable",
+      "VULNERABLE"
+    ],
+    "WEAK": [
+      "虚弱",
+      "weak",
+      "WEAK"
+    ],
+    "FRAIL": [
+      "脆弱",
+      "frail",
+      "FRAIL"
+    ],
+    "POISON": [
+      "中毒",
+      "poison",
+      "POISON"
+    ],
+    "SLOW": [
+      "缓慢",
+      "slow",
+      "SLOW"
+    ],
+    "SHRINK": [
+      "缩小",
+      "shrink",
+      "SHRINK"
+    ],
+    "DEBILITATE": [
+      "致残",
+      "debilitate",
+      "DEBILITATE"
+    ],
+    "HANG": [
+      "悬挂",
+      "hang",
+      "HANG"
+    ],
+    "DOOM": [
+      "末日",
+      "doom",
+      "DOOM"
+    ],
+    "SURROUNDED": [
+      "包围",
+      "surrounded",
+      "SURROUNDED"
+    ],
+    "FLANKING": [
+      "侧翼",
+      "flanking",
+      "FLANKING"
+    ],
+    "KNOCKDOWN": [
+      "击倒",
+      "knockdown",
+      "KNOCKDOWN"
+    ]
+  }
+}

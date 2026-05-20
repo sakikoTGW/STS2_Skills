@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:The_Kin",
+  "short_name": "The_Kin",
+  "summary": "The Kin is a  encounter found in the . The fight consists of two s and one .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">The Kin</span>",
+  "fetched_at": "2026-05-20T05:42:35Z",
+  "wikitext_chars": 1647,
+  "wikitext": "'''The Kin''' is a {{2|Bosses|Boss}} encounter found in the {{2|Overgrowth}}. The fight consists of two {{M|Kin Follower||2}}s and one {{M|Kin Priest||2}}.\n\n== Kin Priest ==\n{{Enemy Infobox|Kin Priest|2}}\n=== Pattern ===\n{{Intents|Kin Priest|2}}\nThe Kin Priest cycles through four moves in a fixed order:\n# {{Int|Kin Priest|Orb of Frailty||2}}\n# {{Int|Kin Priest|Orb of Weakness||2}}\n# {{Int|Kin Priest|Soul Beam||2}}\n# {{Int|Kin Priest|Dark Ritual||2}}\n\n{{Clear}}\n\n== Kin Follower ==\n{{Enemy Infobox|Kin Follower|2}} {{Power Infobox|Minion|2}}\n=== Pattern ===\n{{Intents|Kin Follower|2}}\nEach Kin Follower cycles through three moves in a fixed order:\n# {{Int|Kin Follower|Quick Slash||2}}\n# {{Int|Kin Follower|Boomerang||2}}\n# {{Int|Kin Follower|Power Dance||2}}\n\nThe two Kin Followers start offset from each other: one begins with {{Int|Kin Follower|Quick Slash||2}} and the other begins with {{Int|Kin Follower|Power Dance||2}}.\n\n{{Clear}}\n\n== Notes ==\n* When both Kin Followers are killed, the Kin Priest has a dialogue reaction, but the fight continues normally.\n* Both Kin Followers and the Kin Priest gain {{BD|Strength||2}} through their buff moves ({{Int|Kin Follower|Power Dance||2}} and {{Int|Kin Priest|Dark Ritual||2}}), so the encounter's damage output scales over time.\n* {{Int|Kin Priest|Orb of Frailty||2}} applies {{BD|Frail||2}}, reducing your block gained by 25%. {{Int|Kin Priest|Orb of Weakness||2}} applies {{BD|Weak||2}}, reducing your attack damage by 25%.\n\n== Trivia ==\n* A Kin Follower appears in {{C|Suppress||2}}'s card art, being held by the {{KW|Silent||2}}.\n\n[[Category:Slay the Spire 2 Content]] [[Category:Bosses]]"
+}

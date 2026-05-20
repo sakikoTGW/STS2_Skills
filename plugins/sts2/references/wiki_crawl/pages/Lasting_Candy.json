@@ -1,0 +1,19 @@
+{
+  "page": "Slay_the_Spire_2:Lasting Candy",
+  "short_name": "Lasting Candy",
+  "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS",
+  "sections": {
+    "Interactions": [
+      "When obtaining multiple card rewards after combat with the , all the card rewards will have the extra Power."
+    ],
+    "Sources": [
+      "Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at .",
+      "Can be obtained from the relics ,  and .",
+      "Can be obtained from the following events:"
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Lasting Candy</span>",
+  "fetched_at": "2026-05-20T06:19:00Z",
+  "wikitext_chars": 2256,
+  "wikitext": "{{Relic Infobox|Lasting Candy|2}}\n{{R|Lasting Candy||2}} is a {{QueryLink|Relics|rarity:Rare|Rare|2}} {{2|Relics|Relic}}.\n\n== Sources ==\n* Can be dropped by fighting {{2|Elites}}, by buying from the {{2|Merchant}} or from {{2|Mechanics#Chests|Chests}}. See Chest and non-Chest chance at {{2|Relics}}.\n\n* Can be obtained from the relics {{R|Calling Bell||2}}, {{R|Shovel||2}} and {{R|Black Star||2}}.\n<!--\n* Can be obtained from the following events:\n\nTODO: FIND RELIC SOURCES FROM EVENTS\n\n-->\n\n== Spawn Restrictions==\n<!--\nFind out what restrictions your relic has, at Relics#Restrictions.\n\nIF YOUR RELIC HAS NO SPAWN RESTRICTIONS, AND ISN'T AN EVENT RELIC, SHOP RELIC OR BOSS RELIC:\nNo spawn restrictions.\n\nRemove this section entirely if it's one of those 3.\n\n---------\nOTHERWISE UNCOMMENT BELOW AS NECESSARY, IN BULLET POINTS IF THERE'S MORE THAN 1 RESTRICTION:\n---------\n\nIF YOUR RELIC IS CHARACTER EXCLUSIVE:\nCan only be obtained by {{2|CHARACTERNAME}}.\n\nIF YOUR RELIC HAS FLOOR RESTRICTIONS:\nCan only be obtained below floor X.\n\nIF YOUR RELIC HAS SHOP RESTRICTIONS:\nCannot be bought from the {{2|Merchant}}.\n\nIF YOUR RELIC IS WHETSTONE (NOT WAR PAINT):\nCannot be obtained from Calling Bell and \"Obtain Relic\" events, that drop the relic without it being a combat reward. This means, for example, {{R|RELICNAME||2}} can be obtained from {{E|Dead Adventurer}} if the Elite is beaten, but cannot be obtained if it is found from the {{Frame|Search}} option.\n\nIF IT'S SHOVEL or GIRYA:\n* {{R|Black Star}}'s extra relic can never drop {{R|RELICNAME||2}}.\n\nIF YOUR RELIC IS COMMON:\n* Can never be dropped by {{E|The Colosseum}}.\n* Can never be dropped by a '''Large Chest'''.\n\nIF YOUR RELIC IS RARE:\n* Can never be dropped by {{R|Matryoshka}}'s extra relic.\n* Can never be dropped by a '''Small Chest'''.\n\n(TODO: DOCUMENT HOW CHESTS WORK IN STS2)\n-->\n\n== Interactions ==\n* When obtaining multiple card rewards after combat with the {{R|Prayer Wheel||2}}, all the card rewards will have the extra Power.\n\n== Trivia ==\n\n== Update History ==\n* '''Early Access v0.101.0 (BETA)'''\n** Rarity moved from Rare -> Uncommon\n\n* '''Early Access v0.98'''\n** Added Lasting Candy to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

@@ -1,0 +1,16 @@
+{
+  "page": "Slay_the_Spire_2:Bing Bong",
+  "short_name": "Bing Bong",
+  "summary": "is an   from the  event. Whenever you add a card to your Deck, it will add one additional copy.",
+  "sections": {
+    "Interactions": [
+      "Bing Bong only creates a second copy of cards which are permanently added to your deck, such as from card rewards. Cards added temporarily during combat, such as from , are not duplicated.",
+      ": The cards added back to the deck will be duplicated.",
+      "cards count as added to the deck and will be duplicated as well."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Bing Bong</span>",
+  "fetched_at": "2026-05-20T06:24:15Z",
+  "wikitext_chars": 1804,
+  "wikitext": "{{Relic Infobox|Bing Bong|2}}\n{{R|Bing Bong||2}} is an {{QueryLink|Relics|rarity:Event|Event|2}} {{2|Relics|Relic}} from the {{E|Doll Room|2}} event. Whenever you add a card to your Deck, it will add one additional copy.\n\n== Sources ==\nCan only be obtained from the {{E|Doll Room|2}} event. \n\n== Interactions ==\n* Bing Bong only creates a second copy of cards which are permanently added to your deck, such as from card rewards. Cards added temporarily during combat, such as from {{C|White Noise||2}}, are not duplicated.\n* {{R|Pael's Tooth||2}}: The cards added back to the deck will be duplicated.\n* {{2|Transform|Transformed}} cards count as added to the deck and will be duplicated as well.\n\n=== Synergies ===\n* Relics that benefit from adding cards to your deck: {{R|Lucky Fysh||2}}, {{R|Eternal Feather||2}}, {{R|Book of Five Rings||2}}\n* Cloning cards via {{R|Pael's Growth||2}} triples the amount of cloned cards instead of just doubling them.\n* {{R|Tanx's Whistle||2}} adds another copy of {{C|Whistle||2}} to the deck.\n* {{R|Distinguished Cape||2}} adds 3 additional {{C|Apparition|Apparitions|2}} to the deck.\n* {{R|Sere Talon||2}} adds 3 additional {{C|Wish|Wishes|2}} to the deck.\n* {{R|Dolly's Mirror||2}} adds another copy of the copied card to the deck.\n\n=== Anti-Synergies ===\n* Curses from events or relics such as {{R|Preserved Fog||2}} or {{R|Sere Talon||2}} will be duplicated too.\n* {{R|Jewelry Box||2}} adds another copy of {{C|Apotheosis||2}} to the deck.\n\n\n== Trivia ==\n* Bing Bong is a reference to the character of the same name and appearance from the game [https://store.steampowered.com/app/3527290/PEAK/ Peak].\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Bing Bong to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

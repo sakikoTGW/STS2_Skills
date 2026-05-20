@@ -1,0 +1,38 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:The_Merchant",
+  "entries": [
+    {
+      "id": "MEMBERSHIP_CARD",
+      "effect": "all_prices_multiplier",
+      "value": 0.5
+    },
+    {
+      "id": "THE_COURIER",
+      "effect": "price_multiplier_and_restock",
+      "value": 0.8,
+      "restocks": [
+        "cards",
+        "relics",
+        "potions"
+      ],
+      "no_restock_shop_relic": true
+    },
+    {
+      "ids": [
+        "MEMBERSHIP_CARD",
+        "THE_COURIER"
+      ],
+      "effect": "combined_price_multiplier",
+      "value": 0.4
+    },
+    {
+      "id": "MEAL_TICKET",
+      "effect": "heal_on_enter_shop",
+      "value": 15
+    },
+    {
+      "id": "LORDS_PARASOL",
+      "effect": "auto_buy_all_on_enter"
+    }
+  ]
+}

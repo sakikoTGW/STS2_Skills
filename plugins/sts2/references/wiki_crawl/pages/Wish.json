@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Wish",
+  "short_name": "Wish",
+  "summary": "is a 0  cost    Card. It allows you to choose 1 card from your Draw Pile to place into your Hand, after which it . If upgraded, it has , meaning it will not be discarded when you end your turn.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Wish</span>",
+  "fetched_at": "2026-05-20T06:22:54Z",
+  "wikitext_chars": 1123,
+  "wikitext": "{{Sequel Disambiguation}}{{Card Infobox|Wish||2|}}{{Keyword Infobox|Exhaust|2}}{{Keyword Infobox|Retain|2}}\n{{C|Wish||2}} is a 0 {{Icon|CE|2}} cost {{QueryLink|Cards|color:Colorless|Colorless|2}} {{QueryLink|Cards|rarity:Ancient|Ancient|2}} {{QueryLink|Cards|type:Skill|Skill|2}} Card. It allows you to choose 1 card from your Draw Pile to place into your Hand, after which it {{KW|Exhaust|Exhausts|2}}. If upgraded, it has {{KW|Retain||2}}, meaning it will not be discarded when you end your turn.\n\n== Obtaining Wish ==\n3 {{C|Wish|Wishes|2}} can be obtained by taking {{R|Sere Talon||2}} from {{KW|Vakuu||2}}'s offering at the start of [[StS2:Acts#Act 3|Act 3]], also obtaining 2 random {{QueryLink|Cards|type:Curse|Curses|2}}.\n*The {{QueryLink|Cards|type:Curse|Curses|2}} added will never include {{C|Ascender's Bane||2}}, {{C|Bad Luck||2}}, {{C|Curse of the Bell||2}}, {{C|Enthralled||2}}, {{C|Folly||2}}, {{C|Greed||2}}, {{C|Poor Sleep||2}}, or {{C|Spore Mind||2}}.\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Wish to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Mecha_Knight",
+  "short_name": "Mecha_Knight",
+  "summary": "Mecha Knight is an  found in .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Mecha Knight</span>",
+  "fetched_at": "2026-05-20T05:42:31Z",
+  "wikitext_chars": 418,
+  "wikitext": "{{Enemy Infobox|Mecha Knight|2}}\n'''Mecha Knight''' is an {{2|Elites|Elite}} found in {{2|Glory}}.\n\n== Pattern ==\n{{Intents|Mecha Knight|2}}\nStarts with {{Int|Mecha Knight|Charge||2}} and then repeats this cycle for the rest of combat:\n* {{Int|Mecha Knight|Flamethrower||2}}\n* {{Int|Mecha Knight|Windup||2}}\n* {{Int|Mecha Knight|Heavy Cleave||2}}\n\n== Notes ==\n\n[[Category:Elites]]\n[[Category:Slay the Spire 2 Content]]"
+}

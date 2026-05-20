@@ -1,0 +1,46 @@
+{
+  "entries": [
+    {
+      "id": "PAPER_PHROG",
+      "match": ["PAPER_PHROG", "Paper Phrog", "纸蛙", "纸青蛙"],
+      "effect": "vulnerable_multiplier",
+      "value": 1.75
+    },
+    {
+      "id": "PAPER_KRANE",
+      "match": ["PAPER_KRANE", "Paper Krane", "纸鹤"],
+      "effect": "weak_multiplier_when_attacker_has_weak",
+      "value": 0.6
+    },
+    {
+      "id": "CRUELTY",
+      "match": ["CRUELTY", "Cruelty", "残忍"],
+      "effect": "vulnerable_multiplier_floor",
+      "value": 1.75
+    },
+    {
+      "id": "PEN_NIB",
+      "match": ["PEN_NIB", "Pen Nib", "钢笔尖"],
+      "effect": "every_nth_attack_double",
+      "n": 10
+    },
+    {
+      "id": "STRIKE_DUMMY",
+      "match": ["STRIKE_DUMMY", "Strike Dummy", "打击木偶"],
+      "effect": "strike_additive",
+      "value": 1
+    },
+    {
+      "id": "SNECKO_SKULL",
+      "match": ["SNECKO_SKULL", "Snecko Skull", "异蛇头骨"],
+      "effect": "poison_apply_bonus",
+      "value": 1
+    },
+    {
+      "id": "VAJRA",
+      "match": ["VAJRA", "Vajra", "金刚杵"],
+      "effect": "combat_start_strength",
+      "value": 1
+    }
+  ]
+}

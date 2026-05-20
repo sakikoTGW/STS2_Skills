@@ -1,0 +1,144 @@
+{
+  "page": "Slay_the_Spire_2:Neow",
+  "short_name": "Neow",
+  "summary": "is one of the  in Slay the Spire 2. She is unlocked after playing the first run of a save file and will subsequently always appear at the start of a new run, allowing you to choose one of 3 boons.",
+  "sections": {},
+  "tables": [
+    [
+      "{{R",
+      "Cursed Pearl",
+      "",
+      "2}}",
+      "",
+      "Upon pickup, receive {{C",
+      "Greed",
+      "",
+      "2}}. Gain 333 Gold."
+    ],
+    [
+      "{{R",
+      "Hefty Tablet",
+      "",
+      "2}}",
+      "",
+      "Choose 1 of 3 Rare cards to add to your Deck. Add 1 {{C",
+      "Injury",
+      "",
+      "2}} to your Deck."
+    ],
+    [
+      "{{R",
+      "Large Capsule",
+      "",
+      "2}}",
+      "",
+      "Upon pickup, obtain 2 random {{2",
+      "Relics}}. Add an additional {{C",
+      "Strike (Ironclad)",
+      "Strike",
+      "2}} and {{C",
+      "Defend (Ironclad)",
+      "Defend",
+      "2}} to your Deck."
+    ],
+    [
+      "{{R",
+      "Leafy Poultice",
+      "",
+      "2}}",
+      "",
+      "Upon pickup, {{KW",
+      "Transform",
+      "",
+      "2}} 1 of your {{C",
+      "Strike (Ironclad)",
+      "Strikes",
+      "2}} and 1 of your {{C",
+      "Defend (Ironclad)",
+      "Defends",
+      "2}} and lose 12 Max HP."
+    ],
+    [
+      "{{R",
+      "Precarious Shears",
+      "",
+      "2}}",
+      "",
+      "Upon pickup, remove 2 cards from your Deck and take 16 damage."
+    ],
+    [
+      "{{R",
+      "Scroll Boxes",
+      "",
+      "2}}",
+      "",
+      "Upon pickup, lose all Gold and choose 1 of 2 packs of cards to add to your Deck.  Each pack contains 1 random {{QueryLink",
+      "Cards",
+      "rarity:Uncommon",
+      "Uncommon",
+      "2}} and 2 random {{QueryLink",
+      "Cards",
+      "rarity:Common",
+      "Commons",
+      "2}}. You must take one of the packs before proceeding."
+    ],
+    [
+      "{{R",
+      "Neow's Bones",
+      "",
+      "2}}",
+      "",
+      "Upon pickup, gain 2 random Neow Relics. Add 1 random Curse to your Deck.  The 2 random Relics include the 2 other Relics that are currently on offer.  The resulting 2 Relics can be picked up in any order, but cannot be skipped."
+    ],
+    [
+      "{{R",
+      "Silver Crucible",
+      "",
+      "2}}",
+      "",
+      "The first 3 cards rewards you see are {{KW",
+      "Upgrade",
+      "Upgraded",
+      "2}}. The first Treasure Chest you open is empty."
+    ],
+    [
+      "}"
+    ],
+    [
+      "{{R",
+      "Booming Conch",
+      "",
+      "2}}",
+      "",
+      "At the start of {{2",
+      "Elites",
+      "Elite}} combats, draw 2 additional cards."
+    ],
+    [
+      "{{R",
+      "Lead Paperweight",
+      "",
+      "2}}",
+      "",
+      "Upon pickup, choose 1 of 2 {{QueryLink",
+      "Cards",
+      "color:Colorless",
+      "Colorless Cards",
+      "2}} to add to your Deck."
+    ],
+    [
+      "{{R",
+      "Lost Coffer",
+      "",
+      "2}}",
+      "",
+      "Upon pickup, gain 1 card reward and procure 1 random {{2",
+      "Potions",
+      "Potion}}."
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Neow</span>",
+  "fetched_at": "2026-05-20T05:41:45Z",
+  "wikitext_chars": 8614,
+  "wikitext": "{{#setmainimage:StS2_IconNeow.png|quiet}}{{Sequel Disambiguation|2}}{{Ancient Header Box|Neow}}\n{{2|Neow}} is one of the {{2|Ancients}} in Slay the Spire 2. She is unlocked after playing the first run of a save file and will subsequently always appear at the start of a new run, allowing you to choose one of 3 boons.\n\n== Choices ==\nHer {{2|Relics|Relic}} choices are divided into 2 pools: a Positive pool without downsides, and a Curse pool with downsides for all the Relics. One Relic out of the Curse pool is chosen first, then the Positive pool is adjusted. After that, the previously chosen Curse Relic and two Relics out of the Positive pool are offered to the player.\n=== Curse Pool ===\n{| class=\"wikitable\"\n! Relic\n! Description \n|-\n|{{R|Cursed Pearl||2}}|| Upon pickup, receive {{C|Greed||2}}. Gain 333 Gold.\n|-\n|{{R|Hefty Tablet||2}}|| Choose 1 of 3 Rare cards to add to your Deck. Add 1 {{C|Injury||2}} to your Deck. \n|-\n|{{R|Large Capsule||2}}|| Upon pickup, obtain 2 random {{2|Relics}}. Add an additional {{C|Strike (Ironclad)|Strike|2}} and {{C|Defend (Ironclad)|Defend|2}} to your Deck.\n|-\n|{{R|Leafy Poultice||2}}|| Upon pickup, {{KW|Transform||2}} 1 of your {{C|Strike (Ironclad)|Strikes|2}} and 1 of your {{C|Defend (Ironclad)|Defends|2}} and lose 12 Max HP.\n|-\n|{{R|Precarious Shears||2}}|| Upon pickup, remove 2 cards from your Deck and take 16 damage.\n|-\n|{{R|Scroll Boxes||2}}|| Upon pickup, lose all Gold and choose 1 of 2 packs of cards to add to your Deck. <br> Each pack contains 1 random {{QueryLink|Cards|rarity:Uncommon|Uncommon|2}} and 2 random {{QueryLink|Cards|rarity:Common|Commons|2}}. You must take one of the packs before proceeding.\n|-\n|{{R|Neow's Bones||2}}|| Upon pickup, gain 2 random Neow Relics. Add 1 random Curse to your Deck. <br> The 2 random Relics include the 2 other Relics that are currently on offer. <br> The resulting 2 Relics can be picked up in any order, but cannot be skipped.\n|-\n! colspan=\"2\" | Added if not playing {{2|Multiplayer}}:\n|-\n|{{R|Silver Crucible||2}}|| The first 3 cards rewards you see are {{KW|Upgrade|Upgraded|2}}. The first Treasure Chest you open is empty.\n|}\n\n=== Positive Pool ===\n{| class=\"wikitable\"\n! Relic\n! Description \n|-\n|{{R|Booming Conch||2}}|| At the start of {{2|Elites|Elite}} combats, draw 2 additional cards.\n|-\n|{{R|Lead Paperweight||2}}|| Upon pickup, choose 1 of 2 {{QueryLink|Cards|color:Colorless|Colorless Cards|2}} to add to your Deck.\n|-\n|{{R|Lost Coffer||2}}|| Upon pickup, gain 1 card reward and procure 1 random {{2|Potions|Potion}}.\n|-\n|{{R|Neow's Torment||2}}|| Upon pickup, add 1 {{C|Neow's Fury||2}} to your Deck.\n|-\n|{{R|Phial Holster||2}}|| Upon pickup, gain 1 potion slot and procure 2 random {{2|Potions}}.\n|-\n|{{R|Winged Boots||2}}|| You may ignore paths when choosing the next rooms to travel to 3 times.\n|-\n! colspan=\"2\" | Added if {{R|Cursed Pearl||2}} is not selected:\n|-\n|{{R|Golden Pearl||2}}|| Upon pickup, gain 150 Gold.\n|-\n! colspan=\"2\" | Added if {{R|Hefty Tablet||2}} is not selected:\n|-\n|{{R|Arcane Scroll||2}}|| Upon pickup, obtain a random {{QueryLink|Cards|rarity:Rare|Rare Cards|2}} to add to your Deck.\n|-\n! colspan=\"2\" | Added if {{R|Leafy Poultice||2}} is not selected:\n|-\n||{{R|New Leaf||2}}|| Upon pickup, {{KW|Transform||2}} 1 card.\n|-\n! colspan=\"2\" | Added if {{R|Precarious Shears||2}} is not selected:\n|-\n|{{R|Precise Scissors||2}}|| Upon pickup, remove 1 card from your Deck.\n|-\n! colspan=\"2\" | Added only in {{2|Multiplayer}}:\n|-\n|{{R|Massive Scroll||2}}|| Upon pickup, choose 1 of 3 {{QueryLink|Cards|color:Colorless&multiplayer:True|Multiplayer Colorless Cards|2}} to add to your Deck.\n|-\n! colspan=\"2\" | If {{R|Large Capsule||2}} is not selected, one of the following is added:\n|-\n||{{R|Lava Rock||2}}|| The act 1 Boss drops 2 {{2|Relics}}.\n|-\n||{{R|Small Capsule||2}}|| Upon pickup, obtain a random {{2|Relics|Relic}}.\n|-\n! colspan=\"2\" | One of the following is added:\n|-\n||{{R|Nutritious Oyster||2}}|| Upon pickup, raise your Max HP by 11.\n|-\n||{{R|Stone Humidifier||2}}|| Whenever you Rest at a {{2|Rest Sites|Rest Site}}, raise your Max HP by 5.\n|-\n! colspan=\"2\" | One of the following is added:\n|-\n|{{R|Neow's Talisman||2}}|| Upon pickup, {{KW|Upgrade||2}} 1 of your Strikes and 1 of your Defends.\n|-\n|{{R|Pomander||2}}|| Upon pickup, {{KW|Upgrade||2}} 1 card.\n|-\n|}\n\n== Effective Probability ==\nIf not playing {{2|Multiplayer}}:\n* All Curse pool Relics have a 12.5% chance of being offered.\n* {{R|Massive Scroll||2}} will not be offered.\n* {{R|Lava Rock||2}} and {{R|Small Capsule||2}} have a 7% chance of being offered.\n* {{R|Nutritious Oyster||2}}, {{R|Stone Humidifier||2}}, {{R|Neow's Talisman||2}}, and {{R|Pomander||2}} have an 8% chance of being offered.\n* {{R|Arcane Scroll||2}}, {{R|Golden Pearl||2}}, {{R|New Leaf||2}}, and {{R|Precise Scissors||2}} have a 14% chance of being offered.\n* All other Positive pool Relics have a 15.9% chance of being offered.\n\nIf playing {{2|Multiplayer}}:\n* {{R|Silver Crucible||2}} will not be offered.\n* All other Curse pool Relics have a 14.3% chance of being offered.\n* {{R|Lava Rock||2}} and {{R|Small Capsule||2}} have a 6.4% chance of being offered.\n* {{R|Nutritious Oyster||2}}, {{R|Stone Humidifier||2}}, {{R|Neow's Talisman||2}}, and {{R|Pomander||2}} have a 7.5% chance of being offered.\n* {{R|Arcane Scroll||2}}, {{R|Golden Pearl||2}}, {{R|New Leaf||2}}, and {{R|Precise Scissors||2}} have a 12.9% chance of being offered.\n* All other Positive pool Relics have a 15.1% chance of being offered.\n\n== Dialogue ==\n{{Spoiler warning}} \n\n<tabber id=\"dialoguetabber\">\n|-|Generic=\nGeneric Dialogue can appear for any character. \n{| class=\"wikitable\" style=\"width: 95%;\"\n|-\n|'''First ever visitor'''\n| {{icon|Neow|2}} I’ve... remade you....<br> {{Icon|Neow|2}}...go... ..up.....\n|-\n|style=\"width: 15% |'''Encounter 1'''\n| {{Icon|Neow|2}} ...awaken... <br> {{Icon|Neow|2}} ..Awaken.....\n|-\n|'''Encounter 2'''\n| {{Icon|Neow|2}} ..receive.... this....<br> {{Icon|Neow|2}}..blessing.. ...go......\n|-\n|'''Encounter 3'''\n| {{Icon|Neow|2}} ...hello... ..again.....\n|-\n|'''Encounter 4'''\n| {{Icon|Neow|2}} ...kill.. the... ARCHITECT\n|-\n\n|}\n|-|Ironclad=\n{| class=\"wikitable\" style=\"width: 95%;\"\n|-\n|style=\"width: 15% |'''Encounter 1'''\n| {{Icon|Neow|2}} ..arise.. my.. warrior...<br> {{Icon|Neow|2}}..time... to fight...again...\n|-\n|'''Encounter 2'''\n| {{Icon|Neow|2}} ..still.. lost.. to rage... good...\n|-\n|'''Encounter 3'''\n| {{Icon|Neow|2}} ..remember.. the.. first..time<br> {{Icon|Neow|2}}...you ..came...before me.. <br> {{Icon|Neow|2}} ..so..furious... <br> {{Icon|Neow|2}} ...so..useful...\n|}\n|-|Silent=\n{| class=\"wikitable\" style=\"width: 95%;\"\n|-\n|style=\"width: 15% |'''Encounter 1'''\n| {{Icon|Neow|2}}...returned.. from... outside?<br> {{Icon|Neow|2}}..knew... you’d... be back...\n|-\n|'''Encounter 2'''\n| {{Icon|Neow|2}}  ...your.. <br> {{Icon|Neow|2}} ...trophy.. awaits...\n|-\n|'''Encounter 3'''\n| {{Icon|Neow|2}} ..both...know..agony..of..family... <br> {{KW|Silent| |2}} ... <br> {{Icon|Neow|2}} ..still...seeking..approval...? <br> {{Icon|Neow|2}} ...FOOLISH...\n|}\n|-|Regent=\n{| class=\"wikitable\" style=\"width: 95%;\"\n|-\n|style=\"width: 15% |'''Encounter 1'''\n| {{KW|Regent| |2}} Oversized blue creature, I am the future King <br> {{Icon|Neow|2}} ..cute... <br> {{Icon|Neow|2}} ...you... will see.. ..me... ...again.... \n|-\n|'''Encounter 2'''\n| {{Icon|Neow|2}} ...again..?\n|-\n|'''Encounter 3'''\n| {{KW|Regent| |2}} Why can’t I win?! <br> {{Icon|Neow|2}} ...receive.. this... ..blessing... <br> {{KW|Regent| |2}} ...yes, thank you Neow. \n|}\n|-|Necrobinder=\n{| class=\"wikitable\" style=\"width: 95%;\"\n|-\n|style=\"width: 15% |'''Encounter 1'''\n| {{Icon|Neow|2}} ...we.... share... ..the same... ..goal.... <br> {{KW|Necrobinder| |2}} HE KILLED ALL THAT I LOVE!! <br> {{Icon|Neow|2}} ...my power..... is yours...\n|-\n|'''Encounter 2'''\n| {{Icon|Neow|2}} He... still.. ....breathes...\n|-\n|'''Encounter 3'''\n| {{KW|Necrobinder| |2}} Is... it.. ...even... possible...? <br> {{Icon|Neow|2}} ... Architect.... ..weakening....<br> {{Icon|Neow|2}}..we.... stronger... <br>\n|}\n|-|Defect=\n{| class=\"wikitable\" style=\"width: 95%;\"\n|-\n|style=\"width: 15% |'''Encounter 1'''\n| {{Icon|Neow|2}} ...construct.. what...<br> {{Icon|Neow|2}}....have you.. become...?\n|-\n|'''Encounter 2'''\n| {{Icon|Neow|2}} ...he.. can...<br> {{Icon|Neow|2}}....fix.. you.. ...everything....\n|-\n|'''Encounter 3'''\n| {{Icon|Neow|2}} ...I.. can’t... ..make...<br> {{Icon|Neow|2}}...you.. forget.... <br> {{KW|Defect| |2}} <i><resolute beeping sounds></i> <br> {{Icon|Neow|2}} ...good....\n|}\n</tabber>\n\n\n[[Category:Ancients]] [[Category:Slay_the_Spire_2_Content]]"
+}

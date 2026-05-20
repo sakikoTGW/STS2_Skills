@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Bugslayer",
+  "short_name": "Bugslayer",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Bugslayer</span>",
+  "fetched_at": "2026-05-20T06:17:43Z",
+  "wikitext_chars": 1542,
+  "wikitext": "{{Event Header|StS2 Bugslayer.png}}\n{{E|Bugslayer|2}} is an {{2|Events|Event}} found exclusively in the {{2|Hive}}.\n\n== Options ==\n{{Frame|Learn Extermination Technique}} {{TS|positive||Add {{C|Exterminate||2}} to your Deck.}}\n<br>\n{{Frame|Learn Squash Technique}} {{TS|positive||Add {{C|Squash||2}} to your Deck.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nAs you're fending off a swarm of aggressive insects you suddenly notice a Mighty Rugged Warrior-Man fighting beside you this whole time!\n\nThe insects, sensing defeat, scatter. You turn to your fellow fighter.\n\"Would you like any tips on exterminating these pests?\"\n\nHow polite. You nod and accept his offer.\n</div>\n\n{{Frame|Learn Extermination Technique}}\n<blockquote><div style=\"font-style:italic\">\n\"I see... you wish to learn the Extermination Technique. Very good...\"\n\nHe pauses briefly, thinking how best to endow you with this maneuver...\n\n\"THIS IS THE TECHNIQUE! BEHOLD!!\"\nHe boasts while holding up a can of Insecticide.\n</div></blockquote>\n\n{{Frame|Learn Squash Technique}}\n<blockquote><div style=\"font-style:italic\">\n\"I see... you wish to learn the Squash Technique. Very good...\"\n\nHe pauses briefly, thinking how best to endow you with this maneuver...\n\n\"THIS IS THE TECHNIQUE! BEHOLD!!\"\nHe boasts while stepping on a giant bug.\n</div></blockquote>\n\n{{Frame|Leave}}\n<blockquote><div style=\"font-style:italic\">\nSilently the figure nods at you, and then walks away.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

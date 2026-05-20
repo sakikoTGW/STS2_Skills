@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Pommel_Strike",
+  "short_name": "Pommel_Strike",
+  "summary": "is a 1  cost   Card for the . It deals 9 (10 if upgraded) damage and draws 1 (2 if upgraded) card(s).",
+  "sections": {
+    "Interactions": [
+      "If two or more copies of  are used to repeatedly draw one another with , they will draw each other a large but finite number of times and are not a true infinite. Two copies with no other cards in the deck will be played 15 times, and adding more copies will increase this further."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Pommel Strike</span>",
+  "fetched_at": "2026-05-20T05:42:08Z",
+  "wikitext_chars": 2050,
+  "wikitext": "{{Sequel Disambiguation}}{{Card Infobox|Pommel Strike||2}}\n{{C|Pommel Strike||2}} is a 1 {{Icon|IE|2}} cost {{QueryLink|Cards|rarity:Common&color:Ironclad|Common|2}} {{QueryLink|Cards|type:Attack&color:Ironclad|Attack|2}} Card for the {{KW|Ironclad||2}}. It deals 9 (10 if upgraded) damage and draws 1 (2 if upgraded) card(s).\n\n== Interactions ==\n=== Order ===\n* If two or more copies of {{C|Pommel Strike||2}} are used to repeatedly draw one another with {{C|Hellraiser||2}}, they will draw each other a large but finite number of times and are not a true infinite. Two copies with no other cards in the deck will be played 15 times, and adding more copies will increase this further.\n=== Synergies ===\n====a) Cards ====\n* {{C|Pommel Strike||2}} adds to the damage of {{C|Perfected Strike||2}}.\n* If {{C|Hellraiser||2}} is in play, and {{C|Pommel Strike||2}} is drawn, {{C|Pommel Strike||2}} is automatically played against a random enemy.\n* With a source of extra {{Icon|IE|2}}, two copies of Pommel Strike can be part of a infinite. {{C|Bloodletting||2}}, {{C|Expect a Fight||2}} (''pre v0.100'') and {{C|Forgotten Ritual||2}} (''pre v0.100'') are all useful for this purpose, although Bloodletting cannot lead to an actual infinite as it will slowly drain your HP. This also requires your draw and discard piles to be empty, and at least one Pommel Strike should be upgraded in order to return the {{Icon|IE|2}}-producing card to hand.\n* Any source of {{KW|Exhaust|Exhaust|2}}, such as {{C|Burning Pact||2}} or {{C|Stoke||2}}, can help remove cards to set up an infinite or simply make it more likely that {{C|Pommel Strike||2}} will draw the cards you want.\n====b) Relics ====\n* {{C|Pommel Strike||2}} gets a damage increase of 3 from {{R|Strike Dummy||2}}.\n* {{C|Pommel Strike||2}} gets a damage increase of 1 from {{R|Strike Dummy???||2}}.\n\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Pommel Strike to the game without any changes from Slay the Spire.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

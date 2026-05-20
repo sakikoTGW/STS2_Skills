@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:This or That?",
+  "short_name": "This or That?",
+  "summary": "Arms suddenly jut out from a nearby hole, clutching a  and a clearly . a scratched-up voice whispers from below. You grab the bag and as soon as you do, a  appears and clutches at you!! After a , it releases—the arms and the hole have vanished. You grab the . As soon as you grasp it, shackles materialize on your wrists. You hear a  and a bright  fills your vision! The hole and arms are gone.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">This or That?</span>",
+  "fetched_at": "2026-05-20T06:17:09Z",
+  "wikitext_chars": 1186,
+  "wikitext": "{{Event Header|StS2 This or That?.png}}\n\n== Options ==\n{{Frame|This}} {{TS|negative||Lose 6 HP.}} {{TS|positive||Gain 57 {{2|Gold}}.}}\n<br>\n{{Frame|That}} Add {{C|Clumsy||2}} to your {{2|Deck}}. {{TS|positive||Obtain a random {{2|Relic}}.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nArms suddenly jut out from a nearby hole, clutching a {{TS|gold||suspicious bag of riches}} and a clearly {{TS|purple||cursed relic}}.\n\n\n{{TS|blue||\"This... or That?\"}}\n\na scratched-up voice whispers from below.\n\n</div>\n\n{{Frame|This}}\n<blockquote><div style=\"font-style:italic\">\nYou grab the bag and as soon as you do, a {{TS|blue|shake|THIRD hand}} appears and clutches at you!!\n\nAfter a {{TS|red|shake|frantic struggle}}, it releases—the arms and the hole have vanished.\n</div></blockquote>\n\n{{Frame|That}}\n<blockquote><div style=\"font-style:italic\">\nYou grab the {{TS|purple||Cursed Relic}}. As soon as you grasp it, shackles materialize on your wrists.\n\n\nYou hear a {{TS|blue||ghostly laughter}} and a bright {{TS|orange||plume of fire}} fills your vision!\n\n\nThe hole and arms are gone.\n</div></blockquote>\n</blockquote>\n\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

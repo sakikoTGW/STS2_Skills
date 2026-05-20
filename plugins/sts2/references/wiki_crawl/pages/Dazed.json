@@ -1,0 +1,26 @@
+{
+  "page": "Slay_the_Spire_2:Dazed",
+  "short_name": "Dazed",
+  "summary": "*  adds a  to the player's discard pile. *  adds 2  to the player's draw pile after they've finished drawing their opening hand for the start of combat. The following enemies can give the player : **  - Adds 3  to your discard pile. **  - Adds 4  to your discard pile. **  - Adds 3  to your discard pile. *  - Starts with 1 . **  - Gains 1 . (Max 3) **  - Whenever this enemy is hit by an Attack, add X  into your Draw Pile. **  - Adds 2  to your draw pile and 2 to your discard pile",
+  "sections": {
+    "Interactions": [
+      "will convert it into .",
+      "will draw 2 cards when it is drawn if it is the first  card drawn that turn.",
+      "will  it to deal damage."
+    ],
+    "Sources": [
+      "adds a  to the player's discard pile.",
+      "adds 2  to the player's draw pile after they've finished drawing their opening hand for the start of combat.",
+      "",
+      "- Adds 3  to your discard pile.",
+      "",
+      "- Adds 4  to your discard pile.",
+      "",
+      "- Adds 3  to your discard pile."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Dazed</span>",
+  "fetched_at": "2026-05-20T06:22:11Z",
+  "wikitext_chars": 1922,
+  "wikitext": "{{Sequel Disambiguation}}{{Card Infobox|Dazed||2}}{{Keyword Infobox|Unplayable|2}}{{Keyword Infobox|Ethereal|2}}\n{{C|Dazed||2}} is an {{KW|Unplayable||2}} {{QueryLink|Cards|color:Colorless|Colorless|2}} {{QueryLink|Cards|rarity:Common&character:Colorless|Common|2}} {{QueryLink|Cards|type:Status&character:Colorless|Status|2}} Card. \n\n== Sources ==\n* {{C|Boost Away||2}} adds a {{C|Dazed||2}} to the player's discard pile.\n* {{R|Blessed Antler||2}} adds 2 {{C|Dazed||2}} to the player's draw pile after they've finished drawing their opening hand for the start of combat.\n\nThe following enemies can give the player {{C|Dazed||2}}:\n* {{M|Eye With Teeth||2}}\n** {{Int|Eye With Teeth|Distract||2}} - Adds 3 {{C|Dazed||2}} to your discard pile.\n* {{M|Skulking Colony||2}}\n** {{Int|Skulking Colony|Smash||2}} - Adds 4 {{C|Dazed||2}} to your discard pile.\n* {{M|Chomper||2}}\n** {{Int|Chomper|Screech||2}} - Adds 3 {{C|Dazed||2}} to your discard pile.\n* {{M|Entomancer||2}} - Starts with 1 {{BD|Personal Hive||2}}.\n** {{Int|Entomancer|Pheromone Spit||2}} - Gains 1 {{BD|Personal Hive||2}}. (Max 3)\n** {{BD|Personal Hive||2}} - Whenever this enemy is hit by an Attack, add X {{C|Dazed||2}} into your Draw Pile.\n* {{M|Noisebot||2}}\n** {{Int|Noisebot|Noise||2}} - Adds 2 {{C|Dazed||2}} to your draw pile and 2 to your discard pile\n\n== Interactions ==\n=== Synergies ===\nAs {{C|Dazed||2}} is a {{QueryLink|Cards|type:Status&character:Colorless|Status|2}} card it interacts with the following:\n* {{C|Compact||2}} will convert it into {{C|Fuel||2}}.\n* {{C|Iteration||2}} will draw 2 cards when it is drawn if it is the first {{QueryLink|Cards|type:Status&character:Colorless|Status|2}} card drawn that turn.\n* {{C|Flak Cannon||2}} will {{KW|Exhaust|exhaust|2}} it to deal damage.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Dazed to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

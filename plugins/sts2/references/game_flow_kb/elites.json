@@ -1,0 +1,54 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Elites",
+  "rewards": {
+    "gold_range": [
+      35,
+      45
+    ],
+    "gold_range_ascension_3": [
+      26,
+      34
+    ],
+    "drops": [
+      "relic",
+      "gold",
+      "card_reward"
+    ]
+  },
+  "act_pools": {
+    "1": [
+      "Bygone Effigy",
+      "Byrdonis",
+      "Phrog Parasite",
+      "Skulking Colony",
+      "Phantasmal Gardener",
+      "Terror Eel"
+    ],
+    "2": [
+      "Decimillipede",
+      "Entomancer",
+      "Infested Prism"
+    ],
+    "3": [
+      "Knights",
+      "Mecha Knight",
+      "Soul Nexus"
+    ]
+  },
+  "spawn_rules": [
+    "same_elite_not_twice_in_a_row",
+    "must_see_all_three_before_repeat"
+  ],
+  "act1_by_region": {
+    "Overgrowth": [
+      "Bygone Effigy",
+      "Byrdonis",
+      "Phrog Parasite"
+    ],
+    "Underdocks": [
+      "Skulking Colony",
+      "Phantasmal Gardener",
+      "Terror Eel"
+    ]
+  }
+}

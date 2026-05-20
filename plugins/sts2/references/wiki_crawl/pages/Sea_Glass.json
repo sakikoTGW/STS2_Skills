@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Sea Glass",
+  "short_name": "Sea Glass",
+  "summary": "is an  . Upon pickup, you see 15 cards from a class other than your own, and add any number of them to your deck. The options always consist of 5 , 5 , and 5 .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Sea Glass</span>",
+  "fetched_at": "2026-05-20T06:21:35Z",
+  "wikitext_chars": 1123,
+  "wikitext": "{{Relic Infobox|Sea Glass|2}}{{R|Sea Glass||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}. Upon pickup, you see 15 cards from a class other than your own, and add any number of them to your deck.\n\nThe options always consist of 5 {{QueryLink|Cards|rarity:Common|Commons|2}}, 5 {{QueryLink|Cards|rarity:Uncommon|Uncommons|2}}, and 5 {{QueryLink|Cards|rarity:Rare|Rares|2}}.\n\n== Obtaining Sea Glass ==\nAt the start of {{2|Acts#Act 2|Act 2}}, can be offered by {{KW|Orobas||2}}.\n===Spawn Restrictions===\n*Because '''Sea Glass''' shares a relic pool with {{R|Electric Shrimp||2}}, {{R|Glass Eye||2}}, {{R|Sand Castle||2}}, and {{R|Prismatic Gem||2}}, only 1 of the 5 can be offered by {{KW|Orobas||2}}.\n\n==Notes==\nThis relic's name will be different depending on which class it offers cards from:\n*{{2|Ironclad}}: Demon Glass\n*{{2|Silent}}: Venom Glass\n*{{2|Regent}}: Noble Glass\n*{{2|Necrobinder}}: Lich Glass\n*{{2|Defect}}: Gear Glass\n\n\n== Update History ==\n\n*'''Early Access v0.98'''\n**Added Sea Glass to the game.\n\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

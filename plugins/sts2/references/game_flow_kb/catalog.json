@@ -1,0 +1,22 @@
+{
+  "version": 6,
+  "wiki_index": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Ascension",
+  "description": "整局流程：进阶、先古、营火、地图、商人、精英、Boss、事件、宝箱、药水、遗物、涅奥",
+  "entry_files": [
+    "ascension.json",
+    "rest_sites.json",
+    "ancients.json",
+    "map_flow.json",
+    "screens.json",
+    "merchant.json",
+    "elites.json",
+    "bosses.json",
+    "events.json",
+    "chests.json",
+    "potions.json",
+    "relic_catalog.json",
+    "neow.json",
+    "rewards.json",
+    "events_catalog.json"
+  ]
+}

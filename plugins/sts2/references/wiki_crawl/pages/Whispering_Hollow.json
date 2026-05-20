@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Whispering Hollow",
+  "short_name": "Whispering Hollow",
+  "summary": "is an  found exclusively in the . This event only appears if the player has at least 50 Gold.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Whispering Hollow</span>",
+  "fetched_at": "2026-05-20T06:17:39Z",
+  "wikitext_chars": 1479,
+  "wikitext": "{{Event Header|StS2 Whispering Hollow.png}}\n{{E|Whispering Hollow|2}} is an {{2|Events|Event}} found exclusively in the {{2|Overgrowth}}.\n\nThis event only appears if the player has at least 50 Gold.\n\n== Options ==\n{{Frame|Exchange Gold}} {{TS|negative||Lose 50 Gold.}} {{TS|positive||Procure 2 random {{2|Potions|Potions}}.}}\n<br>\n{{Frame|Hug the Tree}} {{TS|negative||Lose 9 HP.}} {{TS|positive||Choose a card to {{2|Transform}}.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nMaking your way through a {{TS|red||hollow of dead trees}} you happen upon a single bone-white tree. Clay baubles hang off its branches, which curve inward like protective ribs.\n\nSuch a {{TS|purple||creepy tree}}. It whispers.\n\n{{TS|blue|up|...make exchange.....}}\n</div>\n\n{{Frame|Exchange Gold}}\n<blockquote><div style=\"font-style:italic\">\nYou scatter some {{TS|gold||gold}} at the base of the tree and two of the clay vessels drop to the floor soundlessly.\n\nThey break open, and contain {{TS|green||perfectly intact potions}} within.\n\nYou nab the potions and flee.\n</div></blockquote>\n\n{{Frame|Hug the Tree}}\n<blockquote><div style=\"font-style:italic\">\nThe whispering compels you to give it gold but you resist and give the tree a big hug instead!\n\nIt thrashes about, scratching you with its branches, but eventually calms down. The tree-hugging experience transforms you.\n\n...make hug.....?\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Spiraling Whirlpool",
+  "short_name": "Spiraling Whirlpool",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Spiraling Whirlpool</span>",
+  "fetched_at": "2026-05-20T06:17:28Z",
+  "wikitext_chars": 1564,
+  "wikitext": "{{Event Header|StS2 Spiraling Whirlpool.png}}\n{{E|Spiraling Whirlpool|2}} is an {{2|Events|Event}} found exclusively in the {{2|Underdocks}}.\n\n== Options ==\n{{Frame|Observe}} {{TS|positive||{{KW|Enchant||2}} a Basic {{C|Strike (Ironclad)|Strike|2}} or {{C|Defend (Ironclad)|Defend|2}} with {{KW|Spiral||2}}.}}\n<br>\n{{Frame|Drink}} {{TS|positive||Heal 33% of Max HP.}}\n\n== Conditions ==\n* Only appears if you have at least 1 card that can be enchanted with Spiral (Strike or Defend cards).\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nYou happen upon a Massive Spiraling Whirlpool. The water swirls with beautiful precision and its surrounding walls are adorned with spiral patterns.\n\nAround and around... around...\n....and around.... what a sight......\n\nWhat do you do?\n</div>\n\n{{Frame|Observe}}\n<blockquote><div style=\"font-style:italic\">\n...ah- so beautiful.....\nSo it spins... still spinning around. Yes...\nOh! Was that..... a little splash...?\n....of course. You deserve some fun, too Mr. Spiral... haha...\n... ....... ...\n\nIt's time to go now.\nYou whisper something as you take your leave.\n\n\"Thank you, Spiral.\"\n</div></blockquote>\n\n{{Frame|Drink}}\n<blockquote><div style=\"font-style:italic\">\nYou cup your hands and dip it into the Spiraling Whirlpool.\n\nIts waters fill your hands at a gentle rate as you take small sips with your eyes closed.\n\nDelicious water spirals through you to your Center, washing away harmful thoughts and physical ailments...\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

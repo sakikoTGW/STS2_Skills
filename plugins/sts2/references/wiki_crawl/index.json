@@ -1,0 +1,380 @@
+{
+  "version": 3,
+  "pages": {
+    "Slay_the_Spire_2:Strike": {
+      "file": "Strike.json",
+      "summary": "Strikes are a group of cards with special support. While every character has a basic Strike and access to cards with \"Strike\", the  has specific support around these cards."
+    },
+    "Slay_the_Spire_2:Defend": {
+      "file": "Defend.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:Bash": {
+      "file": "Bash.json",
+      "summary": "is a 2  cost   Card for the ."
+    },
+    "Slay_the_Spire_2:Bludgeon": {
+      "file": "Bludgeon.json",
+      "summary": "is a 3  cost   Card for the . It deals 32 (42 if upgraded) damage."
+    },
+    "Slay_the_Spire_2:Twin_Strike": {
+      "file": "Twin_Strike.json",
+      "summary": "is a 1  cost   Card for the ."
+    },
+    "Slay_the_Spire_2:Pommel_Strike": {
+      "file": "Pommel_Strike.json",
+      "summary": "is a 1  cost   Card for the . It deals 9 (10 if upgraded) damage and draws 1 (2 if upgraded) card(s)."
+    },
+    "Slay_the_Spire_2:Shockwave": {
+      "file": "Shockwave.json",
+      "summary": "is a 2  cost    Card."
+    },
+    "Slay_the_Spire_2:Uppercut": {
+      "file": "Uppercut.json",
+      "summary": "is a 2  cost   Card for the ."
+    },
+    "Slay_the_Spire_2:Thunderclap": {
+      "file": "Thunderclap.json",
+      "summary": "is a 1  cost   Card for the ."
+    },
+    "Slay_the_Spire_2:Deadly_Poison": {
+      "file": "Deadly_Poison.json",
+      "summary": "is a 1  cost   Card for the ."
+    },
+    "Slay_the_Spire_2:Neutralize": {
+      "file": "Neutralize.json",
+      "summary": "is a 0  cost   Card for the ."
+    },
+    "Slay_the_Spire_2:Bygone_Effigy": {
+      "file": "Bygone_Effigy.json",
+      "summary": "Bygone Effigy is an  found in the ."
+    },
+    "Slay_the_Spire_2:Byrdonis": {
+      "file": "Byrdonis.json",
+      "summary": "Byrdonis is an  found in the ."
+    },
+    "Slay_the_Spire_2:Phrog_Parasite": {
+      "file": "Phrog_Parasite.json",
+      "summary": "Phrog Parasite is an  found in the ."
+    },
+    "Slay_the_Spire_2:Skulking_Colony": {
+      "file": "Skulking_Colony.json",
+      "summary": "Skulking Colony is an   found in the ."
+    },
+    "Slay_the_Spire_2:Phantasmal_Gardener": {
+      "file": "Phantasmal_Gardener.json",
+      "summary": "Phantasmal Gardener is an   found in the . Four appear together in the encounter."
+    },
+    "Slay_the_Spire_2:Terror_Eel": {
+      "file": "Terror_Eel.json",
+      "summary": "Terror Eel is an   found in the ."
+    },
+    "Slay_the_Spire_2:Membership_Card": {
+      "file": "Membership_Card.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:The_Courier": {
+      "file": "The_Courier.json",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "Slay_the_Spire_2:Maw_Bank": {
+      "file": "Maw_Bank.json",
+      "summary": "Can only be obtained randomly from  by selecting the  option."
+    },
+    "Slay_the_Spire_2:Meal_Ticket": {
+      "file": "Meal_Ticket.json",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "Slay_the_Spire_2:Lord's_Parasol": {
+      "file": "Lord_s_Parasol.json",
+      "summary": "is an  . Upon entering a shop after obtaining this relic you immediately obtain everything the Merchant sells at no cost. This includes cards, relics, potions, and the card removal service. You may not refuse anything obtained and cards wil"
+    },
+    "Slay_the_Spire_2:Vulnerable": {
+      "file": "Vulnerable.json",
+      "summary": "is a  both players and enemies can apply to their targets. While available to all characters, the  has the most dedicated support for . While a character or enemy has , the damage received from  and enemy Attacks is increased by 50% (typica"
+    },
+    "Slay_the_Spire_2:Weak": {
+      "file": "Weak.json",
+      "summary": "is a  both players and enemies can apply to their targets. While available to all characters, the  has the some dedicated support for . While a character or enemy has , the damage of their  or enemy Attacks is decreased by 25% (typically), "
+    },
+    "Slay_the_Spire_2:Frail": {
+      "file": "Frail.json",
+      "summary": "is a  enemies can apply to the players. It is impossible for an enemy to be afflicted with . While a character has , the amount of  received from cards played is decreased by 25% (typically), then rounded down. At the end of its turn, one p"
+    },
+    "Slay_the_Spire_2:Strength": {
+      "file": "Strength.json",
+      "summary": "is a  that increases the damage of  and  enemy Attacks. Each point of  increases the damage of an attack by 1. Attacks that hit multiple times, like , will apply  to each individual hit. can be negative, reducing the damage of attacks to a "
+    },
+    "Slay_the_Spire_2:Dexterity": {
+      "file": "Dexterity.json",
+      "summary": "is a  that increases the  gained directly from cards. This does not apply to any other sources of , including by Buffs gained from cards. can be negative, reducing the  gained from cards to a minimum of 0."
+    },
+    "Slay_the_Spire_2:Poison": {
+      "file": "Poison.json",
+      "summary": "is a  that the  can apply to Enemies. At the beginning of its turn, an enemy with  will lose HP equal to its number of  stacks. Then, its  stack will decrease by 1. inflicts HP loss after the enemy's  is removed, and each  stack will negate"
+    },
+    "Slay_the_Spire_2:Block": {
+      "file": "Block.json",
+      "summary": "is the amount of damage a character or enemy can take before they lose HP. By default,  is removed at the start of each turn. and  modify the amount of  you gain from cards, however it does not apply to cards that depend on other effects to"
+    },
+    "Slay_the_Spire_2:Debuffs": {
+      "file": "Debuffs.json",
+      "summary": "* Intensity debuffs are more effective depending on how many stacks of the debuff you have. * Duration debuffs last for as many turns as you have stacks of the debuff. At the end of the turn, the debuff will decrement by one stack. * Debuff"
+    },
+    "Slay_the_Spire_2:Buffs": {
+      "file": "Buffs.json",
+      "summary": "* Intensity buffs are more effective depending on how many stacks of the buff you have. These buffs typically are either permanent for the combat encounter or are consumed on the following turn. * Duration buffs last for as many turns as yo"
+    },
+    "Slay_the_Spire_2:Orbs": {
+      "file": "Orbs.json",
+      "summary": "are a mechanic used by . They operate identical to their Slay the Spire origins, with the addition of a new Orb type."
+    },
+    "Slay_the_Spire_2:Focus": {
+      "file": "Focus.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:Artifact": {
+      "file": "Artifact.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:Intangible": {
+      "file": "Intangible.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:Hang": {
+      "file": "Hang.json",
+      "summary": "is a 1  cost   Card for the . It deals 10 damage (13 if ). Additionally, if the enemy has no , it applies 2 stacks of , causing ALL  to deal double damage to that enemy. If the enemy already has , it instead doubles the existing  stacks."
+    },
+    "Slay_the_Spire_2:Slow": {
+      "file": "Slow.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:Ascension": {
+      "file": "Ascension.json",
+      "summary": "Ascension is a series of optional modifiers that make the game more challenging. It is initially unlocked by defeating any Act 3 Boss on a given character, after which Ascension may be toggled when starting a run on that character. Beating "
+    },
+    "Slay_the_Spire_2:Rest_Sites": {
+      "file": "Rest_Sites.json",
+      "summary": "for all possible rooms.}} Rest Sites are a standard , appearing multiple times per . The last room before each boss in Acts 1, 2, and 3 is always a rest site. The player must choose one of the available options to prepare for higher floors "
+    },
+    "Slay_the_Spire_2:Ancients": {
+      "file": "Ancients.json",
+      "summary": "are mysterious beings that offer boons to the player at the start of each Act. Ancients generally have to be unlocked before being able to meet them during a run (see also: ). There are a total of 8 Ancients in the game. Most Ancients have "
+    },
+    "Slay_the_Spire_2:Neow": {
+      "file": "Neow.json",
+      "summary": "is one of the  in Slay the Spire 2. She is unlocked after playing the first run of a save file and will subsequently always appear at the start of a new run, allowing you to choose one of 3 boons."
+    },
+    "Slay_the_Spire_2:Acts": {
+      "file": "Acts.json",
+      "summary": "Slay the Spire 2 is divided into 3 distinct Acts. Each node on the map is represented by a . This game features alternate Acts which are currently only implemented for Act 1, choosing randomly between  and . Each Act begins by meeting an  w"
+    },
+    "Slay_the_Spire_2:Map_Locations": {
+      "file": "Map_Locations.json",
+      "summary": "for details on how locations are placed and connected.}} The maps of each  in Slay the Spire consist of 7 different types of locations, indicated by different icons. * 42px|middle Monster Encounter (Normal Enemies) * 42px|middle Elite Encou"
+    },
+    "Slay_the_Spire_2:The_Merchant": {
+      "file": "The_Merchant.json",
+      "summary": "for all possible rooms.}} for the alternative \"Merchant\".}} A mysterious Merchant sells his wares in these rooms. He is the primary sink for the  the player acquires. The shop is a  where , ,  and a Remove can be obtained in exchange for . "
+    },
+    "Slay_the_Spire_2:Elites": {
+      "file": "Elites.json",
+      "summary": "for all possible rooms.}} Elites are highly powerful enemies that are found in  which are marked separately from normal monster encounters. Defeating an elite will give you a random , 35-45 () , and a  reward. The same Elite can appear mult"
+    },
+    "Slay_the_Spire_2:Bosses": {
+      "file": "Bosses.json",
+      "summary": "for all possible rooms.}} Bosses are extremely difficult monsters that are fought at the end of each act. Compared to normal enemies and elites, bosses have significantly more health and a more powerful move set that usually involves specia"
+    },
+    "Slay_the_Spire_2:Events": {
+      "file": "Events.json",
+      "summary": "Events are unique encounters that present the player with a scenario and asks them to make a choice on how they wish to handle that scenario. Events are only encountered in . Each  has a set of events that can only occur in that Act, but th"
+    },
+    "Slay_the_Spire_2:Gold": {
+      "file": "Gold.json",
+      "summary": "frame|Money Pouch: Shows how much  you are carrying. Gold is the currency of . The player starts each run with 99 . It is used to purchase from the  or from various ."
+    },
+    "Slay_the_Spire_2:Potions": {
+      "file": "Potions.json",
+      "summary": "Potions are single-use consumables that persist across floors. Most potions provide a temporary boost that can only be used in a single encounter, and thus can only be used in combat. The only potions that can be used outside of combat are:"
+    },
+    "Slay_the_Spire_2:Keywords": {
+      "file": "Keywords.json",
+      "summary": "List of keywords in Slay the Spire 2."
+    },
+    "Slay_the_Spire_2:Upgrade": {
+      "file": "Upgrade.json",
+      "summary": "Upgrading a card improves its effects or decreases its cost, adds a + to the end of its name, and turns its name  as well as the cost, if it was lowered as a result of Upgrading it. A card can only be upgraded once and all  and  cards canno"
+    },
+    "Slay_the_Spire_2:Rewards": {
+      "file": "Rewards.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:Relics": {
+      "file": "Relics.json",
+      "summary": "Relics are permanent items that give a passive bonus for the duration of the run. Most relics can be obtained regardless of the character you are playing. Each character has 9 Relics that can only be obtained by them. Starter Relics are giv"
+    },
+    "Slay_the_Spire_2:Chests": {
+      "file": "Chests.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:Ironclad": {
+      "file": "Ironclad.json",
+      "summary": "is one of five characters in Slay the Spire 2, and the only one available when you first start the game. He starts with 80 Max HP, the highest of any character. At  and above he starts with 64 HP."
+    },
+    "Slay_the_Spire_2:Burning_Blood": {
+      "file": "Burning_Blood.json",
+      "summary": "The  will always start every new run with this relic in his possession."
+    },
+    "Slay_the_Spire_2:Overgrowth": {
+      "file": "Overgrowth.json",
+      "summary": "Overgrowth is one of two possible first  in Slay the Spire 2. The other possible Act 1 is ."
+    },
+    "Slay_the_Spire_2:Underdocks": {
+      "file": "Underdocks.json",
+      "summary": "Underdocks is one of two possible first  in Slay the Spire 2. The other possible Act 1 is ."
+    },
+    "Slay_the_Spire_2:Hive": {
+      "file": "Hive.json",
+      "summary": "Hive is the second  in Slay the Spire 2."
+    },
+    "Slay_the_Spire_2:Glory": {
+      "file": "Glory.json",
+      "summary": "Glory is the third  in Slay the Spire 2."
+    },
+    "Slay_the_Spire_2:Bully": {
+      "file": "Bully.json",
+      "summary": "is a 0  cost   Card for the ."
+    },
+    "Slay_the_Spire_2:Iron_Wave": {
+      "file": "Iron_Wave.json",
+      "summary": "is a 1  cost   Card for the ."
+    },
+    "Slay_the_Spire_2:Flame_Barrier": {
+      "file": "Flame_Barrier.json",
+      "summary": "is a 2  cost   Card for the . Despite 's language being slightly different from that of , the two effects are functionally identical."
+    },
+    "Slay_the_Spire_2:Decimillipede": {
+      "file": "Decimillipede.json",
+      "summary": "{{#invoke:Infobox|main Decimillipede is an  found in the . It appears as three identical segments that fight together."
+    },
+    "Slay_the_Spire_2:Entomancer": {
+      "file": "Entomancer.json",
+      "summary": "Entomancer is an   found in ."
+    },
+    "Slay_the_Spire_2:Infested_Prism": {
+      "file": "Infested_Prism.json",
+      "summary": "Infested Prism is an   found in ."
+    },
+    "Slay_the_Spire_2:Knights": {
+      "file": "Knights.json",
+      "summary": "The Knights are an  encounter found in , featuring three knights fighting together."
+    },
+    "Slay_the_Spire_2:Mecha_Knight": {
+      "file": "Mecha_Knight.json",
+      "summary": "Mecha Knight is an  found in ."
+    },
+    "Slay_the_Spire_2:Soul_Nexus": {
+      "file": "Soul_Nexus.json",
+      "summary": "Soul Nexus is an   found in ."
+    },
+    "Slay_the_Spire_2:Ceremonial_Beast": {
+      "file": "Ceremonial_Beast.json",
+      "summary": "Ceremonial Beast is a  found in the ."
+    },
+    "Slay_the_Spire_2:The_Kin": {
+      "file": "The_Kin.json",
+      "summary": "The Kin is a  encounter found in the . The fight consists of two s and one ."
+    },
+    "Slay_the_Spire_2:Vantom": {
+      "file": "Vantom.json",
+      "summary": "The Vantom is a  found in the ."
+    },
+    "Slay_the_Spire_2:Waterfall_Giant": {
+      "file": "Waterfall_Giant.json",
+      "summary": "Waterfall Giant is a  found in the ."
+    },
+    "Slay_the_Spire_2:Soul_Fysh": {
+      "file": "Soul_Fysh.json",
+      "summary": "Soul Fysh is a  found in the ."
+    },
+    "Slay_the_Spire_2:Lagavulin_Matriarch": {
+      "file": "Lagavulin_Matriarch.json",
+      "summary": "is a  found in the ."
+    },
+    "Slay_the_Spire_2:The_Insatiable": {
+      "file": "The_Insatiable.json",
+      "summary": "The Insatiable is a  found in ."
+    },
+    "Slay_the_Spire_2:Knowledge_Demon": {
+      "file": "Knowledge_Demon.json",
+      "summary": "Knowledge Demon is a  found in ."
+    },
+    "Slay_the_Spire_2:Kaiser_Crab": {
+      "file": "Kaiser_Crab.json",
+      "summary": "The Kaiser Crab is a  encounter found in . It consists of two arms that fight simultaneously: the Crusher (left claw) and the Rocket (right claw). Players are  — attacks from behind deal 50% more damage depending on which arm the player is "
+    },
+    "Slay_the_Spire_2:Queen": {
+      "file": "Queen.json",
+      "summary": "Queen is a  found in . She fights alongside the ."
+    },
+    "Slay_the_Spire_2:Test_Subject": {
+      "file": "Test_Subject.json",
+      "summary": "Test Subject is a  found in . It has three phases, reviving twice with increasing HP and new powers.|-|Phase 1="
+    },
+    "Slay_the_Spire_2:Doormaker": {
+      "file": "Doormaker.json",
+      "summary": "{{#invoke:Infobox|main The Doormaker is a  found in . The fight starts with the Doormaker appearing as the Door with infinite health. It then transforms into the Doormaker on its first turn."
+    },
+    "Slay_the_Spire_2:Pantograph": {
+      "file": "Pantograph.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:Black_Star": {
+      "file": "Black_Star.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:White_Star": {
+      "file": "White_Star.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:Paper_Phrog": {
+      "file": "Paper_Phrog.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:Paper_Krane": {
+      "file": "Paper_Krane.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:Pen_Nib": {
+      "file": "Pen_Nib.json",
+      "summary": ""
+    },
+    "Slay_the_Spire_2:Strike_Dummy": {
+      "file": "Strike_Dummy.json",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "Slay_the_Spire_2:Snecko_Skull": {
+      "file": "Snecko_Skull.json",
+      "summary": "is a   . It applies an additional 1  whenever another source applies ."
+    },
+    "Slay_the_Spire_2:Silent": {
+      "file": "Silent.json",
+      "summary": "The  is the second of the five characters in Slay the Spire 2. She is unlocked after completing a run with the . She starts with 70 Max HP. At  and above she starts with 56 HP. She starts each run with an additional  and  in her deck, to ma"
+    },
+    "Slay_the_Spire_2:Defect": {
+      "file": "Defect.json",
+      "summary": "The  is the last of the five characters in Slay the Spire 2. It is unlocked after completing a run with the . It starts with 75 Max HP. At  and above it starts with 56 HP."
+    },
+    "Slay_the_Spire_2:Regent": {
+      "file": "Regent.json",
+      "summary": "The  is the third of the five characters in Slay the Spire 2. His Majesty is unlocked after completing a run with the . His Majesty starts with 75 Max HP. At  and above his Majesty starts with 60 HP."
+    },
+    "Slay_the_Spire_2:Necrobinder": {
+      "file": "Necrobinder.json",
+      "summary": "The  is the fourth of the five characters in Slay the Spire 2. She is unlocked after completing a run with the . She starts with 66 Max HP, the lowest of any character. At  and above she starts with 52 HP."
+    }
+  },
+  "ok_count": 92,
+  "error_count": 0,
+  "errors": []
+}

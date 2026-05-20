@@ -1,0 +1,17 @@
+{
+  "page": "Slay_the_Spire_2:Dolly's Mirror",
+  "short_name": "Dolly's Mirror",
+  "summary": "is a  . On pickup, it allows you to choose a card in your deck to gain an exact duplicate of, copying any permanent changes including . It cannot be used to duplicate  cards like .",
+  "sections": {
+    "Interactions": [
+      "When used on a card with dynamic scaling (such as  or ), the duplicate will retain the original's current value. The two cards will scale themselves completely separately afterwards."
+    ],
+    "Sources": [
+      "Can only be bought from the . Only 1  is available per Shop, even with , since it cannot restock Shop Relics and instead replaces them with random , , or  Relics."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Dolly&#039;s Mirror</span>",
+  "fetched_at": "2026-05-20T06:23:28Z",
+  "wikitext_chars": 2013,
+  "wikitext": "{{Sequel Disambiguation}}{{Relic Infobox|Dolly's Mirror|2}}\n{{R|Dolly's Mirror||2}} is a {{QueryLink|Relics|rarity:Shop|Shop|2}} {{2|Relics|Relic}}. On pickup, it allows you to choose a card in your deck to gain an exact duplicate of, copying any permanent changes including {{2|Enchantments}}. It cannot be used to duplicate {{QueryLink|Cards|rarity:Quest|Quest|2}} cards like {{C|Spoils Map||2}}.\n\n== Sources ==\n* Can only be bought from the {{2|Merchant}}. Only 1 {{QueryLink|Relics|rarity:Shop|Shop Relic|2}} is available per Shop, even with {{R|The Courier||2}}, since it cannot restock Shop Relics and instead replaces them with random {{QueryLink|Relics|rarity:Common|Common|2}}, {{QueryLink|Relics|rarity:Uncommon|Uncommon|2}}, or {{QueryLink|Relics|rarity:Rare|Rare|2}} Relics.\n\n== Interactions ==\n\n=== Synergies ===\n* When used on a card with dynamic scaling (such as {{C|Genetic Algorithm||2}} or {{C|The Scythe||2}}), the duplicate will retain the original's current value. The two cards will scale themselves completely separately afterwards.\n\n== Trivia ==\n* The name {{R|Dolly's Mirror}} is a reference to [https://en.wikipedia.org/wiki/Dolly_(sheep) Dolly the sheep]; the first mammal that was successfully cloned from the cell of an adult in the same species.\n** Contrary to popular belief, Dolly was not the first mammal that was successfully cloned. The first mammal ever successfully cloned was a sheep in 1984 which was cloned from a sheep embryo by the University of Cambridge.<ref>https://web.archive.org/web/20211111151011/http://dolly.roslin.ed.ac.uk/facts/the-life-of-dolly/index.html</ref> Dolly was specifically the first mammal cloned ''from a [https://en.wikipedia.org/wiki/Somatic_cell somatic cell] taken directly from an adult of a given species'' (specifically from the mammary gland of Dolly's surrogate mother).\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Dolly's Mirror to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]]\n[[Category:ToUpdate]]"
+}

@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Looming Fruit",
+  "short_name": "Looming Fruit",
+  "summary": "At the start of , can be offered by .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Looming Fruit</span>",
+  "fetched_at": "2026-05-20T06:22:23Z",
+  "wikitext_chars": 1121,
+  "wikitext": "{{Relic Infobox|Looming Fruit|2}}\n{{R|Looming Fruit||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}.\n\n== Obtaining Looming Fruit ==\nAt the start of {{2|Acts#Act 3|Act 3|2}}, can be offered by {{KW|Nonupeipe||2}}.\n\n== Trivia ==\n* The amount of max HP gained is equivalent to the {{R|Strawberry||2}}, {{R|Pear||2}}, and {{R|Mango||2}} combined.\n* Looming Fruit's name is a reference to the clothing company Fruit of the Loom.\n* The sprite used for {{R|Looming Fruit||2}} has a 50% chance to either include or not include a cornucopia. This will always stay the same on a given profile. \n** This is a reference to the [https://en.wikipedia.org/wiki/Fruit_of_the_Loom#Logo_misconception Fruit of the Loom logo], which depicts a pile of fruit but is often mistakenly believed to also include a cornucopia.\n\n== Gallery ==\n<gallery>\nFile:StS2 LoomingFruit.png|With cornucopia\nFile:StS2 LoomingFruit2.png|Without cornucopia\n</gallery>\n\n== Update History ==\n\n* '''Early Access v0.98'''\n** Added Looming Fruit to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

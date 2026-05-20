@@ -1,0 +1,2302 @@
+{
+  "wiki_list": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Relics_List",
+  "count": 326,
+  "by_rarity": {
+    "unknown": 36,
+    "common": 44,
+    "uncommon": 5,
+    "rare": 10,
+    "ancient": 48,
+    "shop": 6,
+    "event": 37
+  },
+  "entries": {
+    "BURNING_BLOOD": {
+      "id": "BURNING_BLOOD",
+      "name": "Burning Blood",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Burning Blood",
+      "summary": "The  will always start every new run with this relic in his possession."
+    },
+    "BLACK_BLOOD": {
+      "id": "BLACK_BLOOD",
+      "name": "Black Blood",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Black Blood",
+      "summary": "is the Starter Upgrade of the 's . Its HP gain is doubled to 12, from 6."
+    },
+    "RING_OF_THE_SNAKE": {
+      "id": "RING_OF_THE_SNAKE",
+      "name": "Ring of the Snake",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ring of the Snake",
+      "summary": "It can be upgraded into  if it is offered by ."
+    },
+    "RING_OF_THE_DRAKE": {
+      "id": "RING_OF_THE_DRAKE",
+      "name": "Ring of the Drake",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ring of the Drake",
+      "summary": "is the Starter Upgrade of the Silent's . The extra card draw is extended to the first 3 turns."
+    },
+    "DIVINE_RIGHT": {
+      "id": "DIVINE_RIGHT",
+      "name": "Divine Right",
+      "rarity": "shop",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Relics",
+      "summary": "Relics are permanent items that give a passive bonus for the duration of the run. Most relics can be obtained regardless of the character you are playing. Each character has 9 Relics that can only be obtained by them. Starter Relics are given to each character when beginning a run. This starter relic can later be replaced with an upgraded  version by picking up the  from the   at the start of Act 2, when offered. {| class=\"wikitable\""
+    },
+    "DIVINE_DESTINY": {
+      "id": "DIVINE_DESTINY",
+      "name": "Divine Destiny",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Divine Destiny",
+      "summary": "is the Starter Upgrade of the Regent's . The Stars given are doubled to 6."
+    },
+    "BOUND_PHYLACTERY": {
+      "id": "BOUND_PHYLACTERY",
+      "name": "Bound Phylactery",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bound Phylactery",
+      "summary": "The  will always start every new run with this relic in her possession."
+    },
+    "NAME": {
+      "id": "NAME",
+      "name": "Name=",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Phylactery Unbound",
+      "summary": "is the Starter Upgrade of the 's . The start of turn  is doubled and an additional 5 is Summoned at the start of combat."
+    },
+    "CRACKED_CORE": {
+      "id": "CRACKED_CORE",
+      "name": "Cracked Core",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Cracked Core",
+      "summary": "The  will always start every new run with this relic in its possession."
+    },
+    "LIGHTNING": {
+      "id": "LIGHTNING",
+      "name": "Lightning",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lightning",
+      "summary": "are one of the most common types of damage-dealing Orbs the  can produce. Their Passive effect deals 3 (+1 per ) damage to a random enemy at the end of your turn. When , they deal 8 (+1 per ) damage to a random enemy."
+    },
+    "INFUSED_CORE": {
+      "id": "INFUSED_CORE",
+      "name": "Infused Core",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Infused Core",
+      "summary": "is the Starter Upgrade of the 's . It  3  at the start of combat instead of 1."
+    },
+    "AMETHYST_AUBERGINE": {
+      "id": "AMETHYST_AUBERGINE",
+      "name": "Amethyst Aubergine",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Amethyst Aubergine",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "GOLD": {
+      "id": "GOLD",
+      "name": "Gold",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Gold",
+      "summary": "frame|Money Pouch: Shows how much  you are carrying. Gold is the currency of . The player starts each run with 99 . It is used to purchase from the  or from various ."
+    },
+    "ANCHOR": {
+      "id": "ANCHOR",
+      "name": "Anchor???",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Anchor???",
+      "summary": "is an   from the Merchant???. It is a weaker version of . It provides 4  at the start of each combat."
+    },
+    "BLOCK": {
+      "id": "BLOCK",
+      "name": "Block",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Block",
+      "summary": "is the amount of damage a character or enemy can take before they lose HP. By default,  is removed at the start of each turn. and  modify the amount of  you gain from cards, however it does not apply to cards that depend on other effects to generate  such as  or  nor does it apply to . is capped at a value of 999,999,999 (1 less than a billion)."
+    },
+    "BAG_OF_MARBLES": {
+      "id": "BAG_OF_MARBLES",
+      "name": "Bag of Marbles",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bag of Marbles",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS"
+    },
+    "VULNERABLE": {
+      "id": "VULNERABLE",
+      "name": "Vulnerable",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Vulnerable",
+      "summary": "is a  both players and enemies can apply to their targets. While available to all characters, the  has the most dedicated support for . While a character or enemy has , the damage received from  and enemy Attacks is increased by 50% (typically), then rounded down. At the end of its turn, one point of  is decremented from the player or enemy."
+    },
+    "BAG_OF_PREPARATION": {
+      "id": "BAG_OF_PREPARATION",
+      "name": "Bag of Preparation",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bag of Preparation",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "BLOOD_VIAL": {
+      "id": "BLOOD_VIAL",
+      "name": "Blood Vial???",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Blood Vial???",
+      "summary": "is an   from the Merchant???. It is a weaker version of . It restores 1 HP at the start of each combat."
+    },
+    "BOOK_OF_FIVE_RINGS": {
+      "id": "BOOK_OF_FIVE_RINGS",
+      "name": "Book of Five Rings",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Book of Five Rings",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS"
+    },
+    "BRONZE_SCALES": {
+      "id": "BRONZE_SCALES",
+      "name": "Bronze Scales",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bronze Scales",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "BUFF": {
+      "id": "BUFF",
+      "name": "Buff",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Buff",
+      "summary": ""
+    },
+    "CENTENNIAL_PUZZLE": {
+      "id": "CENTENNIAL_PUZZLE",
+      "name": "Centennial Puzzle",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Centennial Puzzle",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "FESTIVE_POPPER": {
+      "id": "FESTIVE_POPPER",
+      "name": "Festive Popper",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Festive Popper",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "GORGET": {
+      "id": "GORGET",
+      "name": "Gorget",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Gorget",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "BUFFS": {
+      "id": "BUFFS",
+      "name": "Buffs",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Buffs",
+      "summary": "* Intensity buffs are more effective depending on how many stacks of the buff you have. These buffs typically are either permanent for the combat encounter or are consumed on the following turn. * Duration buffs last for as many turns as you have stacks of the buff. At the end of the turn, the buff will decrement by one stack. * Counter buffs activate when an event happens. Counter buffs typically lose a stack each time they activate. * Buffs that do not stack are typically gained from Power cards and last the entire combat encounter."
+    },
+    "HAPPY_FLOWER": {
+      "id": "HAPPY_FLOWER",
+      "name": "Happy Flower???",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Happy Flower???",
+      "summary": "is an   from the Merchant???. It is a weaker version of . Every fifth turn, it provides the player with one extra . The counter for this effect remains between combat encounters."
+    },
+    "JUZU_BRACELET": {
+      "id": "JUZU_BRACELET",
+      "name": "Juzu Bracelet",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Juzu Bracelet",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "LANTERN": {
+      "id": "LANTERN",
+      "name": "Lantern",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lantern",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "MEAL_TICKET": {
+      "id": "MEAL_TICKET",
+      "name": "Meal Ticket",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Meal Ticket",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "ODDLY_SMOOTH_STONE": {
+      "id": "ODDLY_SMOOTH_STONE",
+      "name": "Oddly Smooth Stone",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Oddly Smooth Stone",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "DEXTERITY": {
+      "id": "DEXTERITY",
+      "name": "Dexterity",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Dexterity",
+      "summary": "is a  that increases the  gained directly from cards. This does not apply to any other sources of , including by Buffs gained from cards. can be negative, reducing the  gained from cards to a minimum of 0."
+    },
+    "PENDULUM": {
+      "id": "PENDULUM",
+      "name": "Pendulum",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pendulum",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS"
+    },
+    "POTION_BELT": {
+      "id": "POTION_BELT",
+      "name": "Potion Belt",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Potion Belt",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "RED_MASK": {
+      "id": "RED_MASK",
+      "name": "Red Mask",
+      "rarity": "uncommon",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Red Mask",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS"
+    },
+    "WEAK": {
+      "id": "WEAK",
+      "name": "Weak",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Weak",
+      "summary": "is a  both players and enemies can apply to their targets. While available to all characters, the  has the some dedicated support for . While a character or enemy has , the damage of their  or enemy Attacks is decreased by 25% (typically), then rounded down. At the end of its turn, one point of  is decremented from the player or enemy."
+    },
+    "REGAL_PILLOW": {
+      "id": "REGAL_PILLOW",
+      "name": "Regal Pillow",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Regal Pillow",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "STRAWBERRY": {
+      "id": "STRAWBERRY",
+      "name": "Strawberry",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Strawberry",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "STRIKE_DUMMY": {
+      "id": "STRIKE_DUMMY",
+      "name": "Strike Dummy???",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Strike Dummy???",
+      "summary": "is an   from the Merchant???. It is a weaker version of . It increases the damage dealt by all cards with 'Strike' in their name by 1."
+    },
+    "VAJRA": {
+      "id": "VAJRA",
+      "name": "Vajra",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Vajra",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "STRENGTH": {
+      "id": "STRENGTH",
+      "name": "Strength",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Strength",
+      "summary": "is a  that increases the damage of  and  enemy Attacks. Each point of  increases the damage of an attack by 1. Attacks that hit multiple times, like , will apply  to each individual hit. can be negative, reducing the damage of attacks to a minimum of 0 damage per hit."
+    },
+    "VENERABLE_TEA_SET": {
+      "id": "VENERABLE_TEA_SET",
+      "name": "Venerable Tea Set???",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Venerable Tea Set???",
+      "summary": "is an   from the . It is a weaker version of ."
+    },
+    "WAR_PAINT": {
+      "id": "WAR_PAINT",
+      "name": "War Paint",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/War Paint",
+      "summary": "*  Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "WHETSTONE": {
+      "id": "WHETSTONE",
+      "name": "Whetstone",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Whetstone",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "RED_SKULL": {
+      "id": "RED_SKULL",
+      "name": "Red Skull",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Red Skull",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "SNECKO_SKULL": {
+      "id": "SNECKO_SKULL",
+      "name": "Snecko Skull",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Snecko Skull",
+      "summary": "is a   . It applies an additional 1  whenever another source applies ."
+    },
+    "POISON": {
+      "id": "POISON",
+      "name": "Poison",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Poison",
+      "summary": "is a  that the  can apply to Enemies. At the beginning of its turn, an enemy with  will lose HP equal to its number of  stacks. Then, its  stack will decrease by 1. inflicts HP loss after the enemy's  is removed, and each  stack will negate all  applied by a single source."
+    },
+    "FENCING_MANUAL": {
+      "id": "FENCING_MANUAL",
+      "name": "Fencing Manual",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Fencing Manual",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "BONE_FLUTE": {
+      "id": "BONE_FLUTE",
+      "name": "Bone Flute",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bone Flute",
+      "summary": "Can only be obtained by ."
+    },
+    "DATA_DISK": {
+      "id": "DATA_DISK",
+      "name": "Data Disk",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Data Disk",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "ORBS": {
+      "id": "ORBS",
+      "name": "Orbs",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Orbs",
+      "summary": "are a mechanic used by . They operate identical to their Slay the Spire origins, with the addition of a new Orb type."
+    },
+    "AKABEKO": {
+      "id": "AKABEKO",
+      "name": "Akabeko",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Akabeko",
+      "summary": ""
+    },
+    "BOWLER_HAT": {
+      "id": "BOWLER_HAT",
+      "name": "Bowler Hat",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bowler Hat",
+      "summary": "is a   which increases all  gains by 25%. It does not visually increase the amount gained by events or in combat rewards; the additional Gold is simply added to the current Gold total after the fact."
+    },
+    "CANDELABRA": {
+      "id": "CANDELABRA",
+      "name": "Candelabra",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Candelabra",
+      "summary": ""
+    },
+    "ETERNAL_FEATHER": {
+      "id": "ETERNAL_FEATHER",
+      "name": "Eternal Feather",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Eternal Feather",
+      "summary": ""
+    },
+    "GREMLIN_HORN": {
+      "id": "GREMLIN_HORN",
+      "name": "Gremlin Horn",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Gremlin Horn",
+      "summary": ""
+    },
+    "HORN_CLEAT": {
+      "id": "HORN_CLEAT",
+      "name": "Horn Cleat",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Horn Cleat",
+      "summary": ""
+    },
+    "JOSS_PAPER": {
+      "id": "JOSS_PAPER",
+      "name": "Joss Paper",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Joss Paper",
+      "summary": ""
+    },
+    "KUSARIGAMA": {
+      "id": "KUSARIGAMA",
+      "name": "Kusarigama",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Kusarigama",
+      "summary": ""
+    },
+    "LASTING_CANDY": {
+      "id": "LASTING_CANDY",
+      "name": "Lasting Candy",
+      "rarity": "rare",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lasting Candy",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS"
+    },
+    "LETTER_OPENER": {
+      "id": "LETTER_OPENER",
+      "name": "Letter Opener",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Letter Opener",
+      "summary": ""
+    },
+    "LUCKY_FYSH": {
+      "id": "LUCKY_FYSH",
+      "name": "Lucky Fysh",
+      "rarity": "uncommon",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lucky Fysh",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "MERCURY_HOURGLASS": {
+      "id": "MERCURY_HOURGLASS",
+      "name": "Mercury Hourglass",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Mercury Hourglass",
+      "summary": ""
+    },
+    "MINIATURE_CANNON": {
+      "id": "MINIATURE_CANNON",
+      "name": "Miniature Cannon",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Miniature Cannon",
+      "summary": ""
+    },
+    "NUNCHAKU": {
+      "id": "NUNCHAKU",
+      "name": "Nunchaku",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Nunchaku",
+      "summary": ""
+    },
+    "ORICHALCUM": {
+      "id": "ORICHALCUM",
+      "name": "Orichalcum???",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Orichalcum???",
+      "summary": "is an   from the Merchant???. It is a weaker version of ."
+    },
+    "ORNAMENTAL_FAN": {
+      "id": "ORNAMENTAL_FAN",
+      "name": "Ornamental Fan",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ornamental Fan",
+      "summary": "-------------------------------------- ------RARITY----NEEDS TO BE UPDATED FOR SLAY THE SPIRE 2 -------------------------------------- MERGE THESE AS NECESSARY BELOW, EXAMPLE, EVENTS WITH EVENTS. IF YOUR RELIC IS COMMON: * 's extra relic has a 25% chance of being  and 75% chance of being . IF YOUR RELIC IS UNCOMMON: * 's  option drops 1  relic and 1  relic. * 's extra relic has a 25% chance of being  and 75% chance of being . IF YOUR RELIC IS RARE: * 's  option drops 1  relic and 1  relic. * 's  option can drop . * 's  option can drop . -------------------------------------- ------TYPE----ALSO"
+    },
+    "PANTOGRAPH": {
+      "id": "PANTOGRAPH",
+      "name": "Pantograph",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pantograph",
+      "summary": ""
+    },
+    "PARRYING_SHIELD": {
+      "id": "PARRYING_SHIELD",
+      "name": "Parrying Shield",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Parrying Shield",
+      "summary": ""
+    },
+    "PEAR": {
+      "id": "PEAR",
+      "name": "Pear",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pear",
+      "summary": ""
+    },
+    "PEN_NIB": {
+      "id": "PEN_NIB",
+      "name": "Pen Nib",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pen Nib",
+      "summary": ""
+    },
+    "PERMAFROST": {
+      "id": "PERMAFROST",
+      "name": "Permafrost",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Permafrost",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS"
+    },
+    "PETRIFIED_TOAD": {
+      "id": "PETRIFIED_TOAD",
+      "name": "Petrified Toad",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Petrified Toad",
+      "summary": ""
+    },
+    "PLANISPHERE": {
+      "id": "PLANISPHERE",
+      "name": "Planisphere",
+      "rarity": "uncommon",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Planisphere",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS"
+    },
+    "REPTILE_TRINKET": {
+      "id": "REPTILE_TRINKET",
+      "name": "Reptile Trinket",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Reptile Trinket",
+      "summary": ""
+    },
+    "RIPPLE_BASIN": {
+      "id": "RIPPLE_BASIN",
+      "name": "Ripple Basin",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ripple Basin",
+      "summary": ""
+    },
+    "SPARKLING_ROUGE": {
+      "id": "SPARKLING_ROUGE",
+      "name": "Sparkling Rouge",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sparkling Rouge",
+      "summary": ""
+    },
+    "STONE_CRACKER": {
+      "id": "STONE_CRACKER",
+      "name": "Stone Cracker",
+      "rarity": "uncommon",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Stone Cracker",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS"
+    },
+    "TINY_MAILBOX": {
+      "id": "TINY_MAILBOX",
+      "name": "Tiny Mailbox",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Tiny Mailbox",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS"
+    },
+    "TUNING_FORK": {
+      "id": "TUNING_FORK",
+      "name": "Tuning Fork",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Tuning Fork",
+      "summary": ""
+    },
+    "VAMBRACE": {
+      "id": "VAMBRACE",
+      "name": "Vambrace",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Vambrace",
+      "summary": ""
+    },
+    "PAPER_PHROG": {
+      "id": "PAPER_PHROG",
+      "name": "Paper Phrog",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Paper Phrog",
+      "summary": ""
+    },
+    "SELF_FORMING_CLAY": {
+      "id": "SELF_FORMING_CLAY",
+      "name": "Self-Forming Clay",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Self-Forming Clay",
+      "summary": ""
+    },
+    "TINGSHA": {
+      "id": "TINGSHA",
+      "name": "Tingsha",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Tingsha",
+      "summary": ""
+    },
+    "TWISTED_FUNNEL": {
+      "id": "TWISTED_FUNNEL",
+      "name": "Twisted Funnel",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Twisted Funnel",
+      "summary": ""
+    },
+    "GALACTIC_DUST": {
+      "id": "GALACTIC_DUST",
+      "name": "Galactic Dust",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Galactic Dust",
+      "summary": ""
+    },
+    "REGALITE": {
+      "id": "REGALITE",
+      "name": "Regalite",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Regalite",
+      "summary": ""
+    },
+    "BOOK_REPAIR_KNIFE": {
+      "id": "BOOK_REPAIR_KNIFE",
+      "name": "Book Repair Knife",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Book Repair Knife",
+      "summary": ""
+    },
+    "DOOM": {
+      "id": "DOOM",
+      "name": "Doom",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Doom",
+      "summary": "is a  that the  can apply to enemies, or to herself. At the end of its turn, if an enemy's HP is less than or equal to its , it will die. If the Necrobinder or another character ends their turn with HP less than or equal to their than Doom, they will die. does not interact with , and each  stack will negate all  applied by a single source."
+    },
+    "FUNERARY_MASK": {
+      "id": "FUNERARY_MASK",
+      "name": "Funerary Mask",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Funerary Mask",
+      "summary": ""
+    },
+    "SOUL": {
+      "id": "SOUL",
+      "name": "Soul",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Soul",
+      "summary": "is a 0  cost    Card available to the . It draws 2 cards then  itself. The  has a lot of dedicated support for ."
+    },
+    "GOLD_PLATED_CABLES": {
+      "id": "GOLD_PLATED_CABLES",
+      "name": "Gold-Plated Cables",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Gold-Plated Cables",
+      "summary": ""
+    },
+    "SYMBIOTIC_VIRUS": {
+      "id": "SYMBIOTIC_VIRUS",
+      "name": "Symbiotic Virus",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Symbiotic Virus",
+      "summary": ""
+    },
+    "DARK": {
+      "id": "DARK",
+      "name": "Dark",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Dark",
+      "summary": ""
+    },
+    "ART_OF_WAR": {
+      "id": "ART_OF_WAR",
+      "name": "Art of War",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Art of War",
+      "summary": ""
+    },
+    "BEATING_REMNANT": {
+      "id": "BEATING_REMNANT",
+      "name": "Beating Remnant",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Beating Remnant",
+      "summary": ""
+    },
+    "BELLOWS": {
+      "id": "BELLOWS",
+      "name": "Bellows",
+      "rarity": "uncommon",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bellows",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS"
+    },
+    "CAPTAIN_S_WHEEL": {
+      "id": "CAPTAIN_S_WHEEL",
+      "name": "Captain's Wheel",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Captain's Wheel",
+      "summary": ""
+    },
+    "CHANDELIER": {
+      "id": "CHANDELIER",
+      "name": "Chandelier",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Chandelier",
+      "summary": ""
+    },
+    "CLOAK_CLASP": {
+      "id": "CLOAK_CLASP",
+      "name": "Cloak Clasp",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Cloak Clasp",
+      "summary": ""
+    },
+    "FROZEN_EGG": {
+      "id": "FROZEN_EGG",
+      "name": "Frozen Egg",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Frozen Egg",
+      "summary": ""
+    },
+    "GAMBLING_CHIP": {
+      "id": "GAMBLING_CHIP",
+      "name": "Gambling Chip",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Gambling Chip",
+      "summary": ""
+    },
+    "GAME_PIECE": {
+      "id": "GAME_PIECE",
+      "name": "Game Piece",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Game Piece",
+      "summary": ""
+    },
+    "GIRYA": {
+      "id": "GIRYA",
+      "name": "Girya",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Girya",
+      "summary": ""
+    },
+    "ICE_CREAM": {
+      "id": "ICE_CREAM",
+      "name": "Ice Cream",
+      "rarity": "rare",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ice Cream",
+      "summary": "is a   .   It prevents the player's  from being reset at the start of each turn, instead adding any remaining energy to the base value next turn. For example, if Ironclad has 3 base energy and uses 2, then at the start of the next turn he will have 4  available. <!-------------------------------------------- } is if the relic is not fully non-ambigious in its description. For example, Mummified Hand has the keyword \"this turn\". \"This turn\" actually means \"this turn, while in hand\", because as soon as a decosted card goes into the discard or draw pile, it goes back to its original cost, even wh"
+    },
+    "KEYWORDS": {
+      "id": "KEYWORDS",
+      "name": "Keywords",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Keywords",
+      "summary": "List of keywords in Slay the Spire 2."
+    },
+    "INTIMIDATING_HELMET": {
+      "id": "INTIMIDATING_HELMET",
+      "name": "Intimidating Helmet",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Intimidating Helmet",
+      "summary": ""
+    },
+    "KUNAI": {
+      "id": "KUNAI",
+      "name": "Kunai",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Kunai",
+      "summary": ""
+    },
+    "LIZARD_TAIL": {
+      "id": "LIZARD_TAIL",
+      "name": "Lizard Tail",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lizard Tail",
+      "summary": ""
+    },
+    "MANGO": {
+      "id": "MANGO",
+      "name": "Mango???",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Mango???",
+      "summary": "is an   from the Merchant???. It is a weaker version of ."
+    },
+    "MEAT_ON_THE_BONE": {
+      "id": "MEAT_ON_THE_BONE",
+      "name": "Meat on the Bone",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Meat on the Bone",
+      "summary": ""
+    },
+    "MOLTEN_EGG": {
+      "id": "MOLTEN_EGG",
+      "name": "Molten Egg",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Molten Egg",
+      "summary": ""
+    },
+    "MUMMIFIED_HAND": {
+      "id": "MUMMIFIED_HAND",
+      "name": "Mummified Hand",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Mummified Hand",
+      "summary": ""
+    },
+    "OLD_COIN": {
+      "id": "OLD_COIN",
+      "name": "Old Coin",
+      "rarity": "rare",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Old Coin",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "POCKETWATCH": {
+      "id": "POCKETWATCH",
+      "name": "Pocketwatch",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pocketwatch",
+      "summary": ""
+    },
+    "PRAYER_WHEEL": {
+      "id": "PRAYER_WHEEL",
+      "name": "Prayer Wheel",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Prayer Wheel",
+      "summary": ""
+    },
+    "RAINBOW_RING": {
+      "id": "RAINBOW_RING",
+      "name": "Rainbow Ring",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Rainbow Ring",
+      "summary": ""
+    },
+    "RAZOR_TOOTH": {
+      "id": "RAZOR_TOOTH",
+      "name": "Razor Tooth",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Razor Tooth",
+      "summary": ""
+    },
+    "SHOVEL": {
+      "id": "SHOVEL",
+      "name": "Shovel",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Shovel",
+      "summary": "is a  . It adds a \"Dig\" option to , which allows the player to receive a random  that is , , or . The random relic can't be a , , or  relic."
+    },
+    "SHURIKEN": {
+      "id": "SHURIKEN",
+      "name": "Shuriken",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Shuriken",
+      "summary": ""
+    },
+    "STONE_CALENDAR": {
+      "id": "STONE_CALENDAR",
+      "name": "Stone Calendar",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Stone Calendar",
+      "summary": ""
+    },
+    "STURDY_CLAMP": {
+      "id": "STURDY_CLAMP",
+      "name": "Sturdy Clamp",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sturdy Clamp",
+      "summary": ""
+    },
+    "THE_COURIER": {
+      "id": "THE_COURIER",
+      "name": "The Courier",
+      "rarity": "rare",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Courier",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and ."
+    },
+    "TOXIC_EGG": {
+      "id": "TOXIC_EGG",
+      "name": "Toxic Egg",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Toxic Egg",
+      "summary": ""
+    },
+    "TUNGSTEN_ROD": {
+      "id": "TUNGSTEN_ROD",
+      "name": "Tungsten Rod",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Tungsten Rod",
+      "summary": ""
+    },
+    "UNCEASING_TOP": {
+      "id": "UNCEASING_TOP",
+      "name": "Unceasing Top",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Unceasing Top",
+      "summary": ""
+    },
+    "UNSETTLING_LAMP": {
+      "id": "UNSETTLING_LAMP",
+      "name": "Unsettling Lamp",
+      "rarity": "rare",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Unsettling Lamp",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS"
+    },
+    "VEXING_PUZZLEBOX": {
+      "id": "VEXING_PUZZLEBOX",
+      "name": "Vexing Puzzlebox",
+      "rarity": "rare",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Vexing Puzzlebox",
+      "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and . * Can be obtained from the following events: TODO: FIND RELIC SOURCES FROM EVENTS"
+    },
+    "WHITE_BEAST_STATUE": {
+      "id": "WHITE_BEAST_STATUE",
+      "name": "White Beast Statue",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/White Beast Statue",
+      "summary": ""
+    },
+    "WHITE_STAR": {
+      "id": "WHITE_STAR",
+      "name": "White Star",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/White Star",
+      "summary": ""
+    },
+    "CHARON_S_ASHES": {
+      "id": "CHARON_S_ASHES",
+      "name": "Charon's Ashes",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Charon's Ashes",
+      "summary": ""
+    },
+    "DEMON_TONGUE": {
+      "id": "DEMON_TONGUE",
+      "name": "Demon Tongue",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Demon Tongue",
+      "summary": ""
+    },
+    "RUINED_HELMET": {
+      "id": "RUINED_HELMET",
+      "name": "Ruined Helmet",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ruined Helmet",
+      "summary": ""
+    },
+    "HELICAL_DART": {
+      "id": "HELICAL_DART",
+      "name": "Helical Dart",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Helical Dart",
+      "summary": ""
+    },
+    "PAPER_KRANE": {
+      "id": "PAPER_KRANE",
+      "name": "Paper Krane",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Paper Krane",
+      "summary": ""
+    },
+    "TOUGH_BANDAGES": {
+      "id": "TOUGH_BANDAGES",
+      "name": "Tough Bandages",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Tough Bandages",
+      "summary": "FOLLOW THE COMMENTS GIVEN, AND THEN DELETE THIS TEXT AND THE SURROUNDING COMMENTS. You're free to change back to visual editor after this. If there is an issue or question you have regarding this template page, use the talk page at MediaWiki talk:Preloads/StS2 Relic or use the wiki channel on the official Slay the Spire discord server. If you are not sure if a section has relevant information to put, keep the heading and any comments it has so other editors can add it later on. is a    . It gives 3  every time a card is discarded. <!-------------------------------------------- Replace all the"
+    },
+    "LUNAR_PASTRY": {
+      "id": "LUNAR_PASTRY",
+      "name": "Lunar Pastry",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lunar Pastry",
+      "summary": ""
+    },
+    "MINI_REGENT": {
+      "id": "MINI_REGENT",
+      "name": "Mini Regent",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Mini Regent",
+      "summary": ""
+    },
+    "ORANGE_DOUGH": {
+      "id": "ORANGE_DOUGH",
+      "name": "Orange Dough",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Orange Dough",
+      "summary": ""
+    },
+    "BIG_HAT": {
+      "id": "BIG_HAT",
+      "name": "Big Hat",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Big Hat",
+      "summary": ""
+    },
+    "BOOKMARK": {
+      "id": "BOOKMARK",
+      "name": "Bookmark",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bookmark",
+      "summary": ""
+    },
+    "IVORY_TILE": {
+      "id": "IVORY_TILE",
+      "name": "Ivory Tile",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ivory Tile",
+      "summary": ""
+    },
+    "EMOTION_CHIP": {
+      "id": "EMOTION_CHIP",
+      "name": "Emotion Chip",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Emotion Chip",
+      "summary": ""
+    },
+    "METRONOME": {
+      "id": "METRONOME",
+      "name": "Metronome",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Metronome",
+      "summary": ""
+    },
+    "POWER_CELL": {
+      "id": "POWER_CELL",
+      "name": "Power Cell",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Power Cell",
+      "summary": ""
+    },
+    "ARCANE_SCROLL": {
+      "id": "ARCANE_SCROLL",
+      "name": "Arcane Scroll",
+      "rarity": "rare",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Arcane Scroll",
+      "summary": "Upon pickup, add a random  to your Deck."
+    },
+    "BOOMING_CONCH": {
+      "id": "BOOMING_CONCH",
+      "name": "Booming Conch",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Booming Conch",
+      "summary": "At the start of the run, can be offered by ."
+    },
+    "CURSED_PEARL": {
+      "id": "CURSED_PEARL",
+      "name": "Cursed Pearl",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Cursed Pearl",
+      "summary": "is an   offered by  at the start of a run."
+    },
+    "GREED": {
+      "id": "GREED",
+      "name": "Greed",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Greed",
+      "summary": "Can only be obtained by taking  from 's offering at the start of the run (for 333 Gold) or from the event  (for 303-363 Gold)."
+    },
+    "GOLDEN_PEARL": {
+      "id": "GOLDEN_PEARL",
+      "name": "Golden Pearl",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Golden Pearl",
+      "summary": "is an   offered by  at the start of a run."
+    },
+    "HEFTY_TABLET": {
+      "id": "HEFTY_TABLET",
+      "name": "Hefty Tablet",
+      "rarity": "rare",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Hefty Tablet",
+      "summary": "is an  . Choose 1 of 3  to add to your Deck. Add 1  to your Deck."
+    },
+    "INJURY": {
+      "id": "INJURY",
+      "name": "Injury",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Injury",
+      "summary": ""
+    },
+    "LARGE_CAPSULE": {
+      "id": "LARGE_CAPSULE",
+      "name": "Large Capsule",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Large Capsule",
+      "summary": "is an   offered by  at the start of a run."
+    },
+    "LAVA_ROCK": {
+      "id": "LAVA_ROCK",
+      "name": "Lava Rock",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lava Rock",
+      "summary": ""
+    },
+    "LEAD_PAPERWEIGHT": {
+      "id": "LEAD_PAPERWEIGHT",
+      "name": "Lead Paperweight",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lead Paperweight",
+      "summary": ""
+    },
+    "LEAFY_POULTICE": {
+      "id": "LEAFY_POULTICE",
+      "name": "Leafy Poultice",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Leafy Poultice",
+      "summary": "At the start of the run, can be offered by ."
+    },
+    "LOST_COFFER": {
+      "id": "LOST_COFFER",
+      "name": "Lost Coffer",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lost Coffer",
+      "summary": ""
+    },
+    "MASSIVE_SCROLL": {
+      "id": "MASSIVE_SCROLL",
+      "name": "Massive Scroll",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Massive Scroll",
+      "summary": "is a    . It gives the user the choice between 1 of 3  card."
+    },
+    "NEOW_S_BONES": {
+      "id": "NEOW_S_BONES",
+      "name": "Neow's Bones",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Neow's Bones",
+      "summary": "At the start of the run, can be offered by ."
+    },
+    "NEOW_S_TALISMAN": {
+      "id": "NEOW_S_TALISMAN",
+      "name": "Neow's Talisman",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Neow's Talisman",
+      "summary": "At the start of the run, can be offered by ."
+    },
+    "NEOW_S_TORMENT": {
+      "id": "NEOW_S_TORMENT",
+      "name": "Neow's Torment",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Neow's Torment",
+      "summary": ""
+    },
+    "NEOW_S_FURY": {
+      "id": "NEOW_S_FURY",
+      "name": "Neow's Fury",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Neow's Fury",
+      "summary": "is a 1  cost    Card. It deals 10 (14 if upgraded) damage and puts 2 random cards from your Discard Pile into your Hand.  will then  itself."
+    },
+    "NEW_LEAF": {
+      "id": "NEW_LEAF",
+      "name": "New Leaf",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/New Leaf",
+      "summary": ""
+    },
+    "NUTRITIOUS_OYSTER": {
+      "id": "NUTRITIOUS_OYSTER",
+      "name": "Nutritious Oyster",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Nutritious Oyster",
+      "summary": ""
+    },
+    "PHIAL_HOLSTER": {
+      "id": "PHIAL_HOLSTER",
+      "name": "Phial Holster",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Phial Holster",
+      "summary": "At the start of the run, can be offered by ."
+    },
+    "POMANDER": {
+      "id": "POMANDER",
+      "name": "Pomander",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pomander",
+      "summary": ""
+    },
+    "PRECARIOUS_SHEARS": {
+      "id": "PRECARIOUS_SHEARS",
+      "name": "Precarious Shears",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Precarious Shears",
+      "summary": "At the start of the run, can be offered by ."
+    },
+    "PRECISE_SCISSORS": {
+      "id": "PRECISE_SCISSORS",
+      "name": "Precise Scissors",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Precise Scissors",
+      "summary": ""
+    },
+    "SCROLL_BOXES": {
+      "id": "SCROLL_BOXES",
+      "name": "Scroll Boxes",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Scroll Boxes",
+      "summary": "is an  . Upon pickup, you lose all Gold and choose 1 of 2 packs of 3 cards to add to your Deck. Each pack contains 1 random  and 2 random . You must take one of the packs before proceeding. There is a 1% chance when playing  that one of the card packs is 3 copies of ."
+    },
+    "SILVER_CRUCIBLE": {
+      "id": "SILVER_CRUCIBLE",
+      "name": "Silver Crucible",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Silver Crucible",
+      "summary": "At the start of the run, can be offered by  (only if not playing multi-player)."
+    },
+    "SMALL_CAPSULE": {
+      "id": "SMALL_CAPSULE",
+      "name": "Small Capsule",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Small Capsule",
+      "summary": ""
+    },
+    "STONE_HUMIDIFIER": {
+      "id": "STONE_HUMIDIFIER",
+      "name": "Stone Humidifier",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Stone Humidifier",
+      "summary": ""
+    },
+    "WINGED_BOOTS": {
+      "id": "WINGED_BOOTS",
+      "name": "Winged Boots",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Winged Boots",
+      "summary": "At the start of the run, can be offered by ."
+    },
+    "ALCHEMICAL_COFFER": {
+      "id": "ALCHEMICAL_COFFER",
+      "name": "Alchemical Coffer",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Alchemical Coffer",
+      "summary": "is an Ancient . Upon pickup you gain 4 potion slots and pickup 4 random ."
+    },
+    "ARCHAIC_TOOTH": {
+      "id": "ARCHAIC_TOOTH",
+      "name": "Archaic Tooth",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Archaic Tooth",
+      "summary": "is an   that replaces one of your  (not including Strikes or Defends) with an upgraded  version."
+    },
+    "DRIFTWOOD": {
+      "id": "DRIFTWOOD",
+      "name": "Driftwood",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Driftwood",
+      "summary": ""
+    },
+    "ELECTRIC_SHRYMP": {
+      "id": "ELECTRIC_SHRYMP",
+      "name": "Electric Shrymp",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Electric Shrymp",
+      "summary": "is an  . Upon pickup, you choose a  to  with , making it automatically played for free at the start of each combat. After being played, the card will go into your Discard Pile, or  if it has ."
+    },
+    "ENCHANTMENTS": {
+      "id": "ENCHANTMENTS",
+      "name": "Enchantments",
+      "rarity": "rare",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Enchantments",
+      "summary": "Enchantments are a new  introduced in Slay the Spire 2. They are permanent, positive effects added to cards either in your Deck or in card rewards through various , , and . A card can only have one enchantment. {| class=\"wikitable sortable\" * For , X is 3 even though  description does not specify an X value for Adroit. * Adroit is affected by  and . * Duplicates created by Cloning will also have the Clone . Each time Clone is selected at a , the number of Cloned cards will double (or triple with ). *  is currently only available in BETA branch of the game * Any copies of  in your Deck will als"
+    },
+    "GLASS_EYE": {
+      "id": "GLASS_EYE",
+      "name": "Glass Eye",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Glass Eye",
+      "summary": "is an  . Upon pickup, you are offered 5 card rewards, with their rarities fixed at 2 sets of 3 , 2 sets of , and 1 set of ."
+    },
+    "PRISMATIC_GEM": {
+      "id": "PRISMATIC_GEM",
+      "name": "Prismatic Gem",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Prismatic Gem",
+      "summary": "is an  . After you obtain this Relic, your card rewards will show cards from other colors excluding . Additionally, you gain  at the start of each turn."
+    },
+    "RADIANT_PEARL": {
+      "id": "RADIANT_PEARL",
+      "name": "Radiant Pearl",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Radiant Pearl",
+      "summary": "is an  . At the start of each combat, it adds 1  into your Hand."
+    },
+    "LUMINESCE": {
+      "id": "LUMINESCE",
+      "name": "Luminesce",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Luminesce",
+      "summary": "is a 0  cost   Card. It gives 2 (3 if upgraded) , then . It has , so it will not discard at the end of the player turn."
+    },
+    "SAND_CASTLE": {
+      "id": "SAND_CASTLE",
+      "name": "Sand Castle",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sand Castle",
+      "summary": "is an  . Upon pickup, 6 random cards are ."
+    },
+    "SEA_GLASS": {
+      "id": "SEA_GLASS",
+      "name": "Sea Glass",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sea Glass",
+      "summary": "is an  . Upon pickup, you see 15 cards from a class other than your own, and add any number of them to your deck. The options always consist of 5 , 5 , and 5 ."
+    },
+    "TOUCH_OF_OROBAS": {
+      "id": "TOUCH_OF_OROBAS",
+      "name": "Touch of Orobas",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Touch of Orobas",
+      "summary": "is an  . Upon pickup, it replaces your  with an upgraded version."
+    },
+    "PAEL_S_BLOOD": {
+      "id": "PAEL_S_BLOOD",
+      "name": "Pael's Blood",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pael's Blood",
+      "summary": ""
+    },
+    "PAEL_S_CLAW": {
+      "id": "PAEL_S_CLAW",
+      "name": "Pael's Claw",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pael's Claw",
+      "summary": "is an   that  all  in your Deck with ."
+    },
+    "PAEL_S_EYE": {
+      "id": "PAEL_S_EYE",
+      "name": "Pael's Eye",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pael's Eye",
+      "summary": "is an  . The first time each combat you end your turn without playing cards, it  your Hand and gives you an extra turn."
+    },
+    "PAEL_S_FLESH": {
+      "id": "PAEL_S_FLESH",
+      "name": "Pael's Flesh",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pael's Flesh",
+      "summary": ""
+    },
+    "PAEL_S_GROWTH": {
+      "id": "PAEL_S_GROWTH",
+      "name": "Pael's Growth",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pael's Growth",
+      "summary": "is an  . Upon pickup, you Enchant a card with , allowing you to duplicate ''every'' copy of it at Rest Sites."
+    },
+    "PAEL_S_HORN": {
+      "id": "PAEL_S_HORN",
+      "name": "Pael's Horn",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pael's Horn",
+      "summary": ""
+    },
+    "RELAX": {
+      "id": "RELAX",
+      "name": "Relax",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Relax",
+      "summary": "is a 3  cost    Card. It gives 15 (17 if upgraded)  and 2 (3 if upgraded)  and , and then ."
+    },
+    "PAEL_S_LEGION": {
+      "id": "PAEL_S_LEGION",
+      "name": "Pael's Legion",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pael's Legion",
+      "summary": ""
+    },
+    "PAEL_S_TEARS": {
+      "id": "PAEL_S_TEARS",
+      "name": "Pael's Tears",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pael's Tears",
+      "summary": ""
+    },
+    "PAEL_S_TOOTH": {
+      "id": "PAEL_S_TOOTH",
+      "name": "Pael's Tooth",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pael's Tooth",
+      "summary": ""
+    },
+    "PAEL_S_WING": {
+      "id": "PAEL_S_WING",
+      "name": "Pael's Wing",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pael's Wing",
+      "summary": "<!-------------------------------------------- } is if the relic is not fully non-ambigious in its description. For example, Mummified Hand has the keyword \"this turn\". \"This turn\" actually means \"this turn, while in hand\", because as soon as a decosted card goes into the discard or draw pile, it goes back to its original cost, even when unplayed. Replace all the ALL CAPS words with applicable information: ------------------------------------------------> <!-- Relic Infobox is the template that controls the infobox of just your relic and is mandatory. This name will be typed with spaces, and t"
+    },
+    "BIIIG_HUG": {
+      "id": "BIIIG_HUG",
+      "name": "Biiig Hug",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Biiig Hug",
+      "summary": ""
+    },
+    "SOOT": {
+      "id": "SOOT",
+      "name": "Soot",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Soot",
+      "summary": "adds a  to the player's draw pile when it is shuffled."
+    },
+    "GOLDEN_COMPASS": {
+      "id": "GOLDEN_COMPASS",
+      "name": "Golden Compass",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Golden Compass",
+      "summary": "is an   offered by  at the start of . It replaces the Act 2 map with a single path that is 2 floors longer than the regular Act 2 and always has the following  in order:"
+    },
+    "NUTRITIOUS_SOUP": {
+      "id": "NUTRITIOUS_SOUP",
+      "name": "Nutritious Soup",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Nutritious Soup",
+      "summary": "is an   that  all  in your Deck with ."
+    },
+    "PUMPKIN_CANDLE": {
+      "id": "PUMPKIN_CANDLE",
+      "name": "Pumpkin Candle",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pumpkin Candle",
+      "summary": "Can be offered at the start of Act 2 by ."
+    },
+    "SEAL_OF_GOLD": {
+      "id": "SEAL_OF_GOLD",
+      "name": "Seal of Gold",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Seal of Gold",
+      "summary": "is an  . After pickup, you will lose 5 Gold to gain  at the start of each turn."
+    },
+    "STORYBOOK": {
+      "id": "STORYBOOK",
+      "name": "Storybook",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Storybook",
+      "summary": ""
+    },
+    "BRIGHTEST_FLAME": {
+      "id": "BRIGHTEST_FLAME",
+      "name": "Brightest Flame",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Brightest Flame",
+      "summary": "is a 0  cost    Card. It gives 2 (3 if upgraded)  and draws 2 (3 if upgraded) cards, but also reduces your Max HP by 1."
+    },
+    "TOASTY_MITTENS": {
+      "id": "TOASTY_MITTENS",
+      "name": "Toasty Mittens",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Toasty Mittens",
+      "summary": ""
+    },
+    "TOY_BOX": {
+      "id": "TOY_BOX",
+      "name": "Toy Box",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Toy Box",
+      "summary": "is a  . Upon pickup, obtain 4 Wax Relics. Every 3 combats, your left-most Wax Relic will \"melt\" away, losing its effect. The Wax Relics are just recolored versions of regular (i.e. non-Shop, non-Event)  and have the same effect as the normal Relic besides going inactive after 3 combats."
+    },
+    "VERY_HOT_COCOA": {
+      "id": "VERY_HOT_COCOA",
+      "name": "Very Hot Cocoa",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Very Hot Cocoa",
+      "summary": "Can be offered at the start of Act 2 by ."
+    },
+    "YUMMY_COOKIE": {
+      "id": "YUMMY_COOKIE",
+      "name": "Yummy Cookie",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Yummy Cookie",
+      "summary": "is an  . Choosing this relic allows you to upgrade up to 4 of your cards."
+    },
+    "BEAUTIFUL_BRACELET": {
+      "id": "BEAUTIFUL_BRACELET",
+      "name": "Beautiful Bracelet",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Beautiful Bracelet",
+      "summary": ""
+    },
+    "BLESSED_ANTLER": {
+      "id": "BLESSED_ANTLER",
+      "name": "Blessed Antler",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Blessed Antler",
+      "summary": ""
+    },
+    "DAZED": {
+      "id": "DAZED",
+      "name": "Dazed",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Dazed",
+      "summary": "*  adds a  to the player's discard pile. *  adds 2  to the player's draw pile after they've finished drawing their opening hand for the start of combat. The following enemies can give the player : **  - Adds 3  to your discard pile. **  - Adds 4  to your discard pile. **  - Adds 3  to your discard pile. *  - Starts with 1 . **  - Gains 1 . (Max 3) **  - Whenever this enemy is hit by an Attack, add X  into your Draw Pile. **  - Adds 2  to your draw pile and 2 to your discard pile"
+    },
+    "BRILLIANT_SCARF": {
+      "id": "BRILLIANT_SCARF",
+      "name": "Brilliant Scarf",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Brilliant Scarf",
+      "summary": ""
+    },
+    "DELICATE_FROND": {
+      "id": "DELICATE_FROND",
+      "name": "Delicate Frond",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Delicate Frond",
+      "summary": ""
+    },
+    "DIAMOND_DIADEM": {
+      "id": "DIAMOND_DIADEM",
+      "name": "Diamond Diadem",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Diamond Diadem",
+      "summary": ""
+    },
+    "FUR_COAT": {
+      "id": "FUR_COAT",
+      "name": "Fur Coat",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Fur Coat",
+      "summary": "At the start of ,  can be offered by ."
+    },
+    "GLITTER": {
+      "id": "GLITTER",
+      "name": "Glitter",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Glitter",
+      "summary": "is an  . After pickup, every card reward is Enchanted with ."
+    },
+    "JEWELRY_BOX": {
+      "id": "JEWELRY_BOX",
+      "name": "Jewelry Box",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Jewelry Box",
+      "summary": ""
+    },
+    "APOTHEOSIS": {
+      "id": "APOTHEOSIS",
+      "name": "Apotheosis",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Apotheosis",
+      "summary": "is a 2  cost    Card. It  every card in the player's hand, draw pile, discard pile, and exhaust pile for the remainder of combat, then  itself. It has , meaning it will always appear in your first hand of combat."
+    },
+    "LOOMING_FRUIT": {
+      "id": "LOOMING_FRUIT",
+      "name": "Looming Fruit",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Looming Fruit",
+      "summary": "At the start of , can be offered by ."
+    },
+    "SIGNET_RING": {
+      "id": "SIGNET_RING",
+      "name": "Signet Ring",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Signet Ring",
+      "summary": ""
+    },
+    "CLAWS": {
+      "id": "CLAWS",
+      "name": "Claws",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Claws",
+      "summary": ""
+    },
+    "MAUL": {
+      "id": "MAUL",
+      "name": "Maul",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Maul",
+      "summary": "is a 1  cost    Card. It deals 5 (6 if upgraded) damage twice, then increases the damage of ALL  cards by 1 (2 if upgraded) for the remainder of combat."
+    },
+    "CROSSBOW": {
+      "id": "CROSSBOW",
+      "name": "Crossbow",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Crossbow",
+      "summary": "is an  . The description is somewhat misleading, as the -reduction effect will be lost once played. Even if it's the same turn, if the affected card is played and then returned to the hand by any means (e.g. using ), the card will be at its original cost."
+    },
+    "IRON_CLUB": {
+      "id": "IRON_CLUB",
+      "name": "Iron Club",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Iron Club",
+      "summary": ""
+    },
+    "MEAT_CLEAVER": {
+      "id": "MEAT_CLEAVER",
+      "name": "Meat Cleaver",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Meat Cleaver",
+      "summary": "is an  Ancient .  This relic gives the Player the option to remove 2 cards from their Deck and gain 9 Max HP at . This relic is only obtainable at the start of Act 3."
+    },
+    "SAI": {
+      "id": "SAI",
+      "name": "Sai",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sai",
+      "summary": ""
+    },
+    "SPIKED_GAUNTLETS": {
+      "id": "SPIKED_GAUNTLETS",
+      "name": "Spiked Gauntlets",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Spiked Gauntlets",
+      "summary": ""
+    },
+    "TANX_S_WHISTLE": {
+      "id": "TANX_S_WHISTLE",
+      "name": "Tanx's Whistle",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Tanx's Whistle",
+      "summary": ""
+    },
+    "WHISTLE": {
+      "id": "WHISTLE",
+      "name": "Whistle",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Whistle",
+      "summary": "is a 3  cost    Card."
+    },
+    "THROWING_AXE": {
+      "id": "THROWING_AXE",
+      "name": "Throwing Axe",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Throwing Axe",
+      "summary": ""
+    },
+    "TRI_BOOMERANG": {
+      "id": "TRI_BOOMERANG",
+      "name": "Tri-Boomerang",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Tri-Boomerang",
+      "summary": "At the start of , can be offered by ."
+    },
+    "WAR_HAMMER": {
+      "id": "WAR_HAMMER",
+      "name": "War Hammer",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/War Hammer",
+      "summary": ""
+    },
+    "BLOOD_SOAKED_ROSE": {
+      "id": "BLOOD_SOAKED_ROSE",
+      "name": "Blood-Soaked Rose",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Blood-Soaked Rose",
+      "summary": ""
+    },
+    "ENTHRALLED": {
+      "id": "ENTHRALLED",
+      "name": "Enthralled",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Enthralled",
+      "summary": "is a 2  cost   Card. If it is in your Hand, it must be played before other cards."
+    },
+    "CHOICES_PARADOX": {
+      "id": "CHOICES_PARADOX",
+      "name": "Choices Paradox",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Choices Paradox",
+      "summary": ""
+    },
+    "DISTINGUISHED_CAPE": {
+      "id": "DISTINGUISHED_CAPE",
+      "name": "Distinguished Cape",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Distinguished Cape",
+      "summary": ""
+    },
+    "FIDDLE": {
+      "id": "FIDDLE",
+      "name": "Fiddle",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Fiddle",
+      "summary": ""
+    },
+    "JEWELED_MASK": {
+      "id": "JEWELED_MASK",
+      "name": "Jeweled Mask",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Jeweled Mask",
+      "summary": ""
+    },
+    "LORD_S_PARASOL": {
+      "id": "LORD_S_PARASOL",
+      "name": "Lord's Parasol",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lord's Parasol",
+      "summary": "is an  . Upon entering a shop after obtaining this relic you immediately obtain everything the Merchant sells at no cost. This includes cards, relics, potions, and the card removal service. You may not refuse anything obtained and cards will be sent straight into your deck. Potions will only be obtained if you have space for them, and if not they will remain available at their original price."
+    },
+    "MUSIC_BOX": {
+      "id": "MUSIC_BOX",
+      "name": "Music Box",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Music Box",
+      "summary": "is an  . It creates an  copy of the first  you play each turn."
+    },
+    "PRESERVED_FOG": {
+      "id": "PRESERVED_FOG",
+      "name": "Preserved Fog",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Preserved Fog",
+      "summary": "At the start of , Preserved Fog can be offered by ."
+    },
+    "FOLLY": {
+      "id": "FOLLY",
+      "name": "Folly",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Folly",
+      "summary": "can only be obtained by taking  from 's offering at the start of , which allows you to remove 3 cards from your Deck."
+    },
+    "SERE_TALON": {
+      "id": "SERE_TALON",
+      "name": "Sere Talon",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sere Talon",
+      "summary": "is an  . It adds 3 copies of  to the player's deck as well as 2 random . The  added will never include , , , , , , , or ."
+    },
+    "WISH": {
+      "id": "WISH",
+      "name": "Wish",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Wish",
+      "summary": "is a 0  cost    Card. It allows you to choose 1 card from your Draw Pile to place into your Hand, after which it . If upgraded, it has , meaning it will not be discarded when you end your turn."
+    },
+    "WHISPERING_EARRING": {
+      "id": "WHISPERING_EARRING",
+      "name": "Whispering Earring",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Whispering Earring",
+      "summary": "is an  . It grants 1 additional  per turn, but the first turn of each combat is played by ' instead of the player.  plays cards in hand from left to right, until all cards and/or / are depleted ''or'' until he has played 13 cards. After this, the player regains control of the turn."
+    },
+    "ASTROLABE": {
+      "id": "ASTROLABE",
+      "name": "Astrolabe",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Astrolabe",
+      "summary": ""
+    },
+    "BLACK_STAR": {
+      "id": "BLACK_STAR",
+      "name": "Black Star",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Black Star",
+      "summary": ""
+    },
+    "CALLING_BELL": {
+      "id": "CALLING_BELL",
+      "name": "Calling Bell",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Calling Bell",
+      "summary": ""
+    },
+    "CURSE_OF_THE_BELL": {
+      "id": "CURSE_OF_THE_BELL",
+      "name": "Curse of the Bell",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Curse of the Bell",
+      "summary": ""
+    },
+    "DUSTY_TOME": {
+      "id": "DUSTY_TOME",
+      "name": "Dusty Tome",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Dusty Tome",
+      "summary": ""
+    },
+    "ECTOPLASM": {
+      "id": "ECTOPLASM",
+      "name": "Ectoplasm",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ectoplasm",
+      "summary": ""
+    },
+    "EMPTY_CAGE": {
+      "id": "EMPTY_CAGE",
+      "name": "Empty Cage",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Empty Cage",
+      "summary": ""
+    },
+    "PANDORA_S_BOX": {
+      "id": "PANDORA_S_BOX",
+      "name": "Pandora's Box",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pandora's Box",
+      "summary": ""
+    },
+    "PHILOSOPHER_S_STONE": {
+      "id": "PHILOSOPHER_S_STONE",
+      "name": "Philosopher's Stone",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Philosopher's Stone",
+      "summary": ""
+    },
+    "RUNIC_PYRAMID": {
+      "id": "RUNIC_PYRAMID",
+      "name": "Runic Pyramid",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Runic Pyramid",
+      "summary": ""
+    },
+    "SNECKO_EYE": {
+      "id": "SNECKO_EYE",
+      "name": "Snecko Eye???",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Snecko Eye???",
+      "summary": "is an   from the Merchant???. It is a weaker version of ."
+    },
+    "DEBUFFS": {
+      "id": "DEBUFFS",
+      "name": "Debuffs",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Debuffs",
+      "summary": "* Intensity debuffs are more effective depending on how many stacks of the debuff you have. * Duration debuffs last for as many turns as you have stacks of the debuff. At the end of the turn, the debuff will decrement by one stack. * Debuffs that do not stack are typically gained from Power cards and last the entire combat encounter."
+    },
+    "SOZU": {
+      "id": "SOZU",
+      "name": "Sozu",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sozu",
+      "summary": ""
+    },
+    "VELVET_CHOKER": {
+      "id": "VELVET_CHOKER",
+      "name": "Velvet Choker",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Velvet Choker",
+      "summary": ""
+    },
+    "BELT_BUCKLE": {
+      "id": "BELT_BUCKLE",
+      "name": "Belt Buckle",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Belt Buckle",
+      "summary": "FOLLOW THE COMMENTS GIVEN, AND THEN DELETE THIS TEXT AND THE SURROUNDING COMMENTS. You're free to change back to visual editor after this. If there is an issue or question you have regarding this template page, use the talk page at MediaWiki talk:Preloads/StS2 Relic or use the wiki channel on the official Slay the Spire discord server. If you are not sure if a section has relevant information to put, keep the heading and any comments it has so other editors can add it later on. <!-------------------------------------------- } is if the relic is not fully non-ambigious in its description. For e"
+    },
+    "BREAD": {
+      "id": "BREAD",
+      "name": "Bread",
+      "rarity": "shop",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bread",
+      "summary": "Can only be bought from the . Only 1  is available per Shop, even with , since it cannot restock Shop Relics."
+    },
+    "BURNING_STICKS": {
+      "id": "BURNING_STICKS",
+      "name": "Burning Sticks",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Burning Sticks",
+      "summary": ""
+    },
+    "CAULDRON": {
+      "id": "CAULDRON",
+      "name": "Cauldron",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Cauldron",
+      "summary": ""
+    },
+    "CHEMICAL_X": {
+      "id": "CHEMICAL_X",
+      "name": "Chemical X",
+      "rarity": "shop",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Chemical X",
+      "summary": "is a   in Slay the Spire 2."
+    },
+    "DINGY_RUG": {
+      "id": "DINGY_RUG",
+      "name": "Dingy Rug",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Dingy Rug",
+      "summary": ""
+    },
+    "DOLLY_S_MIRROR": {
+      "id": "DOLLY_S_MIRROR",
+      "name": "Dolly's Mirror",
+      "rarity": "common",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Dolly's Mirror",
+      "summary": "is a  . On pickup, it allows you to choose a card in your deck to gain an exact duplicate of, copying any permanent changes including . It cannot be used to duplicate  cards like ."
+    },
+    "DRAGON_FRUIT": {
+      "id": "DRAGON_FRUIT",
+      "name": "Dragon Fruit",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Dragon Fruit",
+      "summary": ""
+    },
+    "GHOST_SEED": {
+      "id": "GHOST_SEED",
+      "name": "Ghost Seed",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ghost Seed",
+      "summary": ""
+    },
+    "GNARLED_HAMMER": {
+      "id": "GNARLED_HAMMER",
+      "name": "Gnarled Hammer",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Gnarled Hammer",
+      "summary": ""
+    },
+    "KIFUDA": {
+      "id": "KIFUDA",
+      "name": "Kifuda",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Kifuda",
+      "summary": ""
+    },
+    "LAVA_LAMP": {
+      "id": "LAVA_LAMP",
+      "name": "Lava Lamp",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lava Lamp",
+      "summary": ""
+    },
+    "LEE_S_WAFFLE": {
+      "id": "LEE_S_WAFFLE",
+      "name": "Lee's Waffle???",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lee's Waffle???",
+      "summary": "is an   from the Merchant???. It is a weaker version of . Upon pickup, it heals 10% of the player's max HP."
+    },
+    "MEMBERSHIP_CARD": {
+      "id": "MEMBERSHIP_CARD",
+      "name": "Membership Card",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Membership Card",
+      "summary": ""
+    },
+    "MINIATURE_TENT": {
+      "id": "MINIATURE_TENT",
+      "name": "Miniature Tent",
+      "rarity": "shop",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Miniature Tent",
+      "summary": "is a  . It allows for choosing any number of options at a  instead of just one."
+    },
+    "MYSTIC_LIGHTER": {
+      "id": "MYSTIC_LIGHTER",
+      "name": "Mystic Lighter",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Mystic Lighter",
+      "summary": ""
+    },
+    "ORRERY": {
+      "id": "ORRERY",
+      "name": "Orrery",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Orrery",
+      "summary": ""
+    },
+    "PUNCH_DAGGER": {
+      "id": "PUNCH_DAGGER",
+      "name": "Punch Dagger",
+      "rarity": "rare",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Punch Dagger",
+      "summary": "FOLLOW THE COMMENTS GIVEN, AND THEN DELETE THIS TEXT AND THE SURROUNDING COMMENTS. You're free to change back to visual editor after this. Any stylistic concerns (eg table of content too messy), or you aren't entirely sure of a relic interaction or anything you need, ping me here (User:Riscuit or User:Vesper-arch) or on Discord. If you are not sure if a section has relevant information to put, keep the heading and any comments it has so other editors can add it later on. is a   . Upon pickup, you  an attack with  5, which increases its damage by 5 each time it is played this combat. <!--------"
+    },
+    "RINGING_TRIANGLE": {
+      "id": "RINGING_TRIANGLE",
+      "name": "Ringing Triangle",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ringing Triangle",
+      "summary": ""
+    },
+    "ROYAL_STAMP": {
+      "id": "ROYAL_STAMP",
+      "name": "Royal Stamp",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Royal Stamp",
+      "summary": ""
+    },
+    "SCREAMING_FLAGON": {
+      "id": "SCREAMING_FLAGON",
+      "name": "Screaming Flagon",
+      "rarity": "shop",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Screaming Flagon",
+      "summary": "The  is a   in Slay the Spire 2. It deals 20 damage to all enemies at the end of each of your turns, but only if you have no cards in hand."
+    },
+    "SLING_OF_COURAGE": {
+      "id": "SLING_OF_COURAGE",
+      "name": "Sling of Courage",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sling of Courage",
+      "summary": ""
+    },
+    "THE_ABACUS": {
+      "id": "THE_ABACUS",
+      "name": "The Abacus",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Abacus",
+      "summary": ""
+    },
+    "TOOLBOX": {
+      "id": "TOOLBOX",
+      "name": "Toolbox",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Toolbox",
+      "summary": ""
+    },
+    "WING_CHARM": {
+      "id": "WING_CHARM",
+      "name": "Wing Charm",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Wing Charm",
+      "summary": ""
+    },
+    "BRIMSTONE": {
+      "id": "BRIMSTONE",
+      "name": "Brimstone",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Brimstone",
+      "summary": ""
+    },
+    "NINJA_SCROLL": {
+      "id": "NINJA_SCROLL",
+      "name": "Ninja Scroll",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ninja Scroll",
+      "summary": ""
+    },
+    "SHIV": {
+      "id": "SHIV",
+      "name": "Shiv",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Shiv",
+      "summary": "is a 0  cost    Card available to the . It deals 4 damage then  itself. The  has a lot of dedicated support for ."
+    },
+    "VITRUVIAN_MINION": {
+      "id": "VITRUVIAN_MINION",
+      "name": "Vitruvian Minion",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Vitruvian Minion",
+      "summary": ""
+    },
+    "UNDYING_SIGIL": {
+      "id": "UNDYING_SIGIL",
+      "name": "Undying Sigil",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Undying Sigil",
+      "summary": ""
+    },
+    "RUNIC_CAPACITOR": {
+      "id": "RUNIC_CAPACITOR",
+      "name": "Runic Capacitor",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Runic Capacitor",
+      "summary": ""
+    },
+    "BIG_MUSHROOM": {
+      "id": "BIG_MUSHROOM",
+      "name": "Big Mushroom",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Big Mushroom",
+      "summary": "is an   from the  event. Upon pickup, it gives 20 Max HP. At the start of each combat, you will draw 2 fewer cards than usual."
+    },
+    "BING_BONG": {
+      "id": "BING_BONG",
+      "name": "Bing Bong",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bing Bong",
+      "summary": "is an   from the  event. Whenever you add a card to your Deck, it will add one additional copy."
+    },
+    "BONE_TEA": {
+      "id": "BONE_TEA",
+      "name": "Bone Tea",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bone Tea",
+      "summary": "is an   from the  event. After pickup, it will  your starting hand at the start of the next combat."
+    },
+    "BYRDPIP": {
+      "id": "BYRDPIP",
+      "name": "Byrdpip",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Byrdpip",
+      "summary": "is an   from the  event. Upon pickup, it gives the card , and a cosmetic Byrdpip pet will accompany you in battles."
+    },
+    "BYRD_SWOOP": {
+      "id": "BYRD_SWOOP",
+      "name": "Byrd Swoop",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Byrd Swoop",
+      "summary": "is a 0  cost    Card. It deals 14 (18 if upgraded) damage."
+    },
+    "CIRCLET": {
+      "id": "CIRCLET",
+      "name": "Circlet",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Circlet",
+      "summary": "is an   that is obtained when all other Relics have been collected."
+    },
+    "DARKSTONE_PERIAPT": {
+      "id": "DARKSTONE_PERIAPT",
+      "name": "Darkstone Periapt",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Darkstone Periapt",
+      "summary": "is an   from the . It raises Max HP by 6 when a Curse is obtained."
+    },
+    "DAUGHTER_OF_THE_WIND": {
+      "id": "DAUGHTER_OF_THE_WIND",
+      "name": "Daughter of the Wind",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Daughter of the Wind",
+      "summary": "is an   from the  event. Whenever you play an , it will give 1 ."
+    },
+    "DREAM_CATCHER": {
+      "id": "DREAM_CATCHER",
+      "name": "Dream Catcher",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Dream Catcher",
+      "summary": "Can only be obtained randomly from  by selecting the  option."
+    },
+    "EMBER_TEA": {
+      "id": "EMBER_TEA",
+      "name": "Ember Tea",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ember Tea",
+      "summary": "is an   from the  event. After pickup, it will give 2  at the start of the next 5 combats."
+    },
+    "FORGOTTEN_SOUL": {
+      "id": "FORGOTTEN_SOUL",
+      "name": "Forgotten Soul",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Forgotten Soul",
+      "summary": "is an   from the  event. Whenever you  a card, it deals 1 damage to a random enemy."
+    },
+    "FRAGRANT_MUSHROOM": {
+      "id": "FRAGRANT_MUSHROOM",
+      "name": "Fragrant Mushroom",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Fragrant Mushroom",
+      "summary": "is an   from the  event. Upon pickup, you will lose 15 HP and  3 random cards."
+    },
+    "FRESNEL_LENS": {
+      "id": "FRESNEL_LENS",
+      "name": "Fresnel Lens",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Fresnel Lens",
+      "summary": "is an   from the  event. It adds Nimble 2 to future block cards."
+    },
+    "HAND_DRILL": {
+      "id": "HAND_DRILL",
+      "name": "Hand Drill",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Hand Drill",
+      "summary": "is an   from the . It applies 2 Vulnerable when an enemy's block is broken."
+    },
+    "HISTORY_COURSE": {
+      "id": "HISTORY_COURSE",
+      "name": "History Course",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/History Course",
+      "summary": "History Course is an  ."
+    },
+    "LOST_WISP": {
+      "id": "LOST_WISP",
+      "name": "Lost Wisp",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Lost Wisp",
+      "summary": "is an   from the  event. Whenever you play a , it deals 8 damage to ALL enemies."
+    },
+    "MAW_BANK": {
+      "id": "MAW_BANK",
+      "name": "Maw Bank",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Maw Bank",
+      "summary": "Can only be obtained randomly from  by selecting the  option."
+    },
+    "MR_STRUGGLES": {
+      "id": "MR_STRUGGLES",
+      "name": "Mr. Struggles",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Mr. Struggles",
+      "summary": "is an   from the  event. At the start of your turn, it deals damage equal to the turn number to ALL enemies."
+    },
+    "POLLINOUS_CORE": {
+      "id": "POLLINOUS_CORE",
+      "name": "Pollinous Core",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Pollinous Core",
+      "summary": "is an   from the  event. Every 4 turns, it will draw 2 additional cards at the start of the turn."
+    },
+    "ROYAL_POISON": {
+      "id": "ROYAL_POISON",
+      "name": "Royal Poison",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Royal Poison",
+      "summary": "Can only be obtained from  by selecting the  option."
+    },
+    "SWORD_OF_JADE": {
+      "id": "SWORD_OF_JADE",
+      "name": "Sword of Jade",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sword of Jade",
+      "summary": "is an   from the  gotten from  event."
+    },
+    "SWORD_OF_STONE": {
+      "id": "SWORD_OF_STONE",
+      "name": "Sword of Stone",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sword of Stone",
+      "summary": "is an   from the  event. Turns into  after defeating 5 Elites."
+    },
+    "TEA_OF_DISCOURTESY": {
+      "id": "TEA_OF_DISCOURTESY",
+      "name": "Tea of Discourtesy",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Tea of Discourtesy",
+      "summary": "is an   from the  event. After pickup, it will shuffle 2  into your Draw Pile at the start of the next combat."
+    },
+    "THE_BOOT": {
+      "id": "THE_BOOT",
+      "name": "The Boot",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Boot",
+      "summary": "is an   from the . It raises unblocked attacks that deal less than 5 damage to 5."
+    },
+    "THE_CHOSEN_CHEESE": {
+      "id": "THE_CHOSEN_CHEESE",
+      "name": "The Chosen Cheese",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Chosen Cheese",
+      "summary": "is an   from the  event. At the end of each combat, it gives 1 Max HP."
+    },
+    "THE_MERCHANT_S_RUG": {
+      "id": "THE_MERCHANT_S_RUG",
+      "name": "The Merchant's Rug???",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Merchant's Rug???",
+      "summary": "is an   from defeating the Merchant???."
+    },
+    "WONGO_CUSTOMER_APPRECIATION_BADGE": {
+      "id": "WONGO_CUSTOMER_APPRECIATION_BADGE",
+      "name": "Wongo Customer Appreciation Badge",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Wongo Customer Appreciation Badge",
+      "summary": "is an   from the  event."
+    },
+    "WONGO_S_MYSTERY_TICKET": {
+      "id": "WONGO_S_MYSTERY_TICKET",
+      "name": "Wongo's Mystery Ticket",
+      "rarity": "event",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Wongo's Mystery Ticket",
+      "summary": "is an   from the  event."
+    },
+    "OSTY": {
+      "id": "OSTY",
+      "name": "Osty",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Osty",
+      "summary": "Osty is a mechanic used by the . Osty is the animated left hand of the Necrobinder. Osty innately has  while he is alive. The Necrobinder has Attacks that cause Osty to Attack, which have no effect if Osty is dead when they are played. When Osty attacks, he does not consider any buffs or debuffs on the player, such as  or . Osty cannot receive any buff or debuff aside from . He cannot be directly targeted by an enemy, a potion, or another player. When the player would receive any unblocked attack damage, the damage is first deducted from Osty's HP. If the damage is greater than Osty's current"
+    },
+    "POTION": {
+      "id": "POTION",
+      "name": "Potion",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Potion",
+      "summary": "#REDIRECT Slay_the_Spire_2:Potions"
+    },
+    "POTIONS": {
+      "id": "POTIONS",
+      "name": "Potions",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Potions",
+      "summary": "Potions are single-use consumables that persist across floors. Most potions provide a temporary boost that can only be used in a single encounter, and thus can only be used in combat. The only potions that can be used outside of combat are: ,  (only when used against the ), , and  (Ironclad only). Potions are stored in Potion Slots, of which you start with 3 (). The only ways to increase the amount of slots you have is to obtain , , or . Using a potion does not cost  and does not count as playing a card. Some potions are exclusive to a single character. Each character has 3 unique potions, wit"
+    },
+    "REST_SITE": {
+      "id": "REST_SITE",
+      "name": "Rest Site",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Rest Site",
+      "summary": "#REDIRECT Slay_the_Spire_2:Rest_Sites"
+    },
+    "REST_SITES": {
+      "id": "REST_SITES",
+      "name": "Rest Sites",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Rest Sites",
+      "summary": "for all possible rooms.}} Rest Sites are a standard , appearing multiple times per . The last room before each boss in Acts 1, 2, and 3 is always a rest site. The player must choose one of the available options to prepare for higher floors before proceeding. If one of the standard options is unavailable for some reason, it will be greyed out."
+    },
+    "SOVEREIGN_BLADE": {
+      "id": "SOVEREIGN_BLADE",
+      "name": "Sovereign Blade",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sovereign Blade",
+      "summary": "is a 2 (1 if upgraded)  cost    Card available to the . At its base value, it deals 10 damage to a target. The  has a lot of dedicated support cards for the ."
+    },
+    "TRANSFORM": {
+      "id": "TRANSFORM",
+      "name": "Transform",
+      "rarity": "ancient",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Transform",
+      "summary": "Transforming a card acts as removing that card and adding a random eligible card to the deck. This means it will trigger all the effects of both Card removals and Card additions."
+    },
+    "UPGRADE": {
+      "id": "UPGRADE",
+      "name": "Upgrade",
+      "rarity": "",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Upgrade",
+      "summary": "Upgrading a card improves its effects or decreases its cost, adds a + to the end of its name, and turns its name  as well as the cost, if it was lowered as a result of Upgrading it. A card can only be upgraded once and all  and  cards cannot be upgraded."
+    }
+  },
+  "errors": [
+    "Slay_the_Spire_2:Buff",
+    "Slay_the_Spire_2:Akabeko",
+    "Slay_the_Spire_2:Candelabra",
+    "Slay_the_Spire_2:Eternal Feather",
+    "Slay_the_Spire_2:Gremlin Horn",
+    "Slay_the_Spire_2:Horn Cleat",
+    "Slay_the_Spire_2:Joss Paper",
+    "Slay_the_Spire_2:Kusarigama",
+    "Slay_the_Spire_2:Letter Opener",
+    "Slay_the_Spire_2:Mercury Hourglass",
+    "Slay_the_Spire_2:Miniature Cannon",
+    "Slay_the_Spire_2:Nunchaku",
+    "Slay_the_Spire_2:Orichalcum",
+    "Slay_the_Spire_2:Pantograph",
+    "Slay_the_Spire_2:Parrying Shield",
+    "Slay_the_Spire_2:Pear",
+    "Slay_the_Spire_2:Pen Nib",
+    "Slay_the_Spire_2:Petrified Toad",
+    "Slay_the_Spire_2:Reptile Trinket",
+    "Slay_the_Spire_2:Ripple Basin",
+    "Slay_the_Spire_2:Sparkling Rouge",
+    "Slay_the_Spire_2:Tuning Fork",
+    "Slay_the_Spire_2:Vambrace",
+    "Slay_the_Spire_2:Paper Phrog",
+    "Slay_the_Spire_2:Self-Forming Clay",
+    "Slay_the_Spire_2:Tingsha",
+    "Slay_the_Spire_2:Twisted Funnel",
+    "Slay_the_Spire_2:Galactic Dust",
+    "Slay_the_Spire_2:Regalite",
+    "Slay_the_Spire_2:Book Repair Knife",
+    "Slay_the_Spire_2:Funerary Mask",
+    "Slay_the_Spire_2:Gold-Plated Cables",
+    "Slay_the_Spire_2:Symbiotic Virus",
+    "Slay_the_Spire_2:Dark",
+    "Slay_the_Spire_2:Art of War",
+    "Slay_the_Spire_2:Beating Remnant",
+    "Slay_the_Spire_2:Captain's Wheel",
+    "Slay_the_Spire_2:Chandelier",
+    "Slay_the_Spire_2:Cloak Clasp",
+    "Slay_the_Spire_2:Frozen Egg",
+    "Slay_the_Spire_2:Gambling Chip",
+    "Slay_the_Spire_2:Game Piece",
+    "Slay_the_Spire_2:Girya",
+    "Slay_the_Spire_2:Intimidating Helmet",
+    "Slay_the_Spire_2:Kunai",
+    "Slay_the_Spire_2:Lizard Tail",
+    "Slay_the_Spire_2:Mango",
+    "Slay_the_Spire_2:Meat on the Bone",
+    "Slay_the_Spire_2:Molten Egg",
+    "Slay_the_Spire_2:Mummified Hand",
+    "Slay_the_Spire_2:Pocketwatch",
+    "Slay_the_Spire_2:Prayer Wheel",
+    "Slay_the_Spire_2:Rainbow Ring",
+    "Slay_the_Spire_2:Razor Tooth",
+    "Slay_the_Spire_2:Shuriken",
+    "Slay_the_Spire_2:Stone Calendar",
+    "Slay_the_Spire_2:Sturdy Clamp",
+    "Slay_the_Spire_2:Toxic Egg",
+    "Slay_the_Spire_2:Tungsten Rod",
+    "Slay_the_Spire_2:Unceasing Top",
+    "Slay_the_Spire_2:White Beast Statue",
+    "Slay_the_Spire_2:White Star",
+    "Slay_the_Spire_2:Charon's Ashes",
+    "Slay_the_Spire_2:Demon Tongue",
+    "Slay_the_Spire_2:Ruined Helmet",
+    "Slay_the_Spire_2:Helical Dart",
+    "Slay_the_Spire_2:Paper Krane",
+    "Slay_the_Spire_2:Lunar Pastry",
+    "Slay_the_Spire_2:Mini Regent",
+    "Slay_the_Spire_2:Orange Dough",
+    "Slay_the_Spire_2:Big Hat",
+    "Slay_the_Spire_2:Bookmark",
+    "Slay_the_Spire_2:Ivory Tile",
+    "Slay_the_Spire_2:Emotion Chip",
+    "Slay_the_Spire_2:Metronome",
+    "Slay_the_Spire_2:Power Cell",
+    "Slay_the_Spire_2:Injury",
+    "Slay_the_Spire_2:Lava Rock",
+    "Slay_the_Spire_2:Lead Paperweight",
+    "Slay_the_Spire_2:Lost Coffer",
+    "Slay_the_Spire_2:Neow's Torment",
+    "Slay_the_Spire_2:New Leaf",
+    "Slay_the_Spire_2:Nutritious Oyster",
+    "Slay_the_Spire_2:Pomander",
+    "Slay_the_Spire_2:Precise Scissors",
+    "Slay_the_Spire_2:Small Capsule",
+    "Slay_the_Spire_2:Stone Humidifier",
+    "Slay_the_Spire_2:Driftwood",
+    "Slay_the_Spire_2:Pael's Blood",
+    "Slay_the_Spire_2:Pael's Flesh",
+    "Slay_the_Spire_2:Pael's Horn",
+    "Slay_the_Spire_2:Pael's Legion",
+    "Slay_the_Spire_2:Pael's Tears",
+    "Slay_the_Spire_2:Pael's Tooth",
+    "Slay_the_Spire_2:Biiig Hug",
+    "Slay_the_Spire_2:Storybook",
+    "Slay_the_Spire_2:Toasty Mittens",
+    "Slay_the_Spire_2:Beautiful Bracelet",
+    "Slay_the_Spire_2:Blessed Antler",
+    "Slay_the_Spire_2:Brilliant Scarf",
+    "Slay_the_Spire_2:Delicate Frond",
+    "Slay_the_Spire_2:Diamond Diadem",
+    "Slay_the_Spire_2:Jewelry Box",
+    "Slay_the_Spire_2:Signet Ring",
+    "Slay_the_Spire_2:Claws",
+    "Slay_the_Spire_2:Iron Club",
+    "Slay_the_Spire_2:Sai",
+    "Slay_the_Spire_2:Spiked Gauntlets",
+    "Slay_the_Spire_2:Tanx's Whistle",
+    "Slay_the_Spire_2:Throwing Axe",
+    "Slay_the_Spire_2:War Hammer",
+    "Slay_the_Spire_2:Blood-Soaked Rose",
+    "Slay_the_Spire_2:Choices Paradox",
+    "Slay_the_Spire_2:Distinguished Cape",
+    "Slay_the_Spire_2:Fiddle",
+    "Slay_the_Spire_2:Jeweled Mask",
+    "Slay_the_Spire_2:Astrolabe",
+    "Slay_the_Spire_2:Black Star",
+    "Slay_the_Spire_2:Calling Bell",
+    "Slay_the_Spire_2:Curse of the Bell",
+    "Slay_the_Spire_2:Dusty Tome",
+    "Slay_the_Spire_2:Ectoplasm",
+    "Slay_the_Spire_2:Empty Cage",
+    "Slay_the_Spire_2:Pandora's Box",
+    "Slay_the_Spire_2:Philosopher's Stone",
+    "Slay_the_Spire_2:Runic Pyramid",
+    "Slay_the_Spire_2:Sozu",
+    "Slay_the_Spire_2:Velvet Choker",
+    "Slay_the_Spire_2:Burning Sticks",
+    "Slay_the_Spire_2:Cauldron",
+    "Slay_the_Spire_2:Dingy Rug",
+    "Slay_the_Spire_2:Dragon Fruit",
+    "Slay_the_Spire_2:Ghost Seed",
+    "Slay_the_Spire_2:Gnarled Hammer",
+    "Slay_the_Spire_2:Kifuda",
+    "Slay_the_Spire_2:Lava Lamp",
+    "Slay_the_Spire_2:Membership Card",
+    "Slay_the_Spire_2:Mystic Lighter",
+    "Slay_the_Spire_2:Orrery",
+    "Slay_the_Spire_2:Ringing Triangle",
+    "Slay_the_Spire_2:Royal Stamp",
+    "Slay_the_Spire_2:Sling of Courage",
+    "Slay_the_Spire_2:The Abacus",
+    "Slay_the_Spire_2:Toolbox",
+    "Slay_the_Spire_2:Wing Charm",
+    "Slay_the_Spire_2:Brimstone",
+    "Slay_the_Spire_2:Ninja Scroll",
+    "Slay_the_Spire_2:Vitruvian Minion",
+    "Slay_the_Spire_2:Undying Sigil",
+    "Slay_the_Spire_2:Runic Capacitor"
+  ],
+  "errors_count": 150
+}

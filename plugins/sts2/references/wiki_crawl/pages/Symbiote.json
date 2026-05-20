@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Symbiote",
+  "short_name": "Symbiote",
+  "summary": "is an  found exclusively in the  and .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Symbiote</span>",
+  "fetched_at": "2026-05-20T06:17:59Z",
+  "wikitext_chars": 909,
+  "wikitext": "{{Event Header|StS2 Symbiote.png}}\n{{E|Symbiote|2}} is an {{2|Events|Event}} found exclusively in the {{2|Hive}} and {{2|Glory}}.\n\n== Options ==\n{{Frame|Approach}} {{TS|positive||{{KW|Enchant||2}} an Attack with {{KW|Corrupted||2}}.}}\n<br>\n{{Frame|Kill with Fire}} {{TS|positive||Chose a card to {{KW|Transform||2}}.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nAlong your travels, you stumble upon a dark, amorphous polyp. You can sense that it is very old, and very evil.\n\n{{TS||up|Approach...}}\n</div>\n\n{{Frame|Approach}}\n<blockquote><div style=\"font-style:italic\">\n\n</div></blockquote>\n\n{{Frame|Kill with Fire}}\n<blockquote><div style=\"font-style:italic\">\nYou torch the dark polyp. As it screeches and urns into ashes, your head pulses painfully but you manage not to fain. What was that thing?\n</div></blockquote>\n</blockquote>\n\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,126 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:The_Merchant",
+  "inventory": {
+    "colored_cards": {
+      "count": 5,
+      "composition": "2 Attack, 2 Skill, 1 Power (current character)",
+      "one_random_50pct_discount": true
+    },
+    "colorless_cards": {
+      "count": 2,
+      "premium_pct": 15
+    },
+    "potions": {
+      "count": 3
+    },
+    "relics": {
+      "count": 3,
+      "right_slot_always_shop_relic": true
+    }
+  },
+  "prices": {
+    "card_common": [
+      48,
+      53
+    ],
+    "card_uncommon": [
+      71,
+      79
+    ],
+    "card_rare": [
+      143,
+      158
+    ],
+    "colorless_uncommon": [
+      82,
+      90
+    ],
+    "colorless_rare": [
+      164,
+      181
+    ],
+    "potion_common": [
+      48,
+      53
+    ],
+    "potion_uncommon": [
+      71,
+      79
+    ],
+    "potion_rare": [
+      95,
+      105
+    ],
+    "relic_shop": [
+      170,
+      230
+    ],
+    "relic_common": [
+      149,
+      201
+    ],
+    "relic_uncommon": [
+      191,
+      259
+    ],
+    "relic_rare": [
+      234,
+      316
+    ]
+  },
+  "weights": {},
+  "card_removal": {
+    "base_cost": 75,
+    "ascension_6_base_cost": 100,
+    "increment_per_purchase": 25,
+    "ascension_6_increment": 50,
+    "once_per_shop": true,
+    "cannot_remove_eternal": true
+  },
+  "shop_relic_blacklist": [
+    "AMETHYST_AUBERGINE",
+    "BOWLER_HAT",
+    "LUCKY_FYSH",
+    "OLD_COIN",
+    "THE_COURIER"
+  ],
+  "relic_interactions": [
+    {
+      "id": "MEMBERSHIP_CARD",
+      "effect": "all_prices_multiplier",
+      "value": 0.5
+    },
+    {
+      "id": "THE_COURIER",
+      "effect": "price_multiplier_and_restock",
+      "value": 0.8,
+      "restocks": [
+        "cards",
+        "relics",
+        "potions"
+      ],
+      "no_restock_shop_relic": true
+    },
+    {
+      "ids": [
+        "MEMBERSHIP_CARD",
+        "THE_COURIER"
+      ],
+      "effect": "combined_price_multiplier",
+      "value": 0.4
+    },
+    {
+      "id": "MEAL_TICKET",
+      "effect": "heal_on_enter_shop",
+      "value": 15
+    },
+    {
+      "id": "LORDS_PARASOL",
+      "effect": "auto_buy_all_on_enter"
+    }
+  ],
+  "agent_hints": [
+    "删牌每店仅一次；A6 首删 100 金、之后每次 +50",
+    "会员证 50% 价；送货员 80% 且补货（商店遗物槽不补）"
+  ]
+}

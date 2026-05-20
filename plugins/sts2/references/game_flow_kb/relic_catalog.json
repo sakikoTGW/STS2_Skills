@@ -1,0 +1,42 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics",
+  "starter_relics": {
+    "ironclad": {
+      "starter": "BURNING_BLOOD",
+      "ancient_upgrade": "BLACK_BLOOD"
+    },
+    "silent": {
+      "starter": "RING_OF_THE_SNAKE",
+      "ancient_upgrade": "RING_OF_THE_DRAKE"
+    },
+    "regent": {
+      "starter": "DIVINE_RIGHT",
+      "ancient_upgrade": "DIVINE_DESTINY"
+    },
+    "necrobinder": {
+      "starter": "BOUND_PHYLACTERY",
+      "ancient_upgrade": "PHYLACTERY_UNBOUND"
+    },
+    "defect": {
+      "starter": "CRACKED_CORE",
+      "ancient_upgrade": "INFUSED_CORE"
+    }
+  },
+  "sources": [
+    "elites",
+    "chests",
+    "merchant",
+    "shovel_at_rest",
+    "ancients",
+    "events"
+  ],
+  "shop_relic_count": 30,
+  "shop_relic_right_slot": true,
+  "event_relics_exclusive": true,
+  "circlet_special": true,
+  "agent_hints": [
+    "遗物整局唯一（圆环例外）",
+    "商店遗物仅商人；右槽必为商店遗物",
+    "先古遗物每幕初；事件遗物仅事件"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Pael's Eye",
+  "short_name": "Pael's Eye",
+  "summary": "is an  . The first time each combat you end your turn without playing cards, it  your Hand and gives you an extra turn.",
+  "sections": {
+    "Interactions": [
+      "will  your Hand before  can play any .",
+      "However,  can draw  in time for  to play them."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Pael&#039;s Eye</span>",
+  "fetched_at": "2026-05-20T06:21:41Z",
+  "wikitext_chars": 1854,
+  "wikitext": "{{Relic Infobox|Pael's Eye|2}}{{Keyword Infobox|Exhaust|2}}\n{{R|Pael's Eye||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}. The first time each combat you end your turn without playing cards, it {{KW|Exhaust|Exhausts|2}} your Hand and gives you an extra turn.\n\n== Obtaining Pael's Eye ==\nCan be offered at the start of {{2|Acts#Act 2|Act 2}} by {{KW|Pael||2}}.\n\n== Interactions ==\n=== Order ===\n* {{R|Pael's Eye||2}} will {{KW|Exhaust||2}} your Hand before {{C|Stampede||2}} can play any {{QueryLink|Cards|type:Attack|Attacks|2}}.\n** However, {{C|Dark Embrace||2}} can draw {{QueryLink|Cards|type:Attack|Attacks|2}} in time for {{C|Stampede||2}} to play them.\n\n=== Synergies ===\n* Any start of turn and end of turn effects, such as {{R|Mercury Hourglass||2}} and {{C|Consuming Shadow||2}}, will trigger on the turn you trigger {{R|Pael's Eye||2}} as well as the extra turn it gives you.\n* Triggering {{R|Pael's Eye||2}} will always trigger {{R|Diamond Diadem||2}} as well, and the {{BD|Diamond Diadem||2}} buff will persist until the next ''enemy'' turn ends, meaning that you can halve the enemy's damage even after taking the extra turn from {{R|Pael's Eye||2}} with no restrictions.\n\n=== Neutral ===\n* Triggering {{R|Pael's Eye||2}} will advance the turn counter, so it can allow you to trigger {{2|Relics}} like {{R|Horn Cleat||2}} and {{R|Chandelier||2}} earlier than would normally be possible. However, it can also waste their effects as {{KW|Block||2}} and {{KW|Energy||2}} do not usually persist between turns.\n\n=== Anti-Synergies ===\n* Triggering {{R|Pael's Eye||2}} will {{KW|Exhaust||2}} any {{KW|Retain|Retained|2}} cards you may have wanted to keep.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Pael's Eye to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

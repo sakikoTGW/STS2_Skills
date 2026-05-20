@@ -1,0 +1,19 @@
+{
+  "page": "Slay_the_Spire_2:Vajra",
+  "short_name": "Vajra",
+  "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and .",
+  "sections": {
+    "Interactions": [
+      "Early Access v0.98",
+      "Added Vajra to the game."
+    ],
+    "Sources": [
+      "Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at .",
+      "Can be obtained from the relics ,  and ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Vajra</span>",
+  "fetched_at": "2026-05-20T06:18:46Z",
+  "wikitext_chars": 620,
+  "wikitext": "{{Sequel Disambiguation}}{{Relic Infobox|Vajra|2}}{{Keyword Infobox|Strength|2}}\n{{R|Vajra||2}} is a {{QueryLink|Relics|rarity:Common|Common|2}} {{2|Relics|Relic}}.\n\n== Sources ==\n* Can be dropped by fighting {{2|Elites}}, by buying from the {{2|Merchant}} or from {{2|Mechanics#Chests|Chests}}. See Chest and non-Chest chance at {{2|Relics}}.\n\n* Can be obtained from the relics {{R|Calling Bell||2}}, {{R|Shovel||2}} and {{R|Black Star||2}}.\n\n== Interactions ==\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Vajra to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

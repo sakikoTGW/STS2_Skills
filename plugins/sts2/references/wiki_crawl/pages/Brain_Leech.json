@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Brain Leech",
+  "short_name": "Brain Leech",
+  "summary": "is an  that can occur in the , the , and the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Brain Leech</span>",
+  "fetched_at": "2026-05-20T06:17:14Z",
+  "wikitext_chars": 1211,
+  "wikitext": "{{Event Header | StS2 Brain Leech.png}}\n\n{{E|Brain Leech|2}} is an {{2|Events|Event}} that can occur in the {{2|Overgrowth}}, the {{2|Underdocks}}, and the {{2|Hive}}.\n\n== Options ==\n{{Frame|Share Knowledge}} {{TS|positive|| Choose 1 of 5 random cards to add to your deck.}}\n<br>\n{{Frame|Rip the Leech Off}} {{TS|negative||Lose 5 HP.}} {{TS|positive||Gain a {{QueryLink|Cards|color:Colorless|Colorless|2}} card reward.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\n *thunk* \n\nA sharp pain is felt atop your head and a thought stabs into your mind.\n\n\"SHARE KNOWLEDGE???\"\n\nYou are unsure how to proceed...\n</div>\n\n{{Frame|Share Knowledge}}\n<blockquote><div style=\"font-style:italic\">\n\"HOW OSTENTATIOUSLY SCHOLASTIC OF A LABYRINTHINE MIND!\n<br>\nA VERITABLE CORNUCOPIA OF CEREBRAL SUSTENANCE TO DIGEST!\"\n\nSatisfied, the creature pops off and crawls away.\n<br>\nYou are flabbergasted.\n</div></blockquote>\n\n{{Frame|Rip the Leech Off}}\n<blockquote><div style=\"font-style:italic\">\nYou violently {{TS||shake|rip the leech off your head}} and chuck it far far away!\n\nThere's a voice in your head:\n<br>\n{{TS|purple|up|\"NOOOOOOoOoooooOOOOoooo...\"}}\n\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

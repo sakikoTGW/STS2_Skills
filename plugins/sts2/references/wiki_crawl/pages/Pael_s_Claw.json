@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Pael's Claw",
+  "short_name": "Pael's Claw",
+  "summary": "is an   that  all  in your Deck with .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Pael&#039;s Claw</span>",
+  "fetched_at": "2026-05-20T06:21:39Z",
+  "wikitext_chars": 875,
+  "wikitext": "{{Relic Infobox|Pael's Claw|2}}{{Keyword Infobox|Enchant|2}}{{Keyword Infobox|Goopy|2}}\n{{R|Pael's Claw||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}} that {{KW|Enchant|Enchants|2}} all {{C|Defend (Ironclad)|Defends|2}} in your Deck with {{KW|Goopy||2}}.\n\n== Obtaining Pael's Claw ==\nAt the start of {{2|Acts#Act 2|Act 2|2}}, can be offered by {{KW|Pael||2}}.\n\n== Notes ==\n* {{R|Pael's Claw||2}} will also {{KW|Enchant||2}} any {{C|Ultimate Defend|Ultimate Defends}} in your Deck with {{KW|Goopy||2}}.\n* If any {{C|Defend (Ironclad)|Defends|2}} are already {{KW|Enchant|Enchanted|2}}, they will not be given {{KW|Goopy||2}}, as each card can only be {{KW|Enchant|Enchanted|2}} once.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Pael's Claw to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

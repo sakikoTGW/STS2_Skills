@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Twin_Strike",
+  "short_name": "Twin_Strike",
+  "summary": "is a 1  cost   Card for the .",
+  "sections": {
+    "Interactions": [
+      "As with all other multi-hit ,  synergizes well with  and ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Twin Strike</span>",
+  "fetched_at": "2026-05-20T05:42:07Z",
+  "wikitext_chars": 973,
+  "wikitext": "{{Sequel Disambiguation}}{{Card Infobox|Twin Strike||2}}\n{{C|Twin Strike||2}} is a 1 {{Icon|IE|2}} cost {{QueryLink|Cards|rarity:Common&color:Ironclad|Common|2}} {{QueryLink|Cards|type:Attack&color:Ironclad|Attack|2}} Card for the {{KW|Ironclad||2}}.\n== Interactions ==\n=== Synergies ===\n* As with all other multi-hit {{QueryLink|Cards|type:Attack|Attacks|2}}, {{C|Twin Strike||2}} synergizes well with {{BD|Strength||2}} and {{BD|Vigor||2}}.\n====Cards====\n* {{C|Twin Strike||2}} adds to the damage of {{C|Perfected Strike||2}}.\n====Relics====\n* {{C|Twin Strike||2}} gets a damage increase of 3 from {{R|Strike Dummy||2}}, and an increase of 1 from {{R|Strike Dummy???||2}}.\n=== Neutral ===\n* If {{BD|Hellraiser||2}} is in effect, and {{C|Twin Strike||2}} is drawn, {{C|Twin Strike||2}} is automatically played against a random enemy.\n== Update History ==\n* '''Early Access v0.98'''\n** Added Twin Strike to the game.\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]]"
+}

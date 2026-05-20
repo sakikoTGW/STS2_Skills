@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Bully",
+  "short_name": "Bully",
+  "summary": "is a 0  cost   Card for the .",
+  "sections": {
+    "Interactions": [
+      "pairs well with cards that apply , such as , , and ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Bully</span>",
+  "fetched_at": "2026-05-20T05:42:15Z",
+  "wikitext_chars": 582,
+  "wikitext": "{{Card Infobox|Bully||2}} {{Keyword Infobox|Vulnerable|2}}\n{{C|Bully||2}} is a 0 {{Icon|IE|2}} cost {{QueryLink|Cards|rarity:Uncommon&color:Ironclad|Uncommon|2}} {{QueryLink|Cards|type:Attack&color:Ironclad|Attack|2}} Card for the {{KW|Ironclad||2}}.\n== Interactions ==\n=== Synergies ===\n* {{C|Bully||2}} pairs well with cards that apply {{BD|Vulnerable||2}}, such as {{C|Bash||2}}, {{C|Tremble||2}}, and {{C|Molten Fist||2}}.\n== Update History ==\n* '''Early Access v0.98'''\n** Added Bully to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Infested Automaton",
+  "short_name": "Infested Automaton",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Infested Automaton</span>",
+  "fetched_at": "2026-05-20T06:17:51Z",
+  "wikitext_chars": 1161,
+  "wikitext": "{{Event Header|StS2 Infested Automaton.png}}\n{{E|Infested Automaton|2}} is an {{2|Events|Event}} found exclusively in the {{2|Hive}}.\n\n== Options ==\n{{Frame|Study}} {{TS|positive||Obtain a random Power.}}\n<br>\n{{Frame|Touch the Core}} {{TS|positive||Obtain a random 0 cost card.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nThere's a chamber filled with {{TS|red||dead robots}}.\n\nA lone automaton still has a {{TS|blue|up|faintly glowing core}} but it's engulfed by a grotesque, organic growth and doesn't respond.\n</div>\n\n{{Frame|Study}}\n<blockquote><div style=\"font-style:italic\">\nBy studying the Glowing Automaton and how its inner workings are laid out, you realize that specific metals and their arrangements resist various ailments!\n\nYou apply this Technology to yourself.\n</div></blockquote>\n\n{{Frame|Touch the Core}}\n<blockquote><div style=\"font-style:italic\">\nAt the slightest touch of the {{TS|blue||core}}, you are {{TS||shake|jolted by}} {{TS|gold|shake|electricity}}.\n\nYou scamper away, feeling {{TS|purple||altered}} from the experience.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

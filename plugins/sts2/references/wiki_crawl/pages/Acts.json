@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Acts",
+  "short_name": "Acts",
+  "summary": "Slay the Spire 2 is divided into 3 distinct Acts. Each node on the map is represented by a . This game features alternate Acts which are currently only implemented for Act 1, choosing randomly between  and . Each Act begins by meeting an  which give you the option to choose between a selection of 3 boons and ends with a fight against a .  will always meet you at the start of Act 1 (with the exception of the very first run of a save game). Every Act has an unique selection of , , , and .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Acts</span>",
+  "fetched_at": "2026-05-20T05:41:46Z",
+  "wikitext_chars": 1000,
+  "wikitext": "{{#setmainimage:Map.png|quiet}}\n{{Sequel Disambiguation|2}}\n{{Stub}}\n__NOTOC__\n[[Slay the Spire 2:Main|Slay the Spire 2]] is divided into 3 distinct Acts. Each node on the map is represented by a {{2|Map Locations|Map Location}}. This game features alternate Acts which are currently only implemented for Act 1, choosing randomly between {{2|Overgrowth}} and {{2|Underdocks}}. Each Act begins by meeting an {{2|Ancient}} which give you the option to choose between a selection of 3 boons and ends with a fight against a {{2|Bosses|Boss}}. {{2|Neow}} will always meet you at the start of Act 1 (with the exception of the very first run of a save game). Every Act has an unique selection of {{2|Events}}, {{2|Monsters}}, {{2|Elites}}, and {{2|Bosses}}.\n== Act 1 ==\n''See main article: {{2|Overgrowth}}''\n\n''See main article: {{2|Underdocks}}''\n\n== Act 2 ==\n''See main article: {{2|Hive}}''\n== Act 3 ==\n''See main article: {{2|Glory}}''\n\n[[Category:Game Mechanics]]\n[[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Chemical X",
+  "short_name": "Chemical X",
+  "summary": "is a   in Slay the Spire 2.",
+  "sections": {
+    "Interactions": [
+      "affects X-Cost cards even if they are played directly from the player's draw pile and no  is spent on them, such as from effects like , or .",
+      "While  is naturally useful with all X-Cost cards regardless of how much  is spent on them, it notably allows all X-Cost cards to be played with 0  and still receive a significant benefit."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Chemical X</span>",
+  "fetched_at": "2026-05-20T06:23:25Z",
+  "wikitext_chars": 1910,
+  "wikitext": "{{Sequel Disambiguation}} {{Relic Infobox|Chemical X|2}}\n{{R|Chemical X||2}} is a {{QueryLink|Relics|rarity:Shop|Shop|2}} {{2|Relics|Relic}} in Slay the Spire 2.\n\n== Sources ==\nCan only be bought from the {{2|Merchant}}. Only 1 {{QueryLink|Relics|rarity:Shop|Shop Relic|2}} is available per '''Shop''', even with {{R|The Courier||2}}, since it cannot restock Shop Relics.\n\n== Interactions ==\n\n=== Synergies ===\n* {{R|Chemical X||2}} affects X-Cost cards even if they are played directly from the player's draw pile and no {{KW|Energy||2}} is spent on them, such as from effects like {{C|Havoc||2}}, or {{P|Distilled Chaos||2}}.\n* While {{R|Chemical X||2}} is naturally useful with all X-Cost cards regardless of how much {{KW|Energy||2}} is spent on them, it notably allows all X-Cost cards to be played with 0 {{KW|Energy||2}} and still receive a significant benefit.\n\n=== Neutral ===\n\n=== Anti-Synergies ===\n\n== Bugs ==\n\n== Trivia ==\n* {{R|Chemical X||2}}'s name is a play-on-words on how it affects X-Cost cards in some way.\n* Cards that have X as the {{KW|Stars|Star|2}} cost (currently only {{C|Stardust||2}}) will also be increased by 2, even though the card itself costs 0 Energy.\n* {{R|Chemical X||2}} is a reference to the 1998 cartoon [https://powerpuffgirls.fandom.com/wiki/The_Powerpuff_Girls_(1998) The Powerpuff Girls], where the titular girls were created in a lab using a substance called \"Chemical X\".\n** The flavor text is a direct reference to the series, featuring the iconic opening narration; ''Sugar, spice, and everything nice. These were the ingredients chosen to create the perfect little girl. But Professor Utonium added an extra ingredient to the concoction... '''Chemical X'''! Thus, The Powerpuff Girls were born!''.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Chemical X to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

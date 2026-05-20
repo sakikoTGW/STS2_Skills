@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Knowledge_Demon",
+  "short_name": "Knowledge_Demon",
+  "summary": "Knowledge Demon is a  found in .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Knowledge Demon</span>",
+  "fetched_at": "2026-05-20T05:42:41Z",
+  "wikitext_chars": 1167,
+  "wikitext": "{{Enemy Infobox|Knowledge Demon|2}} {{Small Card Infobox|Disintegration|2}} {{Small Card Infobox|Mind Rot|2}} {{Small Card Infobox|Sloth|2}} {{Small Card Infobox|Waste Away|2}}\n'''Knowledge Demon''' is a {{2|Bosses|Boss}} found in {{2|Hive}}.\n\n== Pattern ==\n{{Intents|Knowledge Demon|2}}\nKnowledge Demon repeats a fixed four-move cycle:\n# {{Int|Knowledge Demon|Curse of Knowledge||2}}\n# {{Int|Knowledge Demon|Slap||2}}\n# {{Int|Knowledge Demon|Knowledge Overwhelming||2}}\n# {{Int|Knowledge Demon|Ponder||2}}\n\nAfter the third {{Int|Knowledge Demon|Curse of Knowledge||2}} (once all three status sets have been offered), the cycle changes: {{Int|Knowledge Demon|Curse of Knowledge||2}} is skipped, and the remaining three moves repeat in order.\n\n== Notes ==\n* {{Int|Knowledge Demon|Curse of Knowledge||2}} status sets:\n** Set 1: {{BD|Disintegration||2}} (6 damage/turn) or {{BD|Mind Rot||2}} (draw 1 fewer card/turn)\n** Set 2: {{BD|Disintegration||2}} (7 damage/turn) or {{BD|Sloth||2}} (max 3 cards/turn)\n** Set 3: {{BD|Disintegration||2}} (8 damage/turn) or {{BD|Waste Away||2}} (1 less {{KW|Energy||2}}/turn)\n\n[[Category:Bosses]]\n[[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Sand Castle",
+  "short_name": "Sand Castle",
+  "summary": "is an  . Upon pickup, 6 random cards are .",
+  "sections": {
+    "Interactions": [
+      "Early Access v0.98",
+      "Added Sand Castle to the game."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Sand Castle</span>",
+  "fetched_at": "2026-05-20T06:21:35Z",
+  "wikitext_chars": 714,
+  "wikitext": "{{Relic Infobox|Sand Castle|2}} {{Keyword Infobox|Upgrade|2}}\n{{R|Sand Castle||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relic}}. Upon pickup, 6 random cards are {{2|Upgrade|Upgraded}}.\n\n== Obtaining Sand Castle==\nAt the start of {{2|Acts#Act 2|Act 2}}, can be offered by {{KW|Orobas||2}}.\n===Spawn Restrictions===\n*Because '''Sand Castle''' shares a relic pool with {{R|Electric Shrymp||2}}, {{R|Glass Eye||2}}, {{R|Prismatic Gem||2}}, and {{R|Sea Glass||2}}, only 1 of the 5 can be offered by {{KW|Orobas||2}}.\n\n== Interactions ==\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Sand Castle to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

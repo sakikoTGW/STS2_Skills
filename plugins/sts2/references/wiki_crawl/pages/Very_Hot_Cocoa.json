@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Very Hot Cocoa",
+  "short_name": "Very Hot Cocoa",
+  "summary": "Can be offered at the start of Act 2 by .",
+  "sections": {
+    "Interactions": [
+      "Very Hot Cocoa can compensate for  loss on turn 1 due to .",
+      "Relics that draw an additional card(s) (such as , or correctly timed ) on turn 1 can provide more ways to spend  provided by Very Hot Cocoa."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Very Hot Cocoa</span>",
+  "fetched_at": "2026-05-20T06:22:04Z",
+  "wikitext_chars": 1099,
+  "wikitext": "{{Relic Infobox|Very Hot Cocoa|2}}{{Keyword Infobox|Energy|2}}\n{{R|Very Hot Cocoa||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}.\n== Sources ==\nCan be offered at the start of [[StS2:Acts#Act 2|Act 2]] by {{KW|Tezcatara||2}}.\n\n===Spawn Restrictions===\n*Because '''Very Hot Cocoa''' shares a relic pool with {{R|Nutritious Soup||2}} and {{R|Yummy Cookie||2}}, only 1 of the 3 can be offered by {{KW|Tezcatara||2}}.\n\n== Interactions ==\n=== Synergies ===\n*'''Very Hot Cocoa''' can compensate for {{KW|Energy||2}} loss on turn 1 due to {{R|Bread||2}}.\n*Relics that draw an additional card(s) (such as {{R|Bag of Preparation||2}}, or correctly timed {{R|Pendulum||2}}) on turn 1 can provide more ways to spend {{KW|Energy||2}} provided by '''Very Hot Cocoa'''.\n===Anti-Synergies===\n*{{R|Big Mushroom||2}}'s draw reduction on turn 1 can make it harder to spend {{KW|Energy||2}} provided by '''Very Hot Cocoa'''.\n== Update History ==\n* '''Early Access v0.98'''\n** Added Very Hot Cocoa to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

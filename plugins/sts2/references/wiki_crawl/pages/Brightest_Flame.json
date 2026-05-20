@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Brightest Flame",
+  "short_name": "Brightest Flame",
+  "summary": "is a 0  cost    Card. It gives 2 (3 if upgraded)  and draws 2 (3 if upgraded) cards, but also reduces your Max HP by 1.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Brightest Flame</span>",
+  "fetched_at": "2026-05-20T06:22:00Z",
+  "wikitext_chars": 657,
+  "wikitext": "{{Card Infobox|Brightest Flame||2|}}\n{{C|Brightest Flame||2}} is a 0 {{Icon|CE|2}} cost {{QueryLink|Cards|color:Colorless|Colorless|2}} {{QueryLink|Cards|rarity:Ancient|Ancient|2}} {{QueryLink|Cards|type:Skill|Skill|2}} Card. It gives 2 (3 if upgraded) {{Icon|CE|2}} and draws 2 (3 if upgraded) cards, but also reduces your Max HP by 1.\n\n== Obtaining Brightest Flame==\nCan be obtained by taking {{R|Storybook||2}} from {{KW|Tezcatara||2}}'s offering at the start of [[StS2:Acts#Act 2|Act 2]].\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Brightest Flame to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

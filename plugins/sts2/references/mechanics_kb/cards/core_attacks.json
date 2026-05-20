@@ -1,0 +1,109 @@
+{
+  "description": "核心攻防牌（伤害/层数对齐 mechanics_kb 验算）",
+  "cards": {
+    "STRIKE": {
+      "damage": [
+        6,
+        9
+      ],
+      "type": "attack",
+      "wiki": "Slay_the_Spire_2:Strike",
+      "wiki_summary": "Strikes are a group of cards with special support. While every character has a basic Strike and access to cards with \"Strike\", the  has specific support around these cards."
+    },
+    "DEFEND": {
+      "block": [
+        5,
+        8
+      ],
+      "type": "skill",
+      "wiki": "Slay_the_Spire_2:Defend"
+    },
+    "BASH": {
+      "damage": [
+        8,
+        10
+      ],
+      "vulnerable_turns": [
+        2,
+        3
+      ],
+      "wiki": "Slay_the_Spire_2:Bash",
+      "wiki_summary": "is a 2  cost   Card for the ."
+    },
+    "BLUDGEON": {
+      "damage": [
+        32,
+        42
+      ],
+      "wiki": "Slay_the_Spire_2:Bludgeon",
+      "wiki_summary": "is a 3  cost   Card for the . It deals 32 (42 if upgraded) damage."
+    },
+    "TWIN_STRIKE": {
+      "damage": [
+        5,
+        7
+      ],
+      "hits": 2,
+      "wiki": "Slay_the_Spire_2:Twin_Strike",
+      "wiki_summary": "is a 1  cost   Card for the ."
+    },
+    "POMMEL_STRIKE": {
+      "damage": [
+        9,
+        10
+      ],
+      "wiki": "Slay_the_Spire_2:Pommel_Strike",
+      "wiki_summary": "is a 1  cost   Card for the . It deals 9 (10 if upgraded) damage and draws 1 (2 if upgraded) card(s)."
+    },
+    "SHOCKWAVE": {
+      "vulnerable_turns": [
+        3,
+        5
+      ],
+      "weak_turns": [
+        3,
+        5
+      ],
+      "aoe": true,
+      "wiki": "Slay_the_Spire_2:Shockwave",
+      "wiki_summary": "is a 2  cost    Card."
+    },
+    "UPPERCUT": {
+      "vulnerable_turns": [
+        1,
+        2
+      ],
+      "weak_turns": [
+        1,
+        2
+      ],
+      "wiki": "Slay_the_Spire_2:Uppercut",
+      "wiki_summary": "is a 2  cost   Card for the ."
+    },
+    "THUNDERCLAP": {
+      "vulnerable_turns": [
+        2,
+        3
+      ],
+      "aoe": true,
+      "wiki": "Slay_the_Spire_2:Thunderclap",
+      "wiki_summary": "is a 1  cost   Card for the ."
+    },
+    "DEADLY_POISON": {
+      "poison": [
+        5,
+        7
+      ],
+      "wiki": "Slay_the_Spire_2:Deadly_Poison",
+      "wiki_summary": "is a 1  cost   Card for the ."
+    },
+    "NEUTRALIZE": {
+      "weak_turns": [
+        1,
+        2
+      ],
+      "wiki": "Slay_the_Spire_2:Neutralize",
+      "wiki_summary": "is a 0  cost   Card for the ."
+    }
+  }
+}

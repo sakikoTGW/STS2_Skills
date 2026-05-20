@@ -1,0 +1,32 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Ancients",
+  "description": "每幕开始先古三选一；必须选一项，不能跳过",
+  "act_ancients": {
+    "1": ["NEOW"],
+    "2": ["OROBAS", "PAEL", "TEZCATARA", "DARV"],
+    "3": ["NONUPEIPE", "TANX", "VAKUU", "DARV"]
+  },
+  "neow": {
+    "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Neow",
+    "always_act1": true,
+    "offers": 3,
+    "pools": ["curse_relic_then_positive_adjusted"],
+    "heal_notes": "多数遗物为拾取效果；Nutritious Oyster +11 MaxHP；开局对话后常视为先古遭遇"
+  },
+  "heal_rules": {
+    "default_missing_hp_heal_ratio": 1.0,
+    "ascension_2_missing_hp_heal_ratio": 0.8,
+    "applies_to": ["ancient_boon_heal", "neow_start", "act_start_heal"],
+    "not_applies_to": ["rest_site_rest", "potion_heal"]
+  },
+  "names_zh": {
+    "NEOW": "涅奥",
+    "OROBAS": "奥罗巴斯",
+    "PAEL": "佩尔",
+    "TEZCATARA": "特兹卡塔拉",
+    "DARV": "达夫",
+    "NONUPEIPE": "诺努佩佩",
+    "TANX": "坦克斯",
+    "VAKUU": "瓦库"
+  }
+}

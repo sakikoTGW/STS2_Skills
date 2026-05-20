@@ -1,0 +1,387 @@
+{
+  "version": 1,
+  "description": "Act1 怪物可计算行为循环（与 enemies.json 按 id 合并）",
+  "entries": {
+    "JAW_WORM": {
+      "kind": "cycle",
+      "length": 3,
+      "steps": [
+        {
+          "key": "roar",
+          "name": "咆哮",
+          "aliases": ["Roar", "Bellow", "吼叫"],
+          "type": "buff",
+          "effects": [{"power": "strength", "delta": 2}]
+        },
+        {
+          "key": "bite",
+          "name": "咬",
+          "aliases": ["Bite", "Chomp"],
+          "type": "attack",
+          "damage_base": 11,
+          "damage_per_strength": 1,
+          "hits": 1,
+          "scales_strength": true
+        },
+        {
+          "key": "thrash",
+          "name": "猛击",
+          "aliases": ["Thrash", "Slam"],
+          "type": "attack",
+          "damage_base": 12,
+          "damage_per_strength": 1,
+          "hits": 1,
+          "scales_strength": true
+        }
+      ]
+    },
+    "LOUSE": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {
+          "key": "curl",
+          "name": "蜷缩",
+          "aliases": ["Curl Up", "蜷缩"],
+          "type": "block",
+          "block_gain": 7
+        },
+        {
+          "key": "bite",
+          "name": "噬咬",
+          "aliases": ["Bite", "噬咬"],
+          "type": "attack",
+          "damage_base": 6,
+          "hits": 1
+        }
+      ]
+    },
+    "ACID_LOUSE": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {"key": "curl", "name": "蜷缩", "type": "block", "block_gain": 7},
+        {
+          "key": "spit",
+          "name": "酸液喷吐",
+          "type": "attack",
+          "damage_base": 6,
+          "hits": 1,
+          "notes": "可能附带虚弱"
+        }
+      ]
+    },
+    "SLIME": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {"key": "slam", "name": "撞击", "type": "attack", "damage_base": 8, "hits": 1},
+        {
+          "key": "split",
+          "name": "分裂",
+          "type": "other",
+          "notes": "HP低于阈值触发，优先在它分裂前击杀"
+        }
+      ]
+    },
+    "SMALL_SLIME": {
+      "kind": "cycle",
+      "length": 1,
+      "steps": [
+        {"key": "tackle", "name": "撞击", "type": "attack", "damage_base": 5, "hits": 1}
+      ]
+    },
+    "CULTIST": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {
+          "key": "ritual",
+          "name": "仪式",
+          "type": "buff",
+          "effects": [{"power": "ritual", "delta": 1}],
+          "notes": "仪式层数=额外力量，每回合成长"
+        },
+        {
+          "key": "dark_strike",
+          "name": "黑暗打击",
+          "type": "attack",
+          "damage_base": 6,
+          "damage_per_strength": 1,
+          "hits": 1,
+          "scales_strength": true
+        }
+      ]
+    },
+    "FUNGUS_BEAST": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {"key": "spore", "name": "孢子", "type": "debuff", "notes": "塞状态牌"},
+        {"key": "bash", "name": "撞击", "type": "attack", "damage_base": 12, "hits": 1}
+      ]
+    },
+    "GREMLIN_NOB": {
+      "kind": "cycle",
+      "length": 3,
+      "steps": [
+        {
+          "key": "skull_bash",
+          "name": "颅骨重击",
+          "aliases": ["Skull Bash", "重击"],
+          "type": "attack",
+          "damage_base": 14,
+          "hits": 1,
+          "formula": "nob_skull",
+          "notes": "本回合你每打出1张技能牌+2伤害"
+        },
+        {
+          "key": "anger",
+          "name": "狂怒",
+          "type": "buff",
+          "effects": [{"power": "strength", "delta": 2}]
+        },
+        {
+          "key": "rush",
+          "name": "重踢",
+          "aliases": ["Kick", "Rush"],
+          "type": "attack",
+          "damage_base": 10,
+          "damage_per_strength": 1,
+          "hits": 1,
+          "scales_strength": true
+        }
+      ]
+    },
+    "LAGAVULIN": {
+      "kind": "phases",
+      "phases": [
+        {
+          "id": "sleep",
+          "loop": {
+            "kind": "cycle",
+            "length": 1,
+            "steps": [
+              {
+                "key": "sleep",
+                "name": "入睡",
+                "aliases": ["Sleep", "冥想"],
+                "type": "other",
+                "notes": "前2-3回合睡眠，可白打；被打醒进入觉醒"
+              }
+            ]
+          }
+        },
+        {
+          "id": "awake",
+          "loop": {
+            "kind": "cycle",
+            "length": 3,
+            "steps": [
+              {
+                "key": "siphon",
+                "name": "灵魂吸取",
+                "type": "debuff",
+                "effects": [{"power": "strength", "delta": -1}],
+                "notes": "永久-1力量(本场)"
+              },
+              {
+                "key": "slash",
+                "name": "猛击",
+                "aliases": ["Slash", "Attack"],
+                "type": "attack",
+                "damage_base": 18,
+                "hits": 1
+              },
+              {
+                "key": "block",
+                "name": "防御",
+                "type": "block",
+                "block_gain": 8
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "SENTRY": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {
+          "key": "buff",
+          "name": "强化",
+          "aliases": ["Buff", "强化"],
+          "type": "buff",
+          "effects": [{"power": "strength", "delta": 2}],
+          "notes": "三哨卫首回合常集体强化"
+        },
+        {
+          "key": "beat",
+          "name": "重击",
+          "aliases": ["Beat", "Multi", "重击"],
+          "type": "attack",
+          "damage_base": 9,
+          "hits": 2
+        }
+      ]
+    },
+    "SENTRIES": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {
+          "key": "buff",
+          "name": "强化",
+          "type": "buff",
+          "effects": [{"power": "strength", "delta": 2}]
+        },
+        {"key": "beat", "name": "重击", "type": "attack", "damage_base": 9, "hits": 2}
+      ]
+    },
+    "PHANTASMAL_GARDENER": {
+      "kind": "cycle",
+      "length": 4,
+      "steps": [
+        {
+          "key": "bite",
+          "name": "咬",
+          "type": "attack",
+          "damage_base": 7,
+          "hits": 1,
+          "notes": "首击触发Skittish格挡"
+        },
+        {
+          "key": "lash",
+          "name": "抽打",
+          "type": "attack",
+          "damage_base": 8,
+          "hits": 1
+        },
+        {
+          "key": "flail",
+          "name": "乱打",
+          "type": "attack",
+          "damage_base": 5,
+          "hits": 2
+        },
+        {
+          "key": "enlarge",
+          "name": "膨胀",
+          "type": "buff",
+          "effects": [{"power": "strength", "delta": 1}]
+        }
+      ]
+    },
+    "CORAL": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {
+          "key": "strike",
+          "name": "攻击",
+          "type": "attack",
+          "damage_base": 12,
+          "hits": 1,
+          "notes": "有效伤害每回合上限约15(硬化外壳)"
+        },
+        {"key": "defend", "name": "防御", "type": "block", "block_gain": 10}
+      ],
+      "modifiers": [{"type": "damage_cap_per_turn", "value": 15}]
+    },
+    "WRIGGLER": {
+      "kind": "cycle",
+      "length": 3,
+      "steps": [
+        {"key": "chomp", "name": "凶恶啃咬", "type": "attack", "damage_base": 6, "hits": 1},
+        {
+          "key": "wriggle",
+          "name": "扭动",
+          "type": "buff",
+          "effects": [{"power": "strength", "delta": 2}]
+        },
+        {"key": "stun", "name": "已孵化", "type": "debuff", "notes": "击晕窗口"}
+      ]
+    },
+    "PHROG_PARASITE": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {"key": "infect", "name": "感染", "type": "debuff"},
+        {
+          "key": "flail",
+          "name": "甩动",
+          "type": "attack",
+          "damage_base": 4,
+          "hits": 4
+        }
+      ]
+    },
+    "LOOTER": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {"key": "mug", "name": "抢劫", "type": "attack", "damage_base": 10, "hits": 1},
+        {"key": "escape", "name": "逃跑", "type": "other"}
+      ]
+    },
+    "MAD_GREMLIN": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {
+          "key": "angry",
+          "name": "愤怒",
+          "type": "buff",
+          "effects": [{"power": "strength", "delta": 1}]
+        },
+        {"key": "scratch", "name": "抓挠", "type": "attack", "damage_base": 4, "hits": 1}
+      ]
+    },
+    "SNEAKY_GREMLIN": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {"key": "sneaky", "name": "偷袭", "type": "attack", "damage_base": 9, "hits": 1},
+        {"key": "retreat", "name": "撤退", "type": "block", "block_gain": 6}
+      ]
+    },
+    "FAT_GREMLIN": {
+      "kind": "cycle",
+      "length": 2,
+      "steps": [
+        {"key": "flop", "name": "扑击", "type": "attack", "damage_base": 4, "hits": 1},
+        {"key": "block", "name": "格挡", "type": "block", "block_gain": 5}
+      ]
+    },
+    "SHRINKER_BEETLE": {
+      "kind": "cycle",
+      "length": 3,
+      "steps": [
+        {
+          "key": "shrink",
+          "name": "缩小",
+          "aliases": ["Shrinker", "Shrink", "DebuffStrong", "缩小", "Strong"],
+          "type": "debuff",
+          "effects": [{"raw": "Shrink: 攻击伤害-30%"}]
+        },
+        {
+          "key": "chomp",
+          "name": "啃咬",
+          "aliases": ["Chomp", "啃咬", "Bite"],
+          "type": "attack",
+          "damage_base": 7,
+          "hits": 1
+        },
+        {
+          "key": "stomp",
+          "name": "践踏",
+          "aliases": ["Stomp", "践踏", "Slam"],
+          "type": "attack",
+          "damage_base": 13,
+          "hits": 1
+        }
+      ]
+    }
+  }
+}

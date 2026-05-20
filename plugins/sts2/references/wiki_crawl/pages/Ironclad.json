@@ -1,0 +1,69 @@
+{
+  "page": "Slay_the_Spire_2:Ironclad",
+  "short_name": "Ironclad",
+  "summary": "is one of five characters in Slay the Spire 2, and the only one available when you first start the game. He starts with 80 Max HP, the highest of any character. At  and above he starts with 64 HP.",
+  "sections": {},
+  "tables": [
+    [
+      "+"
+    ],
+    [
+      "Common"
+    ],
+    [
+      "{{R",
+      "Red Skull",
+      "",
+      "2}}"
+    ],
+    [
+      "Uncommon"
+    ],
+    [
+      "{{R",
+      "Paper Phrog",
+      "",
+      "2}}, {{R",
+      "Self-Forming Clay",
+      "",
+      "2}}"
+    ],
+    [
+      "Rare"
+    ],
+    [
+      "{{R",
+      "Charon's Ashes",
+      "",
+      "2}}, {{R",
+      "Demon Tongue",
+      "",
+      "2}}, {{R",
+      "Ruined Helmet",
+      "",
+      "2}}"
+    ],
+    [
+      "Shop"
+    ],
+    [
+      "{{R",
+      "Brimstone",
+      "",
+      "2}}"
+    ],
+    [
+      "}"
+    ],
+    [
+      "+"
+    ],
+    [
+      "Common"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Ironclad</span>",
+  "fetched_at": "2026-05-20T05:42:58Z",
+  "wikitext_chars": 3930,
+  "wikitext": "{{Sequel Disambiguation|2}}{{Character Infobox|Ironclad2}}\n{{StS2|Ironclad}} is one of five characters in [[Slay the Spire 2:Main|Slay the Spire 2]], and the only one available when you first start the game. He starts with 80 Max HP, the highest of any character. At {{Asc|2|Ascension|2}} and above he starts with 64 HP.\n\n== Starting Loadout ==\n\n=== Starting Relic ===\n{{R|Burning Blood||2}} - Heal for 6 HP at the end of combat. Can be replaced by {{R|Black Blood||2}}.\n\n=== Starting Deck ===\nThese {{QueryLink|Cards|color:Ironclad&rarity:Basic|Cards|2}} cannot be obtained through regular card rewards.\n* {{C|Strike (Ironclad)|Strike|2}} x5\n* {{C|Defend (Ironclad)|Defend|2}} x4\n* {{C|Bash||2}} x1\n\n=== Ironclad Cards ===\nThere are a total of 82 regular cards in Ironclads's card pool.\n<!--* {{C|Strike (Ironclad)| |2}} {{QueryLink|Cards|color:Ironclad&rarity:Basic|Basic Cards|2}} x4\nBasics are not in the card pool!-->\n* [[File:StS2_CardIcon_Ironclad_Skill_Common.png|24px]] {{QueryLink|Cards|color:Ironclad&rarity:Common|Common Cards|2}} x20\n* [[File:StS2_CardIcon_Ironclad_Skill_Uncommon.png|24px]] {{QueryLink|Cards|color:Ironclad&rarity:Uncommon|Uncommon Cards|2}} x36\n* [[File:StS2_CardIcon_Ironclad_Skill_Rare.png|24px]] {{QueryLink|Cards|color:Ironclad&rarity:Rare|Rare Cards|2}} x26\n\nWhen playing {{2|Multiplayer}}, these cards get added to the card pool:\n* {{C|Demonic Shield||2}}\n* {{C|Tank||2}}\n\nThere are also five cards that are not obtainable through normal means.\n* [[File:StS2_CardIcon_Ironclad_Skill_Ancient.png|24px]] {{QueryLink|Cards|color:Ironclad&rarity:Ancient|Ancient Cards|2}} x2\n* [[File:StS2_CardIcon_Ironclad_Skill_Event.png|24px]] {{QueryLink|Cards|color:Ironclad&rarity:Event|Event Cards|2}} x3\n</br>\nA full list of Ironclad Cards (and more) can be found {{QueryLink|Cards|color:Ironclad|here|2}}.\n\n== Unique Relics ==\n{| class=\"wikitable\"\n|+\n!Rarity\n!Relic\n|-\n|'''Common'''\n|{{R|Red Skull||2}}\n|-\n|'''Uncommon'''\n|{{R|Paper Phrog||2}}, {{R|Self-Forming Clay||2}}\n|-\n|'''Rare'''\n|{{R|Charon's Ashes||2}}, {{R|Demon Tongue||2}}, {{R|Ruined Helmet||2}}\n|-\n|'''Shop'''\n|{{R|Brimstone||2}}\n|}\n\n== Unique Potions ==\n{| class=\"wikitable\"\n|+\n!Rarity\n!Potion\n|-\n|'''Common'''\n|{{P|Blood Potion||2}}\n|-\n|'''Uncommon'''\n|{{P|Ashwater||2}}\n|-\n|'''Rare'''\n|{{P|Soldier's Stew||2}}\n|}\n\n== Unlocks ==\nThe Ironclad is unlocked from the start of the game.\n\nLike all characters, there are 6 Epochs in the [[Slay the Spire 2:Timeline|Timeline]] which are discovered upon reaching certain Ironclad gameplay milestones, unlocking Cards, Relics, and Potions unique to the Ironclad.\n{| class=\"wikitable\"\n|+\n![[Slay the Spire 2:Timeline#The Ironclad|Epoch]]<br>(Unlock Requirement)\n!Rewards\n|-\n|{{2|Timeline#The Ironclad - Chapter 3|The Ironclad}}<br>(Beating Act 1)\n|{{C|Molten Fist||2}},  {{C|Dominate||2}}, {{C|Cruelty||2}}\n|-\n|{{2|Timeline#Devastation|Devastation}}<br>(Beating Act 2)\n|{{R|Red Skull||2}}, {{R|Paper Phrog||2}}, {{R|Ruined Helmet||2}}\n|-\n|{{2|Timeline#The Pact|The Pact}}<br>(Beating Act 3)\n|{{P|Blood Potion||2}},  {{P|Ashwater||2}}, {{P|Soldier's Stew||2}}\n|-\n|{{2|Timeline#My Face|My Face}}<br>(Beating {{Asc|1|Ascension|2}})\n|{{C|Blood Wall||2}},  {{C|Inferno||2}}, {{C|Tear Asunder||2}}\n|-\n|{{2|Timeline#Ablaze|Ablaze}}<br>(Killing 15 [[Slay the Spire 2:Elites|Elites]])\n|{{C|Cinder||2}}, {{C|Drum of Battle||2}}, {{C|Pact's End||2}}\n|-\n|{{2|Timeline#Snuffed|Snuffed}}<br>(Killing 15 [[Slay the Spire 2:Bosses|Bosses]])\n|{{R|Self-Forming Clay||2}}, {{R|Charon's Ashes||2}}, {{R|Demon Tongue||2}}\n|}\n\nAdditionally, completing a single run with the Ironclad, even if the run ends with a loss, will unlock the {{KW|Silent||2}} as a playable character.\n\n==Gallery==\n<gallery>\nFile:StS2_Ironclad_Rest_Anim.webp|Rest Animation\nFile:StS2_Ironclad_Idle_Anim.webp|Idle Animation\nFile:StS2_Ironclad_Banner_Anim.webp|Character Banner\n</gallery>\n\n[[Category:Character]][[Category:Slay_the_Spire_2_Content]]"
+}

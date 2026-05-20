@@ -1,0 +1,86 @@
+{
+  "page": "Slay_the_Spire_2:Endless Conveyor",
+  "short_name": "Endless Conveyor",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "tables": [
+    [
+      "Caviar",
+      "",
+      "Gain 4 Max HP.",
+      "",
+      "6"
+    ],
+    [
+      "Clam Roll",
+      "",
+      "Heal 10 HP.",
+      "",
+      "6",
+      "",
+      "Only if not at full HP."
+    ],
+    [
+      "Spicy Snappy",
+      "",
+      "{{2",
+      "Upgrade}} a random card.",
+      "",
+      "3"
+    ],
+    [
+      "Jelly Liver",
+      "",
+      "{{2",
+      "Transform}} a card.",
+      "",
+      "3"
+    ],
+    [
+      "Fried Eel",
+      "",
+      "Add a random Colorless card to Deck.",
+      "",
+      "3"
+    ],
+    [
+      "Suspicious Condiment",
+      "",
+      "Procure a random {{2",
+      "Potions",
+      "Potion}}.",
+      "",
+      "3",
+      "",
+      "Only if potion slots available."
+    ],
+    [
+      "Golden Fysh",
+      "",
+      "Gain 75 Gold (free).",
+      "",
+      "1",
+      "",
+      "Only appears after 2+ grabs."
+    ],
+    [
+      "Seapunk Salad",
+      "",
+      "Add {{C",
+      "Feeding Frenzy",
+      "",
+      "2}} to Deck.",
+      "",
+      "—",
+      "",
+      "Forced every 5th grab."
+    ],
+    [
+      "}"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Endless Conveyor</span>",
+  "fetched_at": "2026-05-20T06:17:22Z",
+  "wikitext_chars": 2574,
+  "wikitext": "{{Event Header|StS2 Endless Conveyor.png}}\n{{E|Endless Conveyor|2}} is an {{2|Events|Event}} found exclusively in the {{2|Underdocks}}.\n\n== Options ==\n{{Frame|Grab Something Off the Belt}} {{TS|negative||Pay 40 {{2|Gold}}.}} {{TS|positive||Receive a random dish (see below).}}\n* After each grab, you may continue grabbing or Leave.\n<br>\n{{Frame|Observe the Chef}} {{TS|positive||{{2|Upgrade}} a random card.}}\n\n=== Dishes ===\nEach grab serves a random dish from the belt (40 Gold each, except Golden Fysh which is free):\n\n{| class=\"wikitable\" style=\"width: 650px;\"\n! Dish !! Effect !! Weight !! Notes\n|-\n| Caviar || Gain 4 Max HP. || 6 ||\n|-\n| Clam Roll || Heal 10 HP. || 6 || Only if not at full HP.\n|-\n| Spicy Snappy || {{2|Upgrade}} a random card. || 3 ||\n|-\n| Jelly Liver || {{2|Transform}} a card. || 3 ||\n|-\n| Fried Eel || Add a random [[Colorless]] card to Deck. || 3 ||\n|-\n| Suspicious Condiment || Procure a random {{2|Potions|Potion}}. || 3 || Only if potion slots available.\n|-\n| Golden Fysh || Gain 75 Gold (free). || 1 || Only appears after 2+ grabs.\n|-\n| Seapunk Salad || Add {{C|Feeding Frenzy||2}} to Deck. || — || Forced every 5th grab.\n|}\n\n* The same dish cannot appear twice in a row.\n* Requires at least 120 {{2|Gold}} on every player to appear.\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nYou lumber into a shack with a bright but crooked sign that reads:\n{{TS|aqua||\"ENDLESS FEAST - PAY WHAT YOU HUNGER!\"}}\n\nInside, a {{TS|orange||willowy multi-armed chef}} is deftly preparing {{TS|green||bites of food}} and placing them onto a winding chitinous belt.\n\nOne of the chef's arms point to a sign:\n{{TS|blue||40}} {{TS|gold||Gold}} each\n</div>\n\n{{Frame|Observe the Chef}}\n<blockquote><div style=\"font-style:italic\">\nKeeping your distance from a seat, you loiter in the shadows of the establishment's entrance.\n\nThe chef, unfazed, continues working. Studying this behavior and discipline, you seek to minimize unnecessary movement and emotion during combat.\n</div></blockquote>\n\n{{Frame|Leave}}\n<blockquote><div style=\"font-style:italic\">\nNow that you've had your fill, you continue on your way.\n</div></blockquote>\n</blockquote>\n\n== Update History ==\n* '''Early Access v0.103.2'''\n**Endless Conveyor changes from BETA branch were moved to the main version of the game.\n*'''Early Access v0.100.0 (BETA)'''\n**Changed Endless Conveyor event:\n**Can no longer spawn unless all players have at least 120 Gold (up from 105)\n**\"Grab off the Belt\" option cost increased from 35 -> 40 Gold\n\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

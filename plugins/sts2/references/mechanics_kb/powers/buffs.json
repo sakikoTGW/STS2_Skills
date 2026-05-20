@@ -1,0 +1,149 @@
+{
+  "entries": [
+    {
+      "id": "STRENGTH",
+      "name_en": "Strength",
+      "name_zh": "力量",
+      "stack_type": "intensity",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Strength",
+      "scope": "additive_attack_per_hit",
+      "per_stack": 1,
+      "min_per_hit": 0,
+      "wiki_summary": "is a  that increases the damage of  and  enemy Attacks. Each point of  increases the damage of an attack by 1. Attacks that hit multiple times, like , will apply  to each individual hit. can be negative, reducing the damage of attacks to a minimum of 0 damage per hit."
+    },
+    {
+      "id": "DEXTERITY",
+      "name_en": "Dexterity",
+      "name_zh": "敏捷",
+      "stack_type": "intensity",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Dexterity",
+      "scope": "additive_block_from_cards",
+      "per_stack": 1,
+      "wiki_summary": "is a  that increases the  gained directly from cards. This does not apply to any other sources of , including by Buffs gained from cards. can be negative, reducing the  gained from cards to a minimum of 0."
+    },
+    {
+      "id": "VIGOR",
+      "name_en": "Vigor",
+      "name_zh": "活力",
+      "stack_type": "intensity",
+      "scope": "additive_attack_per_hit_until_consumed",
+      "per_stack": 1
+    },
+    {
+      "id": "ACCURACY",
+      "name_en": "Accuracy",
+      "name_zh": "精准",
+      "stack_type": "intensity",
+      "scope": "additive_attack_per_hit",
+      "per_stack": 1
+    },
+    {
+      "id": "FAVORED",
+      "name_en": "Favored",
+      "name_zh": "眷顾",
+      "scope": "pre_strength_multiplicative_on_base",
+      "damage_multiplier": 2.0,
+      "wiki_note": "wiki Strength: 唯一在力量之前的乘算"
+    },
+    {
+      "id": "DOUBLE_DAMAGE",
+      "name_en": "Double Damage",
+      "name_zh": "双倍伤害",
+      "scope": "outgoing_attack",
+      "damage_multiplier": 2.0
+    },
+    {
+      "id": "FASTEN",
+      "name_en": "Fasten",
+      "name_zh": "加固",
+      "scope": "additive_block_from_cards",
+      "per_stack": 1
+    },
+    {
+      "id": "UNMOVABLE",
+      "name_en": "Unmovable",
+      "name_zh": "不动",
+      "scope": "block_multiplier",
+      "block_multiplier": 2.0
+    },
+    {
+      "id": "SHADOWMELD",
+      "name_en": "Shadowmeld",
+      "name_zh": "幽影融合",
+      "scope": "block_multiplier",
+      "block_multiplier": 2.0
+    },
+    {
+      "id": "ARTIFACT",
+      "name_en": "Artifact",
+      "name_zh": "人工制品",
+      "scope": "negate_debuff",
+      "not_damage": true
+    },
+    {
+      "id": "INTANGIBLE",
+      "name_en": "Intangible",
+      "name_zh": "无形",
+      "scope": "cap_hp_loss",
+      "cap": 1
+    }
+  ],
+  "power_match": {
+    "STRENGTH": [
+      "力量",
+      "strength",
+      "STRENGTH"
+    ],
+    "DEXTERITY": [
+      "敏捷",
+      "dexterity",
+      "DEXTERITY"
+    ],
+    "VIGOR": [
+      "活力",
+      "vigor",
+      "VIGOR"
+    ],
+    "ACCURACY": [
+      "精准",
+      "accuracy",
+      "ACCURACY"
+    ],
+    "FAVORED": [
+      "眷顾",
+      "favored",
+      "FAVORED"
+    ],
+    "DOUBLE_DAMAGE": [
+      "双倍",
+      "double damage",
+      "DOUBLE_DAMAGE",
+      "SHADOW_STEP"
+    ],
+    "FASTEN": [
+      "加固",
+      "fasten",
+      "FASTEN"
+    ],
+    "UNMOVABLE": [
+      "不动",
+      "unmovable",
+      "UNMOVABLE"
+    ],
+    "SHADOWMELD": [
+      "幽影",
+      "shadowmeld",
+      "SHADOWMELD"
+    ],
+    "ARTIFACT": [
+      "人工制品",
+      "artifact",
+      "ARTIFACT"
+    ],
+    "INTANGIBLE": [
+      "无形",
+      "intangible",
+      "INTANGIBLE"
+    ]
+  }
+}

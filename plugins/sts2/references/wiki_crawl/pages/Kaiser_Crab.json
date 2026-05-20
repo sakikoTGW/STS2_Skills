@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Kaiser_Crab",
+  "short_name": "Kaiser_Crab",
+  "summary": "The Kaiser Crab is a  encounter found in . It consists of two arms that fight simultaneously: the Crusher (left claw) and the Rocket (right claw). Players are  — attacks from behind deal 50% more damage depending on which arm the player is facing away from.",
+  "sections": {
+    "Interactions": [
+      "Effects that automate  toward random targets (such as , , and ) can potentially turn the player away from the claw attacking for a given turn, leaving them exposed to additional damage via .",
+      "can be particularly dangerous, as its trigger occurs after the player has ended their turn."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Kaiser Crab</span>",
+  "fetched_at": "2026-05-20T05:42:42Z",
+  "wikitext_chars": 2120,
+  "wikitext": "{{Power Infobox|Surrounded|2}} {{Power Infobox|Crab Rage|2}}\nThe '''Kaiser Crab''' is a {{2|Bosses|Boss}} encounter found in {{2|Hive}}. It consists of two arms that fight simultaneously: the [[Crusher]] (left claw) and the [[Rocket]] (right claw). Players are {{BD|Surrounded||2}} — attacks from behind deal 50% more damage depending on which arm the player is facing away from.\n\n== Crusher ==\n{{Enemy Infobox|Crusher|2}}\n=== Pattern ===\n{{Intents|Crusher|2}}\nCrusher cycles through its five moves in a fixed order, repeating forever:\n# {{Int|Crusher|Thrash||2}}\n# {{Int|Crusher|Enlarging Strike||2}}\n# {{Int|Crusher|Bug Sting||2}}\n# {{Int|Crusher|Adapt||2}}\n# {{Int|Crusher|Guarded Strike||2}}\n\n{{Clear}}\n\n== Rocket ==\n{{Enemy Infobox|Rocket|2}}\n\n=== Pattern ===\n{{Intents|Rocket|2}}\nRocket cycles through its five moves in a fixed order, repeating forever:\n# {{Int|Rocket|Targeting Reticle||2}}\n# {{Int|Rocket|Precision Beam||2}}\n# {{Int|Rocket|Charge Up||2}}\n# {{Int|Rocket|Laser||2}}\n# {{Int|Rocket|Recharge||2}}\n\n{{Clear}}\n\n==Interactions==\n===Anti-Synergies===\n* Effects that automate {{QueryLink|Cards|type:Attack|Attacks|2}} toward random targets (such as {{C|Hellraiser||2}}, {{C|Mayhem||2}}, and {{R|History Course||2}}) can potentially turn the player away from the claw attacking for a given turn, leaving them exposed to additional damage via {{BD|Surrounded||2}}.\n**{{C|Stampede||2}} can be particularly dangerous, as its trigger occurs after the player has ended their turn.\n\n== Version History ==\n*'''Early Access v0.103.2'''\n**BETA changes incorporated into main branch.\n* '''Early Access v0.100.0 (BETA)'''\n** Buffed '''Rocket Claw''':\n*** Charge Up move Strength gain now scales with Ascension from 2(2) -> 2(3)\n***HP increased from 189(199) -> 199(209)\n***Rage power Strength buffed from 5 -> 6\n**Buffed '''Crusher Claw''':\n***Adapt move Strength gain now scales with Ascension from 2(2) -> 2(3)\n***HP increased from 199(209) -> 209(219)\n***Rage power Strength buffed from 5 -> 6\n* '''Early Access v0.98'''\n** Added Kaiser Crab to the game.\n\n[[Category:Bosses]]\n[[Category:Slay the Spire 2 Content]]"
+}

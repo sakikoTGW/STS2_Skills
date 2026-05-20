@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Soul_Nexus",
+  "short_name": "Soul_Nexus",
+  "summary": "Soul Nexus is an   found in .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Soul Nexus</span>",
+  "fetched_at": "2026-05-20T05:42:32Z",
+  "wikitext_chars": 568,
+  "wikitext": "{{Enemy Infobox|Soul Nexus|2}}\n'''Soul Nexus''' is an {{2|Elites|Elite}} {{2|Monsters|Enemy}} found in {{2|Glory}}.\n\n== Pattern ==\n{{Intents|Soul Nexus|2}}\nOpens with {{Int|Soul Nexus|Soul Burn||2}}, then randomly uses {{Int|Soul Nexus|Soul Burn||2}}, {{Int|Soul Nexus|Maelstrom||2}}, or {{Int|Soul Nexus|Drain Life||2}} each turn. No move can be used two turns in a row. All three moves are equally weighted.\n\n== Notes ==\n\n== Trivia ==\n*Soul Nexus appears in {{C|Maul||2}}'s card art, being bitten by snakes.\n\n[[Category:Elites]]\n[[Category:Slay the Spire 2 Content]]"
+}

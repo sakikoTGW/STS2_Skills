@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-sts2"
+version = "1.1.0"
+description = "Slay the Spire 2 agent bridge — STS2MCP tools for Hermes, OpenClaw, and AstrBot"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Hermes STS2 contributors" }]
+keywords = ["sts2", "slay-the-spire", "mcp", "hermes", "openclaw", "astrbot", "gaming"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Games/Entertainment",
+]
+dependencies = [
+  "pyyaml>=6.0",
+  "requests>=2.31",
+]
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.0"]
+hermes = ["hermes-agent>=0.13"]
+llm = ["openai>=1.0"]
+
+[project.urls]
+Homepage = "https://github.com/Brs/hermes-sts2"
+Repository = "https://github.com/Brs/hermes-sts2"
+Issues = "https://github.com/Brs/hermes-sts2/issues"
+
+[project.scripts]
+sts2 = "plugins.sts2.cli_standalone:main"
+sts2-mcp = "plugins.sts2.mcp_server:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["plugins*"]
+
+[tool.setuptools.package-data]
+"plugins.sts2" = [
+  "plugin.yaml",
+  "references/**/*",
+  "integrations/**/*",
+]

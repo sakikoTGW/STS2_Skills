@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Phylactery Unbound",
+  "short_name": "Phylactery Unbound",
+  "summary": "is the Starter Upgrade of the 's . The start of turn  is doubled and an additional 5 is Summoned at the start of combat.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Phylactery Unbound</span>",
+  "fetched_at": "2026-05-20T06:18:28Z",
+  "wikitext_chars": 763,
+  "wikitext": "{{Relic Infobox|Name=|Phylactery Unbound|2}}{{Keyword Infobox|Summon|2}}{{R|Phylactery Unbound|3=2}} is the Starter Upgrade of the {{KW|Necrobinder||2}}'s {{R|Bound Phylactery|3=2}}. The start of turn {{KW|Summon||2}} is doubled and an additional 5 is Summoned at the start of combat.\n\n== Sources ==\nAfter fighting a {{2|Bosses|Boss}}, can be obtained by taking the {{R|Touch of Orobas||2}} from {{2|Orobas}}. Replaces {{R|Bound Phylactery|3=2}}.\n\n== Spawn Restrictions ==\nCan only be obtained by the {{KW|Necrobinder||2}}.\n\n== Notes ==\n{{R|Phylactery Unbound|3=2}} {{KW|Summon|Summons|2}} for a total of 7 on the {{KW|Necrobinder||2}}'s first turn of combat.\n\n== Trivia ==\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Phylactery Unbound to the game."
+}

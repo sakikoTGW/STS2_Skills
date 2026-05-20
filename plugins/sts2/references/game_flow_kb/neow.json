@@ -1,0 +1,115 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Neow",
+  "curse_pool": [
+    {
+      "id": "CURSED_PEARL",
+      "effect": "Upon pickup, receive . Gain 333 Gold."
+    },
+    {
+      "id": "HEFTY_TABLET",
+      "effect": "Choose 1 of 3 Rare cards to add to your Deck. Add 1  to your Deck."
+    },
+    {
+      "id": "LARGE_CAPSULE",
+      "effect": "Upon pickup, obtain 2 random . Add an additional  and  to your Deck."
+    },
+    {
+      "id": "LEAFY_POULTICE",
+      "effect": "Upon pickup,  1 of your  and 1 of your  and lose 12 Max HP."
+    },
+    {
+      "id": "PRECARIOUS_SHEARS",
+      "effect": "Upon pickup, remove 2 cards from your Deck and take 16 damage."
+    },
+    {
+      "id": "SCROLL_BOXES",
+      "effect": "Upon pickup, lose all Gold and choose 1 of 2 packs of cards to add to your Deck. <br> Each pack contains 1 random  and 2 random . You must take one of the packs before proceeding."
+    },
+    {
+      "id": "NEOW'S_BONES",
+      "effect": "Upon pickup, gain 2 random Neow Relics. Add 1 random Curse to your Deck. <br> The 2 random Relics include the 2 other Relics that are currently on offer. <br> The resulting 2 Relics can be picked up i"
+    },
+    {
+      "id": "SILVER_CRUCIBLE",
+      "effect": "The first 3 cards rewards you see are . The first Treasure Chest you open is empty."
+    }
+  ],
+  "positive_pool": [
+    {
+      "id": "BOOMING_CONCH",
+      "effect": "At the start of  combats, draw 2 additional cards."
+    },
+    {
+      "id": "LEAD_PAPERWEIGHT",
+      "effect": "Upon pickup, choose 1 of 2  to add to your Deck."
+    },
+    {
+      "id": "LOST_COFFER",
+      "effect": "Upon pickup, gain 1 card reward and procure 1 random ."
+    },
+    {
+      "id": "NEOW'S_TORMENT",
+      "effect": "Upon pickup, add 1  to your Deck."
+    },
+    {
+      "id": "PHIAL_HOLSTER",
+      "effect": "Upon pickup, gain 1 potion slot and procure 2 random ."
+    },
+    {
+      "id": "WINGED_BOOTS",
+      "effect": "You may ignore paths when choosing the next rooms to travel to 3 times."
+    },
+    {
+      "id": "GOLDEN_PEARL",
+      "effect": "Upon pickup, gain 150 Gold."
+    },
+    {
+      "id": "ARCANE_SCROLL",
+      "effect": "Upon pickup, obtain a random  to add to your Deck."
+    },
+    {
+      "id": "NEW_LEAF",
+      "effect": "Upon pickup,  1 card."
+    },
+    {
+      "id": "PRECISE_SCISSORS",
+      "effect": "Upon pickup, remove 1 card from your Deck."
+    },
+    {
+      "id": "MASSIVE_SCROLL",
+      "effect": "Upon pickup, choose 1 of 3  to add to your Deck."
+    },
+    {
+      "id": "LAVA_ROCK",
+      "effect": "The act 1 Boss drops 2 ."
+    },
+    {
+      "id": "SMALL_CAPSULE",
+      "effect": "Upon pickup, obtain a random ."
+    },
+    {
+      "id": "NUTRITIOUS_OYSTER",
+      "effect": "Upon pickup, raise your Max HP by 11."
+    },
+    {
+      "id": "STONE_HUMIDIFIER",
+      "effect": "Whenever you Rest at a , raise your Max HP by 5."
+    },
+    {
+      "id": "NEOW'S_TALISMAN",
+      "effect": "Upon pickup,  1 of your Strikes and 1 of your Defends."
+    },
+    {
+      "id": "POMANDER",
+      "effect": "Upon pickup,  1 card."
+    }
+  ],
+  "pick_rules": [
+    "先定诅咒池1件，再调正面池",
+    "最终三选一：1诅咒遗物+2正面遗物"
+  ],
+  "agent_hints": [
+    "开局涅奥：三选一，含负面池遗物",
+    "银坩埚：前3次卡牌奖励升级、首个宝箱空"
+  ]
+}

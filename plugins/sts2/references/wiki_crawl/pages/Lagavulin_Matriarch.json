@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Lagavulin_Matriarch",
+  "short_name": "Lagavulin_Matriarch",
+  "summary": "is a  found in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Lagavulin Matriarch</span>",
+  "fetched_at": "2026-05-20T05:42:39Z",
+  "wikitext_chars": 1197,
+  "wikitext": "{{Enemy Infobox|Lagavulin Matriarch|2}}{{Power Infobox|Plating|2}}{{Power Infobox|Asleep|2}}\n{{M|Lagavulin Matriarch||2}} is a {{2|Bosses|Boss}} found in the {{2|Underdocks}}.\n\n== Pattern ==\n{{Intents|Lagavulin Matriarch|2}}\nThe {{M|Lagavulin Matriarch||2}} starts {{BD|Asleep||2}} with 12 {{BD|Plating||2}}. It sleeps for 3 turns or until it takes unblocked damage, whichever comes first. When it wakes up, it loses its {{BD|Plating||2}}.\n\nAfter waking, it repeats this four-move cycle:\n# {{Int|Lagavulin Matriarch|Slash||2}}\n# {{Int|Lagavulin Matriarch|Disembowel||2}}\n# {{Int|Lagavulin Matriarch|Slash2||2}}\n# {{Int|Lagavulin Matriarch|Soul Siphon||2}}\n\n* Waking the {{M|Lagavulin Matriarch||2}} early (by dealing unblocked damage) removes its {{BD|Plating||2}} immediately, but also ends the free setup turns.\n* {{Int|Lagavulin Matriarch|Soul Siphon||2}} permanently reduces the player's {{BD|Strength||2}} and {{BD|Dexterity||2}} by 2 each cycle, making long fights increasingly punishing.\n==Trivia==\n{{M|Lagavulin Matriarch||2}}'s appearance, abilities, and name are a reference to the {{M|Lagavulin||1}} elite from Slay the Spire 1.\n[[Category:Bosses]]\n[[Category:Slay the Spire 2 Content]]"
+}

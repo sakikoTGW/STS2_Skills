@@ -1,0 +1,18 @@
+{
+  "page": "Slay_the_Spire_2:Enthralled",
+  "short_name": "Enthralled",
+  "summary": "is a 2  cost   Card. If it is in your Hand, it must be played before other cards.",
+  "sections": {
+    "Interactions": [
+      "'s effect can be bypassed in many ways:",
+      "Cards like  can draw and then Discard it in one action.",
+      "Cards like ,  and  can  or  it before drawing it.",
+      "can  it without needing to play a card, before giving you an extra turn.",
+      "While  is in your Hand, other cards can still be played indirectly through means such as , , and ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Enthralled</span>",
+  "fetched_at": "2026-05-20T06:22:41Z",
+  "wikitext_chars": 1258,
+  "wikitext": "{{Card Infobox|Enthralled||2|}}{{Keyword Infobox|Eternal|2}}\n{{C|Enthralled||2}} is a 2 {{Icon|CE|2}} cost {{KW|Eternal||2}} {{QueryLink|Cards|type:Curse|Curse|2}} Card. If it is in your Hand, it must be played before other cards.\n\n== Obtaining Enthralled ==\n{{C|Enthralled||2}} can only be obtained by taking {{R|Blood-Soaked Rose||2}} from {{KW|Vakuu||2}}'s offering at the start of {{2|Acts#Act 3|Act 3}}, which provides 1 {{Icon|CE|2}} at the start of each turn.\n\n== Interactions ==\n\n=== Synergies ===\n* {{C|Enthralled||2}}'s effect can be bypassed in many ways:\n** Cards like {{C|Acrobatics||2}} can draw and then Discard it in one action.\n** Cards like {{C|Havoc||2}}, {{C|CHARGE!!||2}} and {{C|Cleanse||2}} can {{KW|Exhaust||2}} or {{KW|Transform||2}} it before drawing it.\n** {{R|Pael's Eye||2}} can {{KW|Exhaust||2}} it without needing to play a card, before giving you an extra turn.\n** While {{C|Enthralled||2}} is in your Hand, other cards can still be played indirectly through means such as {{C|Decisions, Decisions||2}}, {{C|Stampede||2}}, and {{P|Distilled Chaos||2}}.\n\n== Trivia ==\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Enthralled to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Flame_Barrier",
+  "short_name": "Flame_Barrier",
+  "summary": "is a 2  cost   Card for the . Despite 's language being slightly different from that of , the two effects are functionally identical.",
+  "sections": {
+    "Interactions": [
+      "is most advantageous when  multi-hit ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Flame Barrier</span>",
+  "fetched_at": "2026-05-20T05:42:17Z",
+  "wikitext_chars": 1047,
+  "wikitext": "{{Sequel Disambiguation}}{{Card Infobox|Flame Barrier||2}}{{Power_Infobox|Flame Barrier|2}}{{Keyword Infobox|Block|2}}\n{{C|Flame Barrier||2}} is a 2 {{Icon|IE|2}} cost {{QueryLink|Cards|rarity:Uncommon&color:Ironclad|Uncommon|2}} {{QueryLink|Cards|type:Skill&color:Ironclad|Skill|2}} Card for the {{KW|Ironclad||2}}.\n\nDespite {{BD|Flame Barrier||2}}'s language being slightly different from that of {{BD|Thorns||2}}, the two effects are functionally identical.\n== Interactions ==\n=== Synergies ===\n*{{BD|Flame Barrier||2}} is most advantageous when {{KW|Block|Blocking|2}} multi-hit {{QueryLink|Cards|type:Attack|Attacks|2}}.\n===Neutral===\n*Because {{BD|Flame Barrier||2}} only triggers from ''{{QueryLink|Cards|type:Attack|Attacks|2}}'', it does not trigger due to:\n**Damage inflicted by cards (such as {{C|Bloodletting||2}}, {{C|Burn||2}}, or {{C|Regret||2}}).\n**{{BD|Constrict||2}}\n**{{BD|Galvanic||2}}\n== Update History ==\n* '''Early Access v0.98'''\n** Added Flame Barrier to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]]"
+}

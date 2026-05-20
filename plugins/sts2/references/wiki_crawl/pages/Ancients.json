@@ -1,0 +1,51 @@
+{
+  "page": "Slay_the_Spire_2:Ancients",
+  "short_name": "Ancients",
+  "summary": "are mysterious beings that offer boons to the player at the start of each Act. Ancients generally have to be unlocked before being able to meet them during a run (see also: ). There are a total of 8 Ancients in the game. Most Ancients have a pool of 10 boons (Neow has 20 and Darv has 12) from which 3 are randomly selected and offered to the player. Compared to the  in Slay the Spire 1, the player no longer has the ability to skip the choice altogether and instead has to pick one of the options offered.",
+  "sections": {},
+  "tables": [
+    [
+      "+"
+    ],
+    [
+      "{{2",
+      "Orobas}}"
+    ],
+    [
+      "-"
+    ],
+    [
+      "33.33%"
+    ],
+    [
+      "-"
+    ],
+    [
+      "{{2",
+      "Pael}}"
+    ],
+    [
+      "50%"
+    ],
+    [
+      "33.33%"
+    ],
+    [
+      "-"
+    ],
+    [
+      "{{2",
+      "Tezcatara}}"
+    ],
+    [
+      "50%"
+    ],
+    [
+      "33.33%"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Ancients</span>",
+  "fetched_at": "2026-05-20T05:41:43Z",
+  "wikitext_chars": 4727,
+  "wikitext": "{{Stub}} {{Spoiler warning}}\n{{StS2|Ancients}} are mysterious beings that offer boons to the player at the start of each [[sts2:Acts|Act]]. Ancients generally have to be unlocked before being able to meet them during a run (see also: {{2|Timeline}}). There are a total of 8 Ancients in the game. Most Ancients have a pool of 10 boons (Neow has 20 and Darv has 12) from which 3 are randomly selected and offered to the player. Compared to the {{QueryLink|Relics|rarity:Boss|Boss Relics}} in Slay the Spire 1, the player no longer has the ability to skip the choice altogether and instead has to pick one of the options offered.\n\n\n== Act 1 ==\n\n<div class=\"center-table\">\n<div class=\"elite\">\n[[File:StS2 Map-Neow.png|class=elite-img|link=Slay_the_Spire_2:Neow]]\n<div class=\"elite-name\">{{2|Neow}}</div>\n<div class=\"center-table\">\n<blockquote> ''I’ve... remade you....'' <br>\n''...go... ..up.....''</blockquote>\n</div>\n</div>\n</div>\n\n== Act 2 ==\n<div class=\"center-table\">\n<div class=\"elite\">\n[[File:StS2 Map-Orobas.png|class=elite-img|link=Slay_the_Spire_2:Orobas]]\n<div class=\"elite-name\">{{2|Orobas}}</div>\n<blockquote> ''Puppet puppet!! All the way up here?! Take these, take take!''</blockquote>\n</div>\n<div class=\"elite\">\n[[File:StS2 Map-Pael.png|class=elite-img|link=Slay_the_Spire_2:Pael]]\n<div class=\"elite-name\">{{2|Pael}}</div>\n<blockquote> ''A puppet has arrived?'' <br>\n''Can you check on Father? I’m too tired...''</blockquote>\n</div>\n<div class=\"elite\">\n[[File:StS2 Map-Tezcatara.png|class=elite-img|link=Slay_the_Spire_2:Tezcatara]]\n<div class=\"elite-name\">{{2|Tezcatara}}</div>\n<blockquote> ''Oh, a visitor! Do come in, dear!'' <br>\n''What can Tezcatara do for you?''</blockquote>\n</div>\n</div>\n\n== Act 3 ==\n<div class=\"center-table\">\n<div class=\"elite\">\n[[File:StS2 Map-Nonupeipe.png|class=elite-img|link=Slay_the_Spire_2:Nonupeipe]]\n<div class=\"elite-name\">{{2|Nonupeipe}}</div>\n<blockquote> ''I haven’t had a visitor in a millennia!'' <br>\n</div>\n<div class=\"elite\">\n[[File:StS2 Map-Tanx.png|class=elite-img|link=Slay_the_Spire_2:Tanx]]\n<div class=\"elite-name\">{{2|Tanx}}</div>\n<blockquote> ''SO WEAK! BUT YOU HAVE POTENTIAL! <br>\nUSE THIS WEAPON!!''</blockquote>\n</div>\n<div class=\"elite\">\n[[File:StS2 Map-Vakuu.png|class=elite-img|link=Slay_the_Spire_2:Vakuu]]\n<div class=\"elite-name\">{{2|Vakuu}}</div>\n<blockquote> ''Give yourself to me and you will be feared as much as I.''</blockquote>\n</div>\n</div>\n\n\n== Multiple Acts ==\n\n<div class=\"center-table\">\n<div class=\"elite\">\n[[File:StS2 Map-Darv.png|class=elite-img|link=Slay_the_Spire_2:Darv]]\n<div class=\"elite-name\">{{2|Darv}}</div>\n<div class=\"center-table\">\n<blockquote> ''...where did I put... Oh!'' <br>\n''Come to see my collection!? Take anything from that pile over there, put it to good use!''</blockquote>\n<div class=\"center-table\">\n''Act 2/3''\n</div>\n</div>\n</div>\n</div>\n\n== Effective Probability ==\nThe Ancients that appear at the start of Acts 2 and 3 are selected with equal probability from two separate pools. Each pool includes all unlocked Ancients specific to that act, and may include Darv if he is unlocked. \n\n=== Without Darv Unlocked ===\n{| class=\"wikitable\"\n|+\n! rowspan=\"2\" |Ancient\n! colspan=\"2\" |{{2|Acts|Act 2}}\n! rowspan=\"2\" |{{2|Acts|Act 3}}\n|-\n!{{2|Orobas}} Not Unlocked\n!{{2|Orobas}} Unlocked\n|-\n|{{2|Orobas}}\n| -\n|33.33%\n| -\n|-\n|{{2|Pael}}\n|50%\n|33.33%\n| -\n|-\n|{{2|Tezcatara}}\n|50%\n|33.33%\n| -\n|-\n|{{2|Nonupeipe}}\n| -\n| -\n|33.33%\n|-\n|{{2|Tanx}}\n| -\n| -\n|33.33%\n|-\n|{{2|Vakuu}}\n| -\n| -\n|33.33%\n|}\n\n=== With Darv Unlocked ===\nWhen unlocked, {{2|Darv}} is added to the Act 2 pool 50% of the time, and is added to the Act 3 pool 50% of the time and only if he was not added to the Act 2 pool. Darv cannot be unlocked without first unlocking Orobas, so any time he is added to an act's pool there will be 4 Ancients in that pool, meaning he will appear in Act 2 in 1 out of 8 runs and in Act 3 in 1 out of 16 runs. If Darv appears in Act 2 he cannot appear in Act 3; on the other hand, if he did not appear in Act 2, he may still have been added to the Act 2 pool, and will only appear in Act 3 in 1 out of 14 runs after another Ancient appeared in Act 2.\n{| class=\"wikitable\"\n|+\n! rowspan=\"2\" |Ancient\n! rowspan=\"2\" |{{2|Acts|Act 2}}\n! colspan=\"3\" |{{2|Acts|Act 3}}\n! rowspan=\"2\" |Total \n|-\n!{{2|Acts|Act 2}} {{2|Darv}}\n!No {{2|Acts|Act 2}} {{2|Darv}}\n!Overall\n|-\n|{{2|Orobas}}\n|29.17%\n| -\n| -\n| -\n|29.17%\n|-\n|{{2|Pael}}\n|29.17%\n| -\n| -\n| -\n|29.17%\n|-\n|{{2|Tezcatara}}\n|29.17%\n| -\n| -\n| -\n|29.17%\n|-\n|{{2|Nonupeipe}}\n| -\n|33.33%\n|30.95%\n|31.25%\n|31.25%\n|-\n|{{2|Tanx}}\n| -\n|33.33%\n|30.95%\n|31.25%\n|31.25%\n|-\n|{{2|Vakuu}}\n| -\n|33.33%\n|30.95%\n|31.25%\n|31.25%\n|-\n|{{2|Darv}}\n|12.50%\n| -\n|7.14%\n|6.25%\n|18.75%\n|}\n[[Category:ToUpdate]]"
+}

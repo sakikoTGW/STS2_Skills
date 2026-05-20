@@ -1,0 +1,135 @@
+{
+  "page": "Slay_the_Spire_2:Ascension",
+  "short_name": "Ascension",
+  "summary": "Ascension is a series of optional modifiers that make the game more challenging. It is initially unlocked by defeating any Act 3 Boss on a given character, after which Ascension may be toggled when starting a run on that character. Beating an Act 3 Boss on a given Ascension level will then unlock the next Ascension level. Ascension modifiers are cumulative: each Ascension level includes all modifiers from previous Ascensions. The maximum Ascension level is . Each character's respective Ascension level progresses ''independent'' of the others' (e.g. a player can unlock every Ascension level on  before unlocking a single Ascension level on ). Any Ascension level that has been unlocked can be selected - for example, even if you have unlocked  on , you can still play runs on  and below. Note that  and Singleplayer Ascension levels are separate, and have to be unlocked independently. Furthermore, winning a run in Multiplayer unlocks the next Ascension level for all characters, no matter which character was played when winning that run. Below is a list of every Ascension level and their respective changes. {| class=\"wikitable\"",
+  "sections": {},
+  "tables": [
+    [
+      "{{Asc",
+      "1",
+      "",
+      "2}}",
+      "",
+      "Swarming Elites",
+      "",
+      "~60% more {{2",
+      "Elites}} will spawn."
+    ],
+    [
+      "{{Asc",
+      "2",
+      "",
+      "2}}",
+      "",
+      "Weary Traveler",
+      "",
+      "{{2",
+      "Ancients}} only heal 80% of your missing HP. This includes {{2",
+      "Neow}} at the start of the game."
+    ],
+    [
+      "{{Asc",
+      "3",
+      "",
+      "2}}",
+      "",
+      "Poverty",
+      "",
+      "{{2",
+      "Enemies}} and Treasure Chests drop 25% less {{2",
+      "Gold}}."
+    ],
+    [
+      "{{Asc",
+      "4",
+      "",
+      "2}}",
+      "",
+      "Tight Belt",
+      "",
+      "Start each run with 1 less [[sts2:Potions",
+      "potion]] slot."
+    ],
+    [
+      "{{Asc",
+      "5",
+      "",
+      "2}}",
+      "",
+      "Ascender's Bane",
+      "",
+      "Start each run with an {{C",
+      "Ascender's Bane",
+      "",
+      "2}}."
+    ],
+    [
+      "{{Asc",
+      "6",
+      "",
+      "2}}",
+      "",
+      "Inflation",
+      "",
+      "Card removes at {{2",
+      "The Merchant}} now start at 100 {{2",
+      "Gold}} instead of 75 {{2",
+      "Gold}}. Every subsequent card remove now costs 50 {{2",
+      "Gold}} more instead of only 25 {{2",
+      "Gold}}."
+    ],
+    [
+      "{{Asc",
+      "7",
+      "",
+      "2}}",
+      "",
+      "Scarcity",
+      "",
+      "Rare and Upgraded cards appear half as often. This includes combat rewards from all {{2",
+      "Enemies}} as well as the stock of the {{2",
+      "Merchant}}."
+    ],
+    [
+      "{{Asc",
+      "8",
+      "",
+      "2}}",
+      "",
+      "Tough Enemies",
+      "",
+      "All {{2",
+      "Enemies}} have more HP."
+    ],
+    [
+      "{{Asc",
+      "9",
+      "",
+      "2}}",
+      "",
+      "Deadly Enemies",
+      "",
+      "All {{2",
+      "Enemies}} deal more damage."
+    ],
+    [
+      "{{Asc",
+      "10",
+      "",
+      "2}}",
+      "",
+      "(MAX Level) Double Boss.",
+      "",
+      "Fight two {{2",
+      "Bosses}} at the end of [[sts2:Acts",
+      "Act 3]]."
+    ],
+    [
+      "}"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Ascension</span>",
+  "fetched_at": "2026-05-20T05:41:41Z",
+  "wikitext_chars": 3191,
+  "wikitext": "{{Sequel Disambiguation|2}} {{Card Infobox|Ascender's Bane||2}} {{Keyword Infobox|Unplayable|2}} {{Keyword Infobox|Ethereal|2}} {{Keyword Infobox|Eternal|2}}\nAscension is a series of optional modifiers that make the game more challenging. It is initially unlocked by defeating any [[sts2:Acts|Act 3]] [[sts2:Bosses|Boss]] on a given character, after which Ascension may be toggled when starting a run on that character. Beating an Act 3 Boss on a given Ascension level will then unlock the next Ascension level. \n\nAscension modifiers are cumulative: each Ascension level includes all modifiers from previous Ascensions. The maximum Ascension level is {{Asc|10||2}}.\n\nEach character's respective Ascension level progresses ''independent'' of the others' (e.g. a player can unlock every Ascension level on {{2|Ironclad}} before unlocking a single Ascension level on {{2|Silent}}). Any Ascension level that has been unlocked can be selected - for example, even if you have unlocked {{Asc|10||2}} on {{2|Regent}}, you can still play runs on {{Asc|9||2}} and below.\n\nNote that {{2|Multiplayer}} and Singleplayer Ascension levels are separate, and have to be unlocked independently. Furthermore, winning a run in Multiplayer unlocks the next Ascension level for all characters, no matter which character was played when winning that run. \n\nBelow is a list of every Ascension level and their respective changes.\n\n{| class=\"wikitable\"\n! Ascension !! Effect !! Description\n|-\n| {{Asc|1||2}} || '''Swarming Elites''' || ~60% more {{2|Elites}} will spawn.\n|-\n| {{Asc|2||2}} || '''Weary Traveler''' || {{2|Ancients}} only heal 80% of your missing HP. This includes {{2|Neow}} at the start of the game.\n|-\n| {{Asc|3||2}} || '''Poverty''' || {{2|Enemies}} and Treasure Chests drop 25% less {{2|Gold}}.\n|-\n| {{Asc|4||2}} || '''Tight Belt''' || Start each run with 1 less [[sts2:Potions|potion]] slot.\n|-\n| {{Asc|5||2}} || '''Ascender's Bane''' || Start each run with an {{C|Ascender's Bane||2}}.\n|-\n| {{Asc|6||2}} || '''Inflation''' || Card removes at {{2|The Merchant}} now start at 100 {{2|Gold}} instead of 75 {{2|Gold}}. Every subsequent card remove now costs 50 {{2|Gold}} more instead of only 25 {{2|Gold}}.\n|-\n| {{Asc|7||2}} || '''Scarcity''' || Rare and Upgraded cards appear half as often. This includes combat rewards from all {{2|Enemies}} as well as the stock of the {{2|Merchant}}.\n|-\n| {{Asc|8||2}} || '''Tough Enemies''' || All {{2|Enemies}} have more HP.\n|-\n| {{Asc|9||2}} || '''Deadly Enemies''' || All {{2|Enemies}} deal more damage.\n|-\n| {{Asc|10||2}} || '''(MAX Level) Double Boss.''' || Fight two {{2|Bosses}} at the end of [[sts2:Acts|Act 3]].\n|}\n\n== Update History ==\n* '''Early Access v0.103.2'''\n**Ascension 6 changes from BETA branch were moved to the main version of the game. Base cost of the merchant's card remove increased from 75 to 100 Gold. Every subsequent card remove now costs 50 Gold more instead of only 25.\n*'''Early Access v0.102.0 (BETA)'''\n**Ascension 6's name and effect were changed from 'Gloom - \"Less rest sites.\"' to 'Inflation - \"Removing cards from your deck at the Merchant is more expensive.\"'\n\n[[Category:Ascension]][[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,19 @@
+{
+  "page": "Slay_the_Spire_2:Fur Coat",
+  "short_name": "Fur Coat",
+  "summary": "At the start of ,  can be offered by .",
+  "sections": {
+    "Interactions": [
+      "Early Access v0.103.2",
+      "BETA changes incorporated into main branch.",
+      "Early Access v0.101.0 (BETA)",
+      "Now affects restocked Axebots and other enemies that enter combat during a fight.",
+      "Early Access v0.98",
+      "Added Fur Coat to the game."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Fur Coat</span>",
+  "fetched_at": "2026-05-20T06:22:17Z",
+  "wikitext_chars": 607,
+  "wikitext": "{{Relic Infobox|Fur Coat|2}}\n{{R|Fur Coat||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}.\n\n== Sources ==\nAt the start of {{2|Acts#Act 3|Act 3}}, {{R|Fur Coat||2}} can be offered by {{KW|Nonupeipe||2}}.\n== Interactions ==\n\n== Update History ==\n*'''Early Access v0.103.2'''\n**BETA changes incorporated into main branch.\n* '''Early Access v0.101.0 (BETA)'''\n** Now affects restocked Axebots and other enemies that enter combat during a fight.\n* '''Early Access v0.98'''\n** Added Fur Coat to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

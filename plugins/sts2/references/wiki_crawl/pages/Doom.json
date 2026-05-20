@@ -1,0 +1,28 @@
+{
+  "page": "Slay_the_Spire_2:Doom",
+  "short_name": "Doom",
+  "summary": "is a  that the  can apply to enemies, or to herself. At the end of its turn, if an enemy's HP is less than or equal to its , it will die. If the Necrobinder or another character ends their turn with HP less than or equal to their than Doom, they will die. does not interact with , and each  stack will negate all  applied by a single source.",
+  "sections": {
+    "Interactions": [
+      ": If you applied  this turn, gain  2 additional times.",
+      ": Whenever you apply , gain 2(3) .",
+      ": Kill enemies with at least as much  as HP.",
+      ": Apply any debuffs on the enemy to ALL other enemies.",
+      ": Deal damage equal to the enemy's ."
+    ],
+    "Sources": [
+      ": Apply  equal to damage dealt.",
+      ": 7(11)  to ALL enemies.",
+      ": 13(16) .",
+      ": At the start of your turn, 6(9)  to a random enemy.",
+      ": 21(26) .",
+      ": 10(15) , plus an additional 5  for every 10  already on this enemy.",
+      ": 29(37) .",
+      ": Whenever you play a card this turn, apply 3(4)  to the enemy."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Doom</span>",
+  "fetched_at": "2026-05-20T06:19:35Z",
+  "wikitext_chars": 2439,
+  "wikitext": "{{Power Infobox|Doom|2}}\n{{BD|Doom||2}} is a {{2|Debuffs|Debuff}} that the {{KW|Necrobinder||2}} can apply to enemies, or to herself.\n\nAt the end of its turn, if an enemy's HP is less than or equal to its {{BD|Doom||2}}, it will die. If the Necrobinder or another character ends their turn with HP less than or equal to their than Doom, they will die.\n\n{{BD|Doom||2}} does not interact with {{KW|Block||2}}, and each {{BD|Artifact||2}} stack will negate all {{BD|Doom||2}} applied by a single source. \n\n== Sources ==\n\n==== Cards ====\n'''On Enemies:'''\n* {{C|Blight Strike||2}}: Apply {{BD|Doom||2}} equal to damage dealt.\n* {{C|Negative Pulse||2}}: 7(11) {{BD|Doom||2}} to ALL enemies.\n* {{C|Scourge||2}}: 13(16) {{BD|Doom||2}}.\n* {{C|Countdown||2}}: At the start of your turn, 6(9) {{BD|Doom||2}} to a random enemy.\n* {{C|Deathbringer||2}}: 21(26) {{BD|Doom||2}}.\n* {{C|No Escape||2}}: 10(15) {{BD|Doom||2}}, plus an additional 5 {{BD|Doom||2}} for every 10 {{BD|Doom||2}} already on this enemy.\n* {{C|End of Days||2}}: 29(37) {{BD|Doom||2}}.\n* {{C|Oblivion||2}}: Whenever you play a card this turn, apply 3(4) {{BD|Doom||2}} to the enemy.\n* {{C|Reaper Form||2}}: Whenever Attacks deal damage, they also apply that much {{BD|Doom||2}}.\n\n'''On Self:'''\n* {{C|Neurosurge||2}}: At the start of your turn, apply 3 {{BD|Doom||2}} to yourself.\n\n==== Potions ====\n*{{P|Potion of Doom||2}}: 33 {{BD|Doom||2}}.\n\n== Interactions ==\n===Cards===\n* {{C|Death's Door||2}}: If you applied {{BD|Doom||2}} this turn, gain {{KW|Block||2}} 2 additional times.\n* {{C|Shroud||2}}: Whenever you apply {{BD|Doom||2}}, gain 2(3) {{KW|Block||2}}.\n* {{C|End of Days||2}}: Kill enemies with at least as much {{BD|Doom||2}} as HP.\n* {{C|Misery||2}}: Apply any debuffs on the enemy to ALL other enemies.\n* {{C|Time's Up||2}}: Deal damage equal to the enemy's {{BD|Doom||2}}.\n===Relics===\n* {{R|Book Repair Knife||2}}: Whenever a non-{{BD|Minion||2}} enemy dies to {{BD|Doom||2}}, heal 3 HP.\n* {{R|Undying Sigil||2}}: Enemies with at least as much {{BD|Doom||2}} as HP deal 50% less damage.\n\n===Other===\n* Since {{KW|Doom||2}} kills characters without changing their HP, {{KW|Intangible||2}}, {{BD|Slippery||2}}, {{BD|Hardened Shell||2}}, and {{R|Beating Remnant||2}} do not prevent creatures from dying to it.\n* If an enemy dies to {{BD|Doom||2}}, the card drawn by the {{R|Gremlin Horn||2}} will be held for the start of the player turn.\n\n[[Category:Game Mechanics]]"
+}

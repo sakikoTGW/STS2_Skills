@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Ceremonial_Beast",
+  "short_name": "Ceremonial_Beast",
+  "summary": "Ceremonial Beast is a  found in the .",
+  "sections": {
+    "Interactions": [
+      "(, , & .) can mitigate 's card play limit.",
+      "can provide a similar benefit."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Ceremonial Beast</span>",
+  "fetched_at": "2026-05-20T05:42:33Z",
+  "wikitext_chars": 2222,
+  "wikitext": "{{Enemy Infobox|Ceremonial Beast|2}}{{Power Infobox|Plow|2}}{{Power Infobox|Ringing|2}}\n'''Ceremonial Beast''' is a {{2|Bosses|Boss}} found in the {{2|Overgrowth}}.\n\n== Pattern ==\n{{Intents|Ceremonial Beast|2}}\nThe Ceremonial Beast has two phases.\n\n'''Phase 1:'''\n*Uses {{Int|Ceremonial Beast|Stamp||2}} on the first turn, gaining {{BD|Plow||2}}.\n*Then uses {{Int|Ceremonial Beast|Plow||2}} every turn.\nWhen its HP drops to the {{BD|Plow||2}} threshold (150, or {{Asc|9|160|2}}), it becomes {{BD|Stunned||2}} and loses all {{BD|Strength||2}}.\n\n'''Phase 2:''' After being stunned, repeats this three-move cycle:\n# {{Int|Ceremonial Beast|Beast Cry||2}}\n# {{Int|Ceremonial Beast|Stomp||2}}\n# {{Int|Ceremonial Beast|Crush||2}}\n\n== Notes ==\n* {{BD|Plow||2}} acts as a HP threshold: when the Ceremonial Beast's HP drops to the {{BD|Plow||2}} amount or below, it is {{KW|Stunned||2}} and loses all accumulated {{BD|Strength||2}}. This effectively gives the player a free turn.\n* {{BD|Ringing||2}} from {{Int|Ceremonial Beast|Beast Cry||2}} limits the player to playing only 1 card on that turn.\n* During Phase 1, each {{Int|Ceremonial Beast|Plow||2}} grants 2 {{BD|Strength||2}}, but all of it is lost when the stun triggers. In Phase 2, {{Int|Ceremonial Beast|Crush||2}} grants 3 ({{Asc|9|4}}) {{BD|Strength||2}} that is retained permanently.\n\n==Interactions==\n===Synergies===\n*{{BD|Block Next Turn||2}} ({{C|Dodge and Roll||2}}, {{C|Glitterstream||2}}, & {{C|Prolong||2}}.) can mitigate {{BD|Ringing||2}}'s card play limit.\n**{{R|Sturdy Clamp||2}} can provide a similar benefit.\n===Anti-Synergies===\n* Effects that automate playing cards (such as {{C|Hellraiser||2}}, {{C|Mayhem||2}}, & {{R|History Course||2}}) can consume the singular card permitted by {{BD|Ringing||2}}.\n**Similarly, {{C|Stampede||2}}'s triggered {{QueryLink|Cards|type:Attack|Attack|2}} may not play, provided the player already played a card prior during the turn.\n*{{BD|Ringing||2}} makes cards that ''generate other cards'' to be played (such as {{C|Infernal Blade||2}}, {{C|Quasar||2}}, and {{C|Discovery||2}}) effectively useless.\n*{{BD|Ringing||2}} stops {{BD|Echo Form||2}} from triggering.\n\n[[Category:Bosses]]\n[[Category:Slay the Spire 2 Content]]"
+}

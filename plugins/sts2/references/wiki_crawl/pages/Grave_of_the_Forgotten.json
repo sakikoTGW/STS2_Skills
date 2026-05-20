@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Grave of the Forgotten",
+  "short_name": "Grave of the Forgotten",
+  "summary": "is an  found exclusively in .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Grave of the Forgotten</span>",
+  "fetched_at": "2026-05-20T06:18:08Z",
+  "wikitext_chars": 1575,
+  "wikitext": "{{Event Header|StS2 Grave Of The Forgotten.png}}\n{{E|Grave of the Forgotten|2}} is an {{2|Events|Event}} found exclusively in {{2|Glory}}.\n\n== Options ==\n{{Frame|Accept the Forgotten Soul}} {{TS|positive||Obtain {{R|Forgotten Soul||2}} (relic).}}\n<br>\n{{Frame|Confront with Truth}} {{TS|negative||Add {{C|Decay||2}} (curse) to your Deck.}} {{TS|positive||{{KW|Enchant||2}} a card that {{KW|Exhaust|Exhausts|2}} with {{KW|Soul's Power||2}}.}}\n* Confront is locked if you have no cards with {{KW|Exhaust||2}} that can be {{KW|Enchant|Enchanted|2}}.\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nThere is a single grave with a roiling blue flame...\n\nA prideful warrior died in battle but its soul is restless. It wants to keep fighting, you feel it begging to journey with you.\n\nBut perhaps it's better for it to face the truth?\n</div>\n\n{{Frame|Accept the Forgotten Soul}}\n<blockquote><div style=\"font-style:italic\">\nYou place your hand on the grave and whisper...\n\n\"Ascend with me...\"\n\nIn response, the flames draw out from the grave and coalesce into a burning soul and hover around you loyally.\nIt knows what you are, and wishes to escort you to your final destination.\n</div></blockquote>\n\n{{Frame|Confront with Truth}}\n<blockquote><div style=\"font-style:italic\">\nYou place your hand on the grave and whisper...\n\n\"Your fight is over...\"\n\nIn response, the soul crashes into yours and a SOUL FIGHT ensues!\nStunned by the countless battles you have endured, it concedes.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

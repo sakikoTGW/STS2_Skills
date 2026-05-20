@@ -1,0 +1,171 @@
+{
+  "id": "DAMAGE_PIPELINE",
+  "wiki_sources": [
+    "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Strength",
+    "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Weak",
+    "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Vulnerable"
+  ],
+  "attack_per_hit": {
+    "description": "单次攻击命中的一条伤害线（多段牌每段各算一次）",
+    "phases": [
+      {
+        "id": "pre_strength_multiplicative",
+        "label": "力量前乘算",
+        "effects": ["FAVORED"],
+        "notes": "wiki Strength: Favored 是唯一在力量之前的乘算"
+      },
+      {
+        "id": "additive",
+        "label": "加算",
+        "effects": [
+          "CARD_BASE",
+          "STRENGTH",
+          "VIGOR",
+          "ACCURACY",
+          "STRIKE_DUMMY",
+          "ENCHANT_SHARP",
+          "ENCHANT_VIGOROUS",
+          "ENCHANT_MOMENTUM"
+        ],
+        "formula": "sum(additive_terms)",
+        "min_per_hit": 0
+      },
+      {
+        "id": "outgoing_multiplicative",
+        "label": "攻击方乘算（打出者身上的减伤/放大）",
+        "effects": [
+          "WEAK",
+          "SHRINK",
+          "DOUBLE_DAMAGE",
+          "PEN_NIB",
+          "FLUTTER",
+          "SOAR",
+          "PLAYER_DEBILITATE_ON_SELF_WEAK"
+        ],
+        "combine": "multiply_all_active",
+        "notes": "虚弱在攻击方；wiki: floor((base+str)×weak)，非 (base×weak)+str"
+      },
+      {
+        "id": "incoming_multiplicative",
+        "label": "受击方乘算",
+        "effects": [
+          "VULNERABLE",
+          "SLOW",
+          "HANG",
+          "SURROUNDED",
+          "FLANKING",
+          "KNOCKDOWN",
+          "CONQUEROR",
+          "CRUELTY",
+          "PAPER_PHROG"
+        ],
+        "combine": "multiply_all_active"
+      },
+      {
+        "id": "finalize",
+        "label": "取整与结算",
+        "operations": [
+          "FLOOR_ONCE_PER_HIT",
+          "SUBTRACT_BLOCK",
+          "APPLY_ENEMY_DAMAGE_CAP",
+          "TRIGGER_ON_HIT_EFFECTS"
+        ],
+        "rounding_rule": "所有加算与乘算完成后对该次命中 floor 一次；UI 手牌预览可能先取整，实战用浮点链（wiki Weak 示例 9×0.75×1.5）"
+      }
+    ]
+  },
+  "block_from_card": {
+    "phases": [
+      {"id": "additive", "effects": ["CARD_BASE", "DEXTERITY", "FASTEN", "ENCHANT_NIMBLE", "ENCHANT_ADROIT"]},
+      {"id": "multiplicative", "effects": ["FRAIL", "UNMOVABLE", "SHADOWMELD", "VAMBRACE"]},
+      {"id": "finalize", "operations": ["FLOOR_ONCE"]}
+    ],
+    "excluded_from_frail": [
+      "RELIC_BLOCK",
+      "ORB_FROST",
+      "PLATING_BUFF",
+      "RAGE_BUFF",
+      "AFTERIMAGE_BUFF",
+      "BARRICADE_CARRYOVER"
+    ]
+  },
+  "non_attack_damage": {
+    "poison": {
+      "stack_type": "intensity",
+      "timing": "enemy_turn_start",
+      "bypasses": ["STRENGTH", "WEAK", "VULNERABLE"],
+      "respects": ["BLOCK_THEN_HP", "ARTIFACT_ON_APPLY", "INTANGIBLE_CAP_1"]
+    },
+    "hp_loss_direct": {
+      "examples": ["BLOODLETTING", "OFFERING", "STRANGLE_SIDE", "DOOM"],
+      "bypasses": ["STRENGTH", "WEAK", "VULNERABLE"]
+    }
+  },
+  "wiki_examples": [
+    {
+      "name": "力量+易伤打击",
+      "card_base": 6,
+      "strength": 2,
+      "vulnerable": true,
+      "expected": 12,
+      "calc": "floor((6+2)*1.5)"
+    },
+    {
+      "name": "仅易伤打击",
+      "card_base": 6,
+      "strength": 0,
+      "vulnerable": true,
+      "expected": 9,
+      "calc": "floor(6*1.5)"
+    },
+    {
+      "name": "力量+虚弱播种",
+      "card_base": 8,
+      "strength": 4,
+      "weak_on_attacker": true,
+      "expected": 9,
+      "calc": "floor((8+4)*0.75)"
+    },
+    {
+      "name": "虚弱+易伤无中间取整",
+      "card_base": 9,
+      "strength": 0,
+      "weak_on_attacker": true,
+      "vulnerable": true,
+      "expected": 10,
+      "calc": "floor(9*0.75*1.5)=floor(10.125)"
+    },
+    {
+      "name": "脆弱+敏捷幸存者",
+      "card_base_block": 8,
+      "dexterity": 2,
+      "frail": true,
+      "expected_block": 7,
+      "calc": "floor((8+2)*0.75)"
+    },
+    {
+      "name": "缓慢2层已出3牌打击6",
+      "card_base": 6,
+      "slow_stacks": 2,
+      "cards_played": 3,
+      "expected": 9,
+      "calc": "floor(6*(1+0.1*2*3))=floor(9.6)"
+    },
+    {
+      "name": "致残+虚弱打击6",
+      "card_base": 6,
+      "weak_on_attacker": true,
+      "debilitate_on_attacker": true,
+      "expected": 3,
+      "calc": "floor(6*0.5)"
+    },
+    {
+      "name": "双截打击各6力2",
+      "card_base": 6,
+      "strength": 2,
+      "hits": 2,
+      "expected": 16,
+      "calc": "2*floor(6+2)"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Neutralize",
+  "short_name": "Neutralize",
+  "summary": "is a 0  cost   Card for the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Neutralize</span>",
+  "fetched_at": "2026-05-20T05:42:13Z",
+  "wikitext_chars": 1555,
+  "wikitext": "{{Sequel Disambiguation}}{{Card Infobox|Neutralize||2}}{{Keyword Infobox|Weak|2}}\n{{C|Neutralize||2}} is a 0 {{Icon|SE|2}} cost {{QueryLink|Cards|rarity:Basic&color:Silent|Basic|2}} {{QueryLink|Cards|type:Attack&color:Silent|Attack|2}} Card for the {{KW|Silent||2}}.\n\n== Obtaining Neutralize ==\nThe {{KW|Silent||2}} starts the game with one copy of {{C|Neutralize||2}} in her deck. It is not found in card rewards.\n\n== Strategy ==\n'''Neutralize''' is one of the {{KW|Silent||2}}'s basic attacks. Its free nature makes it easy to play alongside other cards during the first few fights, with the {{KW|Weak||2}} it applies letting it serve a defensive role alongside an offensive one.\n=== Synergies === \n*{{R|Paper Krane||2}} increases the effectiveness of {{KW|Weak||2}}.\n*{{C|Tracking||2}} doubles the damage Attacks deal to {{KW|Weak||2}} targets.\n*Relics that trigger off playing a certain number of {{QueryLink|Cards|type:Attack|Attacks|2}} in a single turn, such as {{R|Kunai||2}} and {{R|Shuriken||2}}, benefit from Neutralize being a free attack.\n\n== Notes ==\n{{R|Archaic Tooth||2}}, if taken from {{KW|Orobas||2}}, transforms {{C|Neutralize||2}} into its {{QueryLink|Cards|rarity:Ancient|Ancient|2}} version {{C|Suppress||2}}.\n*If '''Neutralize''' has already been {{KW|Upgrade|Upgraded|2}} and/or {{KW|Enchant|Enchanted|2}}, {{C|Suppress||2}} will be Upgraded and/or Enchanted by default.\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Neutralize to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

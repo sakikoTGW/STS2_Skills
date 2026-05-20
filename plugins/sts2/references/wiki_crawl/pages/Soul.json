@@ -1,0 +1,16 @@
+{
+  "page": "Slay_the_Spire_2:Soul",
+  "short_name": "Soul",
+  "summary": "is a 0  cost    Card available to the . It draws 2 cards then  itself. The  has a lot of dedicated support for .",
+  "sections": {
+    "Interactions": [
+      ": Whenever you play a , a random enemy loses 6(8) HP.",
+      ": Whenever you play a ,  1(2).",
+      ": Deals 2(3) additional damage for each  in your Exhaust Pile."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Soul</span>",
+  "fetched_at": "2026-05-20T06:19:38Z",
+  "wikitext_chars": 2564,
+  "wikitext": "{{Card Infobox|Soul||2}}{{Keyword Infobox|Exhaust|2}}{{C|Soul||2}} is a 0 {{Icon|NE|2}} cost {{QueryLink|Cards|color:Colorless|Colorless|2}} {{QueryLink|Cards|rarity:Token|Token|2}} {{QueryLink|Cards|type:Attack|Skill|2}} Card available to the {{KW|Necrobinder||2}}. It draws 2 cards then {{KW|Exhaust|Exhausts|2}} itself. The {{KW|Necrobinder||2}} has a lot of dedicated support for {{C|Soul|Souls|2}}.\n== Sources ==\n{{C|Soul|Souls|2}} cannot be added to a player's Deck by any means. The following sources will generate {{C|Soul|Souls|2}} when played or activated:\n===Cards===\n* {{C|Grave Warden||2}}: Add a {{C|Soul|Soul(+)|2}} into your Draw Pile.\n* {{C|Reave||2}}: Add a {{C|Soul|Soul(+)|2}} into your Draw Pile.\n* {{C|Dirge||2}}: Add X {{C|Soul|Souls(+)|2}} into your Draw Pile.\n* {{C|Capture Spirit||2}}: Add 3(4) {{C|Soul|Souls|2}} into your Draw Pile.\n* {{C|Severance||2}}: Add a {{C|Soul||2}} into your Draw Pile, Hand, and Discard Pile.\n* {{C|Glimpse Beyond||2}}: All players add 3(4) {{C|Soul|Souls|2}} into their Draw Pile.\n* {{C|Reave||2}}: Transform a card in your Draw Pile into {{C|Soul|Soul(+)|2}}.\n===Relics===\n* {{R|Funerary Mask||2}}: 3 {{C|Soul|Souls|2}} at the start of combat.\n===Potions===\n* {{P|Pot of Ghouls||2}}: 2 {{C|Soul||2}}.\n\n== Interactions ==\n* {{C|Haunt||2}}: Whenever you play a {{C|Soul||2}}, a random enemy loses 6(8) HP.\n* {{C|Devour Life||2}}: Whenever you play a {{C|Soul||2}}, {{KW|Summon||2}} 1(2).\n* {{C|Soul Storm||2}}: Deals 2(3) additional damage for each {{C|Soul||2}} in your Exhaust Pile.\n\n=== Synergies === \n* As {{C|Soul|Souls|2}} are 0-{{Icon|NE|2}} cost {{QueryLink|Cards|type:Skills|Skills|2}} cards that draw cards (possibly including other {{C|Soul|Souls|2}}), they synergize with:\n** {{C|Death March||2}}, which increases in power for each card drawn.\n** Buffs/Debuffs activated when a card is played, including {{BD|Oblivion||2}} and another player's {{BD|Sneaky||2}}.\n** {{2|Relics}} that trigger when Skills are played, including {{R|Letter Opener||2}} and {{R|Tuning Fork||2}}.\n* Anything that benefits from {{KW|Exhaust}} will be triggered by playing {{C|Soul|Souls|2}}.\n\n=== Neutral ===\n\n=== Anti-Synergy ===\n* As {{C|Soul|Souls|2}} are often played frequently, they have an anti-synergy with:\n** Effects that limit card plays, including {{R|Velvet Choker||2}} and {{BD|Ringing||2}}.\n** Effects that produce negative effects for played cards, such as {{BD|Tender||2}}.\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Soul to the game.\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]]"
+}

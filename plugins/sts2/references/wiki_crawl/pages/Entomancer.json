@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Entomancer",
+  "short_name": "Entomancer",
+  "summary": "Entomancer is an   found in .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Entomancer</span>",
+  "fetched_at": "2026-05-20T05:42:28Z",
+  "wikitext_chars": 429,
+  "wikitext": "{{Enemy Infobox|Entomancer|2}} {{Power Infobox|Personal Hive|2}}\n'''Entomancer''' is an {{2|Elites|Elite}} {{2|Monsters|Enemy}} found in {{2|Hive}}.\n\n== Pattern ==\n{{Intents|Entomancer|2}}\nThe Entomancer repeats a fixed three-move cycle: {{Int|Entomancer|Beeeees!||2}}, then {{Int|Entomancer|Spear!||2}}, then {{Int|Entomancer|Pheromone Spit||2}}, and back to the start.\n\n[[Category:Elites]]\n[[Category:Slay the Spire 2 Content]]"
+}

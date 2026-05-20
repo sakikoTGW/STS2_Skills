@@ -1,0 +1,16 @@
+{
+  "page": "Slay_the_Spire_2:Soot",
+  "short_name": "Soot",
+  "summary": "adds a  to the player's draw pile when it is shuffled.",
+  "sections": {
+    "Interactions": [
+      "will convert it into .",
+      "will draw 2 cards when it is drawn if it is the first  card drawn that turn.",
+      "will  it to deal damage."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Soot</span>",
+  "fetched_at": "2026-05-20T06:21:56Z",
+  "wikitext_chars": 984,
+  "wikitext": "{{Card Infobox|Soot||2}}{{Keyword Infobox|Unplayable|2}}\n{{C|Soot||2}} is an {{KW|Unplayable||2}} {{QueryLink|Cards|color:Colorless|Colorless|2}} {{QueryLink|Cards|rarity:Common&character:Colorless|Common|2}} {{QueryLink|Cards|type:Status&character:Colorless|Status|2}} Card. \n\n== Creating Soot ==\n{{R|Biiig Hug||2}} adds a {{C|Soot||2}} to the player's draw pile when it is shuffled.\n\n== Interactions ==\n=== Synergies ===\nAs {{C|Soot||2}} is a {{QueryLink|Cards|type:Status&character:Colorless|Status|2}} card it interacts with the following:\n* {{C|Compact||2}} will convert it into {{C|Fuel||2}}.\n* {{C|Iteration||2}} will draw 2 cards when it is drawn if it is the first {{QueryLink|Cards|type:Status&character:Colorless|Status|2}} card drawn that turn.\n* {{C|Flak Cannon||2}} will {{KW|Exhaust|exhaust|2}} it to deal damage.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Soot to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

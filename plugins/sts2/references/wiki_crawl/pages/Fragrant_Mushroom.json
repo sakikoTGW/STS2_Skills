@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Fragrant Mushroom",
+  "short_name": "Fragrant Mushroom",
+  "summary": "is an   from the  event. Upon pickup, you will lose 15 HP and  3 random cards.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Fragrant Mushroom</span>",
+  "fetched_at": "2026-05-20T06:24:25Z",
+  "wikitext_chars": 675,
+  "wikitext": "{{Relic Infobox|Fragrant Mushroom|2}}\n{{R|Fragrant Mushroom||2}} is an {{QueryLink|Relics|rarity:Event|Event|2}} {{2|Relics|Relic}} from the {{E|Hungry for Mushrooms|2}} event. Upon pickup, you will lose 15 HP and {{KW|Upgrade||2}} 3 random cards.\n\n== Sources ==\nCan only be obtained from the {{E|Hungry for Mushrooms|2}} event by selecting {{Frame|Text=|Fragrant Mushroom}} and losing 15 hp.\n\n== Interactions ==\n\n== Trivia ==\n\n== Update History ==\n* '''Early Access v0.102.0 (BETA)'''\n** Upgraded cards decreased from 3 -> 2.\n\n* '''Early Access v0.98'''\n** Added Fragrant Mushroom to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

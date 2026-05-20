@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Hang",
+  "short_name": "Hang",
+  "summary": "is a 1  cost   Card for the . It deals 10 damage (13 if ). Additionally, if the enemy has no , it applies 2 stacks of , causing ALL  to deal double damage to that enemy. If the enemy already has , it instead doubles the existing  stacks.",
+  "sections": {
+    "Interactions": [
+      "deals damage before  is applied.",
+      "The damage multiplier of  applies after , effectively multiplying the player's existing  when using  to attack."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Hang</span>",
+  "fetched_at": "2026-05-20T05:41:39Z",
+  "wikitext_chars": 2119,
+  "wikitext": "{{Card Infobox|Hang||2}} {{Power Infobox|Hang|2}}\n{{C|Hang||2}} is a 1 {{Icon|NE|2}} cost {{QueryLink|Cards|rarity:Rare&color:Necrobinder|Rare|2}} {{QueryLink|Cards|type:Attack&color:Necrobinder|Attack|2}} Card for the {{KW|Necrobinder||2}}. It deals 10 damage (13 if {{KW|Upgrade|Upgraded|2}}). Additionally, if the enemy has no {{BD|Hang||2}}, it applies 2 stacks of {{BD|Hang||2}}, causing ALL {{C|Hang|Hangs|2}} to deal double damage to that enemy. If the enemy already has {{BD|Hang||2}}, it instead doubles the existing {{BD|Hang||2}} stacks.\n\n== Interactions ==\n=== Order ===\n* {{C|Hang||2}} deals damage before {{BD|Hang||2}} is applied.\n* The damage multiplier of {{BD|Hang||2}} applies after {{KW|Strength||2}}, effectively multiplying the player's existing {{KW|Strength||2}} when using {{C|Hang||2}} to attack.\n\n=== Synergies ===\n==== a) Cards ====\n* Since {{C|Hang||2}} is a Rare card, owning multiple copies may be difficult. Instead, cycle through the deck quickly with draw power like {{C|Soul|Souls|2}} or {{C|Parse||2}}.\n* {{C|Misery||2}} applies the {{BD|Hang||2}} stacks on an enemy to ALL other enemies.\n* Adding {{KW|Replay||2}} to {{C|Hang||2}}, such as with {{C|Transfigure||2}} or {{C|Hidden Gem||2}}, makes its damage scale much faster.\n\n==== b) Relics ====\n* {{R|Unsettling Lamp||2}} causes {{C|Hang||2}} to apply 4 {{BD|Hang||2}} instead of 2 if it is the first debuff-applying card played this combat.\n* {{R|Pael's Growth||2}} makes it easy to duplicate {{C|Hang|Hangs|2}}, though it prevents them from getting offensive {{KW|Enchant|Enchantments|2}} like {{KW|Corrupted||2}}.\n* {{R|Music Box||2}} creates an {{KW|Ethereal||2}} {{C|Hang||2}} in hand if {{C|Hang||2}} is the first Attack played that turn.\n\n== Notes ==\n* {{BD|Artifact||2}} prevents enemies from being afflicted with {{BD|Hang||2}}. When relying on {{C|Hang||2}} to deal major damage, make sure to have debuff-inflicting cards handy to remove {{BD|Artifact||2}} stacks.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Hang to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

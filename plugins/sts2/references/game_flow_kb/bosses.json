@@ -1,0 +1,66 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Bosses",
+  "act_pools": {
+    "1": [
+      "Ceremonial Beast",
+      "The Kin",
+      "Vantom",
+      "Waterfall Giant",
+      "Soul Fysh",
+      "Lagavulin Matriarch"
+    ],
+    "2": [
+      "The Insatiable",
+      "Knowledge Demon",
+      "Kaiser Crab"
+    ],
+    "3": [
+      "Queen",
+      "Test Subject",
+      "Doormaker"
+    ]
+  },
+  "rewards": {
+    "drops": [
+      "gold",
+      "rare_card_choice",
+      "potion_maybe"
+    ],
+    "gold": [
+      100,
+      100
+    ],
+    "gold_ascension_3": [
+      75,
+      75
+    ],
+    "post_boss_ancient_heal_ratio": 1.0,
+    "post_boss_ancient_heal_ratio_ascension_2": 0.8
+  },
+  "spawn_rules": [
+    "floor_before_boss_is_rest_site",
+    "ascension_10_act3_double_boss_no_rest_between"
+  ],
+  "boss_relic_synergies": [
+    "PANTOGRAPH",
+    "STONE_CRACKER",
+    "LAVA_ROCK"
+  ],
+  "act1_by_region": {
+    "Overgrowth": [
+      "Ceremonial Beast",
+      "The Kin",
+      "Vantom"
+    ],
+    "Underdocks": [
+      "Waterfall Giant",
+      "Soul Fysh",
+      "Lagavulin Matriarch"
+    ]
+  },
+  "agent_hints": [
+    "Boss 战前上一格必是营火，可先休息/Smith",
+    "击败 Act1/2 Boss 后进下一幕先古三选一遗物",
+    "A10 第三幕连续两场 Boss，第二场前无营火"
+  ]
+}

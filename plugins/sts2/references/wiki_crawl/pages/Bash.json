@@ -1,0 +1,21 @@
+{
+  "page": "Slay_the_Spire_2:Bash",
+  "short_name": "Bash",
+  "summary": "is a 2  cost   Card for the .",
+  "sections": {
+    "Interactions": [
+      "applied by this card:",
+      "Increases damage dealt by .",
+      "Grants an additional hit from .",
+      "Grants additional  from .",
+      "Draws 1 (2) card via .",
+      "Makes enemies deal 50% less damage with .",
+      "Makes enemies take 25% (50%) more damage with .",
+      "Makes enemies take 25% more damage with ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Bash</span>",
+  "fetched_at": "2026-05-20T05:42:03Z",
+  "wikitext_chars": 1520,
+  "wikitext": "{{Sequel Disambiguation}}{{Card Infobox|Bash||2}}{{Power Infobox|Vulnerable|2}}\n{{C|Bash||2}} is a 2 {{Icon|IE|2}} cost {{QueryLink|Cards|rarity:Basic&color:Ironclad|Basic|2}} {{QueryLink|Cards|type:Attack&color:Ironclad|Attack|2}} Card for the {{KW|Ironclad||2}}.\n\n== Obtaining Bash ==\nThe {{KW|Ironclad||2}} starts the game with one copy of {{C|Bash||2}} in his deck. It is not found in card rewards.\n\n== Interactions ==\n=== Synergies ===\n*{{BD|Vulnerable||2}} applied by this card:\n** Increases damage dealt by {{C|Bully||2}}.\n** Grants an additional hit from {{C|Dismantle||2}}.\n** Grants additional {{BD|Strength||2}} from {{C|Dominate||2}}.\n** Draws 1 (2) card via {{C|Vicious||2}}.\n** Makes enemies deal 50% less damage with {{C|Colossus||2}}.\n** Makes enemies take 25% (50%) more damage with {{C|Cruelty||2}}.\n** Makes enemies take 25% more damage with {{R|Paper Phrog||2}}.\n** Is potentially doubled by {{R|Unsettling Lamp||2}}.\n====Relics====\n* {{R|Intimidating Helmet||2}} grants 4 {{KW|Block||2}} whenever this card is played.\n== Notes ==\n{{R|Archaic Tooth||2}}, if taken from {{KW|Orobas||2}}, transforms {{C|Bash||2}} into its {{QueryLink|Cards|rarity:Ancient|Ancient|2}} version {{C|Break||2}}.\n*If {{C|Bash||2}} has already been upgraded and/or {{KW|Enchant|Enchanted|2}}, {{C|Break||2}} will be upgraded and/or {{KW|Enchant|Enchanted|2}} by default.\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Bash to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:The Lantern Key",
+  "short_name": "The Lantern Key",
+  "summary": "is an  found exclusively in the . It is a combat event. The  can be used in the  event in Act 3.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">The Lantern Key</span>",
+  "fetched_at": "2026-05-20T06:18:01Z",
+  "wikitext_chars": 1348,
+  "wikitext": "{{Event Header|StS2_Mysterious Knight.png}}\n{{E|The Lantern Key|2}} is an {{2|Events|Event}} found exclusively in the {{2|Hive}}. It is a combat event. The {{C|Lantern Key||2}} can be used in the {{E|War Historian, Repy|2}} event in Act 3.\n\n== Options ==\n{{Frame|Return the Key}} {{TS|positive||Gain 100 Gold.}}\n<br>\n{{Frame|Keep the Key}} Enter combat against a {{2|Mysterious Knight}} for the {{C|Lantern Key||2}} card.\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nYou come upon a faintly glowing key and go to pick it up.\n\n\"Been looking all over for that key! Now if you don't mind...\"\n\nThis person looks like bad news but maybe it's not good to be judgy.\n</div>\n\n{{Frame|Return the Key}}\n<blockquote><div style=\"font-style:italic\">\nThe stranger thanks you for your help, and rewards you handsomely.\n</div></blockquote>\n\n{{Frame|Keep the Key}}\n<blockquote><div style=\"font-style:italic\">\nThe stranger looks at you menacingly. It seems like only one of you is making it out of here with the key.\n</div></blockquote>\n</blockquote>\n\n== Notes ==\n*If you choose to {{Frame|Keep the Key}}, the {{2|Mysterious Knight}} combat counts as a normal combat encounter for purposes such as {{R|Prayer Wheel||2}} and will drop normal combat rewards along with the {{C|Lantern Key||2}}.\n\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

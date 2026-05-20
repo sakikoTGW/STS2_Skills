@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Tri-Boomerang",
+  "short_name": "Tri-Boomerang",
+  "summary": "At the start of , can be offered by .",
+  "sections": {
+    "Interactions": [
+      "and  activates after the effects of ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Tri-Boomerang</span>",
+  "fetched_at": "2026-05-20T06:22:37Z",
+  "wikitext_chars": 854,
+  "wikitext": "{{Relic Infobox|Tri-Boomerang|2}}{{Keyword Infobox|Instinct|2}}{{Keyword Infobox|Enchant|2}}\n{{R|Tri-Boomerang||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relic}}.\n\n== Obtaining Tri-Boomerang ==\nAt the start of {{2|Acts#Act 3|Act 3}}, can be offered by {{KW|Tanx||2}}.\n\n== Interactions ==\n*{{R|Miniature Cannon||2}} and {{R|Mystic Lighter||2}} activates after the effects of {{KW|Instinct||2}}.\n\n== Trivia ==\n\n== Update History ==\n== Update History ==\n* '''Early Access v0.103.2'''\n**Instinct changes from BETA branch were moved to the main version of the game.\n\n* '''Early Access v0.100.0 (BETA)'''\n** Instinct enchantment no longer reduces cost, instead doubles damage on enchanted Attacks.\n\n* '''Early Access v0.98'''\n** Added Tri-Boomerang to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

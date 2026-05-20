@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Arcane Scroll",
+  "short_name": "Arcane Scroll",
+  "summary": "Upon pickup, add a random  to your Deck.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Arcane Scroll</span>",
+  "fetched_at": "2026-05-20T06:20:56Z",
+  "wikitext_chars": 428,
+  "wikitext": "{{Relic Infobox|Arcane Scroll|2}}{{R|Arcane Scroll||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}.\n\nUpon pickup, add a random {{QueryLink|Cards|rarity:Rare|Rare Card|2}} to your Deck.\n\n== Sources ==\nAt the start of the run, can be offered by {{KW|Neow||2}}.\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Arcane Scroll to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]]"
+}

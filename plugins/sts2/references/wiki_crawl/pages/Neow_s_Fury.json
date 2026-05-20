@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Neow's Fury",
+  "short_name": "Neow's Fury",
+  "summary": "is a 1  cost    Card. It deals 10 (14 if upgraded) damage and puts 2 random cards from your Discard Pile into your Hand.  will then  itself.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Neow&#039;s Fury</span>",
+  "fetched_at": "2026-05-20T06:21:10Z",
+  "wikitext_chars": 1439,
+  "wikitext": "{{Card Infobox|Neow's Fury||2}}{{Keyword Infobox|Exhaust|2}}\n{{C|Neow's Fury||2}} is a 1 {{Icon|CE|2}} cost {{QueryLink|Cards|color:Colorless|Colorless|2}} {{QueryLink|Cards|rarity:Ancient|Ancient|2}} {{QueryLink|Cards|type:Attack|Attack|2}} Card. It deals 10 (14 if upgraded) damage and puts 2 random cards from your Discard Pile into your Hand. {{C|Neow's Fury||2}} will then {{KW|Exhaust}} itself.\n\n== Obtaining Neow's Fury==\nAdded to your deck after picking up {{R|Neow's Torment||2}} if offered by {{KW|Neow||2}} at the start of a run.\n\n== Strategy ==\n*{{C|Neow's Fury||2}} can allow you to play up to two cards twice in the same turn, if you play them before {{C|Neow's Fury||2}} and then fetch them from your Discard Pile to play again.\n**This is more reliable if you have few or no cards in your Discard Pile at the start of this process, such as at the start of combat or after reshuffling your Draw Pile.\n\n== Update History ==\n* '''Early Access v0.104.0 (BETA)'''\n** Buffed Neow's Fury: Instead of selecting randomly, now allows you to choose up to 2(3) cards to be put into your Hand from your Discard Pile.\n*'''Early Access v0.103.2'''\n**BETA changes incorporated into main branch.\n*'''Early Access v0.100.0 (BETA)'''\n**The number of cards returned to your hand now upgrades from 2 -> 3.\n\n*'''Early Access v0.98'''\n**Added Neow's Fury to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

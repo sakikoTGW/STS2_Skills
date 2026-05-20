@@ -1,0 +1,8 @@
+{
+  "command": "python",
+  "args": ["/path/to/hermes-agent-main/scripts/sts2_mcp_bridge.py"],
+  "env": {
+    "STS2_MCP_BASE_URL": "http://127.0.0.1:15526",
+    "STS2_HOME": "/home/you/.openclaw/sts2"
+  }
+}

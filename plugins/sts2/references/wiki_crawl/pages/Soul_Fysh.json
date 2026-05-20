@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Soul_Fysh",
+  "short_name": "Soul_Fysh",
+  "summary": "Soul Fysh is a  found in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Soul Fysh</span>",
+  "fetched_at": "2026-05-20T05:42:38Z",
+  "wikitext_chars": 894,
+  "wikitext": "{{Enemy Infobox|Soul Fysh|2}}{{Small Card Infobox|Beckon|2}}{{Power Infobox|Vulnerable|2}}{{Power Infobox|Intangible|2}}\n'''Soul Fysh''' is a {{2|Bosses|Boss}} found in the {{2|Underdocks}}.\n\n== Pattern ==\n{{Intents|Soul Fysh|2}}\nThe Soul Fysh repeats the same five moves in order:\n# {{Int|Soul Fysh|Beckon||2}}\n# {{Int|Soul Fysh|De-Gas||2}}\n# {{Int|Soul Fysh|Gaze||2}}\n# {{Int|Soul Fysh|Fade||2}}\n# {{Int|Soul Fysh|Scream||2}}\n\n== Notes ==\n*The first iteration of {{Int|Soul Fysh|Fade||2}}'s {{KW|Intangible||2}} fades instantly during the transition from {{2|Soul Fysh}}'s turn to the player's. It effectively gains just 1 {{KW|Intangible||2}}.\n== Update History ==\n* '''Early Access v0.105.0 (BETA)'''\n** Buffed Soul Fysh: Scream move damage increased from 11(12) -> 13(15).\n* '''Early Access v0.98'''\n** Added Soul Fysh to the game.\n[[Category:Bosses]]\n[[Category:Slay the Spire 2 Content]]"
+}

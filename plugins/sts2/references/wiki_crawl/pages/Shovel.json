@@ -1,0 +1,19 @@
+{
+  "page": "Slay_the_Spire_2:Shovel",
+  "short_name": "Shovel",
+  "summary": "is a  . It adds a \"Dig\" option to , which allows the player to receive a random  that is , , or . The random relic can't be a , , or  relic.",
+  "sections": {
+    "Interactions": [
+      ": Allows Shovel to be used without giving up other Rest Site options.",
+      ": Creates an Act 2 path with 4 rest sites to dig with Shovel, which may be more than were previously available.",
+      "and : Grants  upon entering a combat after a Rest Site, which Shovel encourages visiting.",
+      "Any option that makes other Rest Site options such as resting and smithing less valuable can improve Shovel by proxy.",
+      "For resting this can include any reliable source of healing such , and in particular  since it will activate at the rest site.",
+      "For smithing this can include any alternate source of upgrading cards such as  or  obtained via ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Shovel</span>",
+  "fetched_at": "2026-05-20T06:20:19Z",
+  "wikitext_chars": 2597,
+  "wikitext": "{{Sequel Disambiguation}}{{Relic Infobox|Shovel|2}}\n{{R|Shovel||2}} is a {{QueryLink|Relics|rarity:Rare|Rare|2}} {{2|Relic}}. It adds a \"Dig\" option to {{2|Rest Sites}}, which allows the player to receive a random {{2|Relic}} that is {{QueryLink|Relics|rarity:Common|Common|2}}, {{QueryLink|Relics|rarity:Uncommon|Uncommon|2}}, or {{QueryLink|Relics|rarity:Rare|Rare|2}}. The random relic can't be a {{QueryLink|Relics|rarity:Shop|Shop|2}}, {{QueryLink|Relics|rarity:Ancient|Ancient|2}}, or {{QueryLink|Relics|rarity:Event|Event|2}} relic.\n\n== Sources ==\n\n== Spawn Restrictions ==\n\n== Interactions ==\n\n===Synergies===\n* {{R|Miniature Tent||2}}: Allows Shovel to be used without giving up other [[Slay the Spire 2:Rest Sites|Rest Site]] options.\n* {{R|Golden Compass||2}}: Creates an [[Slay the Spire 2:Hive|Act 2]] path with 4 rest sites to dig with Shovel, which may be more than were previously available.\n* {{R|Venerable Tea Set||2}} and {{R|Venerable Tea Set???||2}}: Grants {{KW|Energy||2}} upon entering a combat after a [[Slay the Spire 2:Rest Sites|Rest Site]], which Shovel encourages visiting.\n* Any option that makes other [[Slay the Spire 2:Rest Sites|Rest Site]] options such as resting and smithing less valuable can improve Shovel by proxy.\n** For resting this can include any reliable source of healing such {{R|Burning Blood||2}}, and in particular {{R|Eternal Feather||2}} since it will activate at the rest site.\n** For smithing this can include any alternate source of upgrading cards such as {{R|Yummy Cookie||2}} or {{C|Apotheosis||2}} obtained via {{R|Jewelry Box||2}}.\n\n===Anti-Synergies===\n* Anything that provides alternate options at [[Slay the Spire 2:Rest Sites|Rest Sites]] will make Shovel worse by proxy of only 1 option being able to be chosen (unless also having {{R|Miniature Tent||2}}) This includes:\n** Lift via {{R|Girya||2}}\n** Clone via {{R|Pael's Growth||2}}.\n** Cook via {{R|Meat Cleaver||2}}.\n** Hatch via {{C|Byrdonis Egg||2}}.\n** Mend in [[Slay the Spire 2:Multiplayer|Multiplayer]].\n* Additionally anything that improves pre-existing [[Slay the Spire 2:Rest Sites|Rest Site]] options will go wasted when digging with Shovel. This includes:\n** {{R|Dream Catcher||2}} granting a card reward upon resting.\n** {{R|Tiny Mailbox||2}} granting a random potion upon resting.\n** {{R|Stone Humidifier||2}} granting 5 max HP upon resting.\n** {{R|Regal Pillow||2}} granting 15 HP upon resting.\n\n== Trivia ==\n*The Shovel's appearance is based on the shovel in [https://en.wikipedia.org/wiki/Shovel_Knight Shovel Knight], with the yellow hand guard and blue accents"
+}

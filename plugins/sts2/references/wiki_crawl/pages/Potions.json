@@ -1,0 +1,95 @@
+{
+  "page": "Slay_the_Spire_2:Potions",
+  "short_name": "Potions",
+  "summary": "Potions are single-use consumables that persist across floors. Most potions provide a temporary boost that can only be used in a single encounter, and thus can only be used in combat. The only potions that can be used outside of combat are: ,  (only when used against the ), , and  (Ironclad only). Potions are stored in Potion Slots, of which you start with 3 (). The only ways to increase the amount of slots you have is to obtain , , or . Using a potion does not cost  and does not count as playing a card. Some potions are exclusive to a single character. Each character has 3 unique potions, with one for each rarity. {| class=\"wikitable\" Some potions were renamed in Slay the Spire 2 but are otherwise identical to a potion in Slay the Spire. {| class=\"wikitable\"",
+  "sections": {
+    "Interactions": [
+      "gives 3 temporary  when using a potion.",
+      "makes it so the  will never run out of potions."
+    ],
+    "Sources": [
+      "With , a potion will always drop after combat. This decreases the drop chances as well.",
+      "have an increased chance of obtaining a potion by 12.5%.",
+      "There is currently a bug where if you would normally not have gotten a potion reward, but did get one with the increased Elite potion chances, the game still increases the odds for the next potion."
+    ]
+  },
+  "tables": [
+    [
+      "color = var(--highlight-color-shop)"
+    ],
+    [
+      "icon = StS2_ClarityExtract.png"
+    ],
+    [
+      "message = ''This is information about Potions in Slay the Spire. A full searchable list can be found at [[StS2:Potions List",
+      "Potions List (Slay the Spire 2)]].''"
+    ],
+    [
+      "+"
+    ],
+    [
+      "Ironclad"
+    ],
+    [
+      "{{P",
+      "Blood Potion",
+      "",
+      "2}}, {{P",
+      "Ashwater",
+      "",
+      "2}}, {{P",
+      "Soldier's Stew",
+      "",
+      "2}}"
+    ],
+    [
+      "Silent"
+    ],
+    [
+      "{{P",
+      "Poison Potion",
+      "",
+      "2}}, {{P",
+      "Cunning Potion",
+      "",
+      "2}}, {{P",
+      "Ghost in a Jar",
+      "",
+      "2}}"
+    ],
+    [
+      "Regent"
+    ],
+    [
+      "{{P",
+      "Star Potion",
+      "",
+      "2}}, {{P",
+      "King's Courage",
+      "",
+      "2}}, {{P",
+      "Cosmic Concoction",
+      "",
+      "2}}"
+    ],
+    [
+      "Necrobinder"
+    ],
+    [
+      "{{P",
+      "Potion of Doom",
+      "",
+      "2}}, {{P",
+      "Bone Brew",
+      "",
+      "2}}, {{P",
+      "Pot of Ghouls",
+      "",
+      "2}}"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Potions</span>",
+  "fetched_at": "2026-05-20T05:41:55Z",
+  "wikitext_chars": 4568,
+  "wikitext": "{{Sequel Disambiguation}}\n{{Ambox\n| color = var(--highlight-color-shop)\n| icon = StS2_ClarityExtract.png\n| message = ''This is information about '''Potions''' in Slay the Spire. A full searchable list can be found at [[StS2:Potions List|Potions List (Slay the Spire 2)]].''\n}} {{#setmainimage:StS2_ClarityExtract.png|quiet}}\n\nPotions are single-use consumables that persist across floors.\n\nMost potions provide a temporary boost that can only be used in a single encounter, and thus can only be used in combat. The only potions that can be used outside of combat are: {{P|Entropic Brew||2}}, {{P|Foul Potion||2}} (only when used against the {{2|Merchant}}), {{P|Fruit Juice||2}}, and {{P|Blood Potion||2}} (Ironclad only).\n\nPotions are stored in Potion Slots, of which you start with 3 ({{Asc|4|2|2}}). The only ways to increase the amount of slots you have is to obtain {{R|Potion Belt||2}}, {{R|Alchemical Coffer||2}}, or {{R|Phial Holster||2}}.\n\nUsing a potion does not cost {{KW|Energy||2}} and does not count as playing a card.\n\nSome potions are exclusive to a single character. Each character has 3 unique potions, with one for each rarity.\n{| class=\"wikitable\"\n|+\n!Character\n!Potions\n|-\n|Ironclad\n|{{P|Blood Potion||2}}, {{P|Ashwater||2}}, {{P|Soldier's Stew||2}}\n|-\n|Silent\n|{{P|Poison Potion||2}}, {{P|Cunning Potion||2}}, {{P|Ghost in a Jar||2}}\n|-\n|Regent\n|{{P|Star Potion||2}}, {{P|King's Courage||2}}, {{P|Cosmic Concoction||2}}\n|-\n|Necrobinder\n|{{P|Potion of Doom||2}}, {{P|Bone Brew||2}}, {{P|Pot of Ghouls||2}}\n|-\n|Defect\n|{{P|Focus Potion||2}}, {{P|Potion of Capacity||2}}, {{P|Essence of Darkness||2}}\n|}\n\nSome potions were renamed in Slay the Spire 2 but are otherwise identical to a potion in Slay the Spire.\n{| class=\"wikitable\"\n|+\n|-\n|{{P|Cultist Potion}}\n|{{P|Mazaleth's Gift||2}}\n|-\n|{{P|Elixir}}\n|{{P|Ashwater||2}}\n|-\n|{{P|Explosive Potion}}\n|{{P|Explosive Ampoule||2}}\n|-\n|{{P|Fear Potion}}\n|{{P|Vulnerable Potion||2}}\n|-\n|{{P|Duplication Potion}}\n|{{P|Duplicator||2}}\n|}\n\n== Potion Rarity ==\nIn most cases, including playing {{C|Alchemize||2}}, the rarity chances for obtaining potions are:\n{| class=\"wikitable\"\n|Common Potion\n|65%\n|-\n|Uncommon Potion\n|25%\n|-\n|Rare Potion\n|10%\n|}\n\n== Sources ==\nPotions may be dropped as a reward after combat. The '''default chance''' of a potion dropping is '''40%''' at the start of a run. <!-- !!Commented out until it can be confirmed!! and resets at the start of each [[StS2:Acts|Act]]. -->\n\nIf a potion drops, the chance '''decreases''' by '''10%'''. If a potion doesn't drop, the chance '''increases''' by '''10%.''' \n* With {{R|White Beast Statue||2}}, a potion will always drop after combat. This decreases the drop chances as well.\n* {{2|Elites}} have an '''increased''' chance of obtaining a potion by '''12.5%.''' \n** There is currently a bug where if you would normally not have gotten a potion reward, but did get one with the increased Elite potion chances, the game still increases the odds for the next potion.\n\n=== Cards ===\n* Using the card {{C|Alchemize||2}} creates 1 random potion (cannot be {{P|Fruit Juice||2}}).\n\n=== Relics ===\n* Obtaining the {{R|Alchemical Coffer||2}} from {{KW|Orobas||2}} gives you 4 extra potion slots, each filled with a random potion.\n* Obtaining the {{R|Lost Coffer||2}} from {{KW|Neow||2}} gives you a potion as well as a card reward.\n* Obtaining the {{R|Phial Holster||2}}  from {{KW|Neow||2}} gives you an extra potion slot as well as 2 potions.\n* Obtaining the {{R|Delicate Frond||2}} from {{KW|Nonupeipe||2}} fills each empty potion slot with a random potion at the beginning of combat.\n* {{R|Cauldron}} gives you 5 random potions.\n* {{R|Tiny Mailbox||2}} gives a random potion every time you Rest at a {{2|Rest Site}}.\n* {{R|Petrified Toad}} gives you one {{P|Potion-Shaped Rock||2}} at the beginning of combat.\n\n=== Other ===\n* {{P|Entropic Brew||2}} fills all your empty potion slots, including its slot, with random potions (cannot generate {{P|Fruit Juice||2}} while in combat).\n* Potions can also be bought at the {{2|Merchant}}.\n\n== Interactions ==\n=== Synergies ===\n* {{R|Reptile Trinket||2}} gives 3 temporary {{BD|Strength||2}} when using a potion.\n* {{R|The Courier||2}} makes it so the {{2|Merchant}} will never run out of potions.\n\n=== Neutral ===\n* {{R|Belt Buckle||2}} gives 2 {{BD|Dexterity||2}} while you have no potions.\n\n=== Anti-Synergies ===\n* Obtaining {{R|Sozu||2}} from {{KW|Darv||2}} prevents you from obtaining any potions. Any potions you had before picking this up will still be kept.\n\n[[Category:Slay the Spire 2 Content]]"
+}

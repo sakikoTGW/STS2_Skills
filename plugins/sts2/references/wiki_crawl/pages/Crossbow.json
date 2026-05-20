@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Crossbow",
+  "short_name": "Crossbow",
+  "summary": "is an  . The description is somewhat misleading, as the -reduction effect will be lost once played. Even if it's the same turn, if the affected card is played and then returned to the hand by any means (e.g. using ), the card will be at its original cost.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Crossbow</span>",
+  "fetched_at": "2026-05-20T06:22:28Z",
+  "wikitext_chars": 772,
+  "wikitext": "{{Relic Infobox|Crossbow|2}}\n{{R|Crossbow||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}. The description is somewhat misleading, as the {{KW|Energy||2}}-reduction effect will be lost once played. Even if it's the same turn, if the affected card is played and then returned to the hand by any means (e.g. using {{C|Hologram||2}}), the card will be at its original cost.\n\n== Sources ==\nAt the start of {{2|Acts#Act 3|Act 3}}, can be offered by {{KW|Tanx||2}}.\n\n== Interactions ==\n\n== Trivia ==\n\n== Update History ==\n* '''Early Access v0.101.0 (BETA)'''\n** Now uses Free to Play instead of Costs 0 Energy.\n\n* '''Early Access v0.98'''\n** Added Crossbow to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Drowning Beacon",
+  "short_name": "Drowning Beacon",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Drowning Beacon</span>",
+  "fetched_at": "2026-05-20T06:17:21Z",
+  "wikitext_chars": 1244,
+  "wikitext": "{{Event Header|StS2 Drowning Beacon.png}}\n{{E|Drowning Beacon|2}} is an {{2|Events|Event}} found exclusively in the {{2|Underdocks}}.\n\n== Options ==\n{{Frame|Bottle}} {{TS|positive||Procure 1 {{P|Glowwater Potion||2}}.}}\n<br>\n{{Frame|Climb}} {{TS|negative||Lose 13 Max HP.}} {{TS|positive||Obtain {{R|Fresnel Lens||2}} (relic).}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nCrossing a dreamscape of rocks and still waters, you emerge to face a sinking lighthouse emitting anti-light.\n\nYou can bottle up the eerily-glowing water that has pooled here or climb up the dilapidated structure to retrieve the lens.\n</div>\n\n{{Frame|Bottle}}\n<blockquote><div style=\"font-style:italic\">\nUsing a nearby bottle, you calmly scoop up the glowing liquid as the lighthouse peacefully sinks into the mud.\n\nGood thing you weren't in there.\n</div></blockquote>\n\n{{Frame|Climb}}\n<blockquote><div style=\"font-style:italic\">\nYou climb to the top of the lighthouse, unnerved by its steady sinking.\n\nUpon reaching the lanthorn room, you start prying off the lens as the anti-light saps your vitality!\n\nFinally, you wring it free; the lighthouse stops sinking.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

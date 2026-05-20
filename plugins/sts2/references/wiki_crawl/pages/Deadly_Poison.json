@@ -1,0 +1,21 @@
+{
+  "page": "Slay_the_Spire_2:Deadly_Poison",
+  "short_name": "Deadly_Poison",
+  "summary": "is a 1  cost   Card for the .",
+  "sections": {
+    "Interactions": [
+      "applied by this card:",
+      "Fulfills 's conditions to apply .",
+      "Increases  granted by .",
+      "Potentially triggers , dealing 11 (15) damage to ALL enemies.",
+      "Is increased by 1 by .",
+      "Compounds with all other sources for .",
+      "Wakes up any enemies that are .",
+      "Deals just 1 damage if  is present."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Deadly Poison</span>",
+  "fetched_at": "2026-05-20T05:42:12Z",
+  "wikitext_chars": 970,
+  "wikitext": "{{Sequel Disambiguation}}{{Card Infobox|Deadly Poison||2}}{{Keyword Infobox|Poison|2}}\n{{C|Deadly Poison||2}} is a 1 {{Icon|SE|2}} cost {{QueryLink|Cards|rarity:Common&color:Silent|Common|2}} {{QueryLink|Cards|type:Skill&color:Silent|Skill|2}} Card for the {{KW|Silent||2}}.\n== Interactions ==\n=== Synergies ===\n*{{BD|Poison||2}} applied by this card:\n**Fulfills {{C|Bubble Bubble||2}}'s conditions to apply {{BD|Poison||2}}.\n**Increases {{KW|Block||2}} granted by {{C|Mirage||2}}.\n**Potentially triggers {{C|Outbreak||2}}, dealing 11 (15) damage to ALL enemies.\n**Is increased by 1 by {{R|Snecko Skull||2}}.\n**Compounds with all other sources for {{BD|Poison||2}}.\n**Wakes up any enemies that are {{BD|Asleep||2}}.\n**Deals just 1 damage if {{BD|Intangible||2}} is present.\n** Is potentially doubled by {{R|Unsettling Lamp||2}}.\n== Update History ==\n* '''Early Access v0.98'''\n** Added Deadly Poison to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]]"
+}

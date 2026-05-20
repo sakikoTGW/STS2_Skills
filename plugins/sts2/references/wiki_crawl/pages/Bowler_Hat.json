@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Bowler Hat",
+  "short_name": "Bowler Hat",
+  "summary": "is a   which increases all  gains by 25%. It does not visually increase the amount gained by events or in combat rewards; the additional Gold is simply added to the current Gold total after the fact.",
+  "sections": {
+    "Interactions": [
+      "Because Bowler Hat's additional Gold is added ''separate'' from the initial sum, it creates a second trigger for , increasing maximum HP by a total of 2 each time gold is collected.",
+      "When killing the Fat Gremlin, and recovering  lost via , the recovered Gold will be bolstered via Bowler Hat."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Bowler Hat</span>",
+  "fetched_at": "2026-05-20T06:18:52Z",
+  "wikitext_chars": 1663,
+  "wikitext": "{{Relic Infobox|Bowler Hat|2}}\n{{R|Bowler Hat||2}} is a {{QueryLink|Relics|rarity:Common|Common|2}} {{2|Relics|Relic}} which increases all {{KW|Gold||2}} gains by 25%. It does not visually increase the amount gained by events or in combat rewards; the additional Gold is simply added to the current Gold total after the fact.\n\n== Obtaining Bowler Hat ==\n* Can be dropped by fighting {{2|Elites}}, by buying from the {{2|Merchant}} or from {{2|Mechanics#Chests|Chests}}. See Chest and non-Chest chance at {{2|Relics}}.\n* Can be obtained from the relics {{R|Calling Bell||2}}, {{R|Shovel||2}} and {{R|Black Star||2}}.\n<!--\n* Can be obtained from the following events:\nTODO: FIND RELIC SOURCES FROM EVENTS-->\n=== Spawn Restrictions===\n* '''Bowler Hat''' is not sold by [[Slay the Spire 2:The Merchant|The Merchant.]]\n== Interactions ==\n===Synergies===\n* Because '''Bowler Hat''''s additional Gold is added ''separate'' from the initial sum, it creates a second trigger for {{R|Dragon Fruit||2}}, increasing maximum HP by a total of 2 each time gold is collected.\n* When killing the [[Slay the Spire 2:Gremlin Merc|Fat Gremlin]], and recovering {{KW|Gold||2}} lost via {{BD|Thievery||2}}, the recovered Gold will be bolstered via '''Bowler Hat'''.\n== Update History ==\n*'''Early Access v0.103.2'''\n**BETA changes incorporated into main branch.\n* '''Early Access v0.100.0 (BETA)'''\n** Gold gain increased from 20% -> 25%.\n** Relics that generate Gold (such as Bowler Hat and Amethyst Aubergine) no longer appear at the Merchant.\n* '''Early Access v0.98'''\n** Added Bowler Hat to the game.\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

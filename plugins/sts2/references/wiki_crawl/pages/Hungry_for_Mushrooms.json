@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Hungry for Mushrooms",
+  "short_name": "Hungry for Mushrooms",
+  "summary": "is an  found exclusively in .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Hungry for Mushrooms</span>",
+  "fetched_at": "2026-05-20T06:18:08Z",
+  "wikitext_chars": 1652,
+  "wikitext": "{{Event Header|StS2 Hungry For Mushrooms.png}}\n{{E|Hungry for Mushrooms|2}} is an {{2|Events|Event}} found exclusively in {{2|Glory}}.\n\n== Options ==\n{{Frame|Big Mushroom}} {{TS|positive||Obtain {{R|Big Mushroom||2}} (relic).}}\n<br>\n* {{R|Big Mushroom||2}}: Upon pickup, raise your Max HP by 20. At the start of each combat, draw 2 fewer cards. \n{{Frame|Fragrant Mushroom}} {{TS|positive||Obtain {{R|Fragrant Mushroom||2}} (relic).}}\n* {{R|Fragrant Mushroom||2}}: Upon pickup, lose 15 HP and {{KW|Upgrade||2}} 3 random cards.\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nHow long has it been since you ate?\n...wait, what's that fantastic smell?\n\nFollowing the scent, you reach a cozy campground with all manner of tasty mushrooms being cooked! You don't consider the safety of eating these mushrooms because you are so hungry.\n(So hungry that you don't notice the dead adventurer)\n</div>\n\n{{Frame|Big Mushroom}}\n<blockquote><div style=\"font-style:italic\">\nYou bite into the Big Mushroom. Its flesh is firm, starchy, and satisfying. The more you eat, the hungrier you become, as if the mushroom is feeding on your hunger.\n\nSo yummy... you enter a food coma.\nThis gluttony will cost you.\n</div></blockquote>\n\n{{Frame|Fragrant Mushroom}}\n<blockquote><div style=\"font-style:italic\">\nYou sample the Fragrant One, a small woody mushroom with a delicate scent of shellfish...\n\nA burst of energy spurs you to run, jump, and rigorously train!\nThen, a sudden stabbing pain hits you as the living fungi struggles within you during its brief final moments.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Byrdonis Nest",
+  "short_name": "Byrdonis Nest",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Byrdonis Nest</span>",
+  "fetched_at": "2026-05-20T06:17:16Z",
+  "wikitext_chars": 911,
+  "wikitext": "{{Event Header|StS2 Byrdonis Nest.png}}\n{{E|Byrdonis Nest|2}} is an {{2|Events|Event}} found exclusively in the {{2|Overgrowth}}.\n\n== Options ==\n{{Frame|Eat the Egg}} {{TS|positive||Gain 7 Max HP.}}\n<br>\n{{Frame|Take the Egg}} {{TS|positive||Add {{C|Byrdonis Egg||2}} to deck.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nYou spot an enormous Shambling Beast chase off an injured Green Byrd.\n\nIn the alcove the byrd fled from, a single unguarded egg lies abandoned.\n\nYour stomach gurgles...\n</div>\n\n{{Frame|Eat the Egg}}\n<blockquote><div style=\"font-style:italic\">\nYou crack the egg open and gobble it up.\nGood breakfast.\n</div></blockquote>\n\n{{Frame|Take the Egg}}\n<blockquote><div style=\"font-style:italic\">\nYou gently scoop up the egg and stow it, thinking it may hatch into something useful later.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

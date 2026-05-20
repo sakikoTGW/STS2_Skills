@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Infested_Prism",
+  "short_name": "Infested_Prism",
+  "summary": "Infested Prism is an   found in .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Infested Prism</span>",
+  "fetched_at": "2026-05-20T05:42:29Z",
+  "wikitext_chars": 450,
+  "wikitext": "{{Enemy Infobox|Infested Prism|2}}{{Power Infobox|Vital Spark|2}}\n'''Infested Prism''' is an {{2|Elites|Elite}} {{2|Monsters|Enemy}} found in {{2|Hive}}.\n\n== Pattern ==\n{{Intents|Infested Prism|2}}\nThe Infested Prism repeats a fixed four-move cycle:\n# {{Int|Infested Prism|Jab||2}}\n# {{Int|Infested Prism|Radiate||2}}\n# {{Int|Infested Prism|Whirlwind||2}}\n# {{Int|Infested Prism|Pulsate||2}}\n\n[[Category:Elites]]\n[[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,24 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Potions",
+  "default_slots": 3,
+  "ascension_4_slots": 2,
+  "no_energy_cost": true,
+  "not_a_card_play": true,
+  "combat_drop_chance": 0.4,
+  "rarity_weights": {
+    "common": 0.65,
+    "uncommon": 0.25,
+    "rare": 0.1
+  },
+  "out_of_combat_potions": [
+    "Entropic Brew",
+    "Foul Potion",
+    "Fruit Juice",
+    "Blood Potion"
+  ],
+  "agent_hints": [
+    "用瓶不耗能量、不算出牌",
+    "A4 药水栏 2 格；腰带/炼金箱/枪套可+槽",
+    "战后约 40% 掉药（整局概率链）"
+  ]
+}

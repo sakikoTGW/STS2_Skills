@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Electric Shrymp",
+  "short_name": "Electric Shrymp",
+  "summary": "is an  . Upon pickup, you choose a  to  with , making it automatically played for free at the start of each combat. After being played, the card will go into your Discard Pile, or  if it has .",
+  "sections": {
+    "Interactions": [
+      "The   will be played after other start-of-combat effects occur such as  and , and after drawing cards on your first turn.",
+      "The   is forced to start combat at the bottom of your Draw Pile, so you cannot usually 'waste' a draw on it (unless you draw your whole Draw Pile)."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Electric Shrymp</span>",
+  "fetched_at": "2026-05-20T06:21:29Z",
+  "wikitext_chars": 1804,
+  "wikitext": "{{Relic Infobox|Electric Shrymp|2}}{{Keyword Infobox|Enchant|2}}{{Keyword Infobox|Imbued|2}}\n{{R|Electric Shrymp||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relic}}. Upon pickup, you choose a {{QueryLink|Cards|type:Skill|Skill|2}} to {{KW|Enchant||2}} with {{KW|Imbued||2}}, making it automatically played for free at the start of each combat.\n\nAfter being played, the card will go into your Discard Pile, or {{KW|Exhaust||2}} if it has {{KW|Exhaust||2}}.\n\n== Obtaining Electric Shrymp ==\nAt the start of {{2|Acts#Act 2|Act 2}}, can be offered by {{KW|Orobas||2}}.\n===Spawn Restrictions===\n*Because '''Electric Shrimp''' shares a relic pool with {{R|Glass Eye||2}}, {{R|Sand Castle||2}}, {{R|Prismatic Gem||2}}, and {{R|Sea Glass||2}}, only 1 of the 5 can be offered by {{KW|Orobas||2}}.\n== Interactions ==\n=== Order ===\n* The {{KW|Imbued||2}} {{QueryLink|Cards|type:Skill|Skill|2}} will be played after other start-of-combat effects occur such as {{R|Toolbox||2}} and {{R|Anchor||2}}, and after drawing cards on your first turn.\n** The {{KW|Imbued||2}} {{QueryLink|Cards|type:Skill|Skill|2}} is forced to start combat at the bottom of your Draw Pile, so you cannot usually 'waste' a draw on it (unless you draw your whole Draw Pile).\n\n=== Synergies ===\n\n* Strong but expensive skills like {{C|Royal Gamble||2}}, {{C|Nightmare||2}} or {{C|Decisions, Decisions||2}} benefit significantly from being played instantly for free.\n===Neutral===\n*X-cost {{QueryLink|Cards|type:skill|Skills|2}} such as {{C|Malaise||2}} take into account the current value of X (influenced by {{R|Chemical X||2}}) but do not consume any energy.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Electric Shrymp to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

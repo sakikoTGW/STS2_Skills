@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Yummy Cookie",
+  "short_name": "Yummy Cookie",
+  "summary": "is an  . Choosing this relic allows you to upgrade up to 4 of your cards.",
+  "sections": {
+    "Interactions": [
+      "This relics sprite changes based on the current character. See"
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Yummy Cookie</span>",
+  "fetched_at": "2026-05-20T06:22:05Z",
+  "wikitext_chars": 1087,
+  "wikitext": "{{Relic Infobox|Yummy Cookie|2}}{{Keyword Infobox|Upgrade|2}}\n{{R|Yummy Cookie||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}. Choosing this relic allows you to upgrade up to 4 of your cards.\n\n== Sources ==\nCan be offered at the start of [[StS2:Acts#Act 2|Act 2]] by {{KW|Tezcatara||2}}.\n\n===Spawn Restrictions===\n*Because '''Yummy Cookie''' shares a relic pool with {{R|Nutritious Soup||2}} and {{R|Very Hot Cocoa||2}}, only 1 of the 3 can be offered by {{KW|Tezcatara||2}}.\n\n== Interactions ==\n\n== Trivia ==\n*This relics sprite changes based on the current character. See {{2|Yummy_Cookie#Gallery|Gallery}}\n\n== Gallery ==\n<gallery>\nFile:StS2 YummyCookie Ironclad.png|Ironclad Sprite\nFile:StS2_YummyCookie_Silent.png|Silent Sprite\nFile:StS2_YummyCookie_Regent.png|Regent Sprite\nFile:StS2_YummyCookie Necrobinder.png|Necrobinder Sprite\nFile:StS2 YummyCookie_Defect.png|Defect Sprite\n</gallery>\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Yummy Cookie to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

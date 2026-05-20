@@ -1,0 +1,23 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Map_Locations",
+  "node_types": {
+    "monster": {"name_zh": "普通战", "risk": "低", "rewards": "卡/金"},
+    "elite": {"name_zh": "精英", "risk": "高", "rewards": "遗物"},
+    "rest": {"name_zh": "营火", "risk": "无", "rewards": "回血/敲牌"},
+    "shop": {"name_zh": "商店", "risk": "无", "rewards": "买删药"},
+    "event": {"name_zh": "事件", "risk": "中", "rewards": "变数"},
+    "boss": {"name_zh": "Boss", "risk": "极高", "rewards": "遗物+下一幕"},
+    "treasure": {"name_zh": "宝箱", "risk": "无", "rewards": "遗物"},
+    "unknown": {"name_zh": "?", "risk": "?", "rewards": "随机"}
+  },
+  "rules": [
+    "每幕 Boss 前一层必为营火",
+    "Act1 低血禁精英是运营策略，非游戏规则",
+    "选路目标：通关+控战损，规划下两个营火/商店"
+  ],
+  "act_structure": {
+    "acts": 3,
+    "boss_per_act": 1,
+    "asc10_act3_bosses": 2
+  }
+}

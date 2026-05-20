@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Relax",
+  "short_name": "Relax",
+  "summary": "is a 3  cost    Card. It gives 15 (17 if upgraded)  and 2 (3 if upgraded)  and , and then .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Relax</span>",
+  "fetched_at": "2026-05-20T06:21:47Z",
+  "wikitext_chars": 785,
+  "wikitext": "{{Card Infobox|Relax||2|}}{{Power Infobox|Draw Cards Next Turn|2}}{{Power Infobox|Energy Next Turn|2}}{{Keyword Infobox|Exhaust|2}}\n{{C|Relax||2}} is a 3 {{Icon|CE|2}} cost {{QueryLink|Cards|color:Colorless|Colorless|2}} {{QueryLink|Cards|rarity:Ancient|Ancient|2}} {{QueryLink|Cards|type:Skill|Skill|2}} Card. It gives 15 (17 if upgraded) {{KW|Block||2}} and 2 (3 if upgraded) {{BD|Draw Cards Next Turn||2}} and {{BD|Energy Next Turn||2}}, and then {{KW|Exhaust|Exhausts|2}}.\n\n== Obtaining Relax ==\n2 of them can be obtained by taking {{R|Pael's Horn||2}} from {{KW|Pael||2}}'s offering at the start of [[StS2:Acts#Act 2|Act 2]].\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Relax to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

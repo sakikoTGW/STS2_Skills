@@ -1,0 +1,69 @@
+{
+  "page": "Slay_the_Spire_2:Necrobinder",
+  "short_name": "Necrobinder",
+  "summary": "The  is the fourth of the five characters in Slay the Spire 2. She is unlocked after completing a run with the . She starts with 66 Max HP, the lowest of any character. At  and above she starts with 52 HP.",
+  "sections": {},
+  "tables": [
+    [
+      "+"
+    ],
+    [
+      "Common"
+    ],
+    [
+      "{{R",
+      "Bone Flute",
+      "",
+      "2}}"
+    ],
+    [
+      "Uncommon"
+    ],
+    [
+      "{{R",
+      "Book Repair Knife",
+      "",
+      "2}}, {{R",
+      "Funerary Mask",
+      "",
+      "2}}"
+    ],
+    [
+      "Rare"
+    ],
+    [
+      "{{R",
+      "Big Hat",
+      "",
+      "2}}, {{R",
+      "Bookmark",
+      "",
+      "2}}, {{R",
+      "Ivory Tile",
+      "",
+      "2}}"
+    ],
+    [
+      "Shop"
+    ],
+    [
+      "{{R",
+      "Undying Sigil",
+      "",
+      "2}}"
+    ],
+    [
+      "}"
+    ],
+    [
+      "+"
+    ],
+    [
+      "Common"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Necrobinder</span>",
+  "fetched_at": "2026-05-20T05:43:01Z",
+  "wikitext_chars": 3806,
+  "wikitext": "{{Character Infobox|Necrobinder2}} {{Summon Infobox|Osty}}\nThe {{2|Necrobinder}} is the fourth of the five characters in [[Slay the Spire 2 Wiki|Slay the Spire 2]]. She is unlocked after completing a run with the {{KW|Regent||2}}. She starts with 66 Max HP, the lowest of any character. At {{Asc|2|Ascension|2}} and above she starts with 52 HP.\n\n== Starting Loadout ==\n\n=== Starting Relic ===\n{{R|Bound Phylactery||2}} - At the start of your turn, {{KW|Summon||2}} 1. Can be replaced by {{R|Phylactery Unbound||2}}.\n\n=== Starting Deck ===\nThese {{QueryLink|Cards|color:Necrobinder&rarity:Basic|Cards|2}} cannot be obtained through regular card rewards.\n* {{C|Strike (Necrobinder)|Strike|2}} x4\n* {{C|Defend (Necrobinder)|Defend|2}} x4\n* {{C|Bodyguard||2}} x1\n* {{C|Unleash||2}} x1\n=== Necrobinder Cards ===\nThere are a total of 82 regular cards in Necrobinders's card pool.\n<!--* {{C|Strike (Necrobinder)| |2}}{{QueryLink|Cards|color:Necrobinder&rarity:Basic|Basic Cards|2}} x4\nBasics are not in the card pool!-->\n* [[File:StS2_CardIcon_Necrobinder_Skill_Common.png|24px]] {{QueryLink|Cards|color:Necrobinder&rarity:Common|Common Cards|2}} x20\n* [[File:StS2_CardIcon_Necrobinder_Skill_Uncommon.png|24px]] {{QueryLink|Cards|color:Necrobinder&rarity:Uncommon|Uncommon Cards|2}} x36\n* [[File:StS2_CardIcon_Necrobinder_Skill_Rare.png|24px]] {{QueryLink|Cards|color:Necrobinder&rarity:Rare|Rare Cards|2}} x26\n\nWhen playing {{2|Multiplayer}}, these cards get added to the card pool:\n* {{C|Legion of Bone||2}}\n* {{C|Glimpse Beyond||2}}\n\nThere are also two cards that are not obtainable through normal means.\n* [[File:StS2_CardIcon_Necrobinder_Skill_Ancient.png|24px]] {{QueryLink|Cards|color:Necrobinder&rarity:Ancient|Ancient Cards|2}} x2\n</br>\nA full list of Necrobinder Cards (and more) can be found {{QueryLink|Cards|color:Necrobinder|here|2}}.\n\n== Unique Relics ==\n{| class=\"wikitable\"\n|+\n!Rarity\n!Relic\n|-\n|'''Common'''\n|{{R|Bone Flute||2}}\n|-\n|'''Uncommon'''\n|{{R|Book Repair Knife||2}}, {{R|Funerary Mask||2}}\n|-\n|'''Rare'''\n|{{R|Big Hat||2}}, {{R|Bookmark||2}}, {{R|Ivory Tile||2}}\n|-\n|'''Shop'''\n|{{R|Undying Sigil||2}}\n|}\n\n== Unique Potions ==\n{| class=\"wikitable\"\n|+\n!Rarity\n!Potion\n|-\n|'''Common'''\n|{{P|Potion of Doom||2}}\n|-\n|'''Uncommon'''\n|{{P|Bone Brew||2}}\n|-\n|'''Rare'''\n|{{P|Pot of Ghouls||2}}\n|}\n\n== Unlocks ==\nThe Necrobinder is unlocked by completing a run with the {{KW|Regent||2}}. This does not have to be a win.\n\nLike all characters, there are 6 Epochs in the [[Slay the Spire 2:Timeline|Timeline]] which are discovered upon reaching certain Necrobinder gameplay milestones, unlocking Cards, Relics, and Potions unique to the Necrobinder.\n{| class=\"wikitable\"\n|+\n![[Slay the Spire 2:Timeline#The Necrobinder|Epoch]]<br>(Unlock Requirement)\n!Rewards\n|-\n|{{2|Timeline#The Twelve|The Twelve}}<br>(Beating Act 1)\n|{{C|Scourge||2}},  {{C|Countdown||2}}, {{C|Oblivion||2}}\n|-\n|{{2|Timeline#Futility|Futility}}<br>(Beating Act 2)\n|{{R|Bone Flute||2}}, {{R|Funerary Mask||2}}, {{R|Book Repair Knife||2}}\n|-\n|{{2|Timeline#Spireborn|Spireborn}}<br>(Beating Act 3)\n|{{P|Potion of Doom||2}},  {{P|Bone Brew||2}}, {{P|Pot of Ghouls||2}}\n|-\n|{{2|Timeline#To Kill|To Kill}}<br>(Beating {{Asc|1|Ascension|2}})\n|{{C|Sculpting Strike||2}},  {{C|Veilpiercer||2}}, {{C|Banshee's Cry||2}}\n|-\n|{{2|Timeline#The Giant|The Giant}}<br>(Killing 15 [[Slay the Spire 2:Elites|Elites]])\n|{{C|Afterlife||2}}, {{C|Calcify||2}}, {{C|Sacrifice||2}}\n|-\n|{{2|Timeline#Annihilation|Annihilation}}<br>(Killing 15 [[Slay the Spire 2:Bosses|Bosses]])\n|{{R|Ivory Tile||2}}, {{R|Big Hat||2}}, {{R|Bookmark||2}}\n|}\n\nAdditionally, finishing a single run with the Necrobinder, even if the run ends with a loss, will unlock the {{KW|Defect||2}} as a playable character.\n\n[[Category:Character]][[Category:Slay_the_Spire_2_Content]]"
+}

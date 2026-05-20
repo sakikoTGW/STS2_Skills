@@ -1,0 +1,21 @@
+{
+  "page": "Slay_the_Spire_2:Shockwave",
+  "short_name": "Shockwave",
+  "summary": "is a 2  cost    Card.",
+  "sections": {
+    "Interactions": [
+      "applied by this card:",
+      "Increases damage dealt by .",
+      "Grants an additional hit from .",
+      "Grants additional  from .",
+      "Draws 1 (2) card via .",
+      "Makes enemies deal 50% less damage with .",
+      "Makes enemies take 25% (50%) more damage with .",
+      "makes  enemies take double damage from ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Shockwave</span>",
+  "fetched_at": "2026-05-20T05:42:09Z",
+  "wikitext_chars": 2646,
+  "wikitext": "{{Sequel Disambiguation}}{{Card Infobox|Shockwave||2}}{{Power Infobox|Weak|2}}{{Power Infobox|Vulnerable|2}}{{Keyword Infobox|Exhaust|2}}\n{{C|Shockwave||2}} is a 2 {{Icon|CE|2}} cost {{QueryLink|Cards|color:Colorless|Colorless}} {{QueryLink|Cards|rarity:Uncommon&color:Colorless|Uncommon|2}} {{QueryLink|Cards|type:Skill&color:Colorless|Skill|2}} Card.\n\n== Obtaining Shockwave ==\n{{C|Shockwave||2}} is a {{QueryLink|Cards|color:Colorless|Colorless|2}} card, and therefore can be obtained in the following ways:\n* Can be bought from the {{2|Merchant}}.\n* Can be obtained from {{2|Monsters}} and {{2|Elites}} with {{R|Dingy Rug||2}}.\n** Can also appear in your starting Deck in the {{2|Custom Mode|Daily Climb}} with the {{2|Custom Mode#All Star|All Star}} modifier.\n* Can be obtained from {{R|Lead Paperweight||2}}.\n* Can be obtained from a card reward from the {{Frame|Share Knowledge}} option at {{E|Brain Leech|2}}.\n* Can be obtained from the {{Frame|Grab Something Off the Belt}} option at {{E|Endless Conveyor|2}} if Fried Eel is offered.\n<!--\nTODO: ADD MORE SOURCES FOR COLORLESS CARDS\n-->\n\n== Interactions ==\n=== Synergies ===\n*{{BD|Vulnerable||2}} applied by this card:\n** Increases damage dealt by {{C|Bully||2}}.\n** Grants an additional hit from {{C|Dismantle||2}}.\n** Grants additional {{BD|Strength||2}} from {{C|Dominate||2}}.\n** Draws 1 (2) card via {{C|Vicious||2}}.\n** Makes enemies deal 50% less damage with {{C|Colossus||2}}.\n** Makes enemies take 25% (50%) more damage with {{C|Cruelty||2}}.\n* {{C|Tracking||2}} makes {{BD|Weak||2}} enemies take double damage from {{QueryLink|Cards|type:Attack|Attacks|2}}.\n* {{C|Debilitate||2}} doubles' the effect of {{BD|Vulnerable||2}} and {{BD|Weak||2}}.\n====Relics====\n* {{R|Paper Krane||2}} makes {{BD|Weak||2}} enemies deal 40% less damage rather than 25%.\n* {{R|Paper Phrog||2}} makes {{BD|Vulnerable||2}} enemies take 25% more damage.\n* {{R|Unsettling Lamp||2}} can potentially double {{C|Shockwave||2}}'s {{BD|Weak||2}} ''and'' {{BD|Vulnerable||2}} application.\n* {{R|Intimidating Helmet||2}} grants 4 {{KW|Block||2}} whenever this card is played.\n*{{R|Charon's Ashes||2}} deals 3 damage to ALL enemies when this card is {{KW|Exhaust|Exhausted|2}}.\n*{{R|Forgotten Soul||2}} deals 1 damage to a random enemy when this card is {{KW|Exhaust|Exhausted|2}}.\n===Neutral===\n*When attacking an enemy with 1 {{BD|Artifact||2}}, {{C|Uppercut||2}}'s {{BD|Weak||2}} will be negated, and its {{BD|Vulnerable||2}} will be applied after.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Shockwave to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

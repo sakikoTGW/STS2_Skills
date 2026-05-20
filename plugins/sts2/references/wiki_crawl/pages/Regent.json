@@ -1,0 +1,69 @@
+{
+  "page": "Slay_the_Spire_2:Regent",
+  "short_name": "Regent",
+  "summary": "The  is the third of the five characters in Slay the Spire 2. His Majesty is unlocked after completing a run with the . His Majesty starts with 75 Max HP. At  and above his Majesty starts with 60 HP.",
+  "sections": {},
+  "tables": [
+    [
+      "+"
+    ],
+    [
+      "Common"
+    ],
+    [
+      "{{R",
+      "Fencing Manual",
+      "",
+      "2}}"
+    ],
+    [
+      "Uncommon"
+    ],
+    [
+      "{{R",
+      "Galactic Dust",
+      "",
+      "2}}, {{R",
+      "Regalite",
+      "",
+      "2}}"
+    ],
+    [
+      "Rare"
+    ],
+    [
+      "{{R",
+      "Lunar Pastry",
+      "",
+      "2}}, {{R",
+      "Mini Regent",
+      "",
+      "2}}, {{R",
+      "Orange Dough",
+      "",
+      "2}}"
+    ],
+    [
+      "Shop"
+    ],
+    [
+      "{{R",
+      "Vitruvian Minion",
+      "",
+      "2}}"
+    ],
+    [
+      "}"
+    ],
+    [
+      "+"
+    ],
+    [
+      "Common"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Regent</span>",
+  "fetched_at": "2026-05-20T05:43:00Z",
+  "wikitext_chars": 4553,
+  "wikitext": "{{Character Infobox|Regent2}} {{Summon Infobox|Sovereign Blade}}\nThe {{StS2|Regent}} is the third of the five characters in [[Slay the Spire 2 Wiki|Slay the Spire 2]]. His Majesty is unlocked after completing a run with the {{KW|Silent||2}}. His Majesty starts with 75 Max HP. At {{Asc|2|Ascension|2}} and above his Majesty starts with 60 HP.\n\n== Starting Loadout ==\n\n=== Starting Relic ===\n{{R|Divine Right||2}} - At the start of each combat, gain {{Icon|ST|2}}{{Icon|ST|2}}{{Icon|ST|2}}. Can be replaced by {{R|Divine Destiny||2}}.\n\n=== Starting Deck ===\nThese {{QueryLink|Cards|color:Regent&rarity:Basic|Cards|2}} cannot be obtained through regular card rewards.\n* {{C|Strike (Regent)|Strike|2}} x4\n* {{C|Defend (Regent)|Defend|2}} x4\n* {{C|Falling Star||2}} x1\n* {{C|Venerate||2}} x1\n=== Regent Cards ===\nThere are a total of 82 regular cards in Regent's card pool.\n<!--* {{C|Strike (Regent)| |2}} {{QueryLink|Cards|color:Regent&rarity:Basic|Basic Cards|2}} x4\nBasics are not in the card pool!-->\n* [[File:StS2_CardIcon_Regent_Skill_Common.png|24px]] {{QueryLink|Cards|color:Regent&rarity:Common|Common Cards|2}} x20\n* [[File:StS2_CardIcon_Regent_Skill_Uncommon.png|24px]] {{QueryLink|Cards|color:Regent&rarity:Uncommon|Uncommon Cards|2}} x36\n* [[File:StS2_CardIcon_Regent_Skill_Rare.png|24px]] {{QueryLink|Cards|color:Regent&rarity:Rare|Rare Cards|2}} x26\n\nWhen playing {{2|Multiplayer}}, these cards get added to the card pool:\n* {{C|Largesse||2}}\n* {{C|Hammer Time||2}}\n\nThere are also two cards that are not obtainable through normal means.\n* [[File:StS2_CardIcon_Regent_Skill_Ancient.png|24px]] {{QueryLink|Cards|color:Regent&rarity:Ancient|Ancient Cards|2}} x2\n<!--* [[File:StS2_CardIcon_Regent_Skill_Event.png|24px]] {{QueryLink|Cards|color:Regent&rarity:Event|Event Cards|2}} x3-->\n</br>\nA full list of Regent Cards (and more) can be found {{QueryLink|Cards|color:Regent|here|2}}.\n\n== Unique Relics ==\n{| class=\"wikitable\"\n|+\n!Rarity\n!Relic\n|-\n|'''Common'''\n|{{R|Fencing Manual||2}}\n|-\n|'''Uncommon'''\n|{{R|Galactic Dust||2}}, {{R|Regalite||2}}\n|-\n|'''Rare'''\n|{{R|Lunar Pastry||2}}, {{R|Mini Regent||2}}, {{R|Orange Dough||2}}\n|-\n|'''Shop'''\n|{{R|Vitruvian Minion||2}}\n|}\n\n== Unique Potions ==\n{| class=\"wikitable\"\n|+\n!Rarity\n!Potion\n|-\n|'''Common'''\n|{{P|Star Potion||2}}\n|-\n|'''Uncommon'''\n|{{P|King's Courage||2}}\n|-\n|'''Rare'''\n|{{P|Cosmic Concoction||2}}\n|}\n\n== Unlocks ==\nThe Regent is unlocked by completing a run with the {{KW|Silent||2}}. This does not have to be a win.\n\nLike all characters, there are 6 Epochs in the [[Slay the Spire 2:Timeline|Timeline]] which are discovered upon reaching certain Regent gameplay milestones, unlocking Cards, Relics, and Potions unique to the Regent.\n{| class=\"wikitable\"\n|+\n![[Slay the Spire 2:Timeline#The Regent|Epoch]]<br>(Unlock Requirement)\n!Rewards\n|-\n|{{2|Timeline#I Arrive|I Arrive}}<br>(Beating Act 1)\n|{{C|Spoils of Battle||2}},  {{C|Furnace||2}}, {{C|Sword Sage||2}}\n|-\n|{{2|Timeline#We Need a Hero!|We Need a Hero!}}<br>(Beating Act 2)\n|{{R|Fencing Manual||2}}, {{R|Galactic Dust||2}}, {{R|Lunar Pastry||2}}\n|-\n|{{2|Timeline#Grand Strategy|Grand Strategy}}<br>(Beating Act 3)\n|{{P|Star Potion||2}},  {{P|King's Courage||2}}, {{P|Cosmic Concoction||2}}\n|-\n|{{2|Timeline#Little King|Little King}}<br>(Beating {{Asc|1|Ascension|2}})\n|{{C|Patter||2}},  {{C|Lunar Blast||2}}, {{C|Heavenly Drill||2}}\n|-\n|{{2|Timeline#Friends|Friends}}<br>(Killing 15 [[Slay the Spire 2:Elites|Elites]])\n|{{C|BEGONE!||2}}, {{C|Supermassive||2}}, {{C|Arsenal||2}}\n|-\n|{{2|Timeline#Discontent|Discontent}}<br>(Killing 15 [[Slay the Spire 2:Bosses|Bosses]])\n|{{R|Regalite||2}}, {{R|Mini Regent||2}}, {{R|Orange Dough||2}}\n|}\n\nAdditionally, completing a single run with the Regent, even if the run ends with a loss, will unlock the {{KW|Necrobinder||2}} as a playable character.\n\n==Trivia==\n*The Regent's pronouns are listed internally in the source code as follows:\n** Subject Pronoun: his Majesty\n** Object Pronoun: him\n** Adjective/Possessive pronoun: his Majesty's\n* Hovering over the constellations on Regent's character selection screen shows an outline of what each constellation represents. Clockwise from top left, the constellations are:\n** A polygonal monster, possibly [[Donu and Deca#Deca|Deca]]\n** A [[Spheric Guardian]]\n** A [[Cultist|Cultist's]] mask\n** An [[Exploder]]\n** A [[Snecko]]\n** A [[Sentry]]\n*** Note that some constellations are not visible in most aspect ratios. Changing the aspect ratio to 21:9 makes them all visible.\n[[Category:Character]][[Category:Slay_the_Spire_2_Content]]"
+}

@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Byrdpip",
+  "short_name": "Byrdpip",
+  "summary": "is an   from the  event. Upon pickup, it gives the card , and a cosmetic Byrdpip pet will accompany you in battles.",
+  "sections": {
+    "Sources": [
+      "Can only be obtained by taking the  from the event  by selecting  then hatching it a ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Byrdpip</span>",
+  "fetched_at": "2026-05-20T06:24:18Z",
+  "wikitext_chars": 713,
+  "wikitext": "{{Relic Infobox|Byrdpip|2}}\n{{R|Byrdpip||2}} is an {{QueryLink|Relics|rarity:Event|Event|2}} {{2|Relics|Relic}} from the {{E|Byrdonis Nest|2}} event. Upon pickup, it gives the card {{C|Byrd Swoop||2}}, and a cosmetic Byrdpip pet will accompany you in battles.\n\n== Sources ==\n* Can only be obtained by taking the {{C|Byrdonis Egg||2}} from the event {{E|Byrdonis Nest|2}} by selecting {{Frame|Take the Egg}} then hatching it a {{StS2|Rest Sites|Rest Site}}.\n\n== Notes ==\n* Removing the {{C|Byrd Swoop||2}} will not make the Byrdpip go away.\n\n== Trivia ==\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Byrdpip to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

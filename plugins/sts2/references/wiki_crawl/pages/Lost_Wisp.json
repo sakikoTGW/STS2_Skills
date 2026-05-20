@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Lost Wisp",
+  "short_name": "Lost Wisp",
+  "summary": "is an   from the  event. Whenever you play a , it deals 8 damage to ALL enemies.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Lost Wisp</span>",
+  "fetched_at": "2026-05-20T06:24:30Z",
+  "wikitext_chars": 615,
+  "wikitext": "{{Relic Infobox|Lost Wisp|2}}\n{{R|Lost Wisp||2}} is an {{QueryLink|Relics|rarity:Event|Event|2}} {{2|Relics|Relic}} from the {{E|The Lost Wisp|2}} event. Whenever you play a {{QueryLink|Cards|type:Power|Power|2}}, it deals 8 damage to '''ALL''' enemies.\n\n== Sources ==\nCan only be obtained from the {{E|The Lost Wisp|2}} event by selecting the {{Frame|Capture the Wisp}} option and adding a {{C|Decay||2}} to your Deck.\n\n== Interactions ==\n\n== Trivia ==\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Lost Wisp to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

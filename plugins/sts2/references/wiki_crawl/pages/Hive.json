@@ -1,0 +1,101 @@
+{
+  "page": "Slay_the_Spire_2:Hive",
+  "short_name": "Hive",
+  "summary": "Hive is the second  in Slay the Spire 2.",
+  "sections": {},
+  "tables": [
+    [
+      "[[File:Bowlbug (Rock) Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Bowlbugs#Bowlbug (Rock)]][[File:Bowlbug (Egg or Nectar) Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Bowlbugs]]"
+    ],
+    [
+      "1 {{2",
+      "Bowlbugs#Bowlbug (Rock)",
+      "Bowlbug (Rock)}} + 1 random worker ({{2",
+      "Bowlbugs#Bowlbug (Egg)",
+      "Bowlbug (Egg)}} or {{2",
+      "Bowlbugs#Bowlbug (Nectar)",
+      "Bowlbug (Nectar)}})."
+    ],
+    [
+      "[[File:Exoskeleton Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Exoskeleton]][[File:Exoskeleton Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Exoskeleton]][[File:Exoskeleton Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Exoskeleton]]"
+    ],
+    [
+      "3 {{2",
+      "Exoskeleton}}s."
+    ],
+    [
+      "[[File:Thieving Hopper Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Thieving Hopper]]"
+    ],
+    [
+      "A single {{2",
+      "Thieving Hopper}}."
+    ],
+    [
+      "[[File:Tunneler Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Tunneler]]"
+    ],
+    [
+      "A single {{2",
+      "Tunneler}}."
+    ],
+    [
+      "}"
+    ],
+    [
+      "[[File:Bowlbug (Rock) Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Bowlbugs#Bowlbug (Rock)]][[File:Bowlbug (Lesser) Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Bowlbugs]][[File:Bowlbug (Lesser) Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Bowlbugs]]"
+    ],
+    [
+      "1 {{2",
+      "Bowlbugs#Bowlbug (Rock)",
+      "Bowlbug (Rock)}} + 2 random workers from {{2",
+      "Bowlbugs#Bowlbug (Egg)",
+      "Bowlbug (Egg)}}, {{2",
+      "Bowlbugs#Bowlbug (Silk)",
+      "Bowlbug (Silk)}}, and {{2",
+      "Bowlbugs#Bowlbug (Nectar)",
+      "Bowlbug (Nectar)}} (max 1 of each type)."
+    ],
+    [
+      "[[File:Chomper Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Chomper]][[File:Chomper Icon.png",
+      "class=monster-icon",
+      "48px",
+      "link=StS2:Chomper]]"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Hive</span>",
+  "fetched_at": "2026-05-20T05:43:05Z",
+  "wikitext_chars": 8977,
+  "wikitext": "'''Hive''' is the second {{2|Acts|Act}} in [[Slay the Spire 2:Main|Slay the Spire 2]].\n\n== Overview ==\nHive is the second act of the game. The act spans 14 rooms, with the first 2 encounters drawn from a pool of weaker enemies.\n\n== Events ==\n=== Exclusive Events ===\n* {{E|Amalgamator|2}}\n* {{E|Bugslayer|2}}\n* {{E|Colorful Philosophers|2}}\n* {{E|Colossal Flower|2}}\n* {{E|Doll Room|2}}\n* {{E|Field of Man-Sized Holes|2}}\n* {{E|Infested Automaton|2}}\n* {{E|Spirit Grafter|2}}\n* {{E|Stone of All Time|2}}\n* {{E|Tea Master|2}}\n* {{E|The Lantern Key|2}}\n* {{E|The Lost Wisp|2}}\n* {{E|Welcome to Wongo's|2}}\n* {{E|Zen Weaver|2}}\n\n=== Shared Events ===\n* {{E|Brain Leech|2}}\n* {{E|Crystal Sphere|2}}\n* {{E|Potion Courier|2}}\n* {{E|Room Full of Cheese|2}}\n* {{E|Self-Help Book|2}}\n* {{E|Slippery Bridge|2}}\n* {{E|Symbiote|2}}\n* {{E|The Future of Potions?|2}}\n* {{E|This or That?|2}}\n\n== Monsters ==\nThe following monsters debut in the Hive:\n\n<div class=\"center-table\">\n<div class=\"monster\">\n[[File:StS2 Bowlbug (Rock).png|class=monster-img|link=StS2:Bowlbugs]]\n<div class=\"monster-name\">{{2|Bowlbugs#Bowlbug (Rock)|Bowlbug (Rock)}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Bowlbug (Egg).png|class=monster-img|link=StS2:Bowlbugs]]\n<div class=\"monster-name\">{{2|Bowlbugs#Bowlbug (Egg)|Bowlbug (Egg)}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Bowlbug (Silk).png|class=monster-img|link=StS2:Bowlbugs]]\n<div class=\"monster-name\">{{2|Bowlbugs#Bowlbug (Silk)|Bowlbug (Silk)}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Bowlbug (Nectar).png|class=monster-img|link=StS2:Bowlbugs]]\n<div class=\"monster-name\">{{2|Bowlbugs#Bowlbug (Nectar)|Bowlbug (Nectar)}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Exoskeleton.png|class=monster-img|link=StS2:Exoskeleton]]\n<div class=\"monster-name\">{{2|Exoskeleton}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Thieving Hopper.png|class=monster-img|link=StS2:Thieving Hopper]]\n<div class=\"monster-name\">{{2|Thieving Hopper}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Tunneler.png|class=monster-img|link=StS2:Tunneler]]\n<div class=\"monster-name\">{{2|Tunneler}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Chomper.png|class=monster-img|link=StS2:Chomper]]\n<div class=\"monster-name\">{{2|Chomper}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Hunter Killer.png|class=monster-img|link=StS2:Hunter Killer]]\n<div class=\"monster-name\">{{2|Hunter Killer}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Louse Progenitor.png|class=monster-img|link=StS2:Louse Progenitor]]\n<div class=\"monster-name\">{{2|Louse Progenitor}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Myte.png|class=monster-img|link=StS2:Myte]]\n<div class=\"monster-name\">{{2|Myte}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Ovicopter.png|class=monster-img|link=StS2:Ovicopter]]\n<div class=\"monster-name\">{{2|Ovicopter}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Tough Egg.png|class=monster-img|link=StS2:Ovicopter#Tough Egg]]\n<div class=\"monster-name\">{{2|Ovicopter#Tough Egg|Tough Egg}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Slumbering Beetle.png|class=monster-img|link=StS2:Slumbering Beetle]]\n<div class=\"monster-name\">{{2|Slumbering Beetle}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Spiny Toad.png|class=monster-img|link=StS2:Spiny Toad]]\n<div class=\"monster-name\">{{2|Spiny Toad}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 The Obscura.png|class=monster-img|link=StS2:The Obscura]]\n<div class=\"monster-name\">{{2|The Obscura}}</div>\n</div>\n<div class=\"monster\">\n[[File:StS2 Parafright.png|class=monster-img|link=StS2:The Obscura#Parafright]]\n<div class=\"monster-name\">{{2|The Obscura#Parafright|Parafright}}</div>\n</div>\n</div>\n\n=== First 2 Encounters ===\nThe first 2 encounters are drawn from a pool of weaker enemies. 2 of the 4 possible encounters are selected each run, each with equal probability.\n\n{| class=\"wikitable\"\n! style=\"width: 250px;\" | Encounter\n! style=\"width: 550px;\" | Details\n|-\n| [[File:Bowlbug (Rock) Icon.png|class=monster-icon|48px|link=StS2:Bowlbugs#Bowlbug (Rock)]][[File:Bowlbug (Egg or Nectar) Icon.png|class=monster-icon|48px|link=StS2:Bowlbugs]]\n| 1 {{2|Bowlbugs#Bowlbug (Rock)|Bowlbug (Rock)}} + 1 random worker ({{2|Bowlbugs#Bowlbug (Egg)|Bowlbug (Egg)}} or {{2|Bowlbugs#Bowlbug (Nectar)|Bowlbug (Nectar)}}).\n|-\n| [[File:Exoskeleton Icon.png|class=monster-icon|48px|link=StS2:Exoskeleton]][[File:Exoskeleton Icon.png|class=monster-icon|48px|link=StS2:Exoskeleton]][[File:Exoskeleton Icon.png|class=monster-icon|48px|link=StS2:Exoskeleton]]\n| 3 {{2|Exoskeleton}}s.\n|-\n| [[File:Thieving Hopper Icon.png|class=monster-icon|48px|link=StS2:Thieving Hopper]]\n| A single {{2|Thieving Hopper}}.\n|-\n| [[File:Tunneler Icon.png|class=monster-icon|48px|link=StS2:Tunneler]]\n| A single {{2|Tunneler}}.\n|}\n\n=== Remaining Encounters ===\nAfter the first 2 encounters, the remaining monster fights are drawn from the normal pool with equal probability.\n\n{| class=\"wikitable\"\n! style=\"width: 250px;\" | Encounter\n! style=\"width: 550px;\" | Details\n|-\n| [[File:Bowlbug (Rock) Icon.png|class=monster-icon|48px|link=StS2:Bowlbugs#Bowlbug (Rock)]][[File:Bowlbug (Lesser) Icon.png|class=monster-icon|48px|link=StS2:Bowlbugs]][[File:Bowlbug (Lesser) Icon.png|class=monster-icon|48px|link=StS2:Bowlbugs]]\n| 1 {{2|Bowlbugs#Bowlbug (Rock)|Bowlbug (Rock)}} + 2 random workers from {{2|Bowlbugs#Bowlbug (Egg)|Bowlbug (Egg)}}, {{2|Bowlbugs#Bowlbug (Silk)|Bowlbug (Silk)}}, and {{2|Bowlbugs#Bowlbug (Nectar)|Bowlbug (Nectar)}} (max 1 of each type).\n|-\n| [[File:Chomper Icon.png|class=monster-icon|48px|link=StS2:Chomper]][[File:Chomper Icon.png|class=monster-icon|48px|link=StS2:Chomper]]\n| 2 {{2|Chomper}}s.\n|-\n| [[File:Exoskeleton Icon.png|class=monster-icon|48px|link=StS2:Exoskeleton]][[File:Exoskeleton Icon.png|class=monster-icon|48px|link=StS2:Exoskeleton]][[File:Exoskeleton Icon.png|class=monster-icon|48px|link=StS2:Exoskeleton]][[File:Exoskeleton Icon.png|class=monster-icon|48px|link=StS2:Exoskeleton]]\n| 4 {{2|Exoskeleton}}s.\n|-\n| [[File:Hunter Killer Icon.png|class=monster-icon|48px|link=StS2:Hunter Killer]]\n| A single {{2|Hunter Killer}}.\n|-\n| [[File:Louse Progenitor Icon.png|class=monster-icon|48px|link=StS2:Louse Progenitor]]\n| A single {{2|Louse Progenitor}}.\n|-\n| [[File:Myte Icon.png|class=monster-icon|48px|link=StS2:Myte]][[File:Myte Icon.png|class=monster-icon|48px|link=StS2:Myte]]\n| 2 {{2|Myte}}s.\n|-\n| [[File:Ovicopter Icon.png|class=monster-icon|48px|link=StS2:Ovicopter]][[File:Summon Divider Icon.png]][[File:Tough Egg (+) Icon.png|class=monster-icon|48px|link=StS2:Slay_the_Spire_2:Ovicopter#Tough Egg]]\n| A single {{2|Ovicopter}} (can summon [[Slay_the_Spire_2:Ovicopter#Tough Egg|Tough Egg]]s during combat).\n|-\n| [[File:Bowlbug (Rock) Icon.png|class=monster-icon|48px|link=StS2:Bowlbugs#Bowlbug (Rock)]][[File:Bowlbug (Silk) Icon.png|class=monster-icon|48px|link=StS2:Bowlbugs#Bowlbug (Silk)]][[File:Slumbering Beetle Icon.png|class=monster-icon|48px|link=StS2:Slumbering Beetle]]\n| 1 {{2|Bowlbugs#Bowlbug (Rock)|Bowlbug (Rock)}} + 1 {{2|Bowlbugs#Bowlbug (Silk)|Bowlbug (Silk)}} + 1 {{2|Slumbering Beetle}}.\n|-\n| [[File:Spiny Toad Icon.png|class=monster-icon|48px|link=StS2:Spiny Toad]]\n| A single {{2|Spiny Toad}}.\n|-\n| [[File:The Obscura Icon.png|class=monster-icon|48px|link=StS2:The Obscura]][[File:Summon Divider Icon.png]][[File:Parafright Icon.png|class=monster-icon|48px|link=StS2:Slay_the_Spire_2:The Obscura#Parafright]]\n| A single {{2|The Obscura}} (summons a [[Slay_the_Spire_2:The Obscura#Parafright|Parafright]] during combat).\n|}\n\n== Elites ==\n<div class=\"center-table\">\n<div class=\"elite\">\n[[File:StS2 Decimillipede.png|class=elite-img|link=Slay_the_Spire_2:Decimillipede]]\n<div class=\"elite-name\">{{2|Decimillipede}}</div>\n</div>\n<div class=\"elite\">\n[[File:StS2 Entomancer.png|class=elite-img|link=Slay_the_Spire_2:Entomancer]]\n<div class=\"elite-name\">{{2|Entomancer}}</div>\n</div>\n<div class=\"elite\">\n[[File:StS2 Infested Prism.png|class=elite-img|link=Slay_the_Spire_2:Infested Prism]]\n<div class=\"elite-name\">{{2|Infested Prism}}</div>\n</div>\n</div>\n\n== Bosses ==\n<div class=\"center-table\">\n<div class=\"elite\">\n[[File:StS2 The Insatiable.png|class=elite-img|link=Slay_the_Spire_2:The Insatiable]]\n<div class=\"elite-name\">{{2|The Insatiable}}</div>\n</div>\n<div class=\"elite\">\n[[File:StS2 Knowledge Demon.png|class=elite-img|link=Slay_the_Spire_2:Knowledge Demon]]\n<div class=\"elite-name\">{{2|Knowledge Demon}}</div>\n</div>\n<div class=\"elite\">\n[[File:StS2 Kaiser Crab.png|class=elite-img|link=Slay_the_Spire_2:Kaiser Crab]]\n<div class=\"elite-name\">{{2|Kaiser Crab}}</div>\n</div>\n</div>\n\n== Version History ==\n* '''Early Access v0.103.0 (BETA)'''\n** Removed the '''Tunneler''' normal encounter.\n* '''Early Access v0.100.0 (BETA)'''\n** Changed the '''Tunneler''' normal encounter: the '''Bowlbug''' is now replaced by a '''Chomper''' that gives Dazed status cards on turn 1\n* '''Early Access v0.98'''\n** Added Hive to the game.\n\n[[Category:Acts]]\n[[Category:Slay the Spire 2 Content]]"
+}

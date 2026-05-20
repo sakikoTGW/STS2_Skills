@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "source": "bundled_act1_curated",
+  "license_note": "游戏机制描述供 agent 决策；完整数据请 hermes sts2 sync-wiki 从灰机 wiki 更新",
+  "aliases": {
+    "颚虫": "JAW_WORM",
+    "JAW WORM": "JAW_WORM",
+    "虱子": "LOUSE",
+    "酸液虱": "ACID_LOUSE",
+    "火虱": "FIRE_LOUSE",
+    "史莱姆": "SLIME",
+    "酸液史莱姆": "ACID_SLIME",
+    "尖塔史莱姆": "SPIKE_SLIME",
+    "大块头": "GREMLIN_NOB",
+    "地精大块头": "GREMLIN_NOB",
+    "蹲坐": "LAGAVULIN",
+    "乐加维林": "LAGAVULIN",
+    "哨卫": "SENTRY",
+    "哨兵": "SENTRY",
+    "三哨卫": "SENTRIES",
+    "花园幽灵鳗": "PHANTASMAL_GARDENER",
+    "幽灵鳗": "PHANTASMAL_GARDENER",
+    "珊瑚": "CORAL",
+    "邪教徒": "CULTIST",
+    "真菌兽": "FUNGUS_BEAST",
+    "蘑菇兽": "FUNGUS_BEAST",
+    "扭动虫": "WRIGGLER",
+    "异蛙寄生虫": "PHROG_PARASITE",
+    "狂怒地精": "MAD_GREMLIN",
+    "狡猾地精": "SNEAKY_GREMLIN",
+    "胖地精": "FAT_GREMLIN",
+    "缩小甲虫": "SHRINKER_BEETLE",
+    "缩甲虫": "SHRINKER_BEETLE",
+    "SHRINKER BEETLE": "SHRINKER_BEETLE"
+  },
+  "entries": {
+    "JAW_WORM": {
+      "id": "JAW_WORM",
+      "wiki_title": "颚虫",
+      "name_zh": "颚虫",
+      "name_en": "Jaw Worm",
+      "tier": "normal",
+      "acts": [1],
+      "hp_solo": "40-44",
+      "tags": ["strength_scaling", "act1"],
+      "intents": [
+        {"name": "咆哮", "type": "buff", "effect": "+2力量", "notes": "下回合咬/猛击伤害提高"},
+        {"name": "咬", "type": "attack", "damage": 11},
+        {"name": "猛击", "type": "attack", "damage": 12}
+      ],
+      "pattern": "循环：咆哮→咬→猛击→重复",
+      "combat_plan": "看到咆哮：能击杀就全力输出；不能杀则格挡≥下回合预估伤害。勿空能量拖回合养力量。",
+      "rule": "颚虫咆哮+2力：咆哮回合优先收尾或叠防，勿裸脸吃咬。"
+    },
+    "LOUSE": {
+      "id": "LOUSE",
+      "wiki_title": "虱子",
+      "name_zh": "虱子",
+      "tier": "normal",
+      "acts": [1],
+      "hp_solo": "10-14",
+      "tags": ["curl", "act1"],
+      "intents": [
+        {"name": "蜷缩", "type": "block", "effect": "+7格挡"},
+        {"name": "噬咬", "type": "attack", "damage": 6}
+      ],
+      "pattern": "蜷缩后下回合高伤噬咬；破防用多段或易伤",
+      "combat_plan": "蜷缩回合：要么打破格挡打出伤害，要么自己叠防。两只虱子先杀会咬的那只。",
+      "rule": "虱子蜷缩+7防：勿用单段小牌浪费，集中破防或留防吃咬。"
+    },
+    "ACID_LOUSE": {
+      "id": "ACID_LOUSE",
+      "name_zh": "酸液虱",
+      "tier": "normal",
+      "acts": [1],
+      "hp_solo": "12-16",
+      "tags": ["debuff", "curl"],
+      "intents": [
+        {"name": "蜷缩", "type": "block"},
+        {"name": "酸液喷吐", "type": "attack", "damage": 6, "notes": "可能施加虚弱/易伤类减益"}
+      ],
+      "combat_plan": "同虱子；注意减益后调整下回合攻防。",
+      "rule": "酸液虱：蜷缩破防；有虚弱时本回合伤害打折，先杀或先防。"
+    },
+    "SLIME": {
+      "id": "SLIME",
+      "name_zh": "史莱姆",
+      "aliases": ["小史莱姆"],
+      "tier": "normal",
+      "acts": [1],
+      "hp_solo": "12-18",
+      "tags": ["split", "act1"],
+      "intents": [
+        {"name": "撞击", "type": "attack", "damage": 8},
+        {"name": "分裂", "type": "other", "notes": "低血分裂为更小个体"}
+      ],
+      "pattern": "两只史莱姆时先集火一只，避免同时触发多次分裂",
+      "combat_plan": "AOE或多段快杀；分裂后清小怪。铁甲前期优先打血少的那只。",
+      "rule": "史莱姆战：集火一只，避免双线分裂；有AOE时价值极高。"
+    },
+    "CULTIST": {
+      "id": "CULTIST",
+      "name_zh": "邪教徒",
+      "tier": "normal",
+      "acts": [1],
+      "hp_solo": "48-54",
+      "tags": ["ritual", "act1"],
+      "intents": [
+        {"name": "仪式", "type": "buff", "effect": "+1仪式(力量层数)", "notes": "每回合成长"},
+        {"name": "黑暗打击", "type": "attack", "damage": 6, "hits": 1}
+      ],
+      "pattern": "前期仪式叠层，层数高后伤害暴涨",
+      "combat_plan": "速杀优先：前3回合尽量打掉；拖久必须留防+削弱。勿贪输出不防。",
+      "rule": "邪教徒仪式成长：能速杀就速杀，不能则每回合留防并计划斩杀线。"
+    },
+    "FUNGUS_BEAST": {
+      "id": "FUNGUS_BEAST",
+      "name_zh": "真菌兽",
+      "tier": "normal",
+      "acts": [1],
+      "hp_solo": "48-56",
+      "tags": ["spore", "act1"],
+      "intents": [
+        {"name": "孢子", "type": "debuff", "notes": "往弃牌堆塞状态"},
+        {"name": "撞击", "type": "attack", "damage": 12}
+      ],
+      "combat_plan": "注意塞牌污染；能速杀减少孢子次数。",
+      "rule": "真菌兽：防孢子污染抽牌；宜中速击杀。"
+    },
+    "GREMLIN_NOB": {
+      "id": "GREMLIN_NOB",
+      "wiki_title": "地精大块头",
+      "name_zh": "地精大块头",
+      "tier": "elite",
+      "acts": [1],
+      "hp_solo": "82-86",
+      "tags": ["elite", "punish_skills", "act1"],
+      "intents": [
+        {"name": "颅骨重击", "type": "attack", "damage": 14, "notes": "你本回合每打一张技能+2伤害"},
+        {"name": "狂怒", "type": "buff", "effect": "+2力量"},
+        {"name": "重踢", "type": "attack", "damage": 10}
+      ],
+      "pattern": "你打技能会抬高颅骨重击伤害；力量成长后更痛",
+      "combat_plan": "精英：HP<70%别碰。战中少打纯格挡技能，多用攻击+能力；速杀或易伤链。",
+      "rule": "大块头：少打技能防颅骨重击；宜速杀，勿拖回合养力量。"
+    },
+    "LAGAVULIN": {
+      "id": "LAGAVULIN",
+      "name_zh": "乐加维林",
+      "aliases": ["蹲坐"],
+      "tier": "elite",
+      "acts": [1],
+      "hp_solo": "112-114",
+      "tags": ["elite", "sleep", "act1"],
+      "intents": [
+        {"name": "入睡", "type": "other", "notes": "前若干回合睡眠，被打醒或到时醒来"},
+        {"name": "灵魂吸取", "type": "debuff", "effect": "-1力量(永久战内)"},
+        {"name": "猛击", "type": "attack", "damage": 18}
+      ],
+      "pattern": "睡眠阶段可输出；醒来高伤。部分路线可绕路不打",
+      "combat_plan": "睡眠时全力输出；醒来回合必防。Act1前12层血线不够别进精英。",
+      "rule": "乐加维林：睡时输出、醒时防；血线不足别选此精英。"
+    },
+    "SENTRY": {
+      "id": "SENTRY",
+      "name_zh": "哨卫",
+      "tier": "elite",
+      "acts": [1],
+      "hp_solo": "38-42",
+      "tags": ["elite", "multi", "act1"],
+      "intents": [
+        {"name": "强化", "type": "buff"},
+        {"name": "重击", "type": "attack", "damage": 9, "hits": 2}
+      ],
+      "pattern": "三只哨卫：先杀一只防集体爆发",
+      "combat_plan": "集火最低血哨卫；注意多段攻击总伤。有AOE时优先进精英房。",
+      "rule": "哨卫战：集火单只，防多段总伤；三只时别分散伤害。"
+    },
+    "SENTRIES": {
+      "id": "SENTRIES",
+      "name_zh": "三哨卫",
+      "aliases": ["SENTRY"],
+      "tier": "elite",
+      "acts": [1],
+      "inherits": "SENTRY",
+      "combat_plan": "同哨卫：集火一只，AOE清场。",
+      "rule": "三哨卫：同哨卫集火策略。"
+    },
+    "PHANTASMAL_GARDENER": {
+      "id": "PHANTASMAL_GARDENER",
+      "wiki_title": "花园幽灵鳗",
+      "name_zh": "花园幽灵鳗",
+      "tier": "elite",
+      "acts": [1],
+      "hp_solo": "约120(多只)",
+      "tags": ["elite", "skittish", "act1"],
+      "powers": ["Skittish/胆小：每只鳗每回合首次被击中获得格挡(常见6层)"],
+      "intents": [
+        {"name": "咬", "type": "attack"},
+        {"name": "抽打", "type": "attack"},
+        {"name": "乱打", "type": "attack", "hits": 2},
+        {"name": "膨胀", "type": "buff"}
+      ],
+      "pattern": "多段同回合破胆小格挡；单段大伤害常被首击吃掉",
+      "combat_plan": "多段小牌优于单段大招；读【怪物Wiki】Skittish。勿用一张高伤牌试探。",
+      "rule": "幽灵鳗胆小：同回合多段破首击格挡，勿单段重击浪费。"
+    },
+    "CORAL": {
+      "id": "CORAL",
+      "name_zh": "珊瑚",
+      "tier": "normal",
+      "acts": [1, 2],
+      "tags": ["damage_cap"],
+      "powers": ["硬化外壳：每回合对该敌人有效伤害上限约15"],
+      "combat_plan": "每回合打满≤15有效伤；易伤后爆发；勿用单张超15伤收尾浪费",
+      "rule": "珊瑚每回合伤上限15：多段+易伤，每回合打满配额。"
+    },
+    "WRIGGLER": {
+      "id": "WRIGGLER",
+      "name_zh": "扭动虫",
+      "tier": "elite",
+      "acts": [1],
+      "hp_solo": "约70",
+      "tags": ["elite", "strength_scaling"],
+      "intents": [
+        {"name": "凶恶啃咬", "type": "attack", "damage": 6},
+        {"name": "扭动", "type": "buff", "effect": "+2力量"},
+        {"name": "已孵化", "type": "debuff", "notes": "击晕类"}
+      ],
+      "combat_plan": "扭动后伤害上升，宜速杀；注意击晕回合可输出。",
+      "rule": "扭动虫：扭动后加力，速杀或留防，利用击晕窗。"
+    },
+    "PHROG_PARASITE": {
+      "id": "PHROG_PARASITE",
+      "name_zh": "异蛙寄生虫",
+      "tier": "elite",
+      "acts": [1],
+      "tags": ["elite", "multi_hit"],
+      "intents": [
+        {"name": "感染", "type": "debuff"},
+        {"name": "甩动", "type": "attack", "damage": 4, "hits": 4}
+      ],
+      "combat_plan": "甩动16总伤：必防；感染后注意下回合手牌质量。",
+      "rule": "异蛙甩动4×4：留足格挡，勿低血硬吃。"
+    },
+    "SMALL_SLIME": {
+      "id": "SMALL_SLIME",
+      "name_zh": "小史莱姆",
+      "tier": "normal",
+      "acts": [1],
+      "hp_solo": "8-12",
+      "combat_plan": "分裂产物：用0费/AOE清理，勿浪费大牌。",
+      "rule": "小史莱姆：0费清场，保留资源打大怪。"
+    },
+    "SHRINKER_BEETLE": {
+      "id": "SHRINKER_BEETLE",
+      "wiki_title": "缩小甲虫",
+      "name_zh": "缩小甲虫",
+      "name_en": "Shrinker Beetle",
+      "tier": "normal",
+      "acts": [1],
+      "hp_solo": "38-40",
+      "tags": ["debuff", "overgrowth", "act1"],
+      "intents": [
+        {
+          "name": "缩小",
+          "type": "debuff",
+          "aliases": ["Shrinker", "Shrink", "DebuffStrong"],
+          "effect": "施加 Shrink：你的攻击伤害 -30%"
+        },
+        {"name": "啃咬", "type": "attack", "damage": 7, "aliases": ["Chomp", "啃咬"]},
+        {"name": "践踏", "type": "attack", "damage": 13, "aliases": ["Stomp", "践踏"]}
+      ],
+      "pattern": "缩小→啃咬→践踏→重复",
+      "combat_plan": "缩小回合全力输出（T+0 无攻击）；T+1 啃咬≈7、T+2 践踏≈13。优先速杀，避免长期带 Shrink 打其他怪。",
+      "rule": "缩小甲虫：缩小回合贪输出；下两拍合计≈20伤要留防或药水。"
+    },
+    "LOOTER": {
+      "id": "LOOTER",
+      "name_zh": "抢劫犯",
+      "tier": "normal",
+      "acts": [1, 2],
+      "intents": [
+        {"name": "抢劫", "type": "attack"},
+        {"name": "逃跑", "type": "other", "notes": "低血逃跑"}
+      ],
+      "combat_plan": "能杀则杀拿奖励；否则可放跑（视血线）。",
+      "rule": "抢劫犯：血线够就速杀，不够别追伤。"
+    }
+  }
+}

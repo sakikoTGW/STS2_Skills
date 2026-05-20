@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Wood Carvings",
+  "short_name": "Wood Carvings",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Wood Carvings</span>",
+  "fetched_at": "2026-05-20T06:17:41Z",
+  "wikitext_chars": 1678,
+  "wikitext": "{{Event Header|StS2 Wood Carvings.png}}\n{{E|Wood Carvings|2}} is an {{2|Events|Event}} found exclusively in the {{2|Overgrowth}}.\n\n== Options ==\n{{Frame|Bird}} {{TS|positive||Choose 1 starter card to {{2|Transform}} into {{C|Peck||2}}.}}\n<br>\n{{Frame|Snake}} {{TS|positive||{{KW|Enchant||2}} 1 card with {{KW|Slither||2}}.}} (Locked if no cards can be enchanted with Slither)\n<br>\n{{Frame|Torus}} {{TS|positive||Choose 1 starter card to {{2|Transform}} into {{C|Toric Toughness||2}}.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nYou open a dusty box to find a set of 3 elaborate wood carvings:\n\nA bird, snake, and... a torus?\n\nA nearby pedestal has indentations which match the bottom of the carvings. Which carving will you place on the pedestal?\n</div>\n\n{{Frame|Bird}}\n<blockquote><div style=\"font-style:italic\">\nYou place the bird carving on the pedestal and the statue's EYES LIGHT UP and you hear a faint ringing within your mind.\n\n...caw.... caw caaaawww...\n\nThe pedestal opens and a strange fluid begins to pour out.\nNaturally, you drink it all.\n</div></blockquote>\n\n{{Frame|Snake}}\n<blockquote><div style=\"font-style:italic\">\nYou place the snake carving on the pedestal and the statue's SCALES LIGHT UP! You feel a bit warm, comfortable, and wobbly.\n</div></blockquote>\n\n{{Frame|Torus}}\n<blockquote><div style=\"font-style:italic\">\nYou place the torus carving on the pedestal and your STOMACH LIGHTS UP as the statue transforms into a piping hot fried confection. An insatiable hunger takes over and you quickly consume the donut.\n\nYou feel tougher, but slower.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

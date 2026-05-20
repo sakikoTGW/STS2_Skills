@@ -1,0 +1,76 @@
+{
+  "page": "Slay_the_Spire_2:Enchantments",
+  "short_name": "Enchantments",
+  "summary": "Enchantments are a new  introduced in Slay the Spire 2. They are permanent, positive effects added to cards either in your Deck or in card rewards through various , , and . A card can only have one enchantment. {| class=\"wikitable sortable\" * For , X is 3 even though  description does not specify an X value for Adroit. * Adroit is affected by  and . * Duplicates created by Cloning will also have the Clone . Each time Clone is selected at a , the number of Cloned cards will double (or triple with ). *  is currently only available in BETA branch of the game * Any copies of  in your Deck will also be  with Goopy. * The card is played for free, meaning it doesn't cost any  or . *  can only be obtained from . * The effect does not apply when your Draw Pile is shuffed at the start of each combat; in other words, cards enchanted with Perfect Fit are ''not'' effectively . * Choosing the  option also adds  to your Deck. *  allows you to  1 card with Steady for 65 Gold, or 2 cards for 155 Gold upon choosing the  or  option respectively. * Any  in your Deck will ''not'' be . *  allows you to  an  with Vigorous 8 at the cost of 6 HP upon choosing the  option.",
+  "sections": {},
+  "tables": [
+    [
+      "[[File:Enchant_Adroit.png",
+      "frameless",
+      "60x60px",
+      "center]]"
+    ],
+    [
+      "style=\"text-align:center; font-weight:bold;\"",
+      "Adroit"
+    ],
+    [
+      "{{R",
+      "Kifuda",
+      "",
+      "2}}"
+    ],
+    [
+      "{{QueryLink",
+      "Relics",
+      "rarity:Shop",
+      "Shop Relic",
+      "2}}"
+    ],
+    [
+      "3 cards"
+    ],
+    [
+      "Gain X {{KW",
+      "Block",
+      "",
+      "2}}."
+    ],
+    [
+      "[[File:Enchant_Clone.png",
+      "frameless",
+      "60x60px",
+      "center]]"
+    ],
+    [
+      "style=\"text-align:center; font-weight:bold;\"",
+      "Clone"
+    ],
+    [
+      "{{R",
+      "Pael's Growth",
+      "",
+      "2}}"
+    ],
+    [
+      "{{QueryLink",
+      "Relics",
+      "rarity:Ancient",
+      "Ancient Relic",
+      "2}}: {{KW",
+      "Pael",
+      "",
+      "2}}"
+    ],
+    [
+      "1 card"
+    ],
+    [
+      "This card can be duplicated at Rest Sites."
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Enchantments</span>",
+  "fetched_at": "2026-05-20T06:21:30Z",
+  "wikitext_chars": 10368,
+  "wikitext": "{{#setmainimage:Enchant_Glam.png|quiet}} __notoc__\n'''Enchantments''' are a new {{2|Mechanics|Mechanic}} introduced in [[Slay the Spire 2:Main|Slay the Spire 2]]. They are permanent, positive effects added to cards either in your Deck or in card rewards through various {{2|Events}}, {{2|Ancients}}, and {{2|Relics}}. A card can only have one enchantment.\n\n{| class=\"wikitable sortable\"\n! Icon \n! style=\"width: 7em;\" | Name\n! Source \n! Source type \n! Target Card \n! Description \n! Notes\n\n|-<div id=\"Adroit\"></div>\n| [[File:Enchant_Adroit.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Adroit\n| {{R|Kifuda||2}}\n| {{QueryLink|Relics|rarity:Shop|Shop Relic|2}}\n| 3 cards\n| Gain X {{KW|Block||2}}.\n| \n* For {{R|Kifuda||2}}, X is 3 even though {{R|Kifuda|Kifuda's|2}} description does not specify an X value for '''Adroit'''.\n* '''Adroit''' is affected by {{KW|Dexterity||2}} and {{KW|Frail||2}}.\n\n|-<div id=\"Clone\"></div>\n| [[File:Enchant_Clone.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Clone\n| {{R|Pael's Growth||2}}\n| {{QueryLink|Relics|rarity:Ancient|Ancient Relic|2}}: {{KW|Pael||2}}\n| 1 card\n| This card can be duplicated at Rest Sites.\n| \n* Duplicates created by '''Cloning''' will also have the '''Clone''' {{KW|Enchant|Enchantment|2}}. Each time '''Clone''' is selected at a {{2|Rest Sites|Rest Site}}, the number of '''Cloned''' cards will double (or triple with {{R|Bing Bong||2}}).\n\n|-<div id=\"Corrupted\"></div>\n| [[File:Enchant_Corrupted.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Corrupted\n| {{E|Symbiote|2}}\n| Event: {{2|Hive}}, {{2|Glory}}\n| 1 {{QueryLink|Cards|type:Attack|Attack|2}}\n| Deal 50% more damage, but lose 2 HP.\n| \n\n|-<div id=\"Favored\"></div>\n| [[File:Enchant_Favored.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Favored\n|\n|\n|\n| This card's attack damage is doubled.\n|\n* Not obtainable.\n\n|-<div id=\"Glam\"></div>\n| rowspan=\"2\" | [[File:Enchant_Glam.png|frameless|60x60px|center]]\n| rowspan=\"2\" style=\"text-align:center; font-weight:bold;\" | Glam\n| {{R|Glitter||2}}\n| {{QueryLink|Relics|rarity:Ancient|Ancient Relic|2}}: {{KW|Nonupeipe||2}}\n| All Future Card Rewards\n| rowspan=\"2\" | This card has {{KW|Replay||2}} once per combat.\n| rowspan=\"2\" |\n* {{R|Silken Tress||2}} is currently only available in [[Slay the Spire 2:Patch_Notes#Beta Patches|BETA branch of the game]] \n|-\n| {{R|Silken Tress||2}}\n| {{QueryLink|Relics|rarity:Ancient|Ancient Relic|2}}: {{KW|Neow||2}}\n| First Card Reward\n\n|-<div id=\"Goopy\"></div>\n| [[File:Enchant_Goopy.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Goopy\n| {{R|Pael's Claw||2}}\n| {{QueryLink|Relics|rarity:Ancient|Ancient Relic|2}}: {{KW|Pael||2}}\n| All {{C|Defend (Ironclad)|Defends|2}}\n| This card gains {{KW|Exhaust||2}}. When played, permanently increase this card's {{KW|Block||2}} by 1.\n| \n* Any copies of {{C|Ultimate Defend||2}} in your Deck will also be {{KW|Enchant|Enchanted|2}} with '''Goopy'''.\n\n|-<div id=\"Imbued\"></div>\n| [[File:Enchant_Imbued.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Imbued\n| {{R|Electric Shrymp||2}}\n| {{QueryLink|Relics|rarity:Ancient|Ancient Relic|2}}: {{KW|Orobas||2}}\n| 1 {{QueryLink|Cards|type:Skill|Skill|2}}\n| This card is played automatically at the start of each combat.\n|\n* The card is played for free, meaning it doesn't cost any {{KW|Energy||2}} or {{KW|Stars||2}}.\n\n|-<div id=\"Inky\"></div>\n| [[File:Enchant_Inky.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Inky\n| {{C|Blade of Ink||2}}\n| {{QueryLink|Cards|rarity:Rare|Card|2}}\n| {{C|Shiv|Shivs|2}}\n| This card deals 2 additional damage and applies 1 {{BD|Weak||2}}.\n| \n\n|-<div id=\"Instinct\"></div>\n| [[File:Enchant_Instinct.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Instinct\n| {{R|Tri-Boomerang||2}}\n| {{QueryLink|Relics|rarity:Ancient|Ancient Relic|2}}: {{KW|Tanx||2}}\n| 3 {{QueryLink|Cards|type:Attack|Attacks|2}}\n| This card's attack damage is doubled.\n| \n\n|-<div id=\"Momentum\"></div>\n| [[File:Enchant_Momentum.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Momentum\n| {{R|Punch Dagger||2}}\n| {{QueryLink|Relics|rarity:Shop|Shop Relic|2}}\n| 1 {{QueryLink|Cards|type:Attack|Attack|2}}\n| Increase this card's attack damage by X this combat when played.\n| \n\n|-<div id=\"Nimble\"></div>\n| rowspan=\"2\" | [[File:Enchant_Nimble.png|frameless|60x60px|center]]\n| rowspan=\"2\" style=\"text-align:center; font-weight:bold;\" | Nimble\n| {{E|Self-Help Book|2}}\n| Event: All Acts\n| 1 {{QueryLink|Cards|type:Skill|Skill|2}}: '''Nimble''' 2\n| rowspan=\"2\" | Increases {{KW|Block||2}} gained from this card by X.\n| rowspan=\"2\" | \n* {{R|Fresnel Lens||2}} can only be obtained from {{E|Drowning Beacon|2}}.\n|-\n| {{R|Fresnel Lens||2}}\n| Event: {{2|Underdocks}}\n| Any card you add to your Deck that gains {{KW|Block||2}}: '''Nimble''' 2\n\n|-<div id=\"Perfect_Fit\"></div>\n| [[File:Enchant_PerfectFit.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Perfect Fit\n| {{E|Field of Man-Sized Holes|2}}\n| Event: {{2|Hive}} \n| 1 card\n| Whenever this would be shuffled into your Draw Pile, place it on the top instead.\n| \n* The effect does not apply when your Draw Pile is shuffed at the start of each combat; in other words, cards enchanted with '''Perfect Fit''' are ''not'' effectively {{KW|Innate||2}}.\n\n|-<div id=\"Royally_Approved\"></div>\n| [[File:Enchant_RoyallyApproved.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Royally Approved\n| {{R|Royal Stamp||2}}\n| {{QueryLink|Relics|rarity:Shop|Shop Relic|2}}\n| an {{QueryLink|Cards|type:Attack|Attack|2}} or {{QueryLink|Cards|type:Skill|Skill|2}}\n| This card has {{KW|Innate||2}} and {{KW|Retain||2}}.\n| \n\n|-<div id=\"Sharp\"></div>\n| rowspan=\"2\" | [[File:Enchant_Sharp.png|frameless|60x60px|center]]\n| rowspan=\"2\" style=\"text-align:center; font-weight:bold;\" | Sharp\n| {{E|Self-Help Book|2}}\n| Event: All Acts\n| {{QueryLink|Cards|type:Attack|Attack|2}}: '''Sharp''' 2\n| rowspan=\"2\" | Increases damage on this card by X.\n| rowspan=\"2\" |\n|-\n| {{R|Gnarled Hammer||2}}\n| {{QueryLink|Relics|rarity:Shop|Shop Relic|2}}\n| up to 3 {{QueryLink|Cards|type:Attack|Attacks|2}}: '''Sharp''' 3\n\n|-<div id=\"Swift\"></div>\n| rowspan=\"3\" | [[File:Enchant_Swift.png|frameless|60x60px|center]]\n| rowspan=\"3\" style=\"text-align:center; font-weight:bold;\" | Swift\n| {{E|Self-Help Book|2}}\n| Event: All Acts\n| {{QueryLink|Cards|type:Power|Power|2}}: '''Swift 2'''\n| rowspan=\"3\" | The first time you play this card, draw X cards.\n| rowspan=\"3\" |\n|-\n| {{R|Wing Charm||2}}\n| {{QueryLink|Relics|rarity:Shop|Shop Relic|2}}\n| a random card in each card reward: '''Swift 1'''\n|-\n| {{R|Beautiful Bracelet||2}}\n| {{QueryLink|Relics|rarity:Ancient|Ancient Relic|2}}: {{KW|Nonupeipe||2}}\n| 3 cards: '''Swift 3'''\n\n|-<div id=\"Slither\"></div>\n| [[File:Enchant_Slither.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Slither\n| {{E|Wood Carvings|2}}\n| Event: {{2|Overgrowth}}\n| 1 card\n| When you draw this card, randomize its cost from 0 to 3.\n| \n\n|-<div id=\"Slumbering_Essence\"></div>\n| [[File:Enchant_SlumberingEssence.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Slumbering Essence\n|\n|\n|\n| If this card is in your hand at the end of the turn, reduce its cost by 1 until it is played.\n|\n* Not obtainable.\n\n|-<div id=\"Soul's_Power\"></div>\n| [[File:Enchant_SoulsPower.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Soul's Power\n| {{E|Grave of the Forgotten|2}}\n| Event: {{2|Glory}}\n| A card that {{KW|Exhaust|Exhausts|2}}\n| This card loses {{KW|Exhaust||2}}.\n| \n* Choosing the {{Frame|Confront with Truth}} option also adds {{C|Decay||2}} to your Deck.\n\n|-<div id=\"Sown\"></div>\n| [[File:Enchant_Sown.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Sown\n| {{E|Sapphire Seed|2}}\n| Event: {{2|Overgrowth}}\n| 1 card\n| The first time you play this card each combat, gain {{KW|Energy||2}}.\n| \n\n|-<div id=\"Spiral\"></div>\n| [[File:Enchant_Spiral.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Spiral\n| {{E|Spiraling Whirlpool|2}}\n| Event: {{2|Underdocks}}\n| a {{C|Strike (Ironclad)|Strike|2}} or {{C|Defend (Ironclad)|Defend|2}}\n| This card gains {{KW|Replay||2}} 1.\n| \n\n|-<div id=\"Steady\"></div>\n| [[File:Enchant_Steady.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Steady\n| {{E|Waterlogged Scriptorium|2}}\n| Event: {{2|Underdocks}}\n| 1 card / 2 cards\n| This card gains {{KW|Retain||2}}.\n| \n* {{E|Waterlogged Scriptorium|2}} allows you to {{KW|Enchant||2}} 1 card with '''Steady''' for 65 Gold, or 2 cards for 155 Gold upon choosing the {{Frame|Tentacle Quill}} or {{Frame|Prickly Sponge}} option respectively.\n\n|-<div id=\"Tezcatara's_Ember\"></div>\n| [[File:Enchant_TezcatarasEmber.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Tezcatara's Ember\n| {{R|Nutritious Soup||2}}\n| {{QueryLink|Relics|rarity:Ancient|Ancient Relic|2}}: {{KW|Tezcatara||2}}\n| all {{C|Strike (Ironclad)|Strikes|2}} in your Deck\n| Costs 0 and gains {{KW|Eternal||2}}.\n| \n* Any {{C|Ultimate Strike|Ultimate Strikes|2}} in your Deck will ''not'' be {{KW|Enchant|Enchanted|2}}.\n\n|-<div id=\"Vigorous\"></div>\n| [[File:Enchant_Vigorous.png|frameless|60x60px|center]]\n| style=\"text-align:center; font-weight:bold;\" | Vigorous\n| {{E|Stone of All Time|2}}\n| Event: {{2|Hive}}\n| 1 {{QueryLink|Cards|type:Attack|Attack|2}}\n| The first time this card is played, it deals X additional damage.\n| \n* {{E|Stone of All Time|2}} allows you to {{KW|Enchant||2}} an {{QueryLink|Cards|type:Attack|Attack|2}} with '''Vigorous 8''' at the cost of 6 HP upon choosing the {{Frame|Push}} option.\n\n|}\n\n== Update History ==\n* '''Early Access v.0.105.0 (BETA)'''\n** Added {{R|Silken Tress||2}}, a {{KW|Neow||2}} Relic which enchants all cards in the first card reward with Glam.\n\n* '''Early Access v0.103.2'''\n** Instinct changes from BETA branch were moved to the main version of the game.\n\n* '''Early Access v0.100.0 (BETA)'''\n** Instinct enchantment no longer reduces cost, instead doubles damage on enchanted Attacks.\n\n[[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

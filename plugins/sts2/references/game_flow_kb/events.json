@@ -1,0 +1,26 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Events",
+  "only_on_unknown_nodes": true,
+  "must_choose_option": true,
+  "lethal_option_red_outline": true,
+  "grey_out_unavailable": true,
+  "multiplayer_collaborative_events": [
+    "Battleworn Dummy",
+    "Dense Vegetation",
+    "The Merchant???",
+    "Jungle Maze Adventure",
+    "Morphic Grove",
+    "Punch Off",
+    "The Lantern Key",
+    "War Historian, Repy"
+  ],
+  "event_types": [
+    "combat_event",
+    "quest"
+  ],
+  "agent_hints": [
+    "事件只在「未知」节点；必须选一项才能离开",
+    "致死选项红框仍可点（蜥蜴尾巴等）",
+    "联机部分事件需全员同选"
+  ]
+}

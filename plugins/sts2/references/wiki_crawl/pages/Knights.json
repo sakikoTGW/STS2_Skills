@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Knights",
+  "short_name": "Knights",
+  "summary": "The Knights are an  encounter found in , featuring three knights fighting together.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Knights</span>",
+  "fetched_at": "2026-05-20T05:42:30Z",
+  "wikitext_chars": 1178,
+  "wikitext": "The '''Knights''' are an {{2|Elites|Elite}} encounter found in {{2|Glory}}, featuring three knights fighting together.\n\n== Flail Knight ==\n{{Enemy Infobox|Flail Knight|2}}\n=== Pattern ===\n{{Intents|Flail Knight|2}}\nOpens with {{Int|Flail Knight|Ram||2}}, then randomly uses {{Int|Flail Knight|Breaker||2}}, {{Int|Flail Knight|Flail||2}}, or {{Int|Flail Knight|Ram||2}} each turn. {{Int|Flail Knight|Breaker||2}} cannot be used two turns in a row. \n\n{{Clear}}\n\n== Spectral Knight ==\n{{Enemy Infobox|Spectral Knight|2}}{{Power Infobox|Hex|2}}\n=== Pattern ===\n{{Intents|Spectral Knight|2}}\nOpens with {{Int|Spectral Knight|Hex||2}}. After that, alternates between {{Int|Spectral Knight|Soul Slash||2}} and {{Int|Spectral Knight|Soul Flame||2}}.\n\n{{Clear}}\n\n== Magi Knight ==\n{{Enemy Infobox|Magi Knight|2}}{{Power Infobox|Dampen|2}}\n=== Pattern ===\n{{Intents|Magi Knight|2}}\nStarts with {{Int|Magi Knight|Power Shield||2}}, followed by {{Int|Magi Knight|Dampen||2}}.\nThen repeatedly uses {{Int|Magi Knight|Ram||2}}, {{Int|Magi Knight|Prep||2}}, and {{Int|Magi Knight|Magic Bomb||2}} in that order.\n\n\n{{Clear}}\n\n== Notes ==\n\n[[Category:Elites]]\n[[Category:Slay the Spire 2 Content]]"
+}

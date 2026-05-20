@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Wellspring",
+  "short_name": "Wellspring",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Wellspring</span>",
+  "fetched_at": "2026-05-20T06:17:37Z",
+  "wikitext_chars": 1051,
+  "wikitext": "{{Event Header|StS2_Wellspring.png}}\n{{E|Wellspring|2}} is an {{2|Events|Event}} found exclusively in the {{2|Overgrowth}}.\n\n== Options ==\n{{Frame|Bottle}} {{TS|positive||Procure 1 random {{2|Potions|Potion}}.}}\n<br>\n{{Frame|Bathe}} {{TS|positive||Remove 1 card from Deck.}} {{TS|negative||Add 1 {{C|Guilty||2}} (curse) to Deck.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nYou trace a low rumble to its source and find yourself captivated by a tranquil wellspring. The water is an emerald green with clusters of glowing motes.\n\nIt looks inviting. What can possibly go wrong?\n</div>\n\n{{Frame|Bottle}}\n<blockquote><div style=\"font-style:italic\">\nBathing in the beautiful water seems suspicious... you decide to bottle some up instead.\n\nThis will come in handy.\n</div></blockquote>\n\n{{Frame|Bathe}}\n<blockquote><div style=\"font-style:italic\">\nYou emerge from the pool with a slight feeling of unease.\n\nHowever, you feel surprisingly refreshed.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

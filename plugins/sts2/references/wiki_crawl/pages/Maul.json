@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Maul",
+  "short_name": "Maul",
+  "summary": "is a 1  cost    Card. It deals 5 (6 if upgraded) damage twice, then increases the damage of ALL  cards by 1 (2 if upgraded) for the remainder of combat.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Maul</span>",
+  "fetched_at": "2026-05-20T06:22:27Z",
+  "wikitext_chars": 1246,
+  "wikitext": "{{Card Infobox|Maul||2|}}{{C|Maul||2}} is a 1 {{Icon|CE|2}} cost {{QueryLink|Cards|color:Colorless|Colorless|2}} {{QueryLink|Cards|rarity:Ancient|Ancient|2}} {{QueryLink|Cards|type:Attack|Attack|2}} Card. It deals 5 (6 if upgraded) damage twice, then increases the damage of '''ALL''' {{C|Maul||2}} cards by 1 (2 if upgraded) for the remainder of combat.\n\n== Obtaining Maul ==\nUp to 6 of your cards can be {{2|Transform|Transformed}} into {{C|Maul||2}} upon taking {{R|Claws||2}} from {{KW|Tanx||2}}'s offering at the start of [[StS2:Acts#Act 3|Act 3]].\n*{{2|Transform|Transforming}} upgraded cards will grant upgraded copies of {{C|Maul||2}}.\n*{{2|Transform|Transforming}} {{KW|Enchant|Enchanted|2}} cards will also grant copies of {{C|Maul||2}} with the same {{KW|Enchant|Enchantment|2}}(s), if {{C|Maul||2}} is eligible for the {{KW|Enchant|Enchantment|2}}.\n\n== Notes ==\n* This card is functionally similar to {{C|Claw||2}}, where it will increase the damage of all other copies of itself, except '''Maul''' starts with higher base damage, and increases damage by 1 less than {{C|Claw|2}}.\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Maul to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

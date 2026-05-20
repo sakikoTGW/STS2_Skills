@@ -1,0 +1,59 @@
+{
+  "page": "Slay_the_Spire_2:Doormaker",
+  "short_name": "Doormaker",
+  "summary": "{{#invoke:Infobox|main The Doormaker is a  found in . The fight starts with the Doormaker appearing as the Door with infinite health. It then transforms into the Doormaker on its first turn.",
+  "sections": {},
+  "tables": [
+    [
+      "kind=enemy-infobox",
+      "sep=,"
+    ],
+    [
+      "images=File:StS2_Doormaker-Closed.webp, File:StS2_Doormaker-Hunger.webp, File:StS2_Doormaker-Scrutiny.webp, File:StS2_Doormaker-Grasp.webp"
+    ],
+    [
+      "title=Doormaker"
+    ],
+    [
+      "tabs=Closed,Hunger,Scrutiny,Grasp"
+    ],
+    [
+      "sections=Main"
+    ],
+    [
+      "Main=HP,Debut,Powers"
+    ],
+    [
+      "Main_nolabel=yes"
+    ],
+    [
+      "HP=489 {{Asc",
+      "8",
+      "512",
+      "2}}"
+    ],
+    [
+      "Debut=[[sts2:Glory",
+      "Glory]]"
+    ],
+    [
+      "Closed_Powers="
+    ],
+    [
+      "Hunger_Powers={{BD",
+      "Hunger",
+      "",
+      "2}}"
+    ],
+    [
+      "Scrutiny_Powers={{BD",
+      "Scrutiny",
+      "",
+      "2}}"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Doormaker</span>",
+  "fetched_at": "2026-05-20T05:42:45Z",
+  "wikitext_chars": 3284,
+  "wikitext": "{{#invoke:Infobox|main\n|kind=enemy-infobox|sep=,\n|images=[[File:StS2_Doormaker-Closed.webp]], [[File:StS2_Doormaker-Hunger.webp]], [[File:StS2_Doormaker-Scrutiny.webp]], [[File:StS2_Doormaker-Grasp.webp]]\n|title=Doormaker\n|tabs=Closed,Hunger,Scrutiny,Grasp\n\n|sections=Main\n|Main=HP,Debut,Powers\n|Main_nolabel=yes\n\n|HP=489 <br>{{Asc|8|512|2}}\n|Debut=[[sts2:Glory|Glory]]\n|Closed_Powers=\n|Hunger_Powers={{BD|Hunger||2}}\n|Scrutiny_Powers={{BD|Scrutiny||2}}\n|Grasp_Powers={{BD|Grasp||2}}\n}} {{Power Infobox|Hunger|2}}{{Power Infobox|Scrutiny|2}}{{Power Infobox|Grasp|2}}\nThe '''Doormaker''' is a {{2|Bosses|Boss}} found in {{2|Glory}}. The fight starts with the '''Doormaker''' appearing as the Door with infinite health. It then transforms into the '''Doormaker''' on its first turn. \n\n== Pattern ==\n{{Intents|Doormaker|2}}\nThe Doormaker uses {{Int|Doormaker|Dramatic Open||2}} on its first turn, then follows a repeating cycle:\n# {{Int|Doormaker|Hunger||2}}\n# {{Int|Doormaker|Scrutiny||2}}\n# {{Int|Doormaker|Grasp||2}}\n\n== Notes ==\n*Even though the HP bar in the first phase shows as \"infinity\", it is actually set to the finite number of 999,999,999 HP. As such, it is theoretically possible to kill the Doormaker in its first phase.\n\n== Update History ==\n* '''Early Access v0.105.0 (BETA)'''\n** '''Doormaker''' has been replaced with a brand new boss, '''Aeonglass'''! \n*** While '''Doormaker''' had interesting micro decisions in the fight, he was over the complexity threshold of what we want and had lingering issues. We decided that starting over fresh will let us hit what we actually want for an Act 3 boss.\n* '''Early Access v0.103.2'''\n** Doormaker changes from BETA branch were moved to the main version of the game\n*** Door mechanic removed instead starts the first turn as the door with infinite health then transforms into the Doormaker proper\n*** Cycles between 3 abilities each turn.\n**** Hunger: Whenever you play an attack or Skill, it is Exhausted.\n**** Scrutiny: You cannot draw additional cards during your turn.\n**** Grasp: Whenever you play a card, lose 1 energy.\n* '''Early Access v0.103.0 (BETA)'''\n** Nerfed '''Doormaker''':\n***Damage numbers nerfed and moves moved around to better align with the Doormaker powers\n**** Multihit attack is now on the Grasp turn\n***No longer applies debuffs\n***Gains less Strength\n\n* '''Early Access v0.102.0 (BETA)'''\n** Reworked '''Doormaker''': Grasp turn and power: now attacks for 20(23) and the power is reworked to \"Whenever you play a card, lose 1 energy.\"\n\n* '''Early Access v0.101.0 (BETA)'''\n** Reworked and nerfed the '''Doormaker.''' Fight is now less random.\n** Cycles between 3 abilities each turn.\n***Hunger: Whenever you play an attack or Skill, it is Exhausted.\n***Scrutiny: You cannot draw additional cards during your turn.\n***Grasp: The first card you play each turn costs 1 additional energy.\n\n* '''Early Access v0.100.0 (BETA)'''\n** Reworked '''Doormaker.''' ''Beware.''\n** Door mechanic removed instead starts the first turn as the door with infinite health then transforms into the Doormaker proper. Has Hunger of the Void: Every 10th card drawn is eaten, giving Doormaker 1 Strength.\n\n* '''Early Access v0.98'''\n** Added Doormaker to the game.\n\n[[Category:Bosses]]\n[[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Juzu Bracelet",
+  "short_name": "Juzu Bracelet",
+  "summary": "* Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at . * Can be obtained from the relics ,  and .",
+  "sections": {
+    "Sources": [
+      "Can be dropped by fighting , by buying from the  or from . See Chest and non-Chest chance at .",
+      "Can be obtained from the relics ,  and ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Juzu Bracelet</span>",
+  "fetched_at": "2026-05-20T06:18:40Z",
+  "wikitext_chars": 758,
+  "wikitext": "{{Sequel Disambiguation}}{{Relic Infobox|Juzu Bracelet|2}}\n{{R|Juzu Bracelet||2}} is a {{QueryLink|Relics|rarity:Common|Common|2}} {{2|Relics|Relic}}. See also {{2|Unknown Location}}.\n\n== Sources ==\n* Can be dropped by fighting {{2|Elites}}, by buying from the {{2|Merchant}} or from {{2|Mechanics#Chests|Chests}}. See Chest and non-Chest chance at {{2|Relics}}.\n\n* Can be obtained from the relics {{R|Calling Bell||2}}, {{R|Shovel||2}} and {{R|Black Star||2}}.\n\n== Spawn Restrictions ==\n* Will not spawn when using the {{2|Custom Mode}} modifier {{2|Custom Mode#DeadlyEvents|Deadly Events}}.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Juzu Bracelet to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

@@ -1,0 +1,23 @@
+{
+  "version": 7,
+  "description": "STS2 战斗机制知识库 — 对齐 slaythespire.wiki.gg Debuffs/Strength/Weak/Vulnerable",
+  "wiki_index": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Debuffs",
+  "entry_files": [
+    "damage_pipeline.json",
+    "powers/debuffs.json",
+    "powers/buffs.json",
+    "modifiers/relics.json",
+    "modifiers/shop_relics.json",
+    "modifiers/special_multipliers.json",
+    "cards/debuff_application.json",
+    "cards/core_attacks.json",
+    "cards/multi_hit.json",
+    "relics_index.json"
+  ],
+  "stack_type_glossary": {
+    "duration": "层数=剩余回合；易伤/虚弱/脆弱倍率不随层数叠加",
+    "intensity": "层数=强度（力量、毒、缓慢计数等）",
+    "permanent": "战斗内常驻",
+    "none": "不叠层"
+  }
+}

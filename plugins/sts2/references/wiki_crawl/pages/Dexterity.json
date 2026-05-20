@@ -1,0 +1,25 @@
+{
+  "page": "Slay_the_Spire_2:Dexterity",
+  "short_name": "Dexterity",
+  "summary": "is a  that increases the  gained directly from cards. This does not apply to any other sources of , including by Buffs gained from cards. can be negative, reducing the  gained from cards to a minimum of 0.",
+  "sections": {
+    "Interactions": [
+      "depends on current turn effects, so if  (at 0 ) is played this turn and  goes negative, the player will still gain 4  next turn.",
+      "Dexterity is applied before multiplicative effects of , , , , , and .",
+      "Dexterity Does not affect block gained from  and  Orbs.",
+      "Dexterity does not affect block gained from Buffs, including those gained by , , , and ."
+    ],
+    "Sources": [
+      ": 3(5)  this turn.",
+      ": 2(3) .",
+      ": 1 .",
+      ": 2(3) .",
+      ": 1(2) .",
+      ": At the end of your turn, lose 1 ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Dexterity</span>",
+  "fetched_at": "2026-05-20T05:41:25Z",
+  "wikitext_chars": 2771,
+  "wikitext": "{{Sequel Disambiguation}}\n{{Keyword Infobox|Dexterity|2}}\n{{KW|Dexterity}} is a {{2|Buffs|Buff}} that increases the {{KW|Block||2}} gained directly from cards. This '''does not''' apply to any other sources of {{KW|Block||2}}, including by Buffs gained from cards.\n\n{{KW|Dexterity}} can be negative, reducing the {{KW|Block||2}} gained from cards to a minimum of 0.\n\n== Sources ==\n==== Cards ====\n* {{C|Anticipate||2}}: 3(5) {{KW|Dexterity||2}} this turn.\n* {{C|Footwork||2}}: 2(3) {{KW|Dexterity||2}}.\n* {{C|Abrasive||2}}: 1 {{KW|Dexterity||2}}.\n* {{C|Bulk Up||2}}: 2(3) {{KW|Dexterity||2}}.\n* {{C|Prowess||2}}: 1(2) {{KW|Dexterity||2}}.\n* {{BD|Wraith Form||2}}: At the end of your turn, lose 1 {{KW|Dexterity}}.\n\n==== Relics ====\n* {{R|Oddly Smooth Stone||2}}: 1 {{KW|Dexterity}} at the start of each combat.\n* {{R|Sparkling Rouge||2}}: 1 {{KW|Dexterity}} at the end of your 3rd turn.\n* {{R|Kunai||2}}: Every time you play 3 {{QueryLink|Cards|type:Attack|Attacks}} in a single turn, gain 1 {{KW|Dexterity}}.\n* {{R|Rainbow Ring||2}}: The first time you play an Attack, Skill, and Powers each turn, gain 1 {{KW|Dexterity}}.\n* {{R|Helical Dart||2}}: Whenever you play a {{C|Shiv||2}}, gain 1 {{KW|Dexterity||2}} this turn.\n* {{R|Belt Buckle||2}}: While you have no potions, you have 2 additional {{KW|Dexterity||2}}.\n\n==== Potions ====\n* {{P|Dexterity Potion||2}}: 2 {{KW|Dexterity}}.\n* {{P|Speed Potion||2}}: 5 {{KW|Dexterity||2}} this turn.\n* {{P|Fysh Oil||2}}: 1 {{KW|Dexterity}}.\n\n==== Monsters ====\n<!-- Make consistent with the descriptions in the Enemies database. Hover over the intent templates to see them. -->\n*{{M|Lagavulin Matriarch||2}}\n** {{Int|Lagavulin Matriarch|Siphon Soul||2}} - Player {{TS|negative||loses}} 2 {{BD|Dexterity||2}}.\n*{{M|Hunter Killer||2}}\n** {{BD|Tender||2}} - Whenever you play a card, {{TS|negative||lose}} 1 {{BD|Dexterity||2}} this turn.\n*{{M|The Forgotten||2}}\n** {{Int|Lagavulin Matriarch|Miasma||2}} - Player {{TS|negative||loses}} 2 {{BD|Dexterity||2}}. Gains 2 {{BD|Dexterity||2}}.\n\n== Interactions ==\n* {{BD|Block Next Turn||2}} depends on current turn effects, so if {{C|Dodge and Roll||2}} (at 0 {{KW|Dexterity||2}}) is played this turn and {{KW|Dexterity||2}} goes negative, the player will still gain 4 {{KW|Block||2}} next turn.\n* Dexterity is applied before multiplicative effects of {{BD|Frail||2}}, {{BD|Unmovable||2}}, {{BD|Shadowmeld||2}}, {{R|Vambrace||2}}, {{R|Pael's Legion||2}}, and {{R|Vitruvian Minion||2}}.\n* Dexterity Does not affect block gained from {{2|Relics}} and {{KW|Frost||2}} Orbs.\n* Dexterity does not affect block gained from Buffs, including those gained by {{BD|Plating||2}}, {{BD|Rage||2}}, {{BD|Afterimage||2}}, and {{BD|Beacon of Hope||2}}.\n\n[[Category:ToUpdate]]\n[[Category:Game Mechanics]]"
+}

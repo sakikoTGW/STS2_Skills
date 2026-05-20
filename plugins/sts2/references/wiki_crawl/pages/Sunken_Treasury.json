@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Sunken Treasury",
+  "short_name": "Sunken Treasury",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Sunken Treasury</span>",
+  "fetched_at": "2026-05-20T06:17:29Z",
+  "wikitext_chars": 1250,
+  "wikitext": "{{Event Header|StS2 Sunken Treasury.png}}\n{{E|Sunken Treasury|2}} is an {{2|Events|Event}} found exclusively in the {{2|Underdocks}}.\n\n== Options ==\n{{Frame|First Chest}} {{TS|positive||Gain 52-68 Gold.}}\n<br>\n{{Frame|Second Chest}} {{TS|positive||Gain 303-363 Gold.}} {{TS|negative||Add {{C|Greed||2}} (curse) to Deck.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nA path leads you into a partially submerged vault.\nThere are {{TS|blue||2}} {{TS|gold||chests}} but only {{TS|blue||1}} {{TS|purple|shake|brittle key}}.\n\n{{TS|gold||The First Chest:}} Shaking it, you get jingly-jangly noises. Bit of gold.\n{{TS|gold||The Second Chest:}} Enormous, ornate, and clearly {{TS|red||cursed}}. Lots of gold!\n</div>\n\n{{Frame|First Chest}}\n<blockquote><div style=\"font-style:italic\">\nYup, there was {{TS|gold||gold}} in it.\n</div></blockquote>\n\n{{Frame|Second Chest}}\n<blockquote><div style=\"font-style:italic\">\nYou've never seen so much gold in one place!\n\nAll of the Merchant's wares can be bought...<ref>You cannot buy everything with only 360 gold.</ref>\n\nDangerous thugs can be paid off...\n\nThe feverishly greedy thoughts stay with you forever...\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Waterfall_Giant",
+  "short_name": "Waterfall_Giant",
+  "summary": "Waterfall Giant is a  found in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Waterfall Giant</span>",
+  "fetched_at": "2026-05-20T05:42:37Z",
+  "wikitext_chars": 1523,
+  "wikitext": "{{Enemy Infobox|Waterfall Giant|2}}{{Power Infobox|Steam Eruption|2}}\n'''Waterfall Giant''' is a {{2|Bosses|Boss}} found in the {{2|Underdocks}}.\n\n== Pattern ==\n{{Intents|Waterfall Giant|2}}\nThe Waterfall Giant uses {{Int|Waterfall Giant|Pressurize||2}} on its first turn, then follows a repeating cycle:\n# {{Int|Waterfall Giant|Stomp||2}}\n# {{Int|Waterfall Giant|Ram||2}}\n# {{Int|Waterfall Giant|Siphon||2}}\n# {{Int|Waterfall Giant|Pressure Gun||2}}\n# {{Int|Waterfall Giant|Pressure Up||2}}\n# Back to {{Int|Waterfall Giant|Stomp||2}}\n\nAlmost every move also adds 3 {{BD|Steam Eruption||2}}. When the Waterfall Giant is killed while it has {{BD|Steam Eruption||2}}, it becomes invulnerable and uses {{Int|Waterfall Giant|About To Blow||2}}, followed by {{Int|Waterfall Giant|Explode||2}} on the next turn, dealing damage equal to its accumulated {{BD|Steam Eruption||2}} before dying.\n\n* If the Waterfall Giant is killed when it has no {{BD|Steam Eruption||2}} (e.g. via {{BD|Doom||2}}), it dies normally without triggering the explosion sequence.\n\n== Notes ==\n*Even though the HP bar in the last phase shows as \"infinity\", it is actually set to the finite number of 999,999,999 HP. As such, it is theoretically possible to kill the Waterfall Giant in its last phase.\n\n== Version History ==\n* '''Early Access v0.101.0 (BETA)'''\n** Nerfed '''Waterfall Giant''': HP decreased from 250(260) -> 240(250)\n* '''Early Access v0.98'''\n** Added Waterfall Giant to the game.\n\n[[Category:Bosses]]\n[[Category:Slay the Spire 2 Content]]"
+}

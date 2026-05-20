@@ -1,0 +1,23 @@
+{
+  "page": "Slay_the_Spire_2:Gold",
+  "short_name": "Gold",
+  "summary": "frame|Money Pouch: Shows how much  you are carrying. Gold is the currency of . The player starts each run with 99 . It is used to purchase from the  or from various .",
+  "sections": {
+    "Interactions": [
+      ": Gain a card pack in exchange for all .",
+      "in combination with  gains an extra 15  per card added.  counts as a card added.",
+      "Allows gaining  at  by buying cards that are cheaper than 30 .",
+      "increases max HP by one every time you gain . This also synergizes with Lucky Fysh/Bing Bong mentioned above.",
+      "and  increases the effective value of  by making prices at  cheaper."
+    ],
+    "Sources": [
+      "drop 10-20 () .",
+      "drop 35-45 () .",
+      "drop 100 () ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Gold</span>",
+  "fetched_at": "2026-05-20T05:41:54Z",
+  "wikitext_chars": 2697,
+  "wikitext": "{{Sequel Disambiguation|2}}{{Stub}}\n\n[[File:StS2 Gold.png|frame|'''Money Pouch:''' Shows how much {{KW|Gold||2}} you are carrying.]]{{#setmainimage:StS2 Gold.png|quiet}}\nGold is the currency of {{2|Main|Slay the Spire 2}}. The player starts each run with 99 {{KW|Gold||2}}. It is used to purchase from the {{2|Merchant}} or from various {{2|Events}}.\n\n== Sources ==\n\n=== Combat ===\n* {{2|Monsters}} drop 10-20 ({{Asc|3|8-15|2}}) {{KW|Gold||2}}.\n* {{2|Elites}} drop 35-45 ({{Asc|3|26-34|2}}) {{KW|Gold||2}}.\n* {{2|Bosses}} drop 100 ({{Asc|3|75|2}}) {{KW|Gold||2}}.\n\n=== Ancients ===\n* {{KW|Neow||2}}\n* {{KW|Nonupeipe||2}}\n\n=== Relics ===\n* {{R|Old Coin||2}}: Upon pickup, gain 300 {{KW|Gold||2}}.\n* {{R|Maw Bank||2}}: Whenever you climb a floor, gain 12 {{KW|Gold||2}}. No longer works when you spend any {{KW|Gold||2}} at the shop.\n* {{R|Amethyst Aubergine||2}}: Enemies drop 10 additional {{KW|Gold||2}}.\n* {{R|Bowler Hat||2}}: Gain 20% additional {{KW|Gold||2}}.\n* {{R|Lucky Fysh||2}}: Whenever you add a card to your Deck, gain 15 {{KW|Gold||2}}.\n* {{R|Cursed Pearl||2}}: Upon pickup, receive {{C|Greed||2}}. Gain 333 {{KW|Gold||2}}.\n* {{R|Golden Pearl||2}}: Upon pickup, gain 150 {{KW|Gold||2}}.\n* {{R|Signet Ring||2}}: Upon pickup, gain 999 {{KW|Gold||2}}.\n\n=== Chests ===\nGive 42-53 ({{Asc|3|32-40|2}}) {{2|Gold}} in addition to a {{2|Relic}}.\n\n=== Cards ===\n* {{C|Hand of Greed||2}}: Deal 20 (25) damage. Gain 20 (25) {{KW|Gold||2}} when {{KW|Fatal||2}}.\n* {{C|Royalties||2}}: At the end of combat, gain 35 {{KW|Gold||2}}.\n* {{C|Spoils Map||2}}: Gives an extra 600 {{KW|Gold||2}} at a {{2|Map_Locations#Treasure_Room|Treasure Chest}} in the next {{2|Acts|Act}}.\n\n=== Events ===\n* \n\n== Interactions ==\n\n=== Positive ===\n* {{R|Scroll Boxes||2}}: Gain a card pack in exchange for all {{KW|Gold||2}}.\n* {{R|Bing Bong||2}} in combination with {{R|Lucky Fysh||2}} gains an extra 15 {{KW|Gold||2}} per card added. {{2|Transforms}} counts as a card added.\n** Allows gaining {{KW|Gold||2}} at {{2|The Merchant}} by buying cards that are cheaper than 30 {{KW|Gold||2}}.\n* {{R|Dragon Fruit||2}} increases max HP by one every time you gain {{KW|Gold||2}}. This also synergizes with Lucky Fysh/Bing Bong mentioned above.\n* {{R|Membership Card||2}} and {{R|The Courier||2}} increases the effective value of {{KW|Gold||2}} by making prices at {{2|The Merchant}} cheaper.\n\n=== Negative ===\n* {{R|Seal of Gold||2}} continually loses {{KW|Gold||2}} every turn for the rest of the game. \n* {{R|Ectoplasm||2}} will stop all future {{KW|Gold||2}} gain. \n* {{C|Debt||2}} loses 10 {{KW|Gold||2}} if it is in your Hand at the end of your turn.\n\n== Trivia ==\n\n[[Category:Slay the Spire 2 Content]]\n[[Category:Gold]]"
+}

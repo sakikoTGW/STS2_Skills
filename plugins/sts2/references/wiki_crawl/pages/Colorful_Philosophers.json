@@ -1,0 +1,21 @@
+{
+  "page": "Slay_the_Spire_2:Colorful Philosophers",
+  "short_name": "Colorful Philosophers",
+  "summary": "is an  found exclusively in the .",
+  "sections": {
+    "Interactions": [
+      "If the player has  and/or :",
+      "If the player has , then regardless of the option chosen, the resulting card rewards will include cards from ''all'' the characters, including the current character.",
+      "If the player has , the resulting card rewards will include  cards in addition to cards of the chosen color.",
+      "If the player has  ''and'' , then whichever Relic was picked up ''first'' will impose its respective card rewards modification, and the other will ''not''.",
+      "E.g. if  was picked up first, then the card rewards will include cards from ''all'' the characters, including the current character, but ''not'' include  cards.",
+      "allows the card rewards to be rerolled.",
+      "allows the card rewards to be sacrificed for an eventual Relic.",
+      "applies  1 to one of the cards in each reward."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Colorful Philosophers</span>",
+  "fetched_at": "2026-05-20T06:17:45Z",
+  "wikitext_chars": 2686,
+  "wikitext": "{{Event Header|StS2 Colorful Philosophers.png}}\n{{E|Colorful Philosophers|2}} is an {{2|Events|Event}} found exclusively in the {{2|Hive}}.\n\n== Options ==\nUp to 3 options are shown, chosen from other characters' card pools (excluding your current character). Each option offers 3 card rewards (1 Common, 1 Uncommon, 1 Rare) from that character's pool:\n* {{Frame|Red}} {{TS|positive||Obtain 3 {{2|Ironclad}} cards.}}\n* {{Frame|Green}} {{TS|positive||Obtain 3 {{2|Silent}} cards.}}\n* {{Frame|Blue}} {{TS|positive||Obtain 3 {{2|Defect}} cards.}}\n* {{Frame|Pink}} {{TS|positive||Obtain 3 {{2|Necrobinder}} cards.}}\n* {{Frame|Orange}} {{TS|positive||Obtain 3 {{2|Regent}} cards.}}\n===Interactions===\n*If the player has {{R|Prismatic Gem||2}} and/or {{R|Dingy Rug||2}}:\n**If the player has {{R|Prismatic Gem||2}}, then regardless of the option chosen, the resulting card rewards will include cards from ''all'' the characters, including the current character.\n**If the player has {{R|Dingy Rug||2}}, the resulting card rewards will include {{QueryLink|Cards|color:Colorless|Colorless}} cards in addition to cards of the chosen color.\n**If the player has {{R|Prismatic Gem||2}} ''and'' {{R|Dingy Rug||2}}, then whichever [[Slay the Spire 2:Relics|Relic]] was picked up ''first'' will impose its respective card rewards modification, and the other will ''not''.\n***E.g. if {{R|Prismatic Gem||2}} was picked up first, then the card rewards will include cards from ''all'' the characters, including the current character, but ''not'' include {{QueryLink|Cards|color:Colorless|Colorless}} cards.\n*{{R|Driftwood||2}} allows the card rewards to be rerolled.\n*{{R|Pael's Wing||2}} allows the card rewards to be sacrificed for an eventual [[Slay the Spire 2:Relics|Relic]].\n*{{R|Wing Charm||2}} applies {{KW|Swift||2}} 1 to one of the cards in each reward.\n*{{R|Molten Egg||2}}, {{R|Toxic Egg||2}}, and {{R|Frozen Egg||2}} {{KW|Upgrade|upgrade}} their respective card types as intended. \n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nBefore you is a rather epic sight.\nYou see 3 different colored statues towering over a dais, having a heated debate over the philosophical implications of color.\n\nAs you listen in, you get a sense that the most important question at hand is which color truly is THE BEST.\n\nYou chime in with your thoughts.\n</div>\n\n{{Frame|Done}}\n<blockquote><div style=\"font-style:italic\">\nYour opinion doesn't seem welcome, and the statues resume their unending debate.\n</div></blockquote>\n</blockquote>\n\n== Unlocking ==\n{{E|Colorful Philosophers|2}} is unlocked by the {{2|Timeline#The Spire|The Spire}} Epoch.\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,20 @@
+{
+  "page": "Slay_the_Spire_2:Preserved Fog",
+  "short_name": "Preserved Fog",
+  "summary": "At the start of , Preserved Fog can be offered by .",
+  "sections": {
+    "Interactions": [
+      "Early Access v0.103.2",
+      "Preserved Fog changes from BETA branch were moved to the main version of the game.",
+      "Early Access v0.100.0 (BETA)",
+      "Cards removed decreased from 5 -> 3.",
+      "Folly curse is now Ethereal.",
+      "Early Access v0.98",
+      "Added Preserved Fog to the game."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Preserved Fog</span>",
+  "fetched_at": "2026-05-20T06:22:51Z",
+  "wikitext_chars": 856,
+  "wikitext": "{{Relic Infobox|Preserved Fog|2}}{{Small Card Infobox|Folly|2}}\n{{R|Preserved Fog||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relic}}. \n\n== Sources ==\nAt the start of {{2|Acts#Act 3|Act 3}}, '''Preserved Fog''' can be offered by {{KW|Vakuu||2}}.\n\n===Spawn Restrictions===\n*Because '''Preserved Fog''' shares a relic pool with {{R|Distinguished Cape||2}} and {{R|Sere Talon||2}}, only 1 of the 3 can be offered by {{KW|Vakuu||2}}.\n== Interactions ==\n\n== Update History ==\n* '''Early Access v0.103.2'''\n**Preserved Fog changes from BETA branch were moved to the main version of the game.\n* '''Early Access v0.100.0 (BETA)'''\n** Cards removed decreased from 5 -> 3.\n** Folly curse is now Ethereal.\n\n* '''Early Access v0.98'''\n** Added Preserved Fog to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

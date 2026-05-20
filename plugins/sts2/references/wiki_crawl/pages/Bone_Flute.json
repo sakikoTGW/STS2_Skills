@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Bone Flute",
+  "short_name": "Bone Flute",
+  "summary": "Can only be obtained by .",
+  "sections": {
+    "Interactions": [
+      "will trigger Bone Flute multiple times for each other time  has attacked this turn."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Bone Flute</span>",
+  "fetched_at": "2026-05-20T06:18:50Z",
+  "wikitext_chars": 883,
+  "wikitext": "{{Relic Infobox|Bone Flute|2}}{{Summon Infobox|Osty}}\n{{R|Bone Flute||2}} is a {{QueryLink|Relics|color:Necrobinder|Necrobinder-exclusive|2}} {{QueryLink|Relics|rarity:Common|Common|2}} {{2|Relics|Relic}}. <!-- {{{MORE INFORMATION}}} -->\n\n== Spawn Restrictions==\nCan only be obtained by {{KW|Necrobinder||2}}.\n\n== Interactions ==\n\n=== Synergies ===\n* {{C|Rattle||2}} will trigger '''Bone Flute''' multiple times for each other time {{KW|Osty||2}} has attacked this turn.\n\n== Notes ==\n* See [[StS2:Osty#Osty_Attacks|Osty > Osty Attacks]] for all ways to trigger '''Bone Flute'''.\n\n== Update History ==\n\n* '''Early Access v0.98'''\n** Added Bone Flute to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]] <!-- If you believe this page has enough information and can stand without any big changes, remove the ToUpdate category from this page. -->"
+}

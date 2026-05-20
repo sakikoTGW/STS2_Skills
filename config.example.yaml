@@ -1,0 +1,16 @@
+# Copy to ~/.config/sts2/config.yaml (standalone)
+# or merge into ~/.hermes/config.yaml under sts2: (Hermes)
+
+sts2:
+  base_url: "http://127.0.0.1:15526"
+  timeout: 15
+  commentary: "verbose"
+  autoplay: false
+  pause_on_ask: true
+  ask_user_on:
+    - card_reward
+    - relic_select
+    - relic_select_boss
+
+# Optional: override data directory (logs, strategy, trajectories)
+# log_dir: "~/.config/sts2/data"

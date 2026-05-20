@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Punch Off",
+  "short_name": "Punch Off",
+  "summary": "is an  found exclusively in the . It is a combat event.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Punch Off</span>",
+  "fetched_at": "2026-05-20T06:17:25Z",
+  "wikitext_chars": 1124,
+  "wikitext": "{{Event Header|StS2 Punch Off.png}}\n{{E|Punch Off|2}} is an {{2|Events|Event}} found exclusively in the {{2|Underdocks}}. It is a combat event.\n\n== Options ==\n{{Frame|Nab}} {{TS|negative||Add {{C|Injury||2}} (curse) to Deck.}} {{TS|positive||Obtain a random {{2|Relics|Relic}}.}}\n<br>\n{{Frame|I Can Take Them}} Enter combat against 2 {{M|Punch Construct|Punch Constructs|2}} for greater rewards.\n* Obtain a random {{2|Relics|Relic}}, a random {{2|Potions|Potion}}, and a standard combat reward.\n\n== Conditions ==\n* Only appears at Floor 6 or later.\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nTwo Punch Constructs are duking it out and you see some treasure in between them...\n\nShould you try to nab it?\n</div>\n\n{{Frame|Nab}}\n<blockquote><div style=\"font-style:italic\">\nYou successfully nab the relic!\n\n...or so you thought. A right-hook clocks you in the face.\n</div></blockquote>\n\n{{Frame|I Can Take Them}}\n<blockquote><div style=\"font-style:italic\">\nThe Constructs turn to you menacingly!\n\nYou put your dukes up.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

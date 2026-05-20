@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Touch of Orobas",
+  "short_name": "Touch of Orobas",
+  "summary": "is an  . Upon pickup, it replaces your  with an upgraded version.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Touch of Orobas</span>",
+  "fetched_at": "2026-05-20T06:21:36Z",
+  "wikitext_chars": 1278,
+  "wikitext": "{{Relic Infobox|Touch of Orobas|2}}\n{{R|Touch of Orobas||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}. Upon pickup, it replaces your {{QueryLink|Relics|rarity:Starter|Starter Relic|2}} with an upgraded version.\n\n== Obtaining Touch of Orobas ==\nAt the start of {{2|Acts#Act 2|Act 2|2}}, can be offered by {{KW|Orobas||2}}.\n\n== Notes ==\nThe upgraded {{QueryLink|Relics|rarity:Starter|Starter Relics|2}} you can obtain are as follows:\n* '''Ironclad''': {{R|Burning Blood||2}} -> {{R|Black Blood||2}}\n* '''Silent''': {{R|Ring of the Snake||2}} -> {{R|Ring of the Drake||2}}\n* '''Regent''': {{R|Divine Right||2}} -> {{R|Divine Destiny||2}}\n* '''Necrobinder''': {{R|Bound Phylactery||2}} -> {{R|Phylactery Unbound||2}}\n* '''Defect''': {{R|Cracked Core||2}} -> {{R|Infused Core||2}}\n\n== Trivia ==\n*Although the description in the in-game Compendium says it replaces your {{QueryLink|Relics|rarity:Starter|Starter Relic|2}} with an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} version, the rarities of the upgraded {{2|Relics}} are shown as {{QueryLink|Relics|rarity:Starter|Starter|2}}.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Touch of Orobas to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

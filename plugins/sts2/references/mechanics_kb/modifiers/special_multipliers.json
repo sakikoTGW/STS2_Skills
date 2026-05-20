@@ -1,0 +1,24 @@
+{
+  "entries": [
+    {
+      "id": "DOUBLE_DAMAGE",
+      "match": ["DOUBLE_DAMAGE", "Shadow Step", "双倍"],
+      "scope": "outgoing_attack",
+      "multiplier": 2.0
+    },
+    {
+      "id": "SURROUNDED",
+      "match": ["SURROUNDED", "surrounded", "包围"],
+      "scope": "incoming_if_hit_from_behind",
+      "multiplier": 1.5,
+      "requires_facing": true
+    },
+    {
+      "id": "FLANKING",
+      "match": ["FLANKING", "flanking", "侧翼"],
+      "scope": "incoming",
+      "combine": "multiplicative_per_stack",
+      "notes": "多人：2 层 = ×4"
+    }
+  ]
+}

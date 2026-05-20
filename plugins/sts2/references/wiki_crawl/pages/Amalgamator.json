@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Amalgamator",
+  "short_name": "Amalgamator",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Amalgamator</span>",
+  "fetched_at": "2026-05-20T06:17:42Z",
+  "wikitext_chars": 1223,
+  "wikitext": "{{Event Header|StS2 Amalgamator.png}}\n{{E|Amalgamator|2}} is an {{2|Events|Event}} found exclusively in the {{2|Hive}}.\n\n== Options ==\n{{Frame|Combine Strikes}} {{TS|negative||Remove 2 {{C|Strike (Ironclad)|Strikes|2}}.}} {{TS|positive||Add {{C|Ultimate Strike||2}} to your Deck.}}\n<br>\n{{Frame|Combine Defends}} {{TS|negative||Remove 2 {{C|Defend (Ironclad)|Defends|2}}.}} {{TS|positive||Add {{C|Ultimate Defend||2}} to your Deck.}}\n\n== Conditions ==\n* Only appears if you have at least 2 Strike cards and 2 Defend cards in your deck.\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\n{{Frame|Combine Strikes}}\n<blockquote><div style=\"font-style:italic\">\nCLANG! CLANG!!!\n\nThe Amalgamator strikes its Bone Anvil.\n\nMemories of combat, attacking, and offensive strategies sharpen with each blow.\nYour most ultimate technique returns to you.\n</div></blockquote>\n\n{{Frame|Combine Defends}}\n<blockquote><div style=\"font-style:italic\">\nCLANG! CLANG!!!\n\nThe Amalgamator strikes its Bone Anvil.\n\nMemories of combat, protecting, and defensive strategies sharpen with each blow.\nYour most ultimate technique returns to you.\n</div></blockquote>\n</div>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:The Lost Wisp",
+  "short_name": "The Lost Wisp",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">The Lost Wisp</span>",
+  "fetched_at": "2026-05-20T06:18:03Z",
+  "wikitext_chars": 1521,
+  "wikitext": "{{Event Header|StS2 Lost Wisp.png}}\n{{E|The Lost Wisp|2}} is an {{2|Events|Event}} found exclusively in the {{2|Hive}}.\n\n== Options ==\n{{Frame|Capture the Wisp}} {{TS|negative||Add {{C|Decay||2}} (curse) to Deck.}} {{TS|positive||Obtain the {{R|Lost Wisp||2}} (relic).}}\n<br>\n{{Frame|Search the Nearby Area}} {{TS|positive||Gain 45-75 Gold.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nIn the distance is an odd sight. Mounds and mounds of {{TS|red|up|deceased insects}}, surrounding what looks to be a {{TS|orange||small glowing mote}}\n.\nIt seems to be an effective attractant for all manner of bugs but you see it lash out some flames!\n\nYou move closer to investigate.\n</div>\n\n{{Frame|Capture the Wisp}}\n<blockquote><div style=\"font-style:italic\">\nYou approach the {{TS|orange||Wisp}} cautiously...\nThe closer you get, the more it reacts to your presence.\n\nWhen in arm's reach, you grasp the {{TS|orange||Wisp}} but it {{TS|red|shake|scalds you with a blast of hot steam and flame!}}\n\nStill, you {{TS||shake|fumble}} and wrestle the creature into submission. Eventually, the {{TS|orange||Wisp}} concedes and recognizes you as its new owner.\n</div></blockquote>\n\n{{Frame|Search the Nearby Area}}\n<blockquote><div style=\"font-style:italic\">\nYou decide to leave the little one alone. Better play it safe!\n\nNot much is in the area, but you find some gold scattered amongst the dead bugs.\nYou don't seek an answer.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

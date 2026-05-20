@@ -1,0 +1,18 @@
+{
+  "id": "VULNERABLE",
+  "name": "易伤",
+  "deprecated": "Use plugins/sts2/references/mechanics_kb/ instead",
+  "source": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Vulnerable",
+  "stack_type": "duration",
+  "description": "受攻击伤害+50%；层数=持续回合数（每回合结束-1），不是每层再+50%伤害。",
+  "damage_formula": "floor((base_damage + strength) * vulnerable_mult)",
+  "vulnerable_mult_default": 1.5,
+  "order": "additive_then_multiplicative",
+  "wiki_example": "2力量 + 打击6点 对易伤怪 = floor((6+2)*1.5)=12",
+  "bash": {"damage": 8, "damage_upgraded": 10, "vulnerable_turns": 2, "vulnerable_turns_upgraded": 3},
+  "modifiers": {
+    "paper_phrog": 1.75,
+    "cruelty_unupgraded_note": "+25% to vuln mult (wiki: stacks with phrog)",
+    "debilitate": "doubles vulnerable multiplier for X turns"
+  }
+}

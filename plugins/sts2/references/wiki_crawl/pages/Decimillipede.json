@@ -1,0 +1,52 @@
+{
+  "page": "Slay_the_Spire_2:Decimillipede",
+  "short_name": "Decimillipede",
+  "summary": "{{#invoke:Infobox|main Decimillipede is an  found in the . It appears as three identical segments that fight together.",
+  "sections": {},
+  "tables": [
+    [
+      "kind=enemy-infobox"
+    ],
+    [
+      "sep=,"
+    ],
+    [
+      "images=File:StS2 Decimillipede Left.png, File:StS2_Decimillipede.png, File:StS2_Decimillipede Right.png"
+    ],
+    [
+      "title=Decimillipede"
+    ],
+    [
+      "tabs=Front ,Middle ,Back"
+    ],
+    [
+      "sections=Main"
+    ],
+    [
+      "Main=HP,Debut,Powers"
+    ],
+    [
+      "Main_nolabel=yes"
+    ],
+    [
+      "HP = 40-46  {{Asc",
+      "8",
+      "46-52",
+      "2}}"
+    ],
+    [
+      "Debut=[[StS2:Hive",
+      "Hive]]"
+    ],
+    [
+      "Powers=25 {{BD",
+      "Reattach",
+      "",
+      "2}}"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Decimillipede</span>",
+  "fetched_at": "2026-05-20T05:42:27Z",
+  "wikitext_chars": 1631,
+  "wikitext": "{{#invoke:Infobox|main\n|kind=enemy-infobox\n|sep=,\n|images=[[File:StS2 Decimillipede Left.png]], [[File:StS2_Decimillipede.png]], [[File:StS2_Decimillipede Right.png]]\n|title=Decimillipede\n|tabs=Front ,Middle ,Back\n\n|sections=Main\n|Main=HP,Debut,Powers\n|Main_nolabel=yes\n\n|HP = 40-46 <br> {{Asc|8|46-52|2}}\n|Debut=[[StS2:Hive|Hive]]\n|Powers=25 {{BD|Reattach||2}}\n}} {{Power Infobox|Reattach|2}}\n'''Decimillipede''' is an {{2|Elites|Elite Enemy}} found in the {{2|Hive}}. It appears as three identical segments that fight together.\n\n== Pattern ==\n{{Intents|Decimillipede|2}}\nEach segment cycles through {{Int|Decimillipede|Bulk||2}}, {{Int|Decimillipede|Writhe||2}}, and {{Int|Decimillipede|Outgas||2}} in that order. Each segment starts on a different move, so every turn the three segments are always using three different moves.\n\nWhen a segment is killed, it uses {{Int|Decimillipede|Reattach||2}} to revive with 25 HP if at least one other segment is still alive. After reviving, it resumes with a random move.\n\n== In Party With ==\n=== Hive ===\n* 2 other Decimillipede segments.\n\n== Trivia ==\n* This fight is functionally similar to the {{M|Darkling|Darklings}} from Slay the Spire 1, with the same dynamic of 3 enemies that will revive if any of the others are alive.\n\n== Version History ==\n*'''Early Access v0.103.2'''\n**BETA changes incorporated into main branch.\n* '''Early Access v0.100.0 (BETA)'''\n** Nerfed '''Decimillipede''': HP decreased from 42-48 {{Asc|8|(48-56)|2}} to 40-46 {{Asc|8|(46-52)|2}}\n* '''Early Access v0.98'''\n** Added Decimillipede to the game.\n\n[[Category:Elites]]\n[[Category:Slay the Spire 2 Content]]"
+}

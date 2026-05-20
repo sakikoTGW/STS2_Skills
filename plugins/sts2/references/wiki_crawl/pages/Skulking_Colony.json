@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Skulking_Colony",
+  "short_name": "Skulking_Colony",
+  "summary": "Skulking Colony is an   found in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Skulking Colony</span>",
+  "fetched_at": "2026-05-20T05:42:22Z",
+  "wikitext_chars": 1343,
+  "wikitext": "{{Enemy Infobox|Skulking Colony|2}}\n'''Skulking Colony''' is an {{2|Elites|Elite}} {{2|Monsters|Enemy}} found in the {{2|Underdocks}}.\n\n== Pattern ==\n{{Intents|Skulking Colony|2}}\nThe Skulking Colony repeats the same four moves in order:\n# {{Int|Skulking Colony|Smash||2}}\n# {{Int|Skulking Colony|Zoom||2}}\n# {{Int|Skulking Colony|Inertia||2}}\n# {{Int|Skulking Colony|Piercing Stabs||2}}\n\n== Notes ==\n\n[[Category:Elites]]\n[[Category:Slay the Spire 2 Content]]\n\n== Trivia ==\n* Skulking Colony is male.<ref> \"Additionally I found that the Dazed statuses actually worked against the design goals of his power\" https://store.steampowered.com/news/app/2868840/view/507357499795439629?l=english</ref>\n\n== Update History ==\n* '''Early Access v0.103.0 (BETA)'''\n** Nerfed '''Skulking Colony''': HP reduced from 74(79) to 70(75)\n\n* '''Early Access v0.102.0 (BETA)'''\n** Buffed '''Skulking Colony''':\n***Now attacks on all turns\n***Deals slightly more damage\n\n* '''Early Access v0.101.0 (BETA)'''\n** Nerfed '''Skulking Colony''': deals less damage, damage scales slower, and no longer applies Dazed status cards\n\n* '''Early Access v0.100.0 (BETA)'''\n** Reworked '''Skulking Colony''' to have a deadlier moveset\n** Lowered Hardened Shell to 15 and made Smash shuffle 5 Dazed instead of 4.\n\n* '''Early Access v0.98'''\n** Added Skulking Colony to the game."
+}

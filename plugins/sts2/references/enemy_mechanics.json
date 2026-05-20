@@ -1,0 +1,40 @@
+{
+  "power_patterns": [
+    {
+      "match": ["硬化外壳", "HARDENED", "HARDENED_SHELL", "hardened"],
+      "damage_cap_per_turn": 15,
+      "note": "对该敌人本回合有效伤害上限（多段合并计算）"
+    },
+    {
+      "match": ["无敌", "INTANGIBLE", "invulnerable"],
+      "damage_cap_per_turn": 0,
+      "note": "本回合可能无法造成伤害，先破机制或等回合"
+    }
+  ],
+  "enemies": {
+    "CORAL": {
+      "names": ["珊瑚", "CORAL", "CORPSE"],
+      "damage_cap_per_turn": 15,
+      "combat_plan": "每玩家回合打满≤15有效伤；先上易伤再爆发；勿单张收尾"
+    },
+    "GREMLIN_NOB": {
+      "names": ["大块头", "NOB", "MERCHANT"],
+      "combat_plan": "力量成长快，宜速杀或易伤链，勿拖回合"
+    },
+    "LAGAVULIN": {
+      "names": ["Lagavulin", "蹲坐"],
+      "combat_plan": "非攻击回合输出；攻击回合叠防"
+    },
+    "PHANTASMAL_GARDENER": {
+      "names": [
+        "花园幽灵鳗",
+        "幽灵鳗",
+        "PHANTASMAL_GARDENER",
+        "GARDENER",
+        "phantasmal"
+      ],
+      "wiki_id": "PHANTASMAL_GARDENER",
+      "combat_plan": "Skittish/胆小：每只鳗每回合首次被击中获得格挡(常见6层)；同回合后续命中正常结算。多段优于单段。意图 Bite/Lash/Flail/Enlarge。以【怪物Wiki】为准。"
+    }
+  }
+}

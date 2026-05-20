@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "note": "敲牌/营火升级优先级 — 综合社区构筑页与铁甲常见升级收益，非逐字 Wiki。",
+  "IRONCLAD": {
+    "top": {
+      "BASH": "易伤+伤害：全战每战多回合收益，几乎总是首选之一",
+      "SHRUG_OFF": "格挡大幅提升，壁垒/过渡轴核心",
+      "FLAME_BARRIER": "格挡+反伤，清小怪更快",
+      "IRON_WAVE": "伤害+格挡一体，前期极稳",
+      "FEEL_NO_PAIN": "消耗轴：无痛+3防质变",
+      "DARK_EMBRACE": "消耗轴：多摸牌引擎",
+      "CORRUPTION": "消耗轴：费用下降=技能循环",
+      "DEMON_FORM": "力量轴：每回合+力更痛",
+      "INFLAME": "力量轴：启动更快",
+      "BATTLE_TRANCE": "抽牌+费用，节奏轴",
+      "UPPERCUT": "易伤+虚弱，功能牌",
+      "TRUE_GRIT": "消耗轴：坚毅+抽牌",
+      "GHOSTLY_ARMOR": "大量格挡，救急",
+      "SHOCKWAVE": "AOE易伤虚弱，多怪战",
+      "LIMIT_BREAK": "力量轴：翻倍力量",
+      "BODY_SLAM": "壁垒轴：格挡转伤依赖已叠防"
+    },
+    "low": {
+      "STRIKE_IRONCLAD": "打击升级收益低，除非完美打击轴",
+      "DEFEND_IRONCLAD": "基础防御：后期应删掉而非升级",
+      "WILD_STRIKE": "污染+收益差",
+      "CONFLICT": "本身应跳过",
+      "ANGER": "0费打击：升级边际小"
+    },
+    "armaments_targets": ["BASH", "INFLAME", "DEMON_FORM", "FEEL_NO_PAIN", "FLAME_BARRIER", "SHRUG_OFF"]
+  }
+}

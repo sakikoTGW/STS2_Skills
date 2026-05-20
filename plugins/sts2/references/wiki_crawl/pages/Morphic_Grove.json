@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Morphic Grove",
+  "short_name": "Morphic Grove",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Morphic Grove</span>",
+  "fetched_at": "2026-05-20T06:17:24Z",
+  "wikitext_chars": 1499,
+  "wikitext": "{{Event Header|StS2 Morphic Grove.png}}\n{{E|Morphic Grove|2}} is an {{2|Events|Event}} found exclusively in the {{2|Overgrowth}}.\n\n== Options ==\n{{Frame|Group}} {{TS|negative||Lose ALL of your Gold.}} {{TS|positive||{{2|Transform}} 2 cards.}}\n<br>\n{{Frame|Loner}} {{TS|positive||Gain 5 Max HP.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nYou enter a grove of {{TS|green||crystalline trees}}, and they begin to {{TS||shake|quiver excitedly}}!\nA chorus of {{TS||up|hellos and welcomes}} bombard you as a group of {{TS|blue||Morphics}} {{TS||shake|burst}} forth from trees.\n\nOne of the {{TS|blue||Morphics}} is fidgeting in the corner, clearly not as sociable as the others.\n\nApproach the group or the loner?\n</div>\n\n{{Frame|Group}}\n<blockquote><div style=\"font-style:italic\">\nYou greet the chittering {{TS|blue||Morphics}} and they embrace you into their crystally arms.\n\nThey share their combined knowledge and inject you with Morphic Magic, changing your nature... Such lovely creatures, these {{TS|blue||Morphics}}.\n\n{{TS|negative||One of them stole your {{TS|gold||gold}}.}} \n</div></blockquote>\n\n{{Frame|Loner}}\n<blockquote><div style=\"font-style:italic\">\nYou reach out a hand to the lone Morphic, sympathizing with its nature.\nIt gifts you a tiny crystal fruit, and you consume it, as is custom.\n\nThe fruit clarifies your mind and purpose. You give thanks, then make your way onwards.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

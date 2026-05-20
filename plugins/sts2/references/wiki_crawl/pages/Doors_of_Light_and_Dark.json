@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Doors of Light and Dark",
+  "short_name": "Doors of Light and Dark",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Doors of Light and Dark</span>",
+  "fetched_at": "2026-05-20T06:17:18Z",
+  "wikitext_chars": 1120,
+  "wikitext": "{{Event Header|StS2 Doors of Light And Dark.png}}\n{{E|Doors of Light and Dark|2}} is an {{2|Events|Event}} found exclusively in the {{2|Underdocks}}.\n\n== Options ==\n{{Frame|Light Door}} {{TS|positive||[[Upgrade]] 2 random cards.}}\n<br>\n{{Frame|Dark Door}} {{TS|positive||Remove 1 card from Deck.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nA doorway existed where none existed moments before...\n\nYou enter to find two shimmering doorways and a well-dressed doorman.\n\"Finally, a visitor! Please please! Choose a door, any door!\"\n\nAre we still in the Spire? How is this place so clean?\n</div>\n\n{{Frame|Light Door}}\n<blockquote><div style=\"font-style:italic\">\nInto the light...\n\nIt's blinding!! But the light strengthens you.\n\nYou're back in the Underdocks.\nHow did you? Huh...?\n</div></blockquote>\n\n{{Frame|Dark Door}}\n<blockquote><div style=\"font-style:italic\">\nInto the darkness...\n\nYou see nothing.\nBut this helps you think... You shed pointless thoughts.\n\nYou're back in the Underdocks.\nHow did you? Huh...?\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

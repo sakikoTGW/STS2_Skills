@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Iron_Wave",
+  "short_name": "Iron_Wave",
+  "summary": "is a 1  cost   Card for the .",
+  "sections": {
+    "Interactions": [
+      "'s  is applied before its damage is dealt, which can potentially shield reactive damage from ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Iron Wave</span>",
+  "fetched_at": "2026-05-20T05:42:16Z",
+  "wikitext_chars": 611,
+  "wikitext": "{{Sequel Disambiguation}}{{Card Infobox|Iron Wave||2}} {{Keyword Infobox|Block|2}}\n{{C|Iron Wave||2}} is a 1 {{Icon|IE|2}} cost {{QueryLink|Cards|rarity:Common&color:Ironclad|Common|2}} {{QueryLink|Cards|type:Attack&color:Ironclad|Attack|2}} Card for the {{KW|Ironclad||2}}.\n== Interactions ==\n=== Order===\n*{{C|Iron Wave||2}}'s {{KW|Block||2}} is applied before its damage is dealt, which can potentially shield reactive damage from {{BD|Thorns||2}}.\n== Update History ==\n* '''Early Access v0.98'''\n** Added Iron Wave to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

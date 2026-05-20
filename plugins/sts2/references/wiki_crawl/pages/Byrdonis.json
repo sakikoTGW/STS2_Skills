@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Byrdonis",
+  "short_name": "Byrdonis",
+  "summary": "Byrdonis is an  found in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Byrdonis</span>",
+  "fetched_at": "2026-05-20T05:42:19Z",
+  "wikitext_chars": 836,
+  "wikitext": "{{Enemy Infobox|Byrdonis|2}}{{Keyword Infobox|Territorial|2}}\n'''Byrdonis''' is an {{2|Elites|Elite}} found in the {{2|Overgrowth}}.\n\n== Pattern ==\n{{Intents|Byrdonis|2}}\nByrdonis alternates between its two moves in a fixed pattern:\n# {{Int|Byrdonis|Swoop||2}}.\n# {{Int|Byrdonis|Peck||2}}.\n# Back to {{Int|Byrdonis|Swoop||2}}, and so on.\n\n== Notes ==\n* {{Int|Byrdonis|Peck||2}} hits 3 times, so each point of {{BD|Strength||2}} adds 3 extra damage total on Peck turns.\n\n== Version History ==\n* '''Early Access v0.103.0 (BETA) '''\n** Nerfed '''Byrdonis''': HP reduced from 91(99)-94(99) to 81(90)-84(90)\n\n* '''Early Access v0.100.0 (BETA)'''\n** Buffed '''Byrdonis''': Swoop attack damage increased from 16(18) -> 17(19)\n\n* '''Early Access v0.98'''\n** Added Byrdonis to the game.\n\n[[Category:Elites]]\n[[Category:Slay the Spire 2 Content]]"
+}

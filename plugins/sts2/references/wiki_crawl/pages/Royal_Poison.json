@@ -1,0 +1,18 @@
+{
+  "page": "Slay_the_Spire_2:Royal Poison",
+  "short_name": "Royal Poison",
+  "summary": "Can only be obtained from  by selecting the  option.",
+  "sections": {
+    "Interactions": [
+      "Royal Poison's HP loss triggers .",
+      "Royal Poison's HP loss triggers .",
+      "reduces Royal Poison's HP loss by 1.",
+      "can reverses Royal Poison's HP loss.",
+      "Because  ''heals'' HP rather than prevents HP loss, it does ''not'' negate any of the other triggers listed above."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Royal Poison</span>",
+  "fetched_at": "2026-05-20T06:24:35Z",
+  "wikitext_chars": 841,
+  "wikitext": "{{Relic Infobox|Royal Poison|2}}{{R|Royal Poison||2}} is an {{QueryLink|Relics|rarity:Event|Event|2}} {{2|Relics|Relic}} from {{E|The Round Tea Party|2}}.\n\n== Sources ==\nCan only be obtained from {{E|The Round Tea Party|2}} by selecting the {{Frame|Enjoy Your Tea}} option. \n\n== Interactions ==\n*'''Royal Poison''''s HP loss triggers {{R|Centennial Puzzle||2}}.\n*'''Royal Poison''''s HP loss triggers {{R|Self-Forming Clay||2}}.\n*{{R|Tungsten Rod||2}} reduces '''Royal Poison''''s HP loss by 1.\n*{{R|Demon Tongue||2}} can reverses '''Royal Poison''''s HP loss.\n**Because {{R|Demon Tongue||2}} ''heals'' HP rather than prevents HP loss, it does ''not'' negate any of the other triggers listed above.\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Royal Poison to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]]"
+}

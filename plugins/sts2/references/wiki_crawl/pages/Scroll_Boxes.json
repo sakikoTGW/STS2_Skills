@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Scroll Boxes",
+  "short_name": "Scroll Boxes",
+  "summary": "is an  . Upon pickup, you lose all Gold and choose 1 of 2 packs of 3 cards to add to your Deck. Each pack contains 1 random  and 2 random . You must take one of the packs before proceeding. There is a 1% chance when playing  that one of the card packs is 3 copies of .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Scroll Boxes</span>",
+  "fetched_at": "2026-05-20T06:21:18Z",
+  "wikitext_chars": 758,
+  "wikitext": "{{Relic Infobox|Scroll Boxes|2}}\n{{R|Scroll Boxes||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}. Upon pickup, you lose all Gold and choose 1 of 2 packs of 3 cards to add to your Deck.\n\nEach pack contains 1 random {{QueryLink|Cards|rarity:Uncommon|Uncommon|2}} and 2 random {{QueryLink|Cards|rarity:Common|Commons|2}}. You must take one of the packs before proceeding.\n\nThere is a 1% chance when playing {{KW|Defect||2}} that one of the card packs is 3 copies of {{C|Claw||2}}.\n\n== Obtaining Scroll Boxes ==\nAt the start of the run, can be offered by {{KW|Neow||2}}.\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Scroll Boxes to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

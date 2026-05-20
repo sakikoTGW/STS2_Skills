@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Whistle",
+  "short_name": "Whistle",
+  "summary": "is a 3  cost    Card.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Whistle</span>",
+  "fetched_at": "2026-05-20T06:22:35Z",
+  "wikitext_chars": 1050,
+  "wikitext": "{{Card Infobox|Whistle||2|}}{{Keyword Infobox|Stunned|2}}{{Keyword Infobox|Exhaust|2}}\n{{C|Whistle||2}} is a 3 {{Icon|CE|2}} cost {{QueryLink|Cards|color:Colorless|Colorless|2}} {{QueryLink|Cards|rarity:Ancient|Ancient|2}} {{QueryLink|Cards|type:Attack|Attack|2}} Card. \n\n== Obtaining Whistle ==\nCan be obtained by taking {{R|Tanx's Whistle||2}} from {{KW|Tanx||2}}'s offering at the start of [[StS2:Acts#Act 3|Act 3]].\n\n== Notes ==\n*The turn after being {{KW|Stunned|Stunned|2}}, the enemy will generally repeat the [[Intent|Intent]] that was interrupted.\n**If an enemy has already {{KW|Stunned|Stunned|2}} itself that turn, or if {{C|Whistle||2}}'s damage triggers the enemy's {{KW|Stunned|Stun|2}} mechanic, {{C|Whistle||2}}'s {{KW|Stunned|Stun|2}} will not affect the enemy's intents.\n*Stuns the enemy even if it has {{BD|Artifact||2}}, as {{KW|Stunned|Stun|2}} is not treated as a debuff.\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Whistle to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

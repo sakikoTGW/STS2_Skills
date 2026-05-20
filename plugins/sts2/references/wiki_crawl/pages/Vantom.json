@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Vantom",
+  "short_name": "Vantom",
+  "summary": "The Vantom is a  found in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Vantom</span>",
+  "fetched_at": "2026-05-20T05:42:36Z",
+  "wikitext_chars": 938,
+  "wikitext": "{{Enemy Infobox|Vantom|2}}\n{{Power Infobox|Slippery|2}}\nThe '''Vantom''' is a {{2|Bosses|Boss}} found in the {{2|Overgrowth}}.\n\n== Pattern ==\n{{Intents|Vantom|2}}\nThe Vantom cycles through its four moves in a fixed order, repeating forever:\n# {{Int|Vantom|Ink Blot||2}}\n# {{Int|Vantom|Inky Lance||2}}\n# {{Int|Vantom|Dismember||2}}\n# {{Int|Vantom|Prepare||2}}\n\n== Notes ==\n* The Vantom begins combat with 9 stacks of {{BD|Slippery||2}}, which causes it to take only 1 HP of damage per hit for the first 9 times it loses HP. Multi-hit attacks are effective at removing {{BD|Slippery||2}} stacks quickly.\n* {{Int|Vantom|Prepare||2}} grants 2 {{BD|Strength||2}} each cycle, so the Vantom's damage increases steadily over the fight.\n* {{Int|Vantom|Dismember||2}} shuffles 3 {{C|Wound||2}} cards into your discard pile. {{C|Wound||2}} cards are {{KW|Unplayable||2}} and clog your hand.\n\n[[Category:Bosses]]\n[[Category:Slay the Spire 2 Content]]"
+}

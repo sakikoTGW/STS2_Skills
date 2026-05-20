@@ -1,0 +1,37 @@
+{
+  "screens": {
+    "map": {
+      "actions": ["choose_map_node"],
+      "brief_layer": "route"
+    },
+    "monster": {"actions": ["play_card", "end_turn", "use_potion"], "brief_layer": "combat"},
+    "elite": {"actions": ["play_card", "end_turn", "use_potion"], "brief_layer": "combat"},
+    "boss": {"actions": ["play_card", "end_turn", "use_potion"], "brief_layer": "combat"},
+    "hand_select": {"actions": ["select_card", "confirm", "cancel"], "brief_layer": "combat_or_upgrade"},
+    "rest_site": {
+      "actions": ["choose_rest_option", "proceed"],
+      "brief_layer": "rest"
+    },
+    "rewards": {
+      "actions": ["claim_reward", "proceed", "select_card_reward"],
+      "brief_layer": "rewards"
+    },
+    "shop": {"actions": ["menu_select", "proceed"], "brief_layer": "shop"},
+    "event": {
+      "actions": ["choose_event_option", "advance_dialogue", "proceed"],
+      "brief_layer": "event_or_ancient"
+    },
+    "treasure": {"actions": ["claim_treasure_relic", "proceed"], "brief_layer": "treasure"},
+    "card_reward": {"actions": ["select_card_reward", "skip_card_reward"], "brief_layer": "card_pick"},
+    "crystal_sphere": {
+      "actions": ["crystal_sphere_click_cell", "crystal_sphere_proceed"],
+      "brief_layer": "crystal"
+    }
+  },
+  "agent_loop": [
+    "sts2_get_state(summary=true)",
+    "读 play_brief：进阶/流程/界面专用块 + 战斗算数",
+    "sts2_act 单动作",
+    "战斗屏：同回合可多次 act 直至能量用尽"
+  ]
+}

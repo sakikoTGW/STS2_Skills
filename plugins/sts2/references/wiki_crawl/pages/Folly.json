@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Folly",
+  "short_name": "Folly",
+  "summary": "can only be obtained by taking  from 's offering at the start of , which allows you to remove 3 cards from your Deck.",
+  "sections": {
+    "Interactions": [
+      "allows you to discard it away at the start of combat, meaning you won't draw it until after the first shuffle.",
+      ", , and  draw you additional cards on your first turn, lessening the impact of an   in your starting hand."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Folly</span>",
+  "fetched_at": "2026-05-20T06:22:52Z",
+  "wikitext_chars": 1823,
+  "wikitext": "{{Card Infobox|Folly||2|}}{{Keyword Infobox|Unplayable|2}}{{Keyword Infobox|Ethereal|2}}{{Keyword Infobox|Innate|2}}{{Keyword Infobox|Eternal|2}}\n{{C|Folly||2}} is an {{KW|Unplayable||2}}, {{KW|Innate||2}}, {{KW|Eternal||2}} {{QueryLink|Cards|type:Curse|Curse|2}} Card.\n\n== Obtaining Folly ==\n{{C|Folly||2}} can only be obtained by taking {{R|Preserved Fog||2}} from {{KW|Vakuu||2}}'s offering at the start of {{2|Acts#Act 3|Act 3}}, which allows you to remove 3 cards from your Deck.\n\n== Interactions ==\n=== Synergies ===\nAs {{C|Folly||2}} is a {{QueryLink|Cards|type:Curse|Curse|2}}, {{R|Darkstone Periapt||2}} will give 6 Max HP when obtaining it.\n\nAs {{C|Folly||2}} is {{KW|Innate||2}}, the downside of having it can be mitigated:\n* {{R|Gambling Chip||2}} allows you to discard it away at the start of combat, meaning you won't draw it until after the first shuffle.\n* {{R|Ring of the Snake||2}}, {{R|Ring of the Drake||2}}, and {{R|Bag of Preparation||2}} draw you additional cards on your first turn, lessening the impact of an {{KW|Innate||2}} {{QueryLink|Cards|type:Curse|Curse|2}} in your starting hand.\n\n=== Anti-Synergies ===\n* {{R|Bellows||2}} will have one less card it can potentially {{KW|Upgrade||2}}.\n* As {{C|Clash||2}} can only be played when all cards in your hand are {{QueryLink|Cards|type:Attack|Attacks}}, if it is drawn at the same time as {{C|Folly||2}}, it cannot be played.\n\n== Trivia ==\n\n* The card art for Folly is a reference to the myth of [https://en.wikipedia.org/wiki/Sisyphus Sisyphus].\n\n== Update History ==\n* '''Early Access v0.103.2'''\n**BETA changes incorporated into main branch.\n* '''Early Access v0.100.0 (BETA)'''\n** Folly curse is now Ethereal.\n\n*'''Early Access v0.98'''\n**Added Folly to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

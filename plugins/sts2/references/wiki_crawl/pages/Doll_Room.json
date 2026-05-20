@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Doll Room",
+  "short_name": "Doll Room",
+  "summary": "is an  found exclusively in the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Doll Room</span>",
+  "fetched_at": "2026-05-20T06:17:48Z",
+  "wikitext_chars": 1703,
+  "wikitext": "{{Event Header|StS2_Doll Room.png}}\n{{E|Doll Room|2}} is an {{2|Events|Event}} found exclusively in the {{2|Hive}}.\n\nThe relic pool is:\n* {{R|Bing Bong||2}}\n* {{R|Daughter of the Wind||2}}\n* {{R|Mr. Struggles||2}}\n\n== Options ==\n{{Frame|Pick at Random}} {{TS|positive||Obtain a random Doll Relic}}\n<br>\n{{Frame|Take Some Time}} {{TS|negative||Lose 5 HP}}. {{TS|positive||Choose {{TS|blue||1}} of {{TS|blue||2}} Doll Relics}}\n<br>\n{{Frame|Examine Each and Make the Best Choice}} {{TS|negative||Lose 15 HP}}. {{TS|positive||Choose {{TS|blue||1}} of {{TS|blue||3}} Doll Relics}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nYou enter a hidden room...\n\nIt's packed with an array of dolls. Each are unique, their expressions ranging from {{TS|green||joy}} to {{TS|purple||sorrow}}, their attire spanning centuries and realms beyond your own.\n\nA {{TS|blue|up|chorus of whispers}} grows louder and louder until {{TS|red|shake|the dolls are shouting}} over each other and calling for you...\n\nYou must choose one and leave immediately.\n</div>\n\n{{Frame|Pick at Random}}\n<blockquote><div style=\"font-style:italic\">\n\n</div></blockquote>\n\n{{Frame|Take Some Time}}\n<blockquote><div style=\"font-style:italic\">\nAmid the shouting, you quickly examine the dolls.\n\nOne of these two may be good?\nIt's hard to concentrate through the {{TS|red||mental anguish}}.\n</div></blockquote>\n\n{{Frame|Examine Each and Make the Best Choice}}\n<blockquote><div style=\"font-style:italic\">\n\n</div></blockquote>\nA warm voice happily fills your head.\n{{TS|orange|up|\"We are going to uncover the most delightful stories together!\"}}\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]\n[[Category:ToUpdate]]"
+}

@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Greed",
+  "short_name": "Greed",
+  "summary": "Can only be obtained by taking  from 's offering at the start of the run (for 333 Gold) or from the event  (for 303-363 Gold).",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Greed</span>",
+  "fetched_at": "2026-05-20T06:20:58Z",
+  "wikitext_chars": 969,
+  "wikitext": "{{Card Infobox|Greed||2}}{{Keyword Infobox|Unplayable|2}}{{Keyword Infobox|Eternal|2}}\n{{C|Greed||2}} is an {{KW|Unplayable||2}} and {{KW|Eternal||2}} {{QueryLink|Cards|type:Curse|Curse|2}} Card.\n\n== Obtaining Greed ==\nCan only be obtained by taking {{R|Cursed Pearl||2}} from {{KW|Neow||2}}'s offering at the start of the run (for 333 Gold) or from the event {{E|Sunken Treasury|2}} (for 303-363 Gold).\n\n== Interactions ==\n\n== Trivia ==\n<!-- Include any relevant trivia here, including confirmed references by the devs (Example, Conjure Blade's beta art being Gilgamesh's NP Gate of Babylon from Fate, and different internal names (Example, Alchemize being called Venomology internally). Please do add sources for any trivia you add here!\n\nDo not add subjective opinion here like \"xyz card is considered bad\".\n-->\n\n== Update History ==\n*'''Early Access v0.98'''\n**Added Greed to the game.\n\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

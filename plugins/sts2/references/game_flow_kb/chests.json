@@ -1,0 +1,20 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Map_Locations#Treasure_Room",
+  "gold_range": [
+    10,
+    20
+  ],
+  "gold_range_ascension_3": [
+    8,
+    15
+  ],
+  "guaranteed_mid_act": true,
+  "default_drops": [
+    "relic"
+  ],
+  "agent_hints": [
+    "宝箱房：点击宝箱开奖励窗，默认遗物+金币",
+    "每幕中途必有一间宝箱房",
+    "银坩埚等遗物会改变宝箱内容"
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "sts2wiki",
+      "title": "STS2 Wiki 构筑总览",
+      "url": "https://slaythespire-2.com/zh/builds"
+    },
+    {
+      "id": "gamersky",
+      "title": "游民星空 卡组构筑工具",
+      "url": "https://www.gamersky.com/tools/sts2bd/"
+    },
+    {
+      "id": "sts2front",
+      "title": "sts2front 角色构筑",
+      "url": "https://sts2front.com/zh-cn/builds/ironclad/"
+    }
+  ],
+  "characters": {
+    "IRONCLAD": {
+      "archetypes": [
+        {
+          "id": "strength",
+          "name": "力量成长",
+          "tier": "S",
+          "core_cards": ["DEMON_FORM", "INFLAME", "BURNING", "LIMIT_BREAK", "HEAVY_BLADE", "TWIN_STRIKE", "CLEAVE", "OFFERING"],
+          "key_relics": ["VAJRA", "SHURIKEN", "RED_SKULL"],
+          "pick": "见恶魔形态/燃烧/烙印定轴；多段攻+重刀；少拿纯防除非会死；拒绝冲突/狂乱打击污染。",
+          "combat": "先挂能力再输出；力量转伤害；有斩杀线且整战战损可接受才集火。",
+          "skip_cards": ["CONFLICT", "WILD_STRIKE", "STRIKE_IRONCLAD", "DEFEND_IRONCLAD"]
+        },
+        {
+          "id": "block",
+          "name": "壁垒格挡",
+          "tier": "A",
+          "core_cards": ["BARRICADE", "BODY_SLAM", "ENTRENCH", "METALLICIZE", "SHRUG_OFF", "FLAME_BARRIER", "TRUE_GRIT", "IMPERVIOUS"],
+          "key_relics": ["CALIPERS", "BRONZE_SCALES"],
+          "pick": "壁垒+全身撞击为核心；无壁垒时勿纯堆防；耸肩/铁波/金属化优先。",
+          "combat": "叠防跨回合再撞击；Buff 意图日可转伤；注意穿透类伤害绕过格挡。",
+          "skip_cards": []
+        },
+        {
+          "id": "exhaust",
+          "name": "消耗引擎",
+          "tier": "S",
+          "core_cards": ["CORRUPTION", "DARK_EMBRACE", "FEEL_NO_PAIN", "SECOND_WIND", "TRUE_GRIT", "EXHUME"],
+          "key_relics": ["CHARONS_ASHES", "DEAD_BRANCH"],
+          "pick": "腐化+黑暗拥抱+无痛三件套再扩；牌组压到15-20张；枯枝类遗物可改轴。",
+          "combat": "技能0费循环补牌叠防；消耗越多灰烬打击类收益越高。",
+          "skip_cards": []
+        },
+        {
+          "id": "self_harm",
+          "name": "自伤破裂",
+          "tier": "B",
+          "core_cards": ["RUPTURE", "HELLFIRE", "BLOODLETTING", "BRAND", "OFFERING"],
+          "key_relics": ["SELF_FORMING_CLAY", "RED_SKULL"],
+          "pick": "撕裂+狱火+烙印/祭品；高进阶慎选；靠燃烧之血续航。",
+          "combat": "自伤换力与AOE；血线低于50%更脆，需防爆发精英。",
+          "skip_cards": []
+        },
+        {
+          "id": "perfect",
+          "name": "完美打击",
+          "tier": "B",
+          "core_cards": ["PERFECT_STRIKE", "PERFECTED_STRIKE", "TWIN_STRIKE", "SWORD_BOOMERANG"],
+          "key_relics": [],
+          "pick": "少删打击；拿生成打击的牌；其余位补抽牌与过渡防。",
+          "combat": "打击数量=伤害；勿过早删光打击。",
+          "skip_cards": []
+        },
+        {
+          "id": "vulnerable",
+          "name": "易伤处决",
+          "tier": "A",
+          "core_cards": ["BASH", "BULLY", "UPPERCUT", "SHOCKWAVE", "POMMEL_STRIKE"],
+          "key_relics": ["PAPER_PHROG"],
+          "pick": "作力量轴的增幅层更稳；痛击+残忍；勿为易伤牺牲基础伤害牌。",
+          "combat": "易伤层数×伤害；Paper Phrog 时收益极高。",
+          "skip_cards": []
+        }
+      ]
+    },
+    "SILENT": {
+      "archetypes": [
+        {"id": "poison", "name": "中毒", "tier": "S", "core_cards": ["POISONED", "DEADLY_POISON", "BOUNCING_POTION", "CATALYST", "Noxious Fumes"], "pick": "毒雾+催化剂；生存优先", "combat": "叠毒勿急杀，防爆发回合"},
+        {"id": "shiv", "name": "飞刀", "tier": "A", "core_cards": ["BLADE_DANCE", "ACCURACY", "CLOAK_AND_DAGGER", "INFINITE_BLADES"], "pick": "刀刃之舞+精准", "combat": "0费刀连击"},
+        {"id": "sly", "name": "奇巧", "tier": "S", "core_cards": ["TACTICIAN", "ACROBATICS", "TOOLS_OF_THE_TRADE"], "pick": "弃牌循环+Sly", "combat": "过牌密度优先"}
+      ]
+    },
+    "DEFECT": {
+      "archetypes": [
+        {"id": "lightning", "name": "闪电球", "tier": "S", "core_cards": ["BALL_LIGHTNING", "ELECTRODYNAMICS", "ECHO_FORM", "DEFRAGMENT"], "pick": "充能+专注", "combat": "被动AOE滚雪球"},
+        {"id": "claw", "name": "爪击", "tier": "S", "core_cards": ["CLAW", "ALL_FOR_ONE", "SCRAPE", "WILDNESS"], "pick": "0费循环", "combat": "爪永久成长"},
+        {"id": "frost", "name": "冰霜", "tier": "A", "core_cards": ["GLACIER", "COLD_SNAP", "CHILL"], "pick": "冰球+格挡", "combat": "拖回合磨血"}
+      ]
+    }
+  },
+  "layer_threats": [
+    {
+      "acts": [1],
+      "floors_max": 16,
+      "enemies": ["GREMLIN_NOB", "LAGAVULIN", "SENTRY", "SENTRIES"],
+      "names": ["地精大块头", "Lagavulin", "哨卫"],
+      "counter": "大块头：须快速叠伤或易伤，勿拖；哨卫：平衡击杀顺序防集体攻击；蹲坐怪：先营火或速杀"
+    },
+    {
+      "acts": [1],
+      "floors_max": 16,
+      "enemies": ["JAW_WORM", "LOUSE", "SLIME"],
+      "names": ["颚虫", "虱子", "史莱姆"],
+      "counter": "颚虫：注意其力量成长意图，优先在它 Buff 前收尾；史莱姆分裂：AOE 或先杀大的"
+    },
+    {
+      "acts": [2],
+      "floors_max": 33,
+      "enemies": ["BOOK_OF_STABBING", "CENTURION", "CHOSEN"],
+      "names": ["刺书", "百夫长", "精英信徒"],
+      "counter": "刺书：防多段；百夫长+信徒：先处理信徒或控场，防仪式成长"
+    },
+    {
+      "acts": [3],
+      "floors_max": 50,
+      "enemies": ["REPTOMANCER", "GIANT_HEAD", "TIME_EATER"],
+      "names": ["驯蛇师", "大头", "时间吞噬者"],
+      "counter": "驯蛇师：优先蛇或本体按机制；时间吞噬者：按回合循环规划，勿贪回合"
+    },
+    {
+      "acts": [1, 2, 3],
+      "boss": true,
+      "enemies": ["BOSS"],
+      "names": ["Boss"],
+      "counter": "战前营火/满药；按 Boss 机制留关键牌，勿用光资源进 Boss"
+    }
+  ]
+}

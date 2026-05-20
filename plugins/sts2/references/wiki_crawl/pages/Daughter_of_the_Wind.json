@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Daughter of the Wind",
+  "short_name": "Daughter of the Wind",
+  "summary": "is an   from the  event. Whenever you play an , it will give 1 .",
+  "sections": {
+    "Interactions": [
+      "When attacking an enemy with , the  will be gained after taking damage from ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Daughter of the Wind</span>",
+  "fetched_at": "2026-05-20T06:24:22Z",
+  "wikitext_chars": 684,
+  "wikitext": "{{Relic Infobox|Daughter of the Wind|2}}\n{{R|Daughter of the Wind||2}} is an {{QueryLink|Relics|rarity:Event|Event|2}} {{2|Relics|Relic}} from the {{E|Doll Room|2}} event. Whenever you play an {{QueryLink|Cards|type:Attack|Attack|2}}, it will give 1 {{KW|Block||2}}.\n\n== Sources ==\nCan only be obtained from the {{E|Doll Room|2}} event. \n\n== Interactions ==\n=== Order ===\n*When attacking an enemy with {{KW|Thorns||2}}, the {{KW|Block||2}} will be gained after taking damage from {{KW|Thorns||2}}.\n\n== Trivia ==\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Daughter of the Wind to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

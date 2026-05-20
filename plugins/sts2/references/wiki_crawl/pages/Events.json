@@ -1,0 +1,20 @@
+{
+  "page": "Slay_the_Spire_2:Events",
+  "short_name": "Events",
+  "summary": "Events are unique encounters that present the player with a scenario and asks them to make a choice on how they wish to handle that scenario. Events are only encountered in . Each  has a set of events that can only occur in that Act, but there are also events which can occur in multiple Acts. The player must choose one of the available options to be able to proceed to the next floor. If one of the standard options is unavailable for some reason, it will be greyed out. If one of the options is lethal (i.e. costs more HP than the player currently has) the option is still available but presented with a red outline. This allows for triggering e.g. .",
+  "sections": {},
+  "tables": [
+    [
+      "color=var(--highlight-color-watcher)"
+    ],
+    [
+      "icon=EventClear.png",
+      "message=''This is information about Events in Slay the Spire 2. A full searchable list can be found at [[StS2:Events List",
+      "Events List (Slay the Spire 2)]].''}}"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Events</span>",
+  "fetched_at": "2026-05-20T05:41:53Z",
+  "wikitext_chars": 1968,
+  "wikitext": "{{#setmainimage:StS2 Map-Event.png|quiet}}\n{{Sequel Disambiguation}}\n{{Ambox\n|color=var(--highlight-color-watcher)\n|icon=EventClear.png|message=''This is information about '''Events''' in Slay the Spire 2. A full searchable list can be found at [[StS2:Events List|Events List (Slay the Spire 2)]].''}}\n{{Under Construction}}\n\nEvents are unique encounters that present the player with a scenario and asks them to make a choice on how they wish to handle that scenario. Events are only encountered in {{2|Map Locations#Unknown|Unknown floors}}.\n\nEach {{2|Acts|Act}} has a set of events that can only occur in that Act, but there are also events which can occur in multiple Acts.\n\nThe player must choose one of the available options to be able to proceed to the next floor. If one of the standard options is unavailable for some reason, it will be greyed out. If one of the options is lethal (i.e. costs more HP than the player currently has) the option is still available but presented with a red outline. This allows for triggering e.g. {{R|Lizard Tail||2}}.\n\n== Encountering Events ==\nMany events have restrictions for encountering them such as the current amount of {{KW|Gold||2}} in the possession of the player. In {{2|Multiplayer}}, this condition has to be met by all players before the event can appear.\n\n== Types of Events ==\n* Combat event, e.g. {{E|The Lantern Key|2}}\n* Quests, e.g. {{E|The Legends Were True|2}}\n\n=== Multiplayer Events ===\nIn {{2|Multiplayer}}, some events are collaborative, meaning all players have to select the same option before proceeding. There exist no multiplayer exclusive events.\n*{{E|Battleworn Dummy|2}}\n*{{E|Dense Vegetation|2}}\n*{{E|The Merchant???|2}} (there are no event choices as such here, but the potential combat is shared)\n*{{E|Jungle Maze Adventure|2}}\n*{{E|Morphic Grove|2}}\n*{{E|Punch Off|2}}\n*{{E|The Lantern Key|2}}\n*{{E|War Historian, Repy|2}}\n\n\n[[Category:Game Mechanics]]\n[[Category:Slay the Spire 2 Content]]"
+}

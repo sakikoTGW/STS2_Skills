@@ -1,0 +1,15 @@
+{
+  "page": "Slay_the_Spire_2:Glitter",
+  "short_name": "Glitter",
+  "summary": "is an  . After pickup, every card reward is Enchanted with .",
+  "sections": {
+    "Interactions": [
+      "If the player purchased  ''before'' they received Glitter, each card reward will feature one card with  1 and two cards with .",
+      "However if  is purchased ''after'' receiving Glitter, then ''all'' cards will have ."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Glitter</span>",
+  "fetched_at": "2026-05-20T06:22:18Z",
+  "wikitext_chars": 852,
+  "wikitext": "{{Relic Infobox|Glitter|2}}{{Keyword Infobox|Glam|2}}{{R|Glitter||2}} is an {{QueryLink|Relics|rarity:Ancient|Ancient|2}} {{2|Relics|Relic}}. After pickup, every card reward is [[Slay the Spire 2:Enchantments|Enchanted]] with {{KW|Glam||2}}.\n\n== Sources ==\nAt the start of {{2|Acts#Act 3|Act 3}}, '''Glitter''' can be offered by {{KW|Nonupeipe||2}}.\n\n== Interactions ==\n=== Neutral ===\n*If the player purchased {{R|Wing Charm||2}} ''before'' they received '''Glitter''', each card reward will feature one card with {{KW|Swift||2}} 1 and two cards with {{KW|Glam||2}}.\n**However if {{R|Wing Charm||2}} is purchased ''after'' receiving '''Glitter''', then ''all'' cards will have {{KW|Glam||2}}.\n\n== Update History ==\n\n*'''Early Access v0.98'''\n**Added Glitter to the game.\n\n[[Category:ToUpdate]] [[Category:Relics]] [[Category:Slay the Spire 2 Content]]"
+}

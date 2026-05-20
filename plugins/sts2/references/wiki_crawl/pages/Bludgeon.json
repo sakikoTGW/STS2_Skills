@@ -1,0 +1,14 @@
+{
+  "page": "Slay_the_Spire_2:Bludgeon",
+  "short_name": "Bludgeon",
+  "summary": "is a 3  cost   Card for the . It deals 32 (42 if upgraded) damage.",
+  "sections": {
+    "Interactions": [
+      "grants 4  whenever  is played."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Bludgeon</span>",
+  "fetched_at": "2026-05-20T05:42:05Z",
+  "wikitext_chars": 582,
+  "wikitext": "{{Sequel Disambiguation}}{{Card Infobox|Bludgeon||2}}\n{{C|Bludgeon||2}} is a 3 {{Icon|IE|2}} cost {{QueryLink|Cards|rarity:Uncommon&character:Ironclad|Uncommon|2}} {{QueryLink|Cards|type:Attack&character:Ironclad|Attack|2}} Card for the {{KW|Ironclad||2}}. It deals 32 (42 if upgraded) damage.\n== Interactions ==\n=== Synergies ===\n* {{R|Intimidating Helmet||2}} grants 4 {{KW|Block||2}} whenever {{C|Bludgeon||2}} is played.\n== Update History ==\n* '''Early Access v0.98'''\n** Added Bludgeon to the game.\n[[Category:Cards]] [[Category:Slay the Spire 2 Content]]\n[[Category:ToUpdate]]"
+}

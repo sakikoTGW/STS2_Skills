@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Battleworn Dummy",
+  "short_name": "Battleworn Dummy",
+  "summary": "is an  found exclusively in . It is a combat event.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Battleworn Dummy</span>",
+  "fetched_at": "2026-05-20T06:18:07Z",
+  "wikitext_chars": 1485,
+  "wikitext": "{{Event Header|StS2 Battleworn Dummy.png}}\n{{E|Battleworn Dummy|2}} is an {{2|Events|Event}} found exclusively in {{2|Glory}}. It is a combat event.\n\n== Options ==\n{{Frame|Setting 1}} Fight a 75 HP {{2|Battle Friend V1.0|dummy}}. {{TS|positive||Procure 1 random {{2|Potions|Potion}}.}}\n<br>\n{{Frame|Setting 2}} Fight a 150 HP {{2|Battle Friend V2.0|dummy}}. {{TS|positive||[[Upgrade]] 2 random cards.}}\n<br>\n{{Frame|Setting 3}} Fight a 300 HP {{2|Battle Friend V3.0|dummy}}. {{TS|positive||Obtain a random {{2|Relics|Relic}}.}}\n* You have 3 turns to defeat the dummy. Failing results in no reward.\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nAs you approach, it begins to rumble and fizzle and lights up brilliantly!\n\n\"BZZZT! TIME TO TRAIN!!! YOU HAVE 3 TURNS TO DEFEAT ME!\nCHOOSE A SETTING OR FACE LETHAL HUMILIATION.\nHere are the options:\"\n\nAfter the terrifying message, the dummy carefully reads out detailed instructions.\n\nWhat do you choose?\n</div>\n\n{{Frame|Victory}}\n<blockquote><div style=\"font-style:italic\">\n\"YOU PASS THE TRAINING!\nYOU ARE NOW EQUIPPED TO DEFEND THIS FACTORY AGAINST INTRUDERS!! BE SURE TO HYDRATE AFTER TRAINING SESSIONS!\"\n</div></blockquote>\n\n{{Frame|Defeat}}\n<blockquote><div style=\"font-style:italic\">\n\"YOU ARE WEAK!!\nHUMILIATION HAS BEEN ADMINISTERED!\"\n\nThe dummy is silent for a moment and—\n\n\"Choose a lower setting next time. Have a nice day.\"\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

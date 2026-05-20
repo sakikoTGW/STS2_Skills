@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:Bone Tea",
+  "short_name": "Bone Tea",
+  "summary": "is an   from the  event. After pickup, it will  your starting hand at the start of the next combat.",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Bone Tea</span>",
+  "fetched_at": "2026-05-20T06:24:17Z",
+  "wikitext_chars": 843,
+  "wikitext": "{{Relic Infobox|Bone Tea|2}}{{Keyword Infobox|Upgrade|2}}\n{{R|Bone Tea||2}} is an {{QueryLink|Relics|rarity:Event|Event|2}} {{2|Relics|Relic}} from the {{E|Tea Master|2}} event. After pickup, it will {{KW|Upgrade||2}} your starting hand at the start of the next combat.\n\n== Sources ==\nCan only be obtained from the {{E|Tea Master|2}} event by selecting the {{Frame|Bone Tea}} option and paying 50 Gold. \n\n== Interactions ==\n=== Order ===\n{{R|Bone Tea||2}} {{KW|Upgrade|Upgrades|2}} the hand after the {{R|Radiant Pearl||2}} creates {{C|Luminesce||2}}, but ''before'' the {{R|Fencing Manual||2}} {{KW|Forge|Forges|2}} (so {{C|Sovereign Blade||2}} will not be affected).\n\n== Trivia ==\n\n== Update History ==\n* '''Early Access v0.98'''\n** Added Bone Tea to the game.\n\n[[Category:Relics]] [[Category:Slay the Spire 2 Content]] [[Category:ToUpdate]]"
+}

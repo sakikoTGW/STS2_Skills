@@ -1,0 +1,70 @@
+{
+  "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Ascension",
+  "max_level": 10,
+  "cumulative": true,
+  "levels": {
+    "1": {
+      "name": "Swarming Elites",
+      "name_zh": "蜂拥精英",
+      "effect": "精英出现约+60%"
+    },
+    "2": {
+      "name": "Weary Traveler",
+      "name_zh": "疲惫旅人",
+      "effect": "先古回血仅恢复缺失生命的80%（含开局 Neow）",
+      "ancient_heal_missing_ratio": 0.8
+    },
+    "3": {
+      "name": "Poverty",
+      "name_zh": "贫困",
+      "effect": "敌人和宝箱金币-25%",
+      "gold_drop_multiplier": 0.75
+    },
+    "4": {
+      "name": "Tight Belt",
+      "name_zh": "紧腰带",
+      "effect": "药水栏-1",
+      "potion_slots_delta": -1
+    },
+    "5": {
+      "name": "Ascender's Bane",
+      "name_zh": "进阶者之灾",
+      "effect": "牌组加入进阶者之灾（诅咒）",
+      "starts_with_curse": "ASCENDERS_BANE"
+    },
+    "6": {
+      "name": "Inflation",
+      "name_zh": "通货膨胀",
+      "effect": "商人删牌首价100金，每次+50（非减营火）",
+      "merchant_remove_base_cost": 100,
+      "merchant_remove_increment": 50
+    },
+    "7": {
+      "name": "Scarcity",
+      "name_zh": "稀缺",
+      "effect": "稀有/已升级牌出现率减半（含战斗奖励与商店）",
+      "rare_rate_multiplier": 0.5
+    },
+    "8": {
+      "name": "Tough Enemies",
+      "name_zh": "强敌",
+      "effect": "敌人生命提高"
+    },
+    "9": {
+      "name": "Deadly Enemies",
+      "name_zh": "致命敌人",
+      "effect": "敌人伤害提高"
+    },
+    "10": {
+      "name": "Double Boss",
+      "name_zh": "双 Boss",
+      "effect": "第三幕打两个 Boss",
+      "act3_double_boss": true
+    }
+  },
+  "notes": [
+    "进阶效果累加：选 N 则含 1..N 全部效果",
+    "营火 Rest 不受进阶影响（wiki Rest Sites v0.103.2）",
+    "进阶2 只影响先古/Neow 类回血，不影响营火 30% 治疗"
+  ]
+}

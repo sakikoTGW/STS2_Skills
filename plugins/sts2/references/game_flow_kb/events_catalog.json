@@ -1,0 +1,1523 @@
+{
+  "wiki_list": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Events_List",
+  "count": 58,
+  "entries": {
+    "SELF_HELP_BOOK": {
+      "id": "SELF_HELP_BOOK",
+      "name": "Self-Help Book",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Self-Help Book",
+      "act_region": "",
+      "summary": "is an  that can occur in any .",
+      "options": [
+        {
+          "label": "Read the Back",
+          "outcomes": [],
+          "raw": "Choose an  to  with  2."
+        },
+        {
+          "label": "Read a Random Passage",
+          "outcomes": [],
+          "raw": "Choose a  to  with  2."
+        },
+        {
+          "label": "Read the Entire Book",
+          "outcomes": [],
+          "raw": "Choose a  to  with  2."
+        },
+        {
+          "label": "Move On",
+          "outcomes": [],
+          "raw": "* Options are only available if you have a valid card to apply the enchantment to. Move On is only available if you have no valid cards."
+        }
+      ]
+    },
+    "SLIPPERY_BRIDGE": {
+      "id": "SLIPPERY_BRIDGE",
+      "name": "Slippery Bridge",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Slippery Bridge",
+      "act_region": "",
+      "summary": "is an  that can be found in any .",
+      "options": [
+        {
+          "label": "Overcome",
+          "outcomes": [],
+          "raw": "[Specific card] is removed from your deck."
+        },
+        {
+          "label": "Hold On",
+          "outcomes": [
+            "Lose 3 HP."
+          ],
+          "raw": "The card in the above option is randomized."
+        }
+      ]
+    },
+    "THE_FUTURE_OF_POTIONS": {
+      "id": "THE_FUTURE_OF_POTIONS",
+      "name": "The Future of Potions?",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Future of Potions?",
+      "act_region": "",
+      "summary": "is an  that can be found in any .",
+      "options": [
+        {
+          "label": "Insert Common Potion",
+          "outcomes": [
+            "Lose a specified Common {{2|Potions|potion",
+            "Obtain an {{KW|Upgrade|Upgraded|2"
+          ],
+          "raw": ".}}   [/] card reward.}}"
+        },
+        {
+          "label": "Insert Uncommon Potion",
+          "outcomes": [
+            "Lose a specified Uncommon potion.",
+            "Obtain an Upgraded {{QueryLink|Cards|rarity:Uncommon|Uncommon|2"
+          ],
+          "raw": "[Attack/Skill/] card reward.}}"
+        },
+        {
+          "label": "Insert Rare Potion",
+          "outcomes": [
+            "Lose a specified Rare potion.",
+            "Obtain an Upgraded {{QueryLink|Cards|rarity:Rare|Rare|2"
+          ],
+          "raw": "[Attack/Skill/Power] card reward.}}"
+        },
+        {
+          "label": "Insert Event Potion",
+          "outcomes": [
+            "Lose a specified Event potion.",
+            "Obtain an Upgraded Rare [Attack/Skill/Power] card reward."
+          ],
+          "raw": "* The only Event potions are  and ."
+        },
+        {
+          "label": "Insert Token Potion",
+          "outcomes": [
+            "Lose a specified Token potion.",
+            "Obtain an Upgraded Common [Attack/Skill] card reward."
+          ],
+          "raw": "* The only Token potion is ."
+        }
+      ]
+    },
+    "THIS_OR_THAT": {
+      "id": "THIS_OR_THAT",
+      "name": "This or That?",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/This or That?",
+      "act_region": "",
+      "summary": "Arms suddenly jut out from a nearby hole, clutching a  and a clearly . a scratched-up voice whispers from below. You grab the bag and as soon as you do, a  appears and clutches at you!! After a , it releases—the arms and the hole have vanished. You grab the . As soon as you grasp it, shackles materialize on your wrists. You hear a  and a bright  fills your vision! The hole and arms are gone.",
+      "options": [
+        {
+          "label": "This",
+          "outcomes": [
+            "Lose 6 HP.",
+            "Gain 57 {{2|Gold"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "That",
+          "outcomes": [
+            "Obtain a random {{2|Relic"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "ABYSSAL_BATHS": {
+      "id": "ABYSSAL_BATHS",
+      "name": "Abyssal Baths",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Abyssal Baths",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Immerse",
+          "outcomes": [
+            "2",
+            "3"
+          ],
+          "raw": "Gain  Max HP. Take  damage. * After immersing, additional stages follow with escalating damage:"
+        },
+        {
+          "label": "Linger",
+          "outcomes": [
+            "2"
+          ],
+          "raw": "Gain  Max HP. Take  damage ()."
+        },
+        {
+          "label": "Exit Baths",
+          "outcomes": [],
+          "raw": "can be chosen at any stage to leave."
+        },
+        {
+          "label": "Abstain",
+          "outcomes": [
+            "10"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "AROMA_OF_CHAOS": {
+      "id": "AROMA_OF_CHAOS",
+      "name": "Aroma of Chaos",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Aroma of Chaos",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Let Go",
+          "outcomes": [
+            "{{2|Transform"
+          ],
+          "raw": "a card in your Deck.}}"
+        },
+        {
+          "label": "Maintain Control",
+          "outcomes": [
+            "{{2|Upgrade"
+          ],
+          "raw": "a card in your Deck.}}"
+        }
+      ]
+    },
+    "BRAIN_LEECH": {
+      "id": "BRAIN_LEECH",
+      "name": "Brain Leech",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Brain Leech",
+      "act_region": "",
+      "summary": "is an  that can occur in the , the , and the .",
+      "options": [
+        {
+          "label": "Share Knowledge",
+          "outcomes": [
+            "Choose 1 of 5 random cards to add to your deck."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Rip the Leech Off",
+          "outcomes": [
+            "Lose 5 HP.",
+            "Gain a {{QueryLink|Cards|color:Colorless|Colorless|2"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "BYRDONIS_NEST": {
+      "id": "BYRDONIS_NEST",
+      "name": "Byrdonis Nest",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Byrdonis Nest",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Eat the Egg",
+          "outcomes": [
+            "Gain 7 Max HP."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Take the Egg",
+          "outcomes": [
+            "Add {{C|Byrdonis Egg||2"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "DENSE_VEGETATION": {
+      "id": "DENSE_VEGETATION",
+      "name": "Dense Vegetation",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Dense Vegetation",
+      "act_region": "Overgrowth",
+      "summary": "is an  found in the .",
+      "options": [
+        {
+          "label": "Trudge On",
+          "outcomes": [
+            "Remove a card from Deck.",
+            "Lose 11 HP.",
+            "Gain 64 gold",
+            "Lose 8 HP."
+          ],
+          "raw": "One of the following options is randomly offered:"
+        },
+        {
+          "label": "Rest",
+          "outcomes": [
+            "Heal HP (rest site amount).",
+            "Fight 4 {{2|Wriggler"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "DOORS_OF_LIGHT_AND_DARK": {
+      "id": "DOORS_OF_LIGHT_AND_DARK",
+      "name": "Doors of Light and Dark",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Doors of Light and Dark",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Light Door",
+          "outcomes": [
+            "Upgrade 2 random cards."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Dark Door",
+          "outcomes": [
+            "Remove 1 card from Deck."
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "DROWNING_BEACON": {
+      "id": "DROWNING_BEACON",
+      "name": "Drowning Beacon",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Drowning Beacon",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Bottle",
+          "outcomes": [
+            "Procure 1 {{P|Glowwater Potion||2"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Climb",
+          "outcomes": [
+            "Lose 13 Max HP.",
+            "Obtain {{R|Fresnel Lens||2"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "ENDLESS_CONVEYOR": {
+      "id": "ENDLESS_CONVEYOR",
+      "name": "Endless Conveyor",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Endless Conveyor",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Grab Something Off the Belt",
+          "outcomes": [
+            "Pay 40 {{2|Gold",
+            "Receive a random dish (see below)."
+          ],
+          "raw": "* After each grab, you may continue grabbing or Leave."
+        },
+        {
+          "label": "Observe the Chef",
+          "outcomes": [
+            "{{2|Upgrade"
+          ],
+          "raw": "Each grab serves a random dish from the belt (40 Gold each, except Golden Fysh which is free): {| class=\"wikitable\" style=\"width: 650px;\" * The same dish cannot appear twice in a row. * Requires at least 120  on every player to appear."
+        }
+      ]
+    },
+    "JUNGLE_MAZE_ADVENTURE": {
+      "id": "JUNGLE_MAZE_ADVENTURE",
+      "name": "Jungle Maze Adventure",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Jungle Maze Adventure",
+      "act_region": "Overgrowth",
+      "summary": "is an  found in the .",
+      "options": [
+        {
+          "label": "Solo Quest",
+          "outcomes": [
+            "Gain 135-165 Gold.",
+            "Lose 18 HP."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Join Forces",
+          "outcomes": [
+            "Gain 35-65 Gold."
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "LUMINOUS_CHOIR": {
+      "id": "LUMINOUS_CHOIR",
+      "name": "Luminous Choir",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Luminous Choir",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Reach into the Flesh",
+          "outcomes": [
+            "Remove 2 cards from Deck.",
+            "Add {{C|Spore Mind||2"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Offer Tribute",
+          "outcomes": [
+            "Pay 99-149 Gold.",
+            "Obtain a random {{2|Relics|Relic"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "MORPHIC_GROVE": {
+      "id": "MORPHIC_GROVE",
+      "name": "Morphic Grove",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Morphic Grove",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Group",
+          "outcomes": [
+            "Lose ALL of your Gold.",
+            "{{2|Transform"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Loner",
+          "outcomes": [
+            "Gain 5 Max HP."
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "PUNCH_OFF": {
+      "id": "PUNCH_OFF",
+      "name": "Punch Off",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Punch Off",
+      "act_region": "",
+      "summary": "is an  found exclusively in the . It is a combat event.",
+      "options": [
+        {
+          "label": "Nab",
+          "outcomes": [
+            "Add {{C|Injury||2",
+            "Obtain a random {{2|Relics|Relic"
+          ],
+          "raw": "(curse) to Deck.}} .}}"
+        },
+        {
+          "label": "I Can Take Them",
+          "outcomes": [],
+          "raw": "Enter combat against 2  for greater rewards. * Obtain a random , a random , and a standard combat reward."
+        }
+      ]
+    },
+    "ROOM_FULL_OF_CHEESE": {
+      "id": "ROOM_FULL_OF_CHEESE",
+      "name": "Room Full of Cheese",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Room Full of Cheese",
+      "act_region": "Overgrowth",
+      "summary": "is an  found in the , the , and the .",
+      "options": [
+        {
+          "label": "Gorge",
+          "outcomes": [
+            "Choose 2 of 8 random {{QueryLink|Cards|rarity:Common|Common|2"
+          ],
+          "raw": "cards to add to your Deck.}} * The 8 cards will not contain any duplicates."
+        },
+        {
+          "label": "Search",
+          "outcomes": [
+            "Lose 14 HP.",
+            "Obtain {{R|The Chosen Cheese||2"
+          ],
+          "raw": "* : At the end of combat, gain 1 Max HP."
+        }
+      ]
+    },
+    "SAPPHIRE_SEED": {
+      "id": "SAPPHIRE_SEED",
+      "name": "Sapphire Seed",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sapphire Seed",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Consume",
+          "outcomes": [
+            "Heal 9 HP.",
+            "Upgrade a card in your Deck."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Plant and Nourish",
+          "outcomes": [
+            "{{KW|Enchant||2"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "SPIRALING_WHIRLPOOL": {
+      "id": "SPIRALING_WHIRLPOOL",
+      "name": "Spiraling Whirlpool",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Spiraling Whirlpool",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Observe",
+          "outcomes": [
+            "{{KW|Enchant||2"
+          ],
+          "raw": "a Basic  or  with .}}"
+        },
+        {
+          "label": "Drink",
+          "outcomes": [
+            "Heal 33% of Max HP."
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "SUNKEN_TREASURY": {
+      "id": "SUNKEN_TREASURY",
+      "name": "Sunken Treasury",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Sunken Treasury",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "First Chest",
+          "outcomes": [
+            "Gain 52-68 Gold."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Second Chest",
+          "outcomes": [
+            "Gain 303-363 Gold.",
+            "Add {{C|Greed||2"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "TABLET_OF_TRUTH": {
+      "id": "TABLET_OF_TRUTH",
+      "name": "Tablet of Truth",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Tablet of Truth",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Smash",
+          "outcomes": [
+            "20"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Decipher",
+          "outcomes": [
+            "3",
+            "Upgrade",
+            "6",
+            "Upgrade",
+            "12",
+            "Upgrade",
+            "24",
+            "Upgrade"
+          ],
+          "raw": "Lose  Max HP. |2}} a random card. * If Decipher is chosen, additional stages follow with escalating costs: ** Stage 2: Lose  Max HP. |2}} a random card. ** Stage 3: Lose  Max HP. |2}} a random card. ** Stage 4: Lose  Max HP. |2}} a random card. ** Stage 5: Lose  Max HP. |2}} ALL cards in your deck."
+        },
+        {
+          "label": "Give Up",
+          "outcomes": [],
+          "raw": "can be chosen at any stage to leave."
+        }
+      ]
+    },
+    "TEA_MASTER": {
+      "id": "TEA_MASTER",
+      "name": "Tea Master",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Tea Master",
+      "act_region": "",
+      "summary": "is an  found exclusively in the ,  and .",
+      "options": [
+        {
+          "label": "Bone Tea",
+          "outcomes": [
+            "Pay 50 Gold.",
+            "At the start of the next combat, Upgrade your starting hand."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Ember Tea",
+          "outcomes": [
+            "Pay 150 Gold.",
+            "At the start of the next 5 combats, gain 2 Strength."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Tea of Discourtesy",
+          "outcomes": [
+            "At the start of the next combat, shuffle 2 Dazed into your Draw Pile."
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "THE_LEGENDS_WERE_TRUE": {
+      "id": "THE_LEGENDS_WERE_TRUE",
+      "name": "The Legends Were True",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Legends Were True",
+      "act_region": "",
+      "summary": "is an   that can occur in the  and the .",
+      "options": [
+        {
+          "label": "Nab the Map",
+          "outcomes": [
+            "{{C|Spoils Map||2"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Slowly Find an Exit",
+          "outcomes": [
+            "8",
+            "1",
+            "{{2|Potion"
+          ],
+          "raw": "Lose  HP. Procure  random }}."
+        }
+      ]
+    },
+    "THE_SUNKEN_STATUE": {
+      "id": "THE_SUNKEN_STATUE",
+      "name": "The Sunken Statue",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Sunken Statue",
+      "act_region": "Overgrowth",
+      "summary": "is an  found in the  and the .",
+      "options": [
+        {
+          "label": "Grab the Sword",
+          "outcomes": [
+            "Obtain {{R|Sword of Stone||2"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Dive into the Water",
+          "outcomes": [
+            "Gain 101-121 Gold.",
+            "Lose 7 HP."
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "TRASH_HEAP": {
+      "id": "TRASH_HEAP",
+      "name": "Trash Heap",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Trash Heap",
+      "act_region": "",
+      "summary": "is an  found exclusively in the . It is unlocked after accumulating enough score to unlock the \"Cultists\" timeline event.",
+      "options": [
+        {
+          "label": "Dive In",
+          "outcomes": [
+            "Lose 8 HP.",
+            "Obtain a random {{2|Relics|Relic"
+          ],
+          "raw": "* Relic pool: , , , , ."
+        },
+        {
+          "label": "Grab Random Junk",
+          "outcomes": [
+            "Gain 100 Gold.",
+            "Obtain a random card."
+          ],
+          "raw": "* Card pool: , , , , , , , , , ."
+        }
+      ]
+    },
+    "UNREST_SITE": {
+      "id": "UNREST_SITE",
+      "name": "Unrest Site",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Unrest Site",
+      "act_region": "",
+      "summary": "is an  found exclusively in the . This event only appears if the player's HP is at or below 70% of their Max HP.",
+      "options": [
+        {
+          "label": "Rest Anyways",
+          "outcomes": [
+            "Heal to full HP.",
+            "Receive {{C|Poor Sleep||2"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Kill the Trees",
+          "outcomes": [
+            "Lose 8 Max HP.",
+            "Obtain a random {{2|Relics|Relic"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "WATERLOGGED_SCRIPTORIUM": {
+      "id": "WATERLOGGED_SCRIPTORIUM",
+      "name": "Waterlogged Scriptorium",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Waterlogged Scriptorium",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Bloody Ink",
+          "outcomes": [
+            "Gain 6 Max HP."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Tentacle Quill",
+          "outcomes": [
+            "Pay 55 Gold.",
+            "{{KW|Enchant||2"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Prickly Sponge",
+          "outcomes": [
+            "Pay 99 Gold.",
+            "{{KW|Enchant||2"
+          ],
+          "raw": "* Tentacle Quill and Prickly Sponge are locked if you don't have enough Gold."
+        }
+      ]
+    },
+    "WELLSPRING": {
+      "id": "WELLSPRING",
+      "name": "Wellspring",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Wellspring",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Bottle",
+          "outcomes": [
+            "Procure 1 random {{2|Potions|Potion"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Bathe",
+          "outcomes": [
+            "Remove 1 card from Deck.",
+            "Add 1 {{C|Guilty||2"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "WHISPERING_HOLLOW": {
+      "id": "WHISPERING_HOLLOW",
+      "name": "Whispering Hollow",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Whispering Hollow",
+      "act_region": "",
+      "summary": "is an  found exclusively in the . This event only appears if the player has at least 50 Gold.",
+      "options": [
+        {
+          "label": "Exchange Gold",
+          "outcomes": [
+            "Lose 50 Gold.",
+            "Procure 2 random {{2|Potions|Potions"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Hug the Tree",
+          "outcomes": [
+            "Lose 9 HP.",
+            "Choose a card to {{2|Transform"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "WOOD_CARVINGS": {
+      "id": "WOOD_CARVINGS",
+      "name": "Wood Carvings",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Wood Carvings",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Bird",
+          "outcomes": [
+            "Choose 1 starter card to {{2|Transform"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Snake",
+          "outcomes": [
+            "{{KW|Enchant||2"
+          ],
+          "raw": "1 card with .}} (Locked if no cards can be enchanted with Slither)"
+        },
+        {
+          "label": "Torus",
+          "outcomes": [
+            "Choose 1 starter card to {{2|Transform"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "AMALGAMATOR": {
+      "id": "AMALGAMATOR",
+      "name": "Amalgamator",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Amalgamator",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Combine Strikes",
+          "outcomes": [
+            "Remove 2 {{C|Strike (Ironclad)|Strikes|2",
+            "Add {{C|Ultimate Strike||2"
+          ],
+          "raw": ".}}  to your Deck.}}"
+        },
+        {
+          "label": "Combine Defends",
+          "outcomes": [
+            "Remove 2 {{C|Defend (Ironclad)|Defends|2",
+            "Add {{C|Ultimate Defend||2"
+          ],
+          "raw": ".}}  to your Deck.}}"
+        }
+      ]
+    },
+    "BUGSLAYER": {
+      "id": "BUGSLAYER",
+      "name": "Bugslayer",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bugslayer",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Learn Extermination Technique",
+          "outcomes": [
+            "Add {{C|Exterminate||2"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Learn Squash Technique",
+          "outcomes": [
+            "Add {{C|Squash||2"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "COLORFUL_PHILOSOPHERS": {
+      "id": "COLORFUL_PHILOSOPHERS",
+      "name": "Colorful Philosophers",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Colorful Philosophers",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Red",
+          "outcomes": [
+            "Obtain 3 {{2|Ironclad"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Green",
+          "outcomes": [
+            "Obtain 3 {{2|Silent"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Blue",
+          "outcomes": [
+            "Obtain 3 {{2|Defect"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Pink",
+          "outcomes": [
+            "Obtain 3 {{2|Necrobinder"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Orange",
+          "outcomes": [
+            "Obtain 3 {{2|Regent"
+          ],
+          "raw": "*If the player has  and/or : **If the player has , then regardless of the option chosen, the resulting card rewards will include cards from ''all'' the characters, including the current character. **If the player has , the resulting card rewards will include  cards in addition to cards of the chosen color. **If the player has  ''and'' , then whichever Relic was picked up ''first'' will impose its"
+        }
+      ]
+    },
+    "COLOSSAL_FLOWER": {
+      "id": "COLOSSAL_FLOWER",
+      "name": "Colossal Flower",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Colossal Flower",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Extract Nectar",
+          "outcomes": [
+            "Gain 35 Gold."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Reach Deeper",
+          "outcomes": [
+            "Lose 5 HP."
+          ],
+          "raw": "Advance to the next level."
+        },
+        {
+          "label": "Extract Nectar",
+          "outcomes": [],
+          "raw": ""
+        },
+        {
+          "label": "Reach Deeper",
+          "outcomes": [
+            "Lose 6 HP."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Extract Nectar",
+          "outcomes": [],
+          "raw": ""
+        },
+        {
+          "label": "Enter the Center",
+          "outcomes": [
+            "Lose 7 HP.",
+            "Obtain {{R|Pollinous Core||2"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "CRYSTAL_SPHERE": {
+      "id": "CRYSTAL_SPHERE",
+      "name": "Crystal Sphere",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Crystal Sphere",
+      "act_region": "",
+      "summary": "is an  found exclusively in the  and .",
+      "options": [
+        {
+          "label": "Uncover Future",
+          "outcomes": [
+            "Pay 80 Gold.",
+            "Divine 3 times."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Payment Plan",
+          "outcomes": [
+            "Gain a Debt.",
+            "Divine 6 times."
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "DOLL_ROOM": {
+      "id": "DOLL_ROOM",
+      "name": "Doll Room",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Doll Room",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Pick at Random",
+          "outcomes": [
+            "Obtain a random Doll Relic"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Take Some Time",
+          "outcomes": [
+            "Lose 5 HP",
+            "Choose {{TS|blue||1",
+            "2"
+          ],
+          "raw": ".  of  Doll Relics}}"
+        },
+        {
+          "label": "Examine Each and Make the Best Choice",
+          "outcomes": [
+            "Lose 15 HP",
+            "Choose {{TS|blue||1",
+            "3"
+          ],
+          "raw": ".  of  Doll Relics}}"
+        }
+      ]
+    },
+    "BING_BONG": {
+      "id": "BING_BONG",
+      "name": "Bing Bong",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Bing Bong",
+      "act_region": "",
+      "summary": "is an   from the  event. Whenever you add a card to your Deck, it will add one additional copy.",
+      "options": []
+    },
+    "DAUGHTER_OF_THE_WIND": {
+      "id": "DAUGHTER_OF_THE_WIND",
+      "name": "Daughter of the Wind",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Daughter of the Wind",
+      "act_region": "",
+      "summary": "is an   from the  event. Whenever you play an , it will give 1 .",
+      "options": []
+    },
+    "MR_STRUGGLES": {
+      "id": "MR_STRUGGLES",
+      "name": "Mr. Struggles",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Mr. Struggles",
+      "act_region": "",
+      "summary": "is an   from the  event. At the start of your turn, it deals damage equal to the turn number to ALL enemies.",
+      "options": []
+    },
+    "FIELD_OF_MAN_SIZED_HOLES": {
+      "id": "FIELD_OF_MAN_SIZED_HOLES",
+      "name": "Field of Man-Sized Holes",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Field of Man-Sized Holes",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Enter Your Hole",
+          "outcomes": [
+            "Enchant a card with {{KW|Perfect Fit||2"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Resist",
+          "outcomes": [
+            "Remove 2 cards from your Deck.",
+            "Add {{C|Normality||2"
+          ],
+          "raw": "(curse) to your Deck.}}"
+        }
+      ]
+    },
+    "INFESTED_AUTOMATON": {
+      "id": "INFESTED_AUTOMATON",
+      "name": "Infested Automaton",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Infested Automaton",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Study",
+          "outcomes": [
+            "Obtain a random Power."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Touch the Core",
+          "outcomes": [
+            "Obtain a random 0 cost card."
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "RANWID_THE_ELDER": {
+      "id": "RANWID_THE_ELDER",
+      "name": "Ranwid the Elder",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Ranwid the Elder",
+      "act_region": "",
+      "summary": "is an  found exclusively in .",
+      "options": [
+        {
+          "label": "Give <specific> Potion",
+          "outcomes": [
+            "Obtain a random {{2|Relics|Relic"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Give 100 Gold",
+          "outcomes": [
+            "Obtain a random {{2|Relics|Relic"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Give <specific Relic>",
+          "outcomes": [
+            "Obtain 2 random {{2|Relics|Relics"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "SPIRIT_GRAFTER": {
+      "id": "SPIRIT_GRAFTER",
+      "name": "Spirit Grafter",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Spirit Grafter",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Let It In",
+          "outcomes": [
+            "Heal 25 HP.",
+            "Add {{C|Metamorphosis||2"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Rejection",
+          "outcomes": [
+            "Lose 9 HP.",
+            "Remove 1 card from your Deck."
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "SYMBIOTE": {
+      "id": "SYMBIOTE",
+      "name": "Symbiote",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Symbiote",
+      "act_region": "",
+      "summary": "is an  found exclusively in the  and .",
+      "options": [
+        {
+          "label": "Approach",
+          "outcomes": [
+            "{{KW|Enchant||2"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Kill with Fire",
+          "outcomes": [
+            "Chose a card to {{KW|Transform||2"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "THE_LANTERN_KEY": {
+      "id": "THE_LANTERN_KEY",
+      "name": "The Lantern Key",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Lantern Key",
+      "act_region": "",
+      "summary": "is an  found exclusively in the . It is a combat event. The  can be used in the  event in Act 3.",
+      "options": [
+        {
+          "label": "Return the Key",
+          "outcomes": [
+            "Gain 100 Gold."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Keep the Key",
+          "outcomes": [],
+          "raw": "Enter combat against a  for the  card."
+        }
+      ]
+    },
+    "THE_LOST_WISP": {
+      "id": "THE_LOST_WISP",
+      "name": "The Lost Wisp",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Lost Wisp",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Capture the Wisp",
+          "outcomes": [
+            "Add {{C|Decay||2",
+            "Obtain the {{R|Lost Wisp||2"
+          ],
+          "raw": "(curse) to Deck.}}  (relic).}}"
+        },
+        {
+          "label": "Search the Nearby Area",
+          "outcomes": [
+            "Gain 45-75 Gold."
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "THE_MERCHANT": {
+      "id": "THE_MERCHANT",
+      "name": "The Merchant???",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Merchant???",
+      "act_region": "Hive",
+      "summary": "is an  found in the  and the . It first appears as a normal  encounter, but instead sells a set of knock-off .",
+      "options": []
+    },
+    "WELCOME_TO_WONGO_S": {
+      "id": "WELCOME_TO_WONGO_S",
+      "name": "Welcome to Wongo's",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Welcome to Wongo's",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Wongo's Bargain Bin",
+          "outcomes": [
+            "Pay 100 Gold.",
+            "Obtain 1 random Common {{2|Relics|Relic"
+          ],
+          "raw": "* Player also receives 32 Wongo Points."
+        },
+        {
+          "label": "Wongo's Featured Item",
+          "outcomes": [
+            "Pay 200 Gold.",
+            "Obtain [Rare Relic]."
+          ],
+          "raw": "* This relic is randomly selected from the rare relics in the standard relic pool, and will be displayed by name in the event option. * Player also receives 8 Wongo Points."
+        },
+        {
+          "label": "Wongo's Mystery Box",
+          "outcomes": [
+            "Pay 300 Gold.",
+            "Obtain 3 random Relics after 5 combats."
+          ],
+          "raw": "* Player also receives 16 Wongo Points."
+        },
+        {
+          "label": "Leave",
+          "outcomes": [
+            "Downgrade a random card."
+          ],
+          "raw": "After any purchase, the player will receive Wongo Points based on which purchase they selected. Wongo Points persist between all of the player's runs on their profile (across all characters), and the event text will display how many total Wongo Points the player has after making a purchase, as well as how many more points are needed to reach 2000 total points. Once the player reaches 2000 total Wo"
+        }
+      ]
+    },
+    "ZEN_WEAVER": {
+      "id": "ZEN_WEAVER",
+      "name": "Zen Weaver",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Zen Weaver",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Breathing Techniques",
+          "outcomes": [
+            "Pay 50 Gold.",
+            "Add 2 {{C|Enlightenment||2"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Emotional Awareness",
+          "outcomes": [
+            "Pay 125 Gold.",
+            "Remove 1 card from your Deck."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Arachnid Acupuncture",
+          "outcomes": [
+            "Pay 250 Gold.",
+            "Remove 2 cards from your Deck."
+          ],
+          "raw": "* Emotional Awareness and Arachnid Acupuncture are locked if you don't have enough Gold."
+        }
+      ]
+    },
+    "BATTLEWORN_DUMMY": {
+      "id": "BATTLEWORN_DUMMY",
+      "name": "Battleworn Dummy",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Battleworn Dummy",
+      "act_region": "",
+      "summary": "is an  found exclusively in . It is a combat event.",
+      "options": [
+        {
+          "label": "Setting 1",
+          "outcomes": [
+            "Procure 1 random {{2|Potions|Potion"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Setting 2",
+          "outcomes": [
+            "Upgrade 2 random cards."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Setting 3",
+          "outcomes": [
+            "Obtain a random {{2|Relics|Relic"
+          ],
+          "raw": "Fight a 300 HP . .}} * You have 3 turns to defeat the dummy. Failing results in no reward."
+        }
+      ]
+    },
+    "GRAVE_OF_THE_FORGOTTEN": {
+      "id": "GRAVE_OF_THE_FORGOTTEN",
+      "name": "Grave of the Forgotten",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Grave of the Forgotten",
+      "act_region": "",
+      "summary": "is an  found exclusively in .",
+      "options": [
+        {
+          "label": "Accept the Forgotten Soul",
+          "outcomes": [
+            "Obtain {{R|Forgotten Soul||2"
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Confront with Truth",
+          "outcomes": [
+            "Add {{C|Decay||2",
+            "{{KW|Enchant||2"
+          ],
+          "raw": "(curse) to your Deck.}}  a card that  with .}} * Confront is locked if you have no cards with  that can be ."
+        }
+      ]
+    },
+    "HUNGRY_FOR_MUSHROOMS": {
+      "id": "HUNGRY_FOR_MUSHROOMS",
+      "name": "Hungry for Mushrooms",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Hungry for Mushrooms",
+      "act_region": "",
+      "summary": "is an  found exclusively in .",
+      "options": [
+        {
+          "label": "Big Mushroom",
+          "outcomes": [
+            "Obtain {{R|Big Mushroom||2"
+          ],
+          "raw": "* : Upon pickup, raise your Max HP by 20. At the start of each combat, draw 2 fewer cards."
+        },
+        {
+          "label": "Fragrant Mushroom",
+          "outcomes": [
+            "Obtain {{R|Fragrant Mushroom||2"
+          ],
+          "raw": "* : Upon pickup, lose 15 HP and  3 random cards."
+        }
+      ]
+    },
+    "REFLECTIONS_SNOITCELFER": {
+      "id": "REFLECTIONS_SNOITCELFER",
+      "name": "Reflections snoitcelfeR",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Reflections snoitcelfeR",
+      "act_region": "",
+      "summary": "is an  found exclusively in .",
+      "options": [
+        {
+          "label": "Touch a Mirror",
+          "outcomes": [
+            "Downgrade 2 random cards.",
+            "Upgrade 4 random cards."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Shatter",
+          "outcomes": [
+            "Duplicate your entire Deck.",
+            "Add {{C|Bad Luck||2"
+          ],
+          "raw": "(curse) to your Deck.}}"
+        }
+      ]
+    },
+    "THE_ROUND_TEA_PARTY": {
+      "id": "THE_ROUND_TEA_PARTY",
+      "name": "The Round Tea Party",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Round Tea Party",
+      "act_region": "",
+      "summary": "is an  found exclusively in .",
+      "options": [
+        {
+          "label": "Enjoy Your Tea",
+          "outcomes": [
+            "Obtain {{R|Royal Poison||2",
+            "Heal to full HP."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "Pick a Fight",
+          "outcomes": [
+            "Lose 11 HP.",
+            "Obtain a random {{2|Relics|Relic"
+          ],
+          "raw": ""
+        }
+      ]
+    },
+    "THE_TRIAL": {
+      "id": "THE_TRIAL",
+      "name": "The Trial",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/The Trial",
+      "act_region": "",
+      "summary": "is an  found exclusively in .",
+      "options": [
+        {
+          "label": "DECIDE: Guilty",
+          "outcomes": [
+            "Add {{C|Regret||2",
+            "Obtain 2 random {{2|Relics|Relics"
+          ],
+          "raw": "(curse) to your Deck.}} .}}"
+        },
+        {
+          "label": "DECIDE: Innocent",
+          "outcomes": [
+            "Add {{C|Shame||2",
+            "{{2|Upgrade"
+          ],
+          "raw": "(curse) to your Deck.}}  2 cards.}}"
+        },
+        {
+          "label": "DECIDE: Guilty",
+          "outcomes": [
+            "Heal 10 HP."
+          ],
+          "raw": ""
+        },
+        {
+          "label": "DECIDE: Innocent",
+          "outcomes": [
+            "Add {{C|Regret||2",
+            "Gain 300 Gold."
+          ],
+          "raw": "(curse) to your Deck.}}"
+        },
+        {
+          "label": "DECIDE: Guilty",
+          "outcomes": [
+            "Add {{C|Doubt||2",
+            "Gain 2 card rewards."
+          ],
+          "raw": "(curse) to your Deck.}}"
+        },
+        {
+          "label": "DECIDE: Innocent",
+          "outcomes": [
+            "Add {{C|Doubt||2",
+            "{{2|Transform"
+          ],
+          "raw": "(curse) to your Deck.}}  2 cards.}}"
+        }
+      ]
+    },
+    "TINKER_TIME": {
+      "id": "TINKER_TIME",
+      "name": "Tinker Time",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Tinker Time",
+      "act_region": "",
+      "summary": "is an  found exclusively in .",
+      "options": [
+        {
+          "label": "Weapon",
+          "outcomes": [],
+          "raw": "Create an Attack. (Deal 12 damage.)"
+        },
+        {
+          "label": "Protector",
+          "outcomes": [],
+          "raw": "Create a Skill. (Gain 8 .)"
+        },
+        {
+          "label": "Gadget",
+          "outcomes": [],
+          "raw": "Two of the three types are offered at random."
+        }
+      ]
+    },
+    "WAR_HISTORIAN_REPY": {
+      "id": "WAR_HISTORIAN_REPY",
+      "name": "War Historian, Repy",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/War Historian, Repy",
+      "act_region": "",
+      "summary": "is an  found exclusively in the .",
+      "options": [
+        {
+          "label": "Unlock the Cage",
+          "outcomes": [
+            "Lantern Key",
+            "History Course"
+          ],
+          "raw": "Lose |2}}. Obtain |2}}."
+        },
+        {
+          "label": "Unlock the Chest",
+          "outcomes": [
+            "Lantern Key",
+            "2",
+            "Potions",
+            "2",
+            "Relics"
+          ],
+          "raw": "Lose |2}}. Procure  random }}. Obtain  random }}."
+        }
+      ]
+    },
+    "EVENTS": {
+      "id": "EVENTS",
+      "name": "Events",
+      "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2/Events",
+      "act_region": "",
+      "summary": "Events are unique encounters that present the player with a scenario and asks them to make a choice on how they wish to handle that scenario. Events are only encountered in . Each  has a set of events that can only occur in that Act, but there are also events which can occur in multiple Acts. The player must choose one of the available options to be able to proceed to the next floor. If one of the standard options is unavailable for some reason, it will be greyed out. If one of the options is le",
+      "options": []
+    }
+  },
+  "errors": [
+    "Slay_the_Spire_2:Potion Courier",
+    "Slay_the_Spire_2:Relic Trader",
+    "Slay_the_Spire_2:Stone of All Time"
+  ],
+  "errors_count": 3
+}

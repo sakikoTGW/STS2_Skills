@@ -1,0 +1,27 @@
+{
+  "page": "Slay_the_Spire_2:Lightning",
+  "short_name": "Lightning",
+  "summary": "are one of the most common types of damage-dealing Orbs the  can produce. Their Passive effect deals 3 (+1 per ) damage to a random enemy at the end of your turn. When , they deal 8 (+1 per ) damage to a random enemy.",
+  "sections": {
+    "Interactions": [
+      "Damage from Lightning orbs will not be affected by anything that affects damage from  cards, such as , , or .",
+      "large amounts of Lightning Orbs, along with extra orb slots from  or , will increase the damage gained from playing  on an enemy.",
+      "makes  Lightning Orbs deal an extra instance of 6 (8 when ) damage to the enemy that it hits.",
+      "can also be used to deal a large amount of damage by  all of your Orbs."
+    ],
+    "Sources": [
+      "-  1 .",
+      "-  1 .",
+      "- At the start of the next 2 turns,  1",
+      "-  1 random Orb.",
+      "- Whenever you play a ,  1 () .",
+      "-  X () .",
+      "-  1 .",
+      "-   equal to the  already  this combat."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Lightning</span>",
+  "fetched_at": "2026-05-20T06:18:30Z",
+  "wikitext_chars": 2229,
+  "wikitext": "{{Sequel Disambiguation}} {{Keyword Infobox|Lightning|2}}\n{{KW|Lightning|Lightning Orbs|2}} are one of the most common types of damage-dealing [[Orbs]] the {{KW|Defect||2}} can produce. Their [[StS2:Orbs#Passive|Passive]] effect deals 3 (+1 per {{BD|Focus||2}}) damage to a random enemy at the end of your turn. When {{KW|Evoke|Evoked|2}}, they deal 8 (+1 per {{BD|Focus||2}}) damage to a random enemy.\n\n== Sources ==\n=== Cards ===\n* {{C|Zap||2}} - {{KW|Channel||2}} 1 {{KW|Lightning||2}}.\n* {{C|Ball Lightning||2}} - {{KW|Channel||2}} 1 {{KW|Lightning||2}}.\n* {{C|Lightning Rod||2}} - At the start of the next 2 turns, {{BD|Lightning Rod|Channel|2}} 1 {{KW|Lightning||2}}\n* {{C|Chaos||2}} - {{KW|Channel||2}} 1 random Orb.\n* {{C|Storm||2}} - Whenever you play a {{QueryLink|Cards|color:Defect&type:Power|Power|2}}, {{BD|Storm|Channel|2}} 1 ({{TS|positive||2}}) {{KW|Lightning||2}}.\n* {{C|Tempest||2}} - {{KW|Channel||2}} X ({{TS|positive||X+1}}) {{KW|Lightning||2}}.\n* {{C|Rainbow||2}} - {{KW|Channel||2}} 1 {{KW|Lightning||2}}.\n* {{C|Voltaic||2}} - {{KW|Channel||2}} {{KW|Lightning||2}} equal to the {{KW|Lightning||2}} already {{KW|Channel|Channeled|2}} this combat.\n\n=== Relics ===\n* {{R|Cracked Core||2}} - At the start of each combat, {{KW|Channel||2}} 1 {{KW|Lightning||2}}.\n* {{R|Infused Core||2}} - At the start of each combat, {{KW|Channel||2}} 3 {{KW|Lightning||2}}.\n\n== Interactions ==\n=== Synergies ===\n* Damage from '''Lightning''' orbs will not be affected by anything that affects damage from {{QueryLink|Cards|type:Attack|Attack|2}} cards, such as {{BD|Weak||2}}, {{BD|Flying||2}}, or {{BD|Slow||2}}.\n* {{KW|Channel|Channeling|2}} large amounts of '''Lightning''' Orbs, along with extra orb slots from {{C|Capacitor||2}} or {{C|Modded}}, will increase the damage gained from playing {{C|Tesla Coil||2}} on an enemy.\n* {{C|Thunder||2}} makes {{KW|Evoke|Evoking|2}} '''Lightning''' Orbs deal an extra instance of 6 (8 when {{KW|Upgrade|Upgraded|2}}) damage to the enemy that it hits.\n* {{C|Shatter||2}} can also be used to deal a large amount of damage by {{KW|Evoke|Evoking|2}} all of your Orbs.\n\n=== Anti-Synergies ===\n* Any source of '''negative''' {{BD|Focus||2}} will make '''Lightning''' Orbs less effective."
+}

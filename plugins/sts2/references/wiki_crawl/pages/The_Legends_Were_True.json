@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:The Legends Were True",
+  "short_name": "The Legends Were True",
+  "summary": "is an   that can occur in the  and the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">The Legends Were True</span>",
+  "fetched_at": "2026-05-20T06:17:32Z",
+  "wikitext_chars": 1301,
+  "wikitext": "{{Event Header|StS2 The Legends Were True.png}}\n{{E|The Legends Were True|2}} is an {{2|Events|Event}}  that can occur in the {{2|Overgrowth}} and the {{2|Underdocks}}.\n== Options ==\n{{Frame|Nab the Map}} Receive the {{TS|gold||{{C|Spoils Map||2}}}}.\n\n{{Frame|Slowly Find an Exit}} Lose {{TS|negative||8}} HP. Procure {{TS|blue||1}} random {{TS|gold||{{2|Potion}}}}.\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic;\">\nEntering into a pitch dark chamber, a sudden light pierces the darkness<br/>from above, just as the door slams behind you.\n\nIlluminated before you apperas to be a podium with a map on it. You feel<br/>\ncompelled to take it.\n\nSuspicious.\n</div>\n\n{{Frame|Nab the Map}}\n<blockquote><div style=\"font-style:italic;\">\n\nWhat's the worst that could happen? As you grab the map, an opening<br/>appears before you on the other side of the room.\n</div></blockquote>\n\n{{Frame|Slowly Find an Exit}}\n<blockquote><div style=\"font-style:italic;\">\nAs you sneak around the dark, looking for a way out the room<br/>violently shake. With a sudden crash, the entire chamber collapses on<br/>\nyou.\n\nBarely making it out of the rubble, you find a vial of something useful that<br/> must have been hidden in the room.\n</div></blockquote>\n\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

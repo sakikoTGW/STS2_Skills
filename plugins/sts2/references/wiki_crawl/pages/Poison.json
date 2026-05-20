@@ -1,0 +1,31 @@
+{
+  "page": "Slay_the_Spire_2:Poison",
+  "short_name": "Poison",
+  "summary": "is a  that the  can apply to Enemies. At the beginning of its turn, an enemy with  will lose HP equal to its number of  stacks. Then, its  stack will decrease by 1. inflicts HP loss after the enemy's  is removed, and each  stack will negate all  applied by a single source.",
+  "sections": {
+    "Interactions": [
+      "will only have an effect when the target is .",
+      ":  Gain  equal to  on ALL enemies.",
+      ": Every 3 times you apply , deal 11(15) damage to ALL enemies.",
+      ": Poison is triggered 1(2) additional time(s).",
+      "''Debuff'' Synergies",
+      ": Inflicts 9(13) damage to an enemy whenever they receive a debuff from 's controller.",
+      ": Apply any debuffs on the enemy to ALL other enemies.",
+      ": Deals 5(8) additional damage for each unique debuff on an enemy."
+    ],
+    "Sources": [
+      ": 5(7) .",
+      ": 3(4) .",
+      ": 7(10) .",
+      ": 3  to a random enemy 3(4) times.",
+      ": If the enemy has , apply 9(12) .",
+      ": . 3(4)  to ALL enemies.",
+      ": 2(3)  each turn to all enemies.",
+      ": Whenever you draw a card this turn, apply 2(3)  to ALL enemies."
+    ]
+  },
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Poison</span>",
+  "fetched_at": "2026-05-20T05:41:26Z",
+  "wikitext_chars": 2843,
+  "wikitext": "{{Sequel Disambiguation}} {{Power Infobox|Poison|2}}\n{{BD|Poison||2}} is a {{2|Debuffs|Debuff}} that the {{KW|Silent||2}} can apply to Enemies.\n\nAt the beginning of its turn, an enemy with {{BD|Poison||2}} will lose HP equal to its number of {{BD|Poison||2}} stacks. Then, its {{BD|Poison||2}} stack will decrease by 1.\n\n{{BD|Poison||2}} inflicts HP loss after the enemy's {{KW|Block||2}} is removed, and each {{BD|Artifact||2}} stack will negate all {{BD|Poison||2}} applied by a single source. \n\n== Sources ==\n\n==== Cards ====\n* {{C|Deadly Poison||2}}: 5(7) {{BD|Poison||2}}.\n* {{C|Poisoned Stab||2}}: 3(4) {{BD|Poison||2}}.\n* {{C|Snakebite||2}}: 7(10) {{BD|Poison||2}}.\n* {{C|Bouncing Flask||2}}: 3 {{BD|Poison||2}} to a random enemy 3(4) times.\n* {{C|Bubble Bubble||2}}: If the enemy has {{BD|Poison||2}}, apply 9(12) {{BD|Poison||2}}.\n* {{C|Haze||2}}: {{KW|Sly||2}}. 3(4) {{BD|Poison||2}} to ALL enemies.\n* {{C|Noxious Fumes||2}}: 2(3) {{BD|Poison||2}} each turn to all enemies.\n* {{C|Corrosive Wave||2}}: Whenever you draw a card this turn, apply 2(3) {{BD|Poison||2}} to ALL enemies.\n* {{C|Envenom||2}}: 1(2) {{BD|Poison||2}} each unblocked attack.\n\n==== Relics ====\n* {{R|Snecko Skull||2}}: +1 {{BD|Poison||2}} whenever {{BD|Poison||2}} is applied. \n* {{R|Twisted Funnel||2}}: 4 {{BD|Poison||2}} to all enemies at the start of combat.\n\n==== Potions ====\n*{{P|Poison Potion||2}}: 6 {{BD|Poison||2}}.\n\n== Interactions ==\n=== Synergies ===\n* {{C|Bubble Bubble||2}} will only have an effect when the target is {{BD|Poison|Poisoned|2}}.\n* {{C|Mirage||2}}:  Gain {{KW|Block||2}} equal to {{BD|Poison||2}} on ALL enemies.\n* {{C|Outbreak||2}}: Every 3 times you apply {{BD|Poison||2}}, deal 11(15) damage to ALL enemies.\n* {{C|Accelerant||2}}: Poison is triggered 1(2) additional time(s).\n* ''[[Slay the Spire 2:Debuffs|Debuff]]'' Synergies\n** {{C|Sleight of Flesh||2}}: Inflicts 9(13) damage to an enemy whenever they receive a debuff from {{C|Sleight of Flesh||2}}'s controller.\n** {{C|Misery||2}}: Apply any debuffs on the enemy to ALL other enemies.\n** {{C|Rend||2}}: Deals 5(8) additional damage for each unique debuff on an enemy.\n** {{R|Unsettling Lamp||2}} doubles the first application of a [[Slay the Spire 2:Debuffs|Debuff]] via a played card during combat.\n===Other===\n{{KW|Intangible||2}} reduces ''all'' sources of HP loss to 1, including {{BD|Poison||2}}.\n\nAs {{BD|Poison||2}} applies at the start of the enemy's turn, it has some unusual interactions:\n* {{BD|Poison||2}} damage causes {{M|Lagavulin Matriarch||2}} to wake up, consuming its Stunned effect in the process.\n* If the enemy dies to {{BD|Poison||2}}, the card drawn by {{R|Gremlin Horn||2}} will be held until your next turn.\n* If an enemy with {{BD|Minion|Minions|2}} dies this way, its Minions will still flee combat before attacking.\n\n\n[[Category:Game Mechanics]]"
+}

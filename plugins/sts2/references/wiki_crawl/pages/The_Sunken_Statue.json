@@ -1,0 +1,10 @@
+{
+  "page": "Slay_the_Spire_2:The Sunken Statue",
+  "short_name": "The Sunken Statue",
+  "summary": "is an  found in the  and the .",
+  "sections": {},
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">The Sunken Statue</span>",
+  "fetched_at": "2026-05-20T06:17:33Z",
+  "wikitext_chars": 1434,
+  "wikitext": "{{Event Header|StS2 Sunken Statue.png}}\n{{E|The Sunken Statue|2}} is an {{2|Events|Event}} found in the {{2|Overgrowth}} and the {{2|Underdocks}}.\n\n== Options ==\n{{Frame|Grab the Sword}} {{TS|positive||Obtain {{R|Sword of Stone||2}} (relic).}}\n<br>\n{{Frame|Dive into the Water}} {{TS|positive||Gain 101-121 Gold.}} {{TS|negative||Lose 7 HP.}}\n\n== Dialogue ==\n<blockquote>\n<div style=\"font-style:italic\">\nYou spot an aged statue half submerged in a pond; its hands gently rest atop a {{TS|blue||stone sword}}.\n\nSomething is also {{TS|gold|up|glittering}} at the bottom of the pond.\nVotive offerings perhaps?\n\nYou could really use some money...\n</div>\n\n{{Frame|Grab the Sword}}\n<blockquote><div style=\"font-style:italic\">\nYou {{TS||up|wrest}} the {{TS|blue||sword}} out of the statue's hands and the whole thing crumbles apart!\n\nIt's too dangerous to pick up whatever was {{TS|gold|up|glittering}} at the bottom of the pond now...\n\nInspecting the {{TS|blue||sword}}, you sense an incredible {{TS|green||dormant power}} within.\n</div></blockquote>\n\n{{Frame|Dive into the Water}}\n<blockquote><div style=\"font-style:italic\">\nYou plunge deep into the water!\n\nWhile collecting the offerings you hear a dull echo and you're struck by stones!\n\nOnce you surface, you see that the old statue had crumbled due to your disturbance; physical and spiritual.\n</div></blockquote>\n</blockquote>\n[[Category:Events]]\n[[Category:Slay the Spire 2 Content]]"
+}

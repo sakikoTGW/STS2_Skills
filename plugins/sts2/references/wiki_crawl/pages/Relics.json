@@ -1,0 +1,64 @@
+{
+  "page": "Slay_the_Spire_2:Relics",
+  "short_name": "Relics",
+  "summary": "Relics are permanent items that give a passive bonus for the duration of the run. Most relics can be obtained regardless of the character you are playing. Each character has 9 Relics that can only be obtained by them. Starter Relics are given to each character when beginning a run. This starter relic can later be replaced with an upgraded  version by picking up the  from the   at the start of Act 2, when offered. {| class=\"wikitable\"",
+  "sections": {},
+  "tables": [
+    [
+      "color = var(--highlight-color-boss)"
+    ],
+    [
+      "icon = StS2_FresnelLens.png"
+    ],
+    [
+      "message = ''This is information about Relics in Slay the Spire. A full searchable list can be found at [[StS2:Relics List",
+      "Relics List (Slay the Spire 2)]].''"
+    ],
+    [
+      "+Starting Relics and Upgrades"
+    ],
+    [
+      "Ironclad"
+    ],
+    [
+      "{{R",
+      "Burning Blood",
+      "",
+      "2}}"
+    ],
+    [
+      "{{R",
+      "Black Blood",
+      "",
+      "2}}"
+    ],
+    [
+      "Silent"
+    ],
+    [
+      "{{R",
+      "Ring of the Snake",
+      "",
+      "2}}"
+    ],
+    [
+      "{{R",
+      "Ring of the Drake",
+      "",
+      "2}}"
+    ],
+    [
+      "Regent"
+    ],
+    [
+      "{{R",
+      "Divine Right",
+      "",
+      "2}}"
+    ]
+  ],
+  "display_title": "<span class=\"mw-page-title-namespace\">Slay the Spire 2</span><span class=\"mw-page-title-separator\">:</span><span class=\"mw-page-title-main\">Relics</span>",
+  "fetched_at": "2026-05-20T05:41:59Z",
+  "wikitext_chars": 2409,
+  "wikitext": "{{Sequel Disambiguation}}\n{{Ambox\n| color = var(--highlight-color-boss)\n| icon = StS2_FresnelLens.png\n| message = ''This is information about '''Relics''' in Slay the Spire. A full searchable list can be found at [[StS2:Relics List|Relics List (Slay the Spire 2)]].''\n}}\n\n{{Relic Infobox|Divine Right|2}}\nRelics are permanent items that give a passive bonus for the duration of the run. Most relics can be obtained regardless of the character you are playing. Each character has 9 Relics that can only be obtained by them.\n\nStarter Relics are given to each character when beginning a run. This starter relic can later be replaced with an upgraded {{QueryLink|Relics|rarity:Ancient|Ancient|2}} version by picking up the {{R|Touch of Orobas||2}} from the {{2|Ancients|Ancient}} {{KW|Orobas||2}} at the start of [[StS2:Acts#Act 2|Act 2]], when offered.\n{| class=\"wikitable\"\n|+Starting Relics and Upgrades\n!\n!Starter\n!Ancient Upgrade\n|-\n|Ironclad\n|{{R|Burning Blood||2}}\n|{{R|Black Blood||2}}\n|-\n|Silent\n|{{R|Ring of the Snake||2}}\n|{{R|Ring of the Drake||2}}\n|-\n|Regent\n|{{R|Divine Right||2}}\n|{{R|Divine Destiny||2}}\n|-\n|Necrobinder\n|{{R|Bound Phylactery||2}}\n|{{R|Phylactery Unbound||2}}\n|-\n|Defect\n|{{R|Cracked Core||2}}\n|{{R|Infused Core||2}}\n|}\n\n== Obtaining Relics ==\n* '''Relics''' can be obtained from a variety of sources including {{2|Elites}}, {{2|Chests}}, the {{2|Merchant}}, or using the {{R|Shovel||2}} at {{2|Rest Sites}}.\n* {{QueryLink|Relics|rarity:Ancient|Ancient Relics|2}} are only offered by {{2|Ancients}} at the beginning of each {{2|Acts|Act}}.\n* {{QueryLink|Relics|rarity:Shop|Shop Relics|2}} are only obtainable from the [[StS2:Merchant|Merchant]]. The third slot in the Merchant's relic offers is always stocked with a {{QueryLink|Relics|rarity:Shop|Shop Relic|2}}. There are 30 shop relics. Each character has 1 shop relic that is exclusive to them.\n* {{QueryLink|Relics|rarity:Event|Event Relics|2}} are obtained through {{2|Events}} and cannot be obtained by any other means.\n* {{QueryLink|Relics|rarity:Special|Special Relics|2}} '''only''' include the {{R|Circlet||2}} which is obtained by collecting or encountering every other relic available in a run. (Relics can only be encountered once in a run)\n\n== Spawn Restrictions ==\n* {{R|Juzu Bracelet||2}} will not spawn when using the {{2|Custom Mode}} modifier {{2|Custom Mode#DeadlyEvents|Deadly Events}}.\nTODO\n\n== Rarity ==\nTODO"
+}
