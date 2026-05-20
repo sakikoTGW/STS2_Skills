@@ -6,7 +6,7 @@ from typing import Any, Dict, Optional
 
 
 def next_menu_action(state: dict) -> Optional[Dict[str, Any]]:
-    """One menu/game_over action toward starting a standard Ironclad run."""
+    """One menu/game_over action toward starting a new run (character from config)."""
     st = str(state.get("state_type") or "")
     screen = str(state.get("menu_screen") or "").lower()
     from plugins.sts2.safe_parse import normalize_options, option_enabled, option_label
@@ -57,13 +57,11 @@ def next_menu_action(state: dict) -> Optional[Dict[str, Any]]:
     if "standard" in names:
         return {"action": "menu_select", "option": "standard"}
 
-    for o in opts:
-        if isinstance(o, dict) and o.get("is_locked"):
-            continue
-        opt = option_label(o)
-        low = opt.lower()
-        if "ironclad" in low or opt.upper() == "IRONCLAD":
-            return {"action": "menu_select", "option": opt}
+    from plugins.sts2.character_choice import pick_character_menu_action
+
+    picked = pick_character_menu_action(opts)
+    if picked:
+        return picked
 
     if "embark" in names:
         return {"action": "menu_select", "option": "embark"}

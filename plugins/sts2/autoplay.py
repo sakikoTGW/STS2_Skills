@@ -1070,7 +1070,7 @@ class AutoplayController:
         return False
 
     def _maybe_restart_run(self, state: Dict[str, Any]) -> bool:
-        """After game_over / post-run menu — click through to new Ironclad run."""
+        """After game_over / post-run menu — click through to a new run (configured character)."""
         from plugins.sts2.run_flow import in_run, menu_fingerprint, run_needs_restart
 
         st = str(state.get("state_type") or "")

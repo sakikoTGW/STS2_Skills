@@ -44,16 +44,29 @@ def register_cli(subparser: argparse.ArgumentParser) -> None:
 
     ap = subs.add_parser("autoplay", help="Background autoplay control")
     ap_sub = ap.add_subparsers(dest="autoplay_command", required=True)
-    ap_sub.add_parser("start", help="Start autoplay loop (rules, not LLM)")
+
+    def _character_arg(p: argparse.ArgumentParser) -> None:
+        p.add_argument(
+            "--character",
+            "-c",
+            default=None,
+            metavar="CHAR",
+            help="Character for new runs: ironclad, silent, defect, necrobinder, regent",
+        )
+
+    _character_arg(ap_sub.add_parser("start", help="Start autoplay loop (rules, not LLM)"))
     ap_sub.add_parser("stop", help="Stop autoplay / watch / learn")
     ap_sub.add_parser("status", help="Autoplay status")
     ap_sub.add_parser("watch", help="Spectate your manual play (action log)")
     ap_sub.add_parser("learn", help="Learn your style; ask when confused")
-    ap_sub.add_parser("study", help="Self-play with rules + cross-run lessons")
+    _character_arg(
+        ap_sub.add_parser("study", help="Self-play with rules + cross-run lessons")
+    )
     start_p = ap_sub.add_parser("step", help="Run one autoplay step")
     start_p.add_argument("--hint", default="", help="User hint for this step")
     sp = ap_sub.add_parser("run", help="Alias: start")
     sp.add_argument("--max-steps", type=int, default=None)
+    _character_arg(sp)
 
     inst = subs.add_parser(
         "install-mod",
@@ -215,7 +228,13 @@ def _cmd_mode() -> int:
 
 
 def _cmd_autoplay(args: argparse.Namespace) -> int:
+    import os
+
     from plugins.sts2.autoplay import get_controller
+
+    char = (getattr(args, "character", None) or "").strip()
+    if char:
+        os.environ["STS2_CHARACTER"] = char
 
     sub = getattr(args, "autoplay_command", "status")
     ctrl = get_controller()
@@ -314,6 +333,7 @@ def _cmd_status() -> int:
     lines = [
         f"Hermes home: {display_hermes_home()}",
         f"STS2 base_url: {cfg.get('base_url')}",
+        f"character: {cfg.get('character', 'IRONCLAD')}",
         f"commentary: {cfg.get('commentary')}",
         f"autoplay: {cfg.get('autoplay')}",
     ]

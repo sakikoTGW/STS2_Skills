@@ -37,7 +37,18 @@ Copy `skills/slay-the-spire-2/` into:
 
 Reload the plugin / skill manager in WebUI.
 
-## 4. Tool names
+## 4. Character selection
+
+Add to `~/.config/sts2/config.yaml` or the MCP `env` block:
+
+```yaml
+sts2:
+  character: necrobinder
+```
+
+Values: `ironclad`, `silent`, `defect`, `necrobinder`, `regent`. Used when `sts2 autoplay` drives menu / new-run flow. Details: root [README](../../../../README.md#character-selection).
+
+## 5. Tool names
 
 AstrBot lists MCP tools with a server prefix. Typical loop:
 
@@ -45,6 +56,6 @@ AstrBot lists MCP tools with a server prefix. Typical loop:
 2. `perform_action` with `action` + `parameters`
 3. `search_wiki` when you need card text
 
-## 5. AstrBot-only plugin (alternative)
+## 6. AstrBot-only plugin (alternative)
 
 You do **not** need a custom Star plugin if MCP is enough. For a native AstrBot plugin that bundles HTTP tools without MCP, track [issue/discussion in your fork] — MCP is the supported cross-platform path today.

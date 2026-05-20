@@ -1,9 +1,15 @@
 # Copy to ~/.config/sts2/config.yaml (standalone)
+# Windows: %USERPROFILE%\.config\sts2\config.yaml
 # or merge into ~/.hermes/config.yaml under sts2: (Hermes)
+#
+# Full docs: README.md § Character selection
 
 sts2:
   base_url: "http://127.0.0.1:15526"
   timeout: 15
+  # Playable character for autoplay / new-run menus: ironclad | silent | defect | necrobinder | regent
+  # Override anytime: STS2_CHARACTER=silent  or  sts2 autoplay start --character silent
+  character: ironclad
   commentary: "verbose"
   autoplay: false
   pause_on_ask: true

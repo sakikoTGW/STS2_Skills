@@ -136,24 +136,10 @@ def _pick_best_card(cards: list[dict]) -> int | None:
 
 
 def _menu_character_action(opts: list) -> dict | None:
-    """Pick first unlocked character option (prefer Ironclad)."""
-    preferred = ("IRONCLAD", "SILENT", "DEFECT", "NECROBANCER", "REGENT")
-    for role in preferred:
-        for o in opts:
-            if o.get("is_locked"):
-                continue
-            label = str(o.get("option") or o.get("title") or "").upper()
-            if role in label or label == role:
-                return {
-                    "action": "menu_select",
-                    "option": o.get("option") or o.get("title") or role,
-                }
-    for o in opts:
-        if not o.get("is_locked"):
-            opt = o.get("option") or o.get("title")
-            if opt:
-                return {"action": "menu_select", "option": opt}
-    return None
+    """Pick unlocked character from config (``sts2.character`` / ``STS2_CHARACTER``)."""
+    from plugins.sts2.character_choice import pick_character_menu_action
+
+    return pick_character_menu_action(opts)
 
 
 def _hp_ratio(state: dict | None) -> float:

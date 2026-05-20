@@ -14,9 +14,10 @@ venv/
 huiji_cookies.txt
 *.cookies.txt
 
-# STS2 runtime data (never commit)
+# STS2 runtime data (never commit) — do not use bare ``sts2/`` (ignores plugins/sts2/)
 /sts2/
 .hermes/sts2/
+~/.hermes/sts2/
 
 # IDE
 .vscode/

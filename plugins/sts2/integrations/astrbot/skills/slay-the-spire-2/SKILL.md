@@ -4,7 +4,7 @@ description: "Play STS2 via MCP; Act1-safe loop and full-run."
 version: 1.0.0
 author: Hermes Agent
 license: MIT
-tags: [gaming, sts2, ironclad, astrbot]
+tags: [gaming, sts2, ironclad, silent, defect, necrobinder, regent, astrbot]
 platforms: [windows, macos, linux]
 ---
 
@@ -17,6 +17,7 @@ Use the **sts2** MCP server configured in AstrBot WebUI. Tool names may appear w
 1. STS2 running with MCP mod; API at `http://127.0.0.1:15526`.
 2. AstrBot MCP entry: `python` + `scripts/sts2_mcp_bridge.py` + env `STS2_MCP_BASE_URL`, `STS2_HOME`.
 3. `ping_mod` succeeds.
+4. **Character (optional):** set `sts2.character` in `~/.config/sts2/config.yaml`, or env `STS2_CHARACTER` (e.g. `silent`), or CLI `sts2 autoplay study --character defect`.
 
 ## Core loop
 

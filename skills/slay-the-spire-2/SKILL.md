@@ -4,11 +4,12 @@ description: "Play STS2 via API; Act1-safe loop and full-run."
 version: 2.0.0
 author: Hermes Agent
 license: MIT
-tags: [gaming, sts2, ironclad]
+tags: [gaming, sts2, ironclad, silent, defect, necrobinder, regent]
 platforms: [windows, macos, linux]
 metadata.hermes.category: gaming
 metadata.hermes.config:
   - sts2.base_url
+  - sts2.character
 ---
 
 # Slay the Spire 2 Skill
@@ -18,14 +19,15 @@ Drive **Slay the Spire 2** through STS2MCP (`hermes sts2 ping`). **You** are the
 ## When to Use
 
 - User wants a full run (`FULL_RUN_CLEARED`) or Act 1 clear
-- Game open, singleplayer, Ironclad (or current character visible in state)
+- Game open, singleplayer; character matches config or is already in an active run
 
 ## Prerequisites
 
 1. Game running with **STS2 MCP** mod enabled.
 2. `sts2_ping` returns ok.
-3. 启动 `Launch-Hermes-STS2.bat`（**挂载模式**：边聊边打至通关）。
-4. **怪物知识库**（首次）：`hermes sts2 sync-wiki --merge-yaml`（灰机 wiki 需浏览器 cookies 时用 `--cookies`；或 `--html-dir` 导入已保存 HTML）。仓库已内置 Act1 种子，无网也能读【怪物Wiki】。
+3. **角色（可选）**：在 `~/.hermes/config.yaml` 的 `sts2.character` 设为 `ironclad` / `silent` / `defect` / `necrobinder` / `regent`，或 `set STS2_CHARACTER=silent`。终端代打：`hermes sts2 autoplay study --character silent`（若 CLI 已透传）。默认仍为铁甲战士；其它角色策略库较薄，Agent 需更多 wiki/自行推理。
+4. 启动 `Launch-Hermes-STS2.bat`（**挂载模式**：边聊边打至通关）。
+5. **怪物知识库**（首次）：`hermes sts2 sync-wiki --merge-yaml`（灰机 wiki 需浏览器 cookies 时用 `--cookies`；或 `--html-dir` 导入已保存 HTML）。仓库已内置 Act1 种子，无网也能读【怪物Wiki】。
 
 ## How to Run
 
@@ -73,6 +75,8 @@ On Act 1, `validate_action` may **rewrite** map/rewards/rest mistakes (`act1_gua
 ### New run
 
 `sts2_ping` → `sts2_get_state` → `sts2_act`（`setup_status` 最多一次）。挂载模式不要用 terminal 写 HTTP。
+
+若需**自动开新局并选角色**：配置 `sts2.character` 后使用 `sts2_autoplay action=study`（或 CLI `sts2 autoplay study -c <角色>`）；菜单阶段会 `menu_select` 对应角色，勿手动假定铁甲战士。
 
 ### Until Act 1 Boss dies
 

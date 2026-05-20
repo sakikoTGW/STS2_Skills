@@ -37,7 +37,18 @@ Example shape:
 
 Copy `skills/slay-the-spire-2/` into your OpenClaw workspace skills (e.g. `~/.openclaw/workspace/skills/`). Adjust paths if your install differs.
 
-## 4. Play loop
+## 4. Character selection (autoplay / new run)
+
+Set in `~/.config/sts2/config.yaml`:
+
+```yaml
+sts2:
+  character: silent
+```
+
+Or pass env in the MCP server block: `"STS2_CHARACTER": "defect"`. CLI: `sts2 autoplay study --character regent`. See the root [README](../../../../README.md#character-selection).
+
+## 5. Play loop
 
 1. Start STS2 with MCP mod.
 2. Confirm `ping_mod` (or prefixed variant) succeeds.
@@ -45,6 +56,6 @@ Copy `skills/slay-the-spire-2/` into your OpenClaw workspace skills (e.g. `~/.op
 
 OpenClaw does **not** use Hermes `sts2_get_state` names — use MCP tool names from step 2.
 
-## 5. Migrating from Hermes
+## 6. Migrating from Hermes
 
 If you used `hermes claw migrate`, keep using `~/.hermes` or point `STS2_HOME` at `~/.openclaw/sts2` for a fresh OpenClaw-only data dir.

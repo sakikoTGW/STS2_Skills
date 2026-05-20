@@ -80,6 +80,7 @@ _DEFAULTS: dict[str, Any] = {
     "auto_repair": True,
     "hermes_may_patch_code": True,
     "api_down_backoff_seconds": 8,
+    "character": "IRONCLAD",
 }
 
 
@@ -109,6 +110,17 @@ def load_sts2_config() -> dict[str, Any]:
     env_url = (os.environ.get("STS2_MCP_BASE_URL") or "").strip()
     if env_url:
         merged["base_url"] = env_url.rstrip("/")
+
+    from plugins.sts2.character_choice import DEFAULT_CHARACTER, normalize_character
+
+    char_env = (os.environ.get("STS2_CHARACTER") or "").strip()
+    if char_env:
+        norm = normalize_character(char_env)
+        if norm:
+            merged["character"] = norm
+    else:
+        norm = normalize_character(str(merged.get("character") or ""))
+        merged["character"] = norm or DEFAULT_CHARACTER
 
     try:
         merged["timeout"] = float(merged.get("timeout", DEFAULT_TIMEOUT))

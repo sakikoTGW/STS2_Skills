@@ -10,6 +10,7 @@ Agent tooling for **Slay the Spire 2** over [STS2MCP](https://github.com/Gennadi
 ## Features
 
 - HTTP bridge to the in-game STS2MCP API (`get_state`, `act`, wiki lookup)
+- **Configurable playable character** for autoplay / new-run menus (not locked to Ironclad)
 - Bundled knowledge bases (mechanics, map flow, relics, wiki crawl snapshots)
 - Optional combat coaching, Act 1 policy guards, and spectate / action logging
 - Host integrations for **Hermes Agent**, **OpenClaw**, and **AstrBot**
@@ -55,6 +56,17 @@ pip install "git+https://github.com/sakikoTGW/STS2_Skills.git[mcp]"
 sts2 install-mod          # install STS2MCP into the game mods/ folder
 # Launch the game (singleplayer, mod on)
 sts2 ping                 # verify API connectivity
+sts2 status               # shows base_url, character, autoplay flags
+```
+
+### Autoplay with a chosen character
+
+```bash
+# One-off (CLI flag)
+sts2 autoplay study --character silent
+
+# Persistent (config file — see below)
+sts2 autoplay start -c defect
 ```
 
 Generate MCP server config for third-party hosts:
@@ -75,12 +87,59 @@ sts2-mcp
 
 | Variable / file | Purpose |
 |-----------------|--------|
-| `config.example.yaml` → `~/.config/sts2/config.yaml` | `base_url`, timeouts, autoplay flags |
+| `config.example.yaml` → `~/.config/sts2/config.yaml` | `base_url`, `character`, timeouts, autoplay flags |
 | `STS2_MCP_BASE_URL` | Override API base (default `http://127.0.0.1:15526`) |
+| `STS2_CHARACTER` | Override playable character for this shell session |
 | `STS2_HOME` | Runtime data (logs, strategy, trajectories) |
 | `OPENCLAW_HOME` / `ASTRBOT_DATA` | Optional host-specific defaults under `…/sts2` |
 
 See `plugins/sts2/config.py` for the full default set.
+
+### Character selection
+
+When autoplay or menu automation starts a **new run**, the bridge picks the character you configure instead of always selecting Ironclad.
+
+| Canonical ID | English | 中文常用名 |
+|--------------|---------|------------|
+| `IRONCLAD` | Ironclad | 铁甲战士 / 战士 |
+| `SILENT` | Silent | 猎手 / 刺客 |
+| `DEFECT` | Defect | 机器人 |
+| `NECROBINDER` | Necrobinder | 死灵 / 亡灵 |
+| `REGENT` | Regent | 储君 / 皇子 |
+
+**Priority (highest wins):** `STS2_CHARACTER` env → `sts2.character` in YAML → default `IRONCLAD`.
+
+**1. Config file** — copy `config.example.yaml` and set:
+
+```yaml
+sts2:
+  character: silent   # ironclad | silent | defect | necrobinder | regent
+```
+
+Windows path: `%USERPROFILE%\.config\sts2\config.yaml`  
+Hermes users can merge the same key under `sts2:` in `~/.hermes/config.yaml`.
+
+**2. Environment variable**
+
+```bash
+# bash
+export STS2_CHARACTER=necrobinder
+
+# PowerShell
+$env:STS2_CHARACTER = "regent"
+```
+
+**3. CLI** (sets `STS2_CHARACTER` for that command)
+
+```bash
+sts2 autoplay start --character defect
+sts2 autoplay study -c silent
+sts2 autoplay run --character regent --max-steps 500
+```
+
+Verify with `sts2 status` (prints `character: SILENT`, etc.).
+
+> **Note:** Deck-building and combat heuristics are richest for **Ironclad** (`ironclad_builds.py`). Other characters use generic rules and wiki context; autoplay still works but may be weaker than a character-specific guide.
 
 ## Host integration
 
