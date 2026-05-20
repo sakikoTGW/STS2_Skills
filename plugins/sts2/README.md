@@ -1,22 +1,22 @@
-# STS2 plugin (Slay the Spire 2)
+# STS2 插件（杀戮尖塔 2）
 
-Agent bridge for **Slay the Spire 2** via [STS2MCP](https://github.com/Gennadiyev/STS2MCP). Ships as a Hermes backend plugin and as a standalone package ([STS2_Skills](https://github.com/sakikoTGW/STS2_Skills)).
+通过 [STS2MCP](https://github.com/Gennadiyev/STS2MCP) 连接 **杀戮尖塔 2** 的 Agent 桥接层。可作为 Hermes 后端插件，也可独立安装为 [STS2_Skills](https://github.com/sakikoTGW/STS2_Skills) 包。
 
-## Host platforms
+## 支持的宿主
 
-| Platform | Integration | Skill |
-|----------|-------------|-------|
-| Hermes Agent | Native `sts2_*` tools + optional MCP | `skills/gaming/slay-the-spire-2` |
-| OpenClaw | stdio MCP (`scripts/sts2_mcp_bridge.py`) | `integrations/openclaw/skills/` |
-| AstrBot | MCP in WebUI | `integrations/astrbot/skills/` |
+| 平台 | 集成方式 | Skill |
+|------|----------|-------|
+| Hermes Agent | 原生 `sts2_*` 工具 + 可选 MCP | `skills/gaming/slay-the-spire-2` |
+| OpenClaw | stdio MCP（`scripts/sts2_mcp_bridge.py`） | `integrations/openclaw/skills/` |
+| AstrBot | WebUI 配置 MCP | `integrations/astrbot/skills/` |
 
-## Requirements
+## 环境要求
 
-1. Slay the Spire 2 (Steam)
-2. STS2MCP mod in `mods/` (`hermes sts2 install-mod` or `sts2 install-mod`)
-3. Singleplayer with mod enabled; API at `http://127.0.0.1:15526` unless overridden
+1. 杀戮尖塔 2（Steam）
+2. `mods/` 中安装 STS2MCP（`hermes sts2 install-mod` 或 `sts2 install-mod`）
+3. 单人模式开启模组；API 默认 `http://127.0.0.1:15526`（可改）
 
-## Quick start (Hermes)
+## 快速开始（Hermes）
 
 ```bash
 hermes sts2 setup
@@ -24,54 +24,54 @@ hermes sts2 install-mod
 hermes sts2 ping
 ```
 
-## Quick start (MCP hosts)
+## 快速开始（MCP 宿主）
 
 ```bash
 pip install mcp
-sts2 integration-config --platform openclaw   # or astrbot, generic
+sts2 integration-config --platform openclaw   # 或 astrbot、generic
 sts2-mcp
 ```
 
-See `integrations/` for per-host notes. Full standalone README: [STS2_Skills](https://github.com/sakikoTGW/STS2_Skills).
+各宿主说明见 `integrations/`。独立安装总览：[STS2_Skills 中文 README](../../../README.md)。
 
-## Character selection
+## 角色选择
 
-Autoplay and `run_flow` menu automation honor `sts2.character` (and `STS2_CHARACTER` / CLI `--character`).
+自动代打与 `run_flow` 菜单流程会读取 `sts2.character`，以及 `STS2_CHARACTER`、CLI `--character`。
 
-| Setting | Example |
-|---------|---------|
+| 配置方式 | 示例 |
+|----------|------|
 | `~/.config/sts2/config.yaml` | `character: silent` |
-| Env | `STS2_CHARACTER=defect` |
-| CLI | `sts2 autoplay study --character regent` |
+| 环境变量 | `STS2_CHARACTER=defect` |
+| 命令行 | `sts2 autoplay study --character regent` |
 
-Supported values: `ironclad`, `silent`, `defect`, `necrobinder`, `regent` (Chinese aliases like `猎手`, `机器人` also work). Implementation: `character_choice.py`.
+支持：`ironclad`、`silent`、`defect`、`necrobinder`、`regent`（也识别 `猎手`、`机器人` 等中文别名）。实现见 `character_choice.py`。
 
-Ironclad-specific build/combat playbooks remain in `ironclad_builds.py`; other characters fall back to generic scoring until dedicated guides are added.
+铁甲战士专用组牌/战斗指南在 `ironclad_builds.py`；其它角色暂用通用评分，后续可补充专精文档。
 
-## MCP tools
+## MCP 工具
 
-| Tool | Purpose |
-|------|---------|
-| `ping_mod` | API health |
-| `get_game_state` | Snapshot (`format=summary`) |
-| `perform_action` | One game action |
-| `search_wiki` | Card / relic search |
-| `observe_player_actions` | Spectate manual play |
-| `get_action_log` | Action trace tail |
+| 工具 | 用途 |
+|------|------|
+| `ping_mod` | API 健康检查 |
+| `get_game_state` | 局面快照（`format=summary`） |
+| `perform_action` | 执行一个操作 |
+| `search_wiki` | 卡牌 / 遗物搜索 |
+| `observe_player_actions` | 观战手动游玩 |
+| `get_action_log` | 操作轨迹尾部 |
 
-## Runtime data (`STS2_HOME`)
+## 运行时数据（`STS2_HOME`）
 
-| Path | Content |
-|------|---------|
-| `action_log.md` | Spectate log |
-| `strategy/` | Strategy YAML |
-| `trajectories/` | Run JSONL |
-| `knowledge/` | Synced wiki data |
+| 路径 | 内容 |
+|------|------|
+| `action_log.md` | 观战日志 |
+| `strategy/` | 策略 YAML |
+| `trajectories/` | 对局 JSONL |
+| `knowledge/` | 同步的 Wiki 数据 |
 
-Resolution: `sts2.log_dir` → `STS2_HOME` → `OPENCLAW_HOME/sts2` → `ASTRBOT_DATA/sts2` → `HERMES_HOME/sts2`.
+解析顺序：`sts2.log_dir` → `STS2_HOME` → `OPENCLAW_HOME/sts2` → `ASTRBOT_DATA/sts2` → `HERMES_HOME/sts2`。
 
-## Knowledge base
+## 知识库
 
-Bundled under `references/`. Refresh with `hermes sts2 sync-wiki` / `crawl-wiki` (or `sts2` CLI subcommands in standalone installs).
+内置于 `references/`。刷新：`hermes sts2 sync-wiki` / `crawl-wiki`（独立安装用 `sts2` 子命令）。
 
-Wiki-derived data is for personal automation only; respect source site terms. Do not commit `huiji_cookies.txt` or secrets.
+Wiki 衍生数据仅供个人自动化；遵守来源站点条款。勿提交 `huiji_cookies.txt` 或密钥。

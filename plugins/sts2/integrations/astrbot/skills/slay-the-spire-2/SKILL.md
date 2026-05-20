@@ -1,6 +1,6 @@
 ---
 name: slay-the-spire-2
-description: "Play STS2 via MCP; Act1-safe loop and full-run."
+description: "通过 MCP 游玩 STS2；第一层安全循环与通关。"
 version: 1.0.0
 author: Hermes Agent
 license: MIT
@@ -8,42 +8,42 @@ tags: [gaming, sts2, ironclad, silent, defect, necrobinder, regent, astrbot]
 platforms: [windows, macos, linux]
 ---
 
-# Slay the Spire 2 (AstrBot + MCP)
+# 杀戮尖塔 2（AstrBot + MCP）
 
-Use the **sts2** MCP server configured in AstrBot WebUI. Tool names may appear with a server prefix in the agent UI.
+使用在 AstrBot WebUI 中配置的 **sts2** MCP 服务器。界面中的工具名可能带服务器前缀。
 
-## Prerequisites
+## 前置条件
 
-1. STS2 running with MCP mod; API at `http://127.0.0.1:15526`.
-2. AstrBot MCP entry: `python` + `scripts/sts2_mcp_bridge.py` + env `STS2_MCP_BASE_URL`, `STS2_HOME`.
-3. `ping_mod` succeeds.
-4. **Character (optional):** set `sts2.character` in `~/.config/sts2/config.yaml`, or env `STS2_CHARACTER` (e.g. `silent`), or CLI `sts2 autoplay study --character defect`.
+1. STS2 已运行且开启 MCP 模组；API 为 `http://127.0.0.1:15526`。
+2. AstrBot MCP 项：`python` + `scripts/sts2_mcp_bridge.py` + env `STS2_MCP_BASE_URL`、`STS2_HOME`。
+3. `ping_mod` 调用成功。
+4. **角色（可选）：** 在 `~/.config/sts2/config.yaml` 设置 `sts2.character`，或环境变量 `STS2_CHARACTER`（如 `silent`），或 CLI `sts2 autoplay study --character defect`。
 
-## Core loop
+## 核心循环
 
 ```text
 get_game_state(format=summary)
-→ reply to user with plan
+→ 向用户说明计划
 → perform_action(...)
 ```
 
-## Tools
+## 工具
 
-| Tool | Role |
+| 工具 | 作用 |
 |------|------|
-| `get_game_state` | `format=summary` for compact state |
-| `perform_action` | `action` + optional `parameters` dict |
-| `search_wiki` | Fuzzy card/relic search |
-| `get_action_log` | Spectate / learning from human play |
+| `get_game_state` | `format=summary` 获取紧凑局面 |
+| `perform_action` | `action` + 可选 `parameters` |
+| `search_wiki` | 模糊查卡牌 / 遗物 |
+| `get_action_log` | 观战 / 学习玩家操作 |
 
-## Act 1 heuristics
+## 第一层启发式
 
-- Low HP: avoid elite map nodes.
-- Combat: block before taking lethal hits.
-- Rewards: claim everything before `proceed`.
-- Same turn: multiple `perform_action` until out of energy, then `end_turn`.
+- 低血量：地图避开精英。
+- 战斗：在致死伤害前优先格挡。
+- 奖励：全部领取后再 `proceed`。
+- 同一回合：能量未用完可多次 `perform_action`，最后 `end_turn`。
 
-## Pitfalls
+## 常见错误
 
-- Reusing old hand indices.
-- One action per turn while energy remains.
+- 复用过期的手牌 `index`。
+- 还有能量却只操作一次就结束回合。

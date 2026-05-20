@@ -1,14 +1,14 @@
-# Copy to ~/.config/sts2/config.yaml (standalone)
+# 复制为 ~/.config/sts2/config.yaml（独立安装）
 # Windows: %USERPROFILE%\.config\sts2\config.yaml
-# or merge into ~/.hermes/config.yaml under sts2: (Hermes)
+# 或使用 Hermes 时合并到 ~/.hermes/config.yaml 的 sts2: 段
 #
-# Full docs: README.md § Character selection
+# 完整说明见 README.md「角色选择」章节
 
 sts2:
   base_url: "http://127.0.0.1:15526"
   timeout: 15
-  # Playable character for autoplay / new-run menus: ironclad | silent | defect | necrobinder | regent
-  # Override anytime: STS2_CHARACTER=silent  or  sts2 autoplay start --character silent
+  # 自动代打 / 新局菜单可选角色: ironclad | silent | defect | necrobinder | regent
+  # 临时覆盖: STS2_CHARACTER=silent  或  sts2 autoplay start --character silent
   character: ironclad
   commentary: "verbose"
   autoplay: false
@@ -18,5 +18,5 @@ sts2:
     - relic_select
     - relic_select_boss
 
-# Optional: override data directory (logs, strategy, trajectories)
+# 可选: 自定义数据目录（日志、策略、轨迹）
 # log_dir: "~/.config/sts2/data"

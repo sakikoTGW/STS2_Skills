@@ -1,31 +1,31 @@
 # STS2 × OpenClaw
 
-OpenClaw consumes STS2 through the **same stdio MCP bridge** as other MCP clients.
+OpenClaw 与其它 MCP 客户端一样，通过 **同一套 stdio MCP 桥接** 使用 STS2。
 
-## 1. Install bridge dependencies
+## 1. 安装桥接依赖
 
 ```bash
 pip install mcp
-# or: pip install 'hermes-agent[mcp]'
+# 或: pip install 'hermes-agent[mcp]'
 ```
 
-Clone or install this repo so `scripts/sts2_mcp_bridge.py` exists.
+克隆或安装本仓库，确保存在 `scripts/sts2_mcp_bridge.py`。
 
-## 2. Register MCP server
+## 2. 注册 MCP 服务器
 
 ```bash
-cd /path/to/hermes-agent-main
-hermes sts2 integration-config --platform openclaw
+cd /path/to/STS2_Skills
+sts2 integration-config --platform openclaw
 ```
 
-Run the printed `openclaw mcp set sts2 '...'` command, or merge the JSON into `mcp.servers.sts2` in OpenClaw config.
+执行输出的 `openclaw mcp set sts2 '...'`，或将 JSON 合并进 OpenClaw 配置中的 `mcp.servers.sts2`。
 
-Example shape:
+示例结构：
 
 ```json
 {
   "command": "/path/to/python",
-  "args": ["/path/to/hermes-agent-main/scripts/sts2_mcp_bridge.py"],
+  "args": ["/path/to/STS2_Skills/scripts/sts2_mcp_bridge.py"],
   "env": {
     "STS2_MCP_BASE_URL": "http://127.0.0.1:15526",
     "STS2_HOME": "/home/you/.openclaw/sts2"
@@ -35,27 +35,27 @@ Example shape:
 
 ## 3. Skill
 
-Copy `skills/slay-the-spire-2/` into your OpenClaw workspace skills (e.g. `~/.openclaw/workspace/skills/`). Adjust paths if your install differs.
+将 `skills/slay-the-spire-2/` 复制到 OpenClaw 工作区 skills（如 `~/.openclaw/workspace/skills/`），按实际安装路径调整。
 
-## 4. Character selection (autoplay / new run)
+## 4. 角色选择（自动代打 / 新局）
 
-Set in `~/.config/sts2/config.yaml`:
+在 `~/.config/sts2/config.yaml` 中设置：
 
 ```yaml
 sts2:
   character: silent
 ```
 
-Or pass env in the MCP server block: `"STS2_CHARACTER": "defect"`. CLI: `sts2 autoplay study --character regent`. See the root [README](../../../../README.md#character-selection).
+或在 MCP `env` 中加 `"STS2_CHARACTER": "defect"`。命令行：`sts2 autoplay study --character regent`。详见根目录 [README](../../../../README.md#角色选择)。
 
-## 5. Play loop
+## 5. 对局循环
 
-1. Start STS2 with MCP mod.
-2. Confirm `ping_mod` (or prefixed variant) succeeds.
-3. Each turn: `get_game_state` → reason → `perform_action` once (repeat until `end_turn`).
+1. 启动 STS2 并开启 MCP 模组。
+2. 确认 `ping_mod`（或带前缀的变体）成功。
+3. 每回合：`get_game_state` → 在对话中规划 → `perform_action`（能量未用完可多次，再 `end_turn`）。
 
-OpenClaw does **not** use Hermes `sts2_get_state` names — use MCP tool names from step 2.
+OpenClaw **不使用** Hermes 的 `sts2_get_state` 命名，请以 MCP 工具列表为准。
 
-## 6. Migrating from Hermes
+## 6. 从 Hermes 迁移
 
-If you used `hermes claw migrate`, keep using `~/.hermes` or point `STS2_HOME` at `~/.openclaw/sts2` for a fresh OpenClaw-only data dir.
+若曾使用 `hermes claw migrate`，可继续用 `~/.hermes`，或将 `STS2_HOME` 指向 `~/.openclaw/sts2` 作为 OpenClaw 专用数据目录。

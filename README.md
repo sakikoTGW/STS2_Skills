@@ -3,31 +3,33 @@
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Agent tooling for **Slay the Spire 2** over [STS2MCP](https://github.com/Gennadiyev/STS2MCP). Exposes game state and actions to LLM hosts through native tools (Hermes Agent) or a stdio [MCP](https://modelcontextprotocol.io/) server (OpenClaw, AstrBot, Cursor, and others).
+**简体中文** · [English](README.en.md)
 
-**Latest release:** [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest)
+面向 **杀戮尖塔 2（Slay the Spire 2）** 的 Agent 工具包，通过 [STS2MCP](https://github.com/Gennadiyev/STS2MCP) 与游戏通信。可将局面与操作暴露给 LLM 宿主：Hermes Agent 原生工具，或 stdio [MCP](https://modelcontextprotocol.io/) 服务（OpenClaw、AstrBot、Cursor 等）。
 
-## Features
+**最新发布：** [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest)
 
-- HTTP bridge to the in-game STS2MCP API (`get_state`, `act`, wiki lookup)
-- **Configurable playable character** for autoplay / new-run menus (not locked to Ironclad)
-- Bundled knowledge bases (mechanics, map flow, relics, wiki crawl snapshots)
-- Optional combat coaching, Act 1 policy guards, and spectate / action logging
-- Host integrations for **Hermes Agent**, **OpenClaw**, and **AstrBot**
+## 功能
 
-## Requirements
+- 对接游戏内 STS2MCP HTTP API（`get_state`、`act`、百科检索）
+- **可配置开局角色**，自动代打 / 新局菜单不再固定铁甲战士
+- 内置知识库（机制、地图流程、遗物、Wiki 爬取快照）
+- 可选战斗辅导、第一层策略护栏、观战与操作日志
+- 支持 **Hermes Agent**、**OpenClaw**、**AstrBot** 集成
+
+## 环境要求
 
 - Python 3.11+
-- Slay the Spire 2 (Steam)
-- [STS2MCP](https://github.com/Gennadiyev/STS2MCP) mod enabled in singleplayer
-- Game API at `http://127.0.0.1:15526` (configurable)
+- 杀戮尖塔 2（Steam）
+- 单人模式启用 [STS2MCP](https://github.com/Gennadiyev/STS2MCP) 模组
+- 游戏 API 默认 `http://127.0.0.1:15526`（可配置）
 
-## Installation
+## 安装
 
-### From a release archive
+### 从 Release 压缩包
 
-1. Download the latest `.zip` from [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest).
-2. Extract and open a shell in the project root.
+1. 在 [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest) 下载最新 `.zip`。
+2. 解压后在项目根目录打开终端。
 
 ```bash
 python -m venv .venv
@@ -36,9 +38,9 @@ python -m venv .venv
 pip install -e ".[mcp]"
 ```
 
-Copy `config.example.yaml` to `~/.config/sts2/config.yaml` (Windows: `%USERPROFILE%\.config\sts2\config.yaml`), or merge the `sts2:` section into `~/.hermes/config.yaml` when using Hermes.
+将 `config.example.yaml` 复制为 `~/.config/sts2/config.yaml`（Windows：`%USERPROFILE%\.config\sts2\config.yaml`）；使用 Hermes 时也可把 `sts2:` 段合并进 `~/.hermes/config.yaml`。
 
-### From Git
+### 从 Git
 
 ```bash
 git clone https://github.com/sakikoTGW/STS2_Skills.git
@@ -50,76 +52,76 @@ pip install -e ".[mcp]"
 pip install "git+https://github.com/sakikoTGW/STS2_Skills.git[mcp]"
 ```
 
-## Quick start
+## 快速开始
 
 ```bash
-sts2 install-mod          # install STS2MCP into the game mods/ folder
-# Launch the game (singleplayer, mod on)
-sts2 ping                 # verify API connectivity
-sts2 status               # shows base_url, character, autoplay flags
+sts2 install-mod          # 将 STS2MCP 安装到游戏 mods/ 目录
+# 启动游戏（单人 + 模组开启）
+sts2 ping                 # 检测 API 是否连通
+sts2 status               # 查看 base_url、角色、autoplay 等
 ```
 
-### Autoplay with a chosen character
+### 指定角色自动游玩
 
 ```bash
-# One-off (CLI flag)
+# 单次（命令行参数）
 sts2 autoplay study --character silent
 
-# Persistent (config file — see below)
+# 持久（配置文件，见下文）
 sts2 autoplay start -c defect
 ```
 
-Generate MCP server config for third-party hosts:
+为第三方宿主生成 MCP 配置：
 
 ```bash
 sts2 integration-config --platform openclaw
 sts2 integration-config --platform astrbot --json-only
 ```
 
-Run the stdio MCP bridge directly:
+直接运行 stdio MCP 桥接：
 
 ```bash
 sts2-mcp
-# or: python scripts/sts2_mcp_bridge.py
+# 或: python scripts/sts2_mcp_bridge.py
 ```
 
-## Configuration
+## 配置
 
-| Variable / file | Purpose |
-|-----------------|--------|
-| `config.example.yaml` → `~/.config/sts2/config.yaml` | `base_url`, `character`, timeouts, autoplay flags |
-| `STS2_MCP_BASE_URL` | Override API base (default `http://127.0.0.1:15526`) |
-| `STS2_CHARACTER` | Override playable character for this shell session |
-| `STS2_HOME` | Runtime data (logs, strategy, trajectories) |
-| `OPENCLAW_HOME` / `ASTRBOT_DATA` | Optional host-specific defaults under `…/sts2` |
+| 变量 / 文件 | 用途 |
+|-------------|------|
+| `config.example.yaml` → `~/.config/sts2/config.yaml` | `base_url`、`character`、超时、autoplay 开关 |
+| `STS2_MCP_BASE_URL` | 覆盖 API 地址（默认 `http://127.0.0.1:15526`） |
+| `STS2_CHARACTER` | 当前终端会话覆盖开局角色 |
+| `STS2_HOME` | 运行时数据（日志、策略、轨迹） |
+| `OPENCLAW_HOME` / `ASTRBOT_DATA` | 各宿主下的 `…/sts2` 默认目录 |
 
-See `plugins/sts2/config.py` for the full default set.
+完整默认项见 `plugins/sts2/config.py`。
 
-### Character selection
+### 角色选择
 
-When autoplay or menu automation starts a **new run**, the bridge picks the character you configure instead of always selecting Ironclad.
+自动代打或菜单自动化开**新局**时，按配置选择角色，而不再默认铁甲战士。
 
-| Canonical ID | English | 中文常用名 |
-|--------------|---------|------------|
+| 规范 ID | 英文名 | 中文常用名 |
+|---------|--------|------------|
 | `IRONCLAD` | Ironclad | 铁甲战士 / 战士 |
 | `SILENT` | Silent | 猎手 / 刺客 |
 | `DEFECT` | Defect | 机器人 |
 | `NECROBINDER` | Necrobinder | 死灵 / 亡灵 |
 | `REGENT` | Regent | 储君 / 皇子 |
 
-**Priority (highest wins):** `STS2_CHARACTER` env → `sts2.character` in YAML → default `IRONCLAD`.
+**优先级（高者生效）：** 环境变量 `STS2_CHARACTER` → YAML 中 `sts2.character` → 默认 `IRONCLAD`。
 
-**1. Config file** — copy `config.example.yaml` and set:
+**1. 配置文件** — 复制 `config.example.yaml` 后设置：
 
 ```yaml
 sts2:
   character: silent   # ironclad | silent | defect | necrobinder | regent
 ```
 
-Windows path: `%USERPROFILE%\.config\sts2\config.yaml`  
-Hermes users can merge the same key under `sts2:` in `~/.hermes/config.yaml`.
+Windows：`%USERPROFILE%\.config\sts2\config.yaml`  
+Hermes 用户可在 `~/.hermes/config.yaml` 的 `sts2:` 下写入相同字段。
 
-**2. Environment variable**
+**2. 环境变量**
 
 ```bash
 # bash
@@ -129,7 +131,7 @@ export STS2_CHARACTER=necrobinder
 $env:STS2_CHARACTER = "regent"
 ```
 
-**3. CLI** (sets `STS2_CHARACTER` for that command)
+**3. 命令行**（仅对该次命令设置 `STS2_CHARACTER`）
 
 ```bash
 sts2 autoplay start --character defect
@@ -137,11 +139,11 @@ sts2 autoplay study -c silent
 sts2 autoplay run --character regent --max-steps 500
 ```
 
-Verify with `sts2 status` (prints `character: SILENT`, etc.).
+用 `sts2 status` 确认（例如 `character: SILENT`）。
 
-> **Note:** Deck-building and combat heuristics are richest for **Ironclad** (`ironclad_builds.py`). Other characters use generic rules and wiki context; autoplay still works but may be weaker than a character-specific guide.
+> **说明：** 组牌与战斗启发式在 **铁甲战士**（`ironclad_builds.py`）上最完整；其它角色使用通用规则与 Wiki，能玩但可能弱于专精指南。
 
-## Host integration
+## 宿主集成
 
 ### Hermes Agent
 
@@ -151,7 +153,7 @@ hermes sts2 install-mod
 hermes sts2 ping
 ```
 
-Bundled skill: `skills/slay-the-spire-2/`. For a full Hermes checkout, this tree lives under `plugins/sts2/`.
+内置 Skill：`skills/slay-the-spire-2/`。完整 Hermes 仓库中本树位于 `plugins/sts2/`。
 
 ### OpenClaw
 
@@ -159,65 +161,65 @@ Bundled skill: `skills/slay-the-spire-2/`. For a full Hermes checkout, this tree
 sts2 integration-config --platform openclaw
 ```
 
-Register the printed JSON with `openclaw mcp set sts2 '…'` or under `mcp.servers.sts2`. Skill template: `plugins/sts2/integrations/openclaw/skills/slay-the-spire-2/`.
+将输出的 JSON 注册到 `openclaw mcp set sts2 '…'` 或 `mcp.servers.sts2`。Skill 模板：`plugins/sts2/integrations/openclaw/skills/slay-the-spire-2/`。详见 [OpenClaw 集成说明](plugins/sts2/integrations/openclaw/README.md)。
 
 ### AstrBot
 
-Requires AstrBot ≥ 3.5 with MCP ([docs](https://docs.astrbot.app/en/use/mcp.html)). Paste JSON from:
+需要 AstrBot ≥ 3.5 且启用 MCP（[文档](https://docs.astrbot.app/en/use/mcp.html)）。执行：
 
 ```bash
 sts2 integration-config --platform astrbot --json-only
 ```
 
-into the WebUI MCP settings. Details: `plugins/sts2/integrations/astrbot/README.md`.
+将 JSON 粘贴到 WebUI 的 MCP 设置。详见 [AstrBot 集成说明](plugins/sts2/integrations/astrbot/README.md)。
 
-## MCP tools
+## MCP 工具
 
-| Tool | Description |
-|------|-------------|
-| `ping_mod` | API health check |
-| `get_game_state` | Snapshot (`format=summary` recommended) |
-| `perform_action` | Execute one game action |
-| `search_wiki` | Card / relic lookup |
-| `observe_player_actions` | Poll manual play |
-| `get_action_log` | Recent inferred action trace |
+| 工具 | 说明 |
+|------|------|
+| `ping_mod` | API 健康检查 |
+| `get_game_state` | 局面快照（建议 `format=summary`） |
+| `perform_action` | 执行一个游戏操作 |
+| `search_wiki` | 卡牌 / 遗物检索 |
+| `observe_player_actions` | 轮询玩家手动操作 |
+| `get_action_log` | 近期推断操作记录 |
 
-Hosts may prefix tool names (e.g. `sts2_get_game_state`); use the names listed in your MCP client.
+各宿主可能对工具名加前缀（如 `sts2_get_game_state`），以 MCP 客户端列表为准。
 
-## Project layout
+## 目录结构
 
 ```
-plugins/sts2/          # core plugin, knowledge bases, host integration docs
-scripts/               # MCP bridge, mod installer
-skills/                # agent skill (slay-the-spire-2)
-tests/                 # pytest suite
-config.example.yaml    # sample configuration
+plugins/sts2/          # 核心插件、知识库、宿主集成文档
+scripts/               # MCP 桥接、模组安装脚本
+skills/                # Agent Skill（slay-the-spire-2）
+tests/                 # pytest 测试
+config.example.yaml    # 配置示例
 ```
 
-Runtime data is written under `STS2_HOME` (not shipped in the repo).
+运行时数据写在 `STS2_HOME`，不随仓库分发。
 
-## Development
+## 开发
 
 ```bash
 pip install -e ".[mcp]"
 pytest tests/ -q
 ```
 
-To rebuild this standalone tree from the [hermes-agent](https://github.com/NousResearch/hermes-agent) monorepo:
+从 [hermes-agent](https://github.com/NousResearch/hermes-agent) 单体仓库重新打包：
 
 ```bash
 python scripts/build_sts2_github_release.py --zip --github-user sakikoTGW
 ```
 
-## Knowledge base maintenance
+## 知识库维护
 
 ```bash
 sts2 sync-wiki --merge-yaml
 sts2 crawl-wiki --integrate
 ```
 
-Bundled JSON under `plugins/sts2/references/` is derived from public wikis; respect [wiki.gg](https://slaythespire.wiki.gg) and third-party site terms. Do not commit cookies or API keys.
+`plugins/sts2/references/` 下 JSON 来自公开 Wiki；请遵守 [wiki.gg](https://slaythespire.wiki.gg) 及第三方站点条款。勿提交 cookies 或 API 密钥。
 
-## License
+## 许可证
 
-MIT — see [LICENSE](LICENSE). Game assets and the STS2MCP mod are not included in this repository.
+MIT — 见 [LICENSE](LICENSE)。游戏资源与 STS2MCP 模组不包含在本仓库中。

@@ -1,61 +1,61 @@
 # STS2 × AstrBot
 
-[AstrBot MCP](https://docs.astrbot.app/en/use/mcp.html) (v3.5+) can attach the STS2 stdio server from this repo.
+[AstrBot MCP](https://docs.astrbot.app/en/use/mcp.html)（v3.5+）可挂载本仓库提供的 STS2 stdio MCP 服务。
 
-## 1. Dependencies
+## 1. 依赖
 
-- Game + [STS2MCP](https://github.com/Gennadiyev/STS2MCP) mod
-- `pip install mcp` in the **same Python environment as AstrBot**
-- This repository (or `pip install hermes-agent` for `plugins.sts2`)
+- 游戏 + [STS2MCP](https://github.com/Gennadiyev/STS2MCP) 模组
+- 在 **与 AstrBot 相同的 Python 环境** 中执行 `pip install mcp`
+- 本仓库（或 `pip install hermes-agent` 以使用 `plugins.sts2`）
 
-## 2. WebUI configuration
+## 2. WebUI 配置
 
 ```bash
-hermes sts2 integration-config --platform astrbot --json-only
+sts2 integration-config --platform astrbot --json-only
 ```
 
-In AstrBot WebUI → **MCP** → add server → paste JSON:
+在 AstrBot WebUI → **MCP** → 添加服务器 → 粘贴 JSON：
 
-- **command**: your Python executable
-- **args**: `["/absolute/path/to/scripts/sts2_mcp_bridge.py"]`
-- **env**: `STS2_MCP_BASE_URL`, `STS2_HOME`
+- **command**：你的 Python 可执行文件路径
+- **args**：`["/绝对路径/scripts/sts2_mcp_bridge.py"]`
+- **env**：`STS2_MCP_BASE_URL`、`STS2_HOME` 等
 
-Example `STS2_HOME` when AstrBot data lives at `~/AstrBot/data`:
+AstrBot 数据在 `~/AstrBot/data` 时，示例：
 
 ```json
 "STS2_HOME": "/home/you/AstrBot/data/sts2"
 ```
 
-Or set `ASTRBOT_DATA=/home/you/AstrBot/data` in the server env block.
+或在 env 中设置 `ASTRBOT_DATA=/home/you/AstrBot/data`。
 
-## 3. Skill (optional)
+## 3. Skill（可选）
 
-Copy `skills/slay-the-spire-2/` into:
+将 `skills/slay-the-spire-2/` 复制到：
 
-- `AstrBot/data/plugins/<your-plugin>/skills/slay-the-spire-2/`, or
-- a workspace skills folder your agent reads.
+- `AstrBot/data/plugins/<你的插件>/skills/slay-the-spire-2/`，或
+- Agent 会读取的工作区 skills 目录。
 
-Reload the plugin / skill manager in WebUI.
+在 WebUI 中重载插件 / Skill。
 
-## 4. Character selection
+## 4. 角色选择
 
-Add to `~/.config/sts2/config.yaml` or the MCP `env` block:
+写入 `~/.config/sts2/config.yaml` 或 MCP 的 `env`：
 
 ```yaml
 sts2:
   character: necrobinder
 ```
 
-Values: `ironclad`, `silent`, `defect`, `necrobinder`, `regent`. Used when `sts2 autoplay` drives menu / new-run flow. Details: root [README](../../../../README.md#character-selection).
+取值：`ironclad`、`silent`、`defect`、`necrobinder`、`regent`。用于 `sts2 autoplay` 驱动菜单 / 新局。详见根目录 [README 角色选择章节](../../../../README.md#角色选择)。
 
-## 5. Tool names
+## 5. 工具名称
 
-AstrBot lists MCP tools with a server prefix. Typical loop:
+AstrBot 中 MCP 工具常带服务器前缀。典型循环：
 
-1. `get_game_state` with `format=summary`
-2. `perform_action` with `action` + `parameters`
-3. `search_wiki` when you need card text
+1. `get_game_state`，`format=summary`
+2. `perform_action`，传入 `action` 与 `parameters`
+3. 需要时 `search_wiki` 查卡牌说明
 
-## 6. AstrBot-only plugin (alternative)
+## 6. 仅用 MCP 即可
 
-You do **not** need a custom Star plugin if MCP is enough. For a native AstrBot plugin that bundles HTTP tools without MCP, track [issue/discussion in your fork] — MCP is the supported cross-platform path today.
+一般 **不必** 再写 Star 插件；MCP 是推荐的跨平台方式。若需不经过 MCP 的原生 HTTP 插件，可在自己的 fork 中扩展——当前官方路径以 MCP 为准。

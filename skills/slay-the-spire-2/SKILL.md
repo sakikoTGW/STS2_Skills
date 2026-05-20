@@ -1,6 +1,6 @@
 ---
 name: slay-the-spire-2
-description: "Play STS2 via API; Act1-safe loop and full-run."
+description: "通过 API 游玩 STS2；第一层安全循环与通关。"
 version: 2.0.0
 author: Hermes Agent
 license: MIT
@@ -12,88 +12,88 @@ metadata.hermes.config:
   - sts2.character
 ---
 
-# Slay the Spire 2 Skill
+# 杀戮尖塔 2 Skill
 
-Drive **Slay the Spire 2** through STS2MCP (`hermes sts2 ping`). **You** are the only strategist; the plugin only observes, blocks objective mistakes, and on **Act 1** applies a guaranteed-clear policy so a beginner can finish the first act.
+通过 STS2MCP（`hermes sts2 ping`）驱动 **杀戮尖塔 2**。**你**是唯一策略者；插件负责观测、拦截明显失误，并在 **第一层** 施加可通关策略，便于新手打完 Act 1。
 
-## When to Use
+## 何时使用
 
-- User wants a full run (`FULL_RUN_CLEARED`) or Act 1 clear
-- Game open, singleplayer; character matches config or is already in an active run
+- 用户要通关（`FULL_RUN_CLEARED`）或打完第一层
+- 游戏已开、单人模式；角色与配置一致或已在局内
 
-## Prerequisites
+## 前置条件
 
-1. Game running with **STS2 MCP** mod enabled.
-2. `sts2_ping` returns ok.
-3. **角色（可选）**：在 `~/.hermes/config.yaml` 的 `sts2.character` 设为 `ironclad` / `silent` / `defect` / `necrobinder` / `regent`，或 `set STS2_CHARACTER=silent`。终端代打：`hermes sts2 autoplay study --character silent`（若 CLI 已透传）。默认仍为铁甲战士；其它角色策略库较薄，Agent 需更多 wiki/自行推理。
+1. 游戏运行且启用 **STS2 MCP** 模组。
+2. `sts2_ping` 返回成功。
+3. **角色（可选）：** 在 `~/.hermes/config.yaml` 的 `sts2.character` 设为 `ironclad` / `silent` / `defect` / `necrobinder` / `regent`，或 `set STS2_CHARACTER=silent`。终端代打：`hermes sts2 autoplay study --character silent`（若 CLI 已透传）。默认仍为铁甲战士；其它角色策略库较薄，Agent 需更多 wiki / 自行推理。
 4. 启动 `Launch-Hermes-STS2.bat`（**挂载模式**：边聊边打至通关）。
 5. **怪物知识库**（首次）：`hermes sts2 sync-wiki --merge-yaml`（灰机 wiki 需浏览器 cookies 时用 `--cookies`；或 `--html-dir` 导入已保存 HTML）。仓库已内置 Act1 种子，无网也能读【怪物Wiki】。
 
-## How to Run
+## 如何运行
 
-### Core loop (required)
+### 核心循环（必做）
 
 ```text
 sts2_get_state(summary=true)
-→ Read agent_contract, play_brief, combat_fsm, survival_snapshot
-→ Write thinking in chat (intents, net damage, map choice)
-→ sts2_act ONE action
-→ Repeat until FULL_RUN_CLEARED
+→ 阅读 agent_contract、play_brief、combat_fsm、survival_snapshot
+→ 在聊天中写思考（意图、净伤害、地图选择）
+→ sts2_act 执行一个操作
+→ 重复直至 FULL_RUN_CLEARED
 ```
 
 **挂载模式**：`sts2_get_state(summary=true)` 含 **五区状态机** + `combat_think` 辅脑深度分析；`think_required` 时在聊天写清六项思考再 `sts2_act`。禁止 `sts2_autoplay run`。
 
-### Act 1 beginner rules (you must follow even without coercion)
+### 第一层新手规则（即使无强制也应遵守）
 
-| Situation | Rule |
-|-----------|------|
-| Map HP &lt; 50% | Never `elite`; pick `?` / campfire / monster |
-| Map floor ≤12, HP &lt; 72% | Avoid elite |
-| Campfire on map, HP &lt; 75% | Prefer rest (heal) |
-| Combat high damage turn | Block with all energy before attacking |
-| 花园幽灵鳗 elite | Read 【怪物Wiki】 Skittish: first hit each turn gains Block (stacks); multi-hit same turn |
-| Combat planning | Read **行为循环** line: `T+1≈X伤` uses strength + loop index; block before total exceeds HP |
-| Rewards screen | `claim_reward` all (gold first), then `proceed` |
-| Event | `choose_event_option` / `advance_dialogue`, never `menu_select` |
-| Combat same turn | Multiple `sts2_act` until energy 0, then `end_turn` |
-
-On Act 1, `validate_action` may **rewrite** map/rewards/rest mistakes (`act1_guard=objective`; combat stays LLM unless `full`). Check `action_corrected` / `act1_policy_applied`.
-
-## Quick Reference
-
-| Tool | Role |
+| 情况 | 规则 |
 |------|------|
-| `sts2_get_state(summary=true)` | Observation + play_brief + FSM |
-| `sts2_act` | Execute one action (Act1 policy may correct) |
-| `sts2_wiki_search` | Card/enemy lookup (MCP) |
-| `hermes sts2 sync-wiki` | Refresh local monster KB from 灰机 wiki |
-| `sts2_autoplay action=run` | Start LLM autopilot until victory |
-| `sts2_autoplay action=pause\|resume\|stop\|hint` | Control autopilot |
+| 地图血量 &lt; 50% | 不进 `elite`；选 `?` / 营火 / 普通怪 |
+| 地图层数 ≤12 且血量 &lt; 72% | 避精英 |
+| 地图有营火且血量 &lt; 75% | 优先休息回血 |
+| 战斗高伤害回合 | 有能量先格挡再攻击 |
+| 花园幽灵鳗精英 | 读【怪物Wiki】Skittish：每回合首次受击获得格挡（可叠）；同回合多段攻击 |
+| 战斗规划 | 读 **行为循环** 行：`T+1≈X伤` 含力量与循环序号；总伤超血量前先格挡 |
+| 奖励界面 | 先 `claim_reward` 全部（金币优先），再 `proceed` |
+| 事件 | `choose_event_option` / `advance_dialogue`，勿用 `menu_select` |
+| 战斗同回合 | 能量未用完可多次 `sts2_act`，再 `end_turn` |
 
-## Procedure
+第一层时 `validate_action` 可能 **改写** 地图 / 奖励 / 休息失误（`act1_guard=objective`；战斗仍由 LLM 除非 `full`）。注意 `action_corrected` / `act1_policy_applied`。
 
-### New run
+## 工具速查
 
-`sts2_ping` → `sts2_get_state` → `sts2_act`（`setup_status` 最多一次）。挂载模式不要用 terminal 写 HTTP。
+| 工具 | 作用 |
+|------|------|
+| `sts2_get_state(summary=true)` | 观测 + play_brief + 状态机 |
+| `sts2_act` | 执行操作（第一层可能被策略改写） |
+| `sts2_wiki_search` | 查卡 / 敌人（MCP） |
+| `hermes sts2 sync-wiki` | 从灰机 wiki 刷新本地怪物库 |
+| `sts2_autoplay action=run` | 启动 LLM 自动代打直至胜利 |
+| `sts2_autoplay action=pause\|resume\|stop\|hint` | 控制自动代打 |
 
-若需**自动开新局并选角色**：配置 `sts2.character` 后使用 `sts2_autoplay action=study`（或 CLI `sts2 autoplay study -c <角色>`）；菜单阶段会 `menu_select` 对应角色，勿手动假定铁甲战士。
+## 流程
 
-### Until Act 1 Boss dies
+### 新局
 
-Follow table above; after each combat read rewards brief before `proceed`.
+`sts2_ping` → `sts2_get_state` → `sts2_act`（`setup_status` 最多一次）。挂载模式不要用终端直接写 HTTP。
 
-### Act 2–3
+若需**自动开新局并选角色**：配置 `sts2.character` 后使用 `sts2_autoplay action=study`（或 CLI `sts2 autoplay study -c <角色>`）；菜单阶段会 `menu_select` 对应角色，勿假定铁甲战士。
 
-Same loop; Act1 auto-coercion stops when `run.act` &gt; 1. You carry full-run strategy.
+### 直至第一层 Boss 死亡
 
-## Pitfalls
+遵守上表；每场战斗后读奖励摘要再 `proceed`。
 
-- Guessing `card_index` — always re-`get_state` after each act.
-- `proceed` with unclaimed rewards.
-- One `sts2_act` per turn then stopping while energy remains.
-- Trusting old hand indices after a play.
+### 第二～三层
 
-## Verification
+同一循环；`run.act` &gt; 1 后第一层自动纠偏停止，由你负责全程策略。
 
-- `HERMES_HOME/sts2/FULL_RUN_CLEARED.txt` after Act3 boss
-- Act 1: boss room cleared, Act 2 map or victory transition in `get_state`
+## 常见错误
+
+- 猜测 `card_index` — 每次 `sts2_act` 后重新 `get_state`。
+- 奖励未领就 `proceed`。
+- 还有能量却只 `sts2_act` 一次就停。
+- 出牌后仍信任旧手牌索引。
+
+## 验证
+
+- 第三层 Boss 后：`HERMES_HOME/sts2/FULL_RUN_CLEARED.txt`
+- 第一层：Boss 房清空，`get_state` 可见第二层地图或胜利过渡
