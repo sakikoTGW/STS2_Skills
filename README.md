@@ -1,117 +1,141 @@
-# hermes-sts2
+# STS2_Skills
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Slay the Spire 2** agent bridge via [STS2MCP](https://github.com/Gennadiyev/STS2MCP). One package for:
+Agent tooling for **Slay the Spire 2** over [STS2MCP](https://github.com/Gennadiyev/STS2MCP). Exposes game state and actions to LLM hosts through native tools (Hermes Agent) or a stdio [MCP](https://modelcontextprotocol.io/) server (OpenClaw, AstrBot, Cursor, and others).
 
-- **Hermes Agent** — drop-in plugin + native tools
-- **OpenClaw** — stdio MCP (`openclaw mcp set sts2 …`)
-- **AstrBot** — MCP server in WebUI
-- **Any MCP client** — Cursor, Claude Desktop, etc.
+**Latest release:** [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest)
 
-Version **1.1.0**
+## Features
 
-**仓库：** [github.com/sakikoTGW/STS2_Skills](https://github.com/sakikoTGW/STS2_Skills)  
-**推荐同学用：** [Releases](https://github.com/sakikoTGW/STS2_Skills/releases) 里下载 `STS2_Skills-1.1.0.zip`（不用 clone 整个仓库）
+- HTTP bridge to the in-game STS2MCP API (`get_state`, `act`, wiki lookup)
+- Bundled knowledge bases (mechanics, map flow, relics, wiki crawl snapshots)
+- Optional combat coaching, Act 1 policy guards, and spectate / action logging
+- Host integrations for **Hermes Agent**, **OpenClaw**, and **AstrBot**
 
-## 同学快速安装（Releases  zip）
+## Requirements
 
-1. 打开 [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest) → 下载 **Source code (zip)** 或发布包 `STS2_Skills-1.1.0.zip`
-2. 解压到任意目录，例如 `D:\STS2_Skills`
-3. 安装 Python 3.11+，在解压目录打开终端：
+- Python 3.11+
+- Slay the Spire 2 (Steam)
+- [STS2MCP](https://github.com/Gennadiyev/STS2MCP) mod enabled in singleplayer
+- Game API at `http://127.0.0.1:15526` (configurable)
 
-```powershell
-cd D:\STS2_Skills
+## Installation
+
+### From a release archive
+
+1. Download the latest `.zip` from [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest).
+2. Extract and open a shell in the project root.
+
+```bash
 python -m venv .venv
-.\.venv\Scripts\activate
+# Windows: .\.venv\Scripts\activate
+# Linux/macOS: source .venv/bin/activate
 pip install -e ".[mcp]"
-copy config.example.yaml %USERPROFILE%\.config\sts2\config.yaml
-# 若目录不存在：mkdir %USERPROFILE%\.config\sts2
 ```
 
-4. 游戏里装好 [STS2MCP](https://github.com/Gennadiyev/STS2MCP) 模组后：
+Copy `config.example.yaml` to `~/.config/sts2/config.yaml` (Windows: `%USERPROFILE%\.config\sts2\config.yaml`), or merge the `sts2:` section into `~/.hermes/config.yaml` when using Hermes.
 
-```powershell
-sts2 install-mod
-# 启动杀戮尖塔 2 单机并启用 MCP 模组
-sts2 ping
-```
-
-5. **OpenClaw / AstrBot**：`sts2 integration-config --platform openclaw`（或 `astrbot --json-only`），把输出的 JSON 贴进对应 MCP 配置。
-
-## Install（开发者 / git clone）
+### From Git
 
 ```bash
 git clone https://github.com/sakikoTGW/STS2_Skills.git
 cd STS2_Skills
 pip install -e ".[mcp]"
-# 或：pip install "git+https://github.com/sakikoTGW/STS2_Skills.git[mcp]"
 ```
 
-Copy `config.example.yaml` → `~/.config/sts2/config.yaml` (Windows: `%USERPROFILE%\.config\sts2\config.yaml`) or merge `sts2:` into `~/.hermes/config.yaml`.
+```bash
+pip install "git+https://github.com/sakikoTGW/STS2_Skills.git[mcp]"
+```
 
 ## Quick start
 
 ```bash
-# 1. Install STS2MCP mod into the game
-sts2 install-mod
-# or: python scripts/install_sts2_mcp_mod.py
+sts2 install-mod          # install STS2MCP into the game mods/ folder
+# Launch the game (singleplayer, mod on)
+sts2 ping                 # verify API connectivity
+```
 
-# 2. Launch Slay the Spire 2 (singleplayer, mod enabled)
+Generate MCP server config for third-party hosts:
 
-# 3. Check API
-sts2 ping
-
-# 4. Print MCP config for OpenClaw / AstrBot
+```bash
 sts2 integration-config --platform openclaw
 sts2 integration-config --platform astrbot --json-only
 ```
 
-MCP server (stdio):
+Run the stdio MCP bridge directly:
 
 ```bash
 sts2-mcp
-# equivalent: python scripts/sts2_mcp_bridge.py
+# or: python scripts/sts2_mcp_bridge.py
 ```
 
-## Hermes Agent install
+## Configuration
 
-Copy this repo into a Hermes checkout as `plugins/sts2/`, or install with pip and ensure Hermes discovers the plugin path.
+| Variable / file | Purpose |
+|-----------------|--------|
+| `config.example.yaml` → `~/.config/sts2/config.yaml` | `base_url`, timeouts, autoplay flags |
+| `STS2_MCP_BASE_URL` | Override API base (default `http://127.0.0.1:15526`) |
+| `STS2_HOME` | Runtime data (logs, strategy, trajectories) |
+| `OPENCLAW_HOME` / `ASTRBOT_DATA` | Optional host-specific defaults under `…/sts2` |
+
+See `plugins/sts2/config.py` for the full default set.
+
+## Host integration
+
+### Hermes Agent
 
 ```bash
-hermes sts2 setup    # when using full Hermes CLI
+hermes sts2 setup
+hermes sts2 install-mod
+hermes sts2 ping
 ```
 
-Bundled skill: `skills/slay-the-spire-2/`
+Bundled skill: `skills/slay-the-spire-2/`. For a full Hermes checkout, this tree lives under `plugins/sts2/`.
 
-## OpenClaw
+### OpenClaw
 
 ```bash
 sts2 integration-config --platform openclaw
 ```
 
-Copy skill: `plugins/sts2/integrations/openclaw/skills/slay-the-spire-2/`
+Register the printed JSON with `openclaw mcp set sts2 '…'` or under `mcp.servers.sts2`. Skill template: `plugins/sts2/integrations/openclaw/skills/slay-the-spire-2/`.
 
-## AstrBot
+### AstrBot
 
-Paste JSON from:
+Requires AstrBot ≥ 3.5 with MCP ([docs](https://docs.astrbot.app/en/use/mcp.html)). Paste JSON from:
 
 ```bash
 sts2 integration-config --platform astrbot --json-only
 ```
 
-into WebUI → MCP. See `plugins/sts2/integrations/astrbot/README.md`.
+into the WebUI MCP settings. Details: `plugins/sts2/integrations/astrbot/README.md`.
 
 ## MCP tools
 
 | Tool | Description |
 |------|-------------|
-| `ping_mod` | Health check |
-| `get_game_state` | Game snapshot (`format=summary`) |
-| `perform_action` | Execute one action |
-| `search_wiki` | Card/relic lookup |
-| `observe_player_actions` | Spectate manual play |
+| `ping_mod` | API health check |
+| `get_game_state` | Snapshot (`format=summary` recommended) |
+| `perform_action` | Execute one game action |
+| `search_wiki` | Card / relic lookup |
+| `observe_player_actions` | Poll manual play |
+| `get_action_log` | Recent inferred action trace |
+
+Hosts may prefix tool names (e.g. `sts2_get_game_state`); use the names listed in your MCP client.
+
+## Project layout
+
+```
+plugins/sts2/          # core plugin, knowledge bases, host integration docs
+scripts/               # MCP bridge, mod installer
+skills/                # agent skill (slay-the-spire-2)
+tests/                 # pytest suite
+config.example.yaml    # sample configuration
+```
+
+Runtime data is written under `STS2_HOME` (not shipped in the repo).
 
 ## Development
 
@@ -120,120 +144,21 @@ pip install -e ".[mcp]"
 pytest tests/ -q
 ```
 
-## Rebuild from monorepo
-
-If you develop inside [hermes-agent](https://github.com/NousResearch/hermes-agent):
+To rebuild this standalone tree from the [hermes-agent](https://github.com/NousResearch/hermes-agent) monorepo:
 
 ```bash
-python scripts/build_sts2_github_release.py --zip --github-user YourName
+python scripts/build_sts2_github_release.py --zip --github-user sakikoTGW
 ```
 
-## Data & license
-
-- Runtime files go under `STS2_HOME` (default `~/.hermes/sts2` or `~/.openclaw/sts2`).
-- Wiki JSON under `plugins/sts2/references/` is derivative data for personal automation; respect wiki.gg / 灰机 terms.
-- Game assets and STS2MCP mod are **not** included — install separately.
-
----
-
-# STS2 plugin (Slay the Spire 2)
-
-Bridge [STS2MCP](https://github.com/Gennadiyev/STS2MCP) into AI agents. Supports **three host platforms**:
-
-| Platform | Integration | Skill |
-|----------|-------------|-------|
-| **Hermes Agent** | Native `sts2_*` tools + optional MCP | `skills/gaming/slay-the-spire-2` |
-| **OpenClaw** | MCP stdio via `scripts/sts2_mcp_bridge.py` | `integrations/openclaw/skills/` |
-| **AstrBot** | MCP stdio (WebUI → MCP servers) | `integrations/astrbot/skills/` |
-
-## Prerequisites (all platforms)
-
-1. **Slay the Spire 2** installed (Steam).
-2. **STS2MCP** mod in the game `mods/` folder (`hermes sts2 install-mod` on Hermes; or see [STS2MCP releases](https://github.com/Gennadiyev/STS2MCP)).
-3. Game running in **singleplayer** with the mod enabled.
-4. HTTP API reachable at `http://127.0.0.1:15526` (override with `STS2_MCP_BASE_URL`).
-
-## Quick start — Hermes
+## Knowledge base maintenance
 
 ```bash
-hermes sts2 setup
-hermes sts2 install-mod
-hermes sts2 ping
+sts2 sync-wiki --merge-yaml
+sts2 crawl-wiki --integrate
 ```
 
-Enable skill `slay-the-spire-2`. Mount mode: `Launch-Hermes-STS2.bat` (Windows).
+Bundled JSON under `plugins/sts2/references/` is derived from public wikis; respect [wiki.gg](https://slaythespire.wiki.gg) and third-party site terms. Do not commit cookies or API keys.
 
-## Quick start — OpenClaw
+## License
 
-From this repo root (or after `pip install hermes-agent`):
-
-```bash
-pip install mcp
-hermes sts2 integration-config --platform openclaw
-```
-
-Copy the JSON into OpenClaw (`openclaw mcp set sts2 '...'`) or `mcp.servers.sts2`.
-
-Install skill: copy `plugins/sts2/integrations/openclaw/skills/slay-the-spire-2` to your OpenClaw skills directory.
-
-Set runtime data (optional):
-
-```bash
-export OPENCLAW_HOME=~/.openclaw
-export STS2_HOME=$OPENCLAW_HOME/sts2
-```
-
-## Quick start — AstrBot
-
-AstrBot ≥ 3.5 with MCP support ([docs](https://docs.astrbot.app/en/use/mcp.html)):
-
-```bash
-pip install mcp
-hermes sts2 integration-config --platform astrbot --json-only
-```
-
-Paste into **WebUI → MCP → Add server**.
-
-```bash
-export ASTRBOT_DATA=/path/to/AstrBot/data
-export STS2_HOME=$ASTRBOT_DATA/sts2
-```
-
-Copy `integrations/astrbot/skills/slay-the-spire-2` into a plugin `skills/` folder or your workspace skills.
-
-## MCP tools (shared by OpenClaw / AstrBot / Cursor)
-
-| Tool | Purpose |
-|------|---------|
-| `ping_mod` | API health |
-| `get_game_state` | Snapshot (`format=summary` recommended) |
-| `perform_action` | One action (`play_card`, `end_turn`, …) |
-| `search_wiki` | Card/relic search |
-| `observe_player_actions` | Spectate manual play |
-| `get_action_log` | Recent action trace |
-
-Host agents may prefix tools (e.g. `sts2_ping_mod`). Use the name shown in your MCP tool list.
-
-## Runtime data layout (`STS2_HOME`)
-
-| Path | Content |
-|------|---------|
-| `action_log.md` | Spectate / inferred plays |
-| `strategy/` | Learned strategy YAML |
-| `trajectories/` | Run JSONL logs |
-| `knowledge/` | Synced wiki / enemies (optional) |
-
-Resolution order: `sts2.log_dir` in config → `STS2_HOME` → `OPENCLAW_HOME/sts2` → `ASTRBOT_DATA/sts2` → `HERMES_HOME/sts2`.
-
-## Knowledge base
-
-Bundled under `references/` (mechanics_kb, game_flow_kb, wiki_crawl). Refresh:
-
-```bash
-hermes sts2 sync-wiki --merge-yaml
-hermes sts2 crawl-wiki --integrate
-```
-
-## License / data
-
-Wiki-derived JSON is for personal automation; respect [wiki.gg](https://slaythespire.wiki.gg) and 灰机 wiki terms. Do not commit `huiji_cookies.txt` or API keys.
+MIT — see [LICENSE](LICENSE). Game assets and the STS2MCP mod are not included in this repository.

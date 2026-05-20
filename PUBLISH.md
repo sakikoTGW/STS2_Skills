@@ -31,9 +31,9 @@ git remote add origin https://github.com/sakikoTGW/STS2_Skills.git
 git push -u origin main
 ```
 
-## 4. GitHub Release（同学必看 — 不要只发仓库主页）
+## 4. GitHub Release
 
-**发给同学的链接：** https://github.com/sakikoTGW/STS2_Skills/releases/latest
+**Releases 页面：** https://github.com/sakikoTGW/STS2_Skills/releases/latest
 
 ### 网页创建（推荐）
 
@@ -43,7 +43,7 @@ git push -u origin main
 4. 上传附件：`E:\hermes-agent-main\release\STS2_Skills-1.1.0.zip`（或 `hermes-sts2-1.1.0.zip` 改名）
 5. **Publish release** · 勾选 **Set as the latest release**
 
-说明里可写：安装步骤见 `docs/CLASSMATE_SETUP.md`。
+说明里可写：安装步骤见仓库 `README.md`。
 
 ### CLI（已安装 gh 时）
 
