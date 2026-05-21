@@ -210,26 +210,46 @@ class Sts2AgentPlugin(Star):
 
         game_dir = (self._plugin_cfg.get("game_dir") or "").strip()
         if not game_dir:
-            game_dir = r"D:\SteamLibrary\steamapps\common\Slay the Spire 2"
+            import os
+            import sys
+
+            if str(root) not in sys.path:
+                sys.path.insert(0, str(root))
+            try:
+                from plugins.sts2.paths import find_game_dir
+
+                found = find_game_dir()
+                if found:
+                    game_dir = str(found)
+            except Exception:
+                pass
+            if not game_dir:
+                game_dir = (os.environ.get("STS2_GAME_DIR") or "").strip()
         script = root / "scripts" / "install_sts2_mcp_mod.py"
         if script.is_file():
             import os
 
-            env = {**os.environ, "STS2_GAME_DIR": game_dir}
-            try:
-                proc2 = await asyncio.create_subprocess_exec(
-                    py,
-                    str(script),
-                    stdout=asyncio.subprocess.PIPE,
-                    stderr=asyncio.subprocess.STDOUT,
-                    env=env,
+            if not game_dir:
+                lines.append(
+                    "install-mod 跳过: 未配置 game_dir，且未检测到游戏目录。"
+                    "请在插件配置填写路径，或设置环境变量 STS2_GAME_DIR。"
                 )
-                out2, _ = await proc2.communicate()
-                lines.append(f"install-mod: exit {proc2.returncode}")
-                if out2:
-                    lines.append(out2.decode("utf-8", errors="replace")[-500:])
-            except Exception as e:
-                lines.append(f"install-mod 失败: {e}")
+            else:
+                env = {**os.environ, "STS2_GAME_DIR": game_dir}
+                try:
+                    proc2 = await asyncio.create_subprocess_exec(
+                        py,
+                        str(script),
+                        stdout=asyncio.subprocess.PIPE,
+                        stderr=asyncio.subprocess.STDOUT,
+                        env=env,
+                    )
+                    out2, _ = await proc2.communicate()
+                    lines.append(f"install-mod: exit {proc2.returncode}")
+                    if out2:
+                        lines.append(out2.decode("utf-8", errors="replace")[-500:])
+                except Exception as e:
+                    lines.append(f"install-mod 失败: {e}")
 
         if _SKILL_SRC.is_dir():
             _SKILL_DST.parent.mkdir(parents=True, exist_ok=True)

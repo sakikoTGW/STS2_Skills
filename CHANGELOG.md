@@ -9,6 +9,8 @@ Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see 
 
 ### Fixed
 
+- AstrBot `/sts2ai setup`: use `find_game_dir()` / `STS2_GAME_DIR` instead of hardcoded `D:\SteamLibrary\...` when `game_dir` is unset
+
 - `character_choice`: break `normalize_character` / `character_index` infinite recursion (Chinese aliases and menu pick)
 - `auto_repair`: default fallbacks align with config (`False`, not `True`)
 - `enforce_single_driver`: single helper `enforce_single_driver_enabled()`; `sts2_act` checks lock before `_prepare_manual_act` clears it
