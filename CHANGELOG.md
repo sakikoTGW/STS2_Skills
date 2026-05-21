@@ -5,6 +5,12 @@ All notable changes to [STS2_Skills](https://github.com/sakikoTGW/STS2_Skills) a
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).  
 Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see [VERSION_MIGRATION.md](VERSION_MIGRATION.md)).
 
+## [Unreleased]
+
+### Fixed
+
+- **character_choice**: infinite recursion when resolving English character ids or `STS2_CHARACTER=ironclad` (autoplay could crash with `RecursionError`).
+
 ## [1.0.4] - 2026-05-21
 
 ### Added
