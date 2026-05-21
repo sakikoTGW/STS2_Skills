@@ -7,6 +7,8 @@ Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see 
 
 ## [Unreleased]
 
+## [1.0.6] - 2026-05-21
+
 ### Added
 
 - `sts2 doctor` — install/API/MCP diagnostics; `sts2 status` includes doctor summary

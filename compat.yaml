@@ -1,7 +1,7 @@
 ﻿# Compatibility matrix — update when validating a new STS2MCP or game build.
 # Used by: sts2 install-mod, installer payload, CI smoke (optional).
 
-sts2_skills_version: "1.0.5"
+sts2_skills_version: "1.0.6"
 
 # Pinned STS2MCP GitHub release tag (https://github.com/Gennadiyev/STS2MCP/releases)
 sts2mcp_release_tag: "0.4.0"

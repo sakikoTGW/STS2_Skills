@@ -1,6 +1,6 @@
 ﻿name: astrbot_plugin_sts2_agent
 display_name: STS2 AI Agent
 desc: STS2_Skills + STS2MCP（15526），/sts2ai 自动游玩，可选 LLM 中文思考决策。
-version: 1.0.5
+version: 1.0.6
 author: Patchouli
 repo: https://github.com/sakikoTGW/STS2_Skills

@@ -1,5 +1,5 @@
 ﻿name: sts2
-version: 1.0.5
+version: 1.0.6
 description: "Slay the Spire 2 via STS2MCP — Hermes tools, MCP (OpenClaw/AstrBot), CLI. Run hermes sts2 setup."
 author: Hermes Agent
 kind: backend
