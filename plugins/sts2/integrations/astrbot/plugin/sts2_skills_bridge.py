@@ -126,7 +126,7 @@ def _install_hermes_stubs(root: Path, data_dir: Path) -> None:
 
 
 def write_astrbot_sts2_config(plugin_cfg: dict, *, use_llm: bool) -> Path:
-    """Runtime config: never pause on card_reward; AstrBot autopilot friendly."""
+    """Write AstrBot sts2/config.yaml (pause_on_ask=false for reward screens)."""
     data = astrbot_data_dir(plugin_cfg)
     sts2_home = data / "sts2"
     sts2_home.mkdir(parents=True, exist_ok=True)

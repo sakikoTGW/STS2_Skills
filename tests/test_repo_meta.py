@@ -53,6 +53,44 @@ def test_compat_pins_sts2mcp_tag() -> None:
     assert tag, "compat.yaml must pin sts2mcp_release_tag (not latest)"
 
 
+def _public_doc_paths() -> list[Path]:
+    paths: list[Path] = [
+        ROOT / "README.md",
+        ROOT / "README.en.md",
+        ROOT / "CONTRIBUTING.md",
+        ROOT / "SECURITY.md",
+        ROOT / "VERSION_MIGRATION.md",
+        ROOT / "CHANGELOG.md",
+        ROOT / "plugins" / "sts2" / "README.md",
+    ]
+    for sub in ("astrbot", "openclaw"):
+        base = ROOT / "plugins" / "sts2" / "integrations" / sub
+        readme = base / "README.md"
+        if readme.is_file():
+            paths.append(readme)
+        for name in ("mcp-server.example.json",):
+            example = base / name
+            if example.is_file():
+                paths.append(example)
+    return paths
+
+
+def test_public_docs_avoid_internal_phrasing() -> None:
+    banned = (
+        "成熟项目",
+        "Cursor Agent",
+        "Clash 7890",
+        "internal-only",
+        "standard contributor guide",
+        "hermes-agent-main/scripts",
+        "autopilot friendly",
+    )
+    for path in _public_doc_paths():
+        text = path.read_text(encoding="utf-8")
+        for phrase in banned:
+            assert phrase not in text, f"{path.relative_to(ROOT)}: banned phrase {phrase!r}"
+
+
 if __name__ == "__main__":
     test_pyproject_version_matches_compat()
     test_plugin_yaml_version()

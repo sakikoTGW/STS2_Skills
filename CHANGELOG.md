@@ -24,8 +24,8 @@ Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see 
 
 ### Changed
 
-- `CONTRIBUTING.md`: rewrite to standard contributor guide (remove internal-only wording)
-- Tests: Hermes `agent` stub, MCP config assertion, stale expectations for STS2 reward-skip policy
+- Docs: tighten README / CONTRIBUTING / integration guides; drop internal or preachy wording
+- Tests: Hermes `agent` stub, MCP config assertion, reward-skip policy expectations; doc phrase guard in `test_repo_meta`
 
 ## [1.0.4] - 2026-05-21
 

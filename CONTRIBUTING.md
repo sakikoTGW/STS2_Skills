@@ -1,7 +1,5 @@
 # Contributing
 
-感谢参与 [STS2_Skills](https://github.com/sakikoTGW/STS2_Skills)。请先阅读 [README](README.md) 了解安装与宿主集成。
-
 ## 开发环境
 
 ```powershell
@@ -50,7 +48,7 @@ git push origin v1.0.x
 ./scripts/release.ps1
 ```
 
-请勿将 GitHub token、代理账号密码等写入仓库；使用 `gh auth login` 或系统凭据管理。
+不要把 token 或密码写进仓库；用 `gh auth login` 或系统凭据即可。
 
 ## 与 hermes-agent 同步
 

@@ -62,6 +62,6 @@ AstrBot 中 MCP 工具常带服务器前缀。典型循环：
 2. `perform_action`，传入 `action` 与 `parameters`
 3. 需要时 `search_wiki` 查卡牌说明
 
-## 6. 仅用 MCP 即可
+## 6. MCP 与 Star 插件
 
-一般 **不必** 再写 Star 插件；MCP 是推荐的跨平台方式。若需不经过 MCP 的原生 HTTP 插件，可在自己的 fork 中扩展——当前官方路径以 MCP 为准。
+本仓库以 MCP 为准。`integrations/astrbot/plugin/` 内的 Star 插件为可选封装；不需要时可只配置 MCP。

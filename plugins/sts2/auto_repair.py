@@ -122,9 +122,8 @@ def _write_code_repair_brief(
         )
         lines = [
             f"# STS2 待修 · {datetime.now(timezone.utc).isoformat()}\n\n",
-            "**用户已授权 Hermes 直接改插件源码（不是 E:\\\\Hermes\\\\sts2 日志目录）。**\n\n",
-        f"- 插件目录: `{plugin_source_dir()}`\n",
-        f"- 仓库根: `{repo_root()}`\n\n",
+            f"- 插件源码: `{plugin_source_dir()}`\n",
+            f"- 运行时目录 (`STS2_HOME`): `{home}`\n\n",
             f"- kind: {kind}\n",
             f"- message: {message[:800]}\n",
             f"- 已做运行时自愈: {', '.join(repairs) or '无'}\n\n",

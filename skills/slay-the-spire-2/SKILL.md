@@ -14,7 +14,7 @@ metadata.hermes.config:
 
 # 杀戮尖塔 2 Skill
 
-通过 STS2MCP（`hermes sts2 ping`）驱动 **杀戮尖塔 2**。**你**是唯一策略者；插件负责观测、拦截明显失误，并在 **第一层** 施加可通关策略，便于新手打完 Act 1。
+通过 STS2MCP（`hermes sts2 ping` 或 MCP `ping_mod`）读写游戏状态并执行操作。插件提供局面摘要、操作校验与第一层策略护栏。
 
 ## 何时使用
 
@@ -41,9 +41,9 @@ sts2_get_state(summary=true)
 → 重复直至 FULL_RUN_CLEARED
 ```
 
-**挂载模式**：`sts2_get_state(summary=true)` 含 **五区状态机** + `combat_think` 辅脑深度分析；`think_required` 时在聊天写清六项思考再 `sts2_act`。禁止 `sts2_autoplay run`。
+**挂载模式**：`sts2_get_state(summary=true)` 含状态机与 `combat_think`；`think_required` 时先写思考再 `sts2_act`。不要用 `sts2_autoplay run`。
 
-### 第一层新手规则（即使无强制也应遵守）
+### 第一层规则
 
 | 情况 | 规则 |
 |------|------|

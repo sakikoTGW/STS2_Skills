@@ -17,6 +17,6 @@ Please **do not** open a public issue for security-sensitive reports.
 ## Scope notes
 
 - This project talks to a **local** game API (`127.0.0.1:15526` by default). It should not be exposed to the public internet.
-- `auto_repair` and `hermes_may_patch_code` are **off by default**; enabling them may allow an agent to suggest or apply local code changes — use only in trusted environments.
+- `auto_repair` and `hermes_may_patch_code` default to **off**; turning them on may let a local agent edit plugin code on disk.
 - Do not commit `.env`, wiki cookies (`*.cookies.txt`), or API keys. See `.gitignore`.
 - `sts2 install-mod` downloads binaries from [Gennadiyev/STS2MCP](https://github.com/Gennadiyev/STS2MCP); pinned version is in `compat.yaml`.

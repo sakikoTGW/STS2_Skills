@@ -54,7 +54,7 @@ pip install "git+https://github.com/sakikoTGW/STS2_Skills.git[mcp]"
 
 ## 快速开始
 
-### 一键安装（推荐）
+### 图形安装（Windows）
 
 在 [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest) 下载 **`sts2skill.exe`**，双击运行（图形界面，**中/英** 可切换）。安装程序会：
 
@@ -221,9 +221,7 @@ pytest
 ruff check plugins scripts tests
 ```
 
-维护流程见 [CONTRIBUTING.md](CONTRIBUTING.md)：版本只改 `pyproject.toml`，用 `./scripts/sync-version.ps1` 同步元数据，发版用 `./scripts/release.ps1`（需本机 `gh auth login`）。
-
-从 [hermes-agent](https://github.com/NousResearch/hermes-agent) 单体仓库同步 `plugins/sts2` 后，在本仓跑测试并提交 PR。
+见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 知识库维护
 
