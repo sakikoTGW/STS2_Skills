@@ -43,10 +43,12 @@ AstrBot 数据在 `~/AstrBot/data` 时，示例：
 
 ```yaml
 sts2:
-  character: necrobinder
+  character: 3
 ```
 
-取值：`ironclad`、`silent`、`defect`、`necrobinder`、`regent`。用于 `sts2 autoplay` 驱动菜单 / 新局。详见根目录 [README 角色选择章节](../../../../README.md#角色选择)。
+编号 **0–4**：铁甲战士 / 静默猎手 / 故障机器人 / 亡灵契约师 / 储君。详见根目录 [README 角色选择](../../../../README.md#角色选择)。
+
+一键安装：仓库根目录 **`install.bat`** → 选择 **AstrBot**。
 
 ## 5. 工具名称
 

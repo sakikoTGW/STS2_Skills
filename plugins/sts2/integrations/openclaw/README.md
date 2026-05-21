@@ -43,10 +43,12 @@ sts2 integration-config --platform openclaw
 
 ```yaml
 sts2:
-  character: silent
+  character: 1
 ```
 
-或在 MCP `env` 中加 `"STS2_CHARACTER": "defect"`。命令行：`sts2 autoplay study --character regent`。详见根目录 [README](../../../../README.md#角色选择)。
+或在 MCP `env` 中加 `"STS2_CHARACTER": "2"`。命令行：`sts2 autoplay study -c 4`。详见根目录 [README](../../../../README.md#角色选择)。
+
+一键安装：仓库根目录 **`install.bat`** → 选择 **OpenClaw**。
 
 ## 5. 对局循环
 

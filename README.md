@@ -54,21 +54,35 @@ pip install "git+https://github.com/sakikoTGW/STS2_Skills.git[mcp]"
 
 ## 快速开始
 
+### 一键安装（推荐）
+
+Windows 双击根目录 **`install.bat`**，或在项目根目录执行：
+
+```bash
+python scripts/sts2_setup_wizard.py
+# 或: sts2 install-wizard
+```
+
+按提示选择 **宿主**（独立 / Hermes / OpenClaw / AstrBot）、**Skill 目录**、**游戏路径**、**角色编号 0–4**，向导会自动：安装 Python 包、写入配置、安装 STS2MCP 模组、复制 Skill / MCP 配置。
+
+### 手动步骤
+
 ```bash
 sts2 install-mod          # 将 STS2MCP 安装到游戏 mods/ 目录
 # 启动游戏（单人 + 模组开启）
 sts2 ping                 # 检测 API 是否连通
-sts2 status               # 查看 base_url、角色、autoplay 等
+sts2 status               # 查看 base_url、角色编号、autoplay 等
 ```
 
 ### 指定角色自动游玩
 
 ```bash
-# 单次（命令行参数）
-sts2 autoplay study --character silent
+# 单次（命令行，编号或名称均可）
+sts2 autoplay study --character 1
+sts2 autoplay study -c 静默猎手
 
-# 持久（配置文件，见下文）
-sts2 autoplay start -c defect
+# 持久（配置文件 character: 0–4，见下文）
+sts2 autoplay start -c 2
 ```
 
 为第三方宿主生成 MCP 配置：
@@ -91,7 +105,7 @@ sts2-mcp
 |-------------|------|
 | `config.example.yaml` → `~/.config/sts2/config.yaml` | `base_url`、`character`、超时、autoplay 开关 |
 | `STS2_MCP_BASE_URL` | 覆盖 API 地址（默认 `http://127.0.0.1:15526`） |
-| `STS2_CHARACTER` | 当前终端会话覆盖开局角色 |
+| `STS2_CHARACTER` | 当前终端会话覆盖角色（编号 0–4 或名称） |
 | `STS2_HOME` | 运行时数据（日志、策略、轨迹） |
 | `OPENCLAW_HOME` / `ASTRBOT_DATA` | 各宿主下的 `…/sts2` 默认目录 |
 
@@ -101,21 +115,21 @@ sts2-mcp
 
 自动代打或菜单自动化开**新局**时，按配置选择角色，而不再默认铁甲战士。
 
-| 规范 ID | 英文名 | 中文常用名 |
-|---------|--------|------------|
-| `IRONCLAD` | Ironclad | 铁甲战士 / 战士 |
-| `SILENT` | Silent | 猎手 / 刺客 |
-| `DEFECT` | Defect | 机器人 |
-| `NECROBINDER` | Necrobinder | 死灵 / 亡灵 |
-| `REGENT` | Regent | 储君 / 皇子 |
+| 编号 | 规范 ID | 中文名 |
+|------|---------|--------|
+| **0** | `IRONCLAD` | 铁甲战士 |
+| **1** | `SILENT` | 静默猎手 |
+| **2** | `DEFECT` | 故障机器人 |
+| **3** | `NECROBINDER` | 亡灵契约师 |
+| **4** | `REGENT` | 储君 |
 
-**优先级（高者生效）：** 环境变量 `STS2_CHARACTER` → YAML 中 `sts2.character` → 默认 `IRONCLAD`。
+**优先级（高者生效）：** 环境变量 `STS2_CHARACTER` → YAML 中 `sts2.character`（**0–4**）→ 默认 **0**（铁甲战士）。
 
 **1. 配置文件** — 复制 `config.example.yaml` 后设置：
 
 ```yaml
 sts2:
-  character: silent   # ironclad | silent | defect | necrobinder | regent
+  character: 1   # 0–4，见上表
 ```
 
 Windows：`%USERPROFILE%\.config\sts2\config.yaml`  
@@ -125,23 +139,23 @@ Hermes 用户可在 `~/.hermes/config.yaml` 的 `sts2:` 下写入相同字段。
 
 ```bash
 # bash
-export STS2_CHARACTER=necrobinder
+export STS2_CHARACTER=3
 
 # PowerShell
-$env:STS2_CHARACTER = "regent"
+$env:STS2_CHARACTER = "4"
 ```
 
 **3. 命令行**（仅对该次命令设置 `STS2_CHARACTER`）
 
 ```bash
-sts2 autoplay start --character defect
-sts2 autoplay study -c silent
-sts2 autoplay run --character regent --max-steps 500
+sts2 autoplay start --character 2
+sts2 autoplay study -c 1
+sts2 autoplay run --character 4 --max-steps 500
 ```
 
-用 `sts2 status` 确认（例如 `character: SILENT`）。
+用 `sts2 status` 确认（例如 `character: 1 (SILENT)`）。
 
-> **说明：** 组牌与战斗启发式在 **铁甲战士**（`ironclad_builds.py`）上最完整；其它角色使用通用规则与 Wiki，能玩但可能弱于专精指南。
+> **说明：** 组牌与战斗启发式在 **铁甲战士**（编号 0，`ironclad_builds.py`）上最完整；其它角色使用通用规则与 Wiki，能玩但可能弱于专精指南。
 
 ## 宿主集成
 

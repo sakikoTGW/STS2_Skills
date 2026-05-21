@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hermes-sts2"
-version = "1.2.0"
+version = "1.3.0"
 description = "Slay the Spire 2 agent bridge — STS2MCP tools for Hermes, OpenClaw, and AstrBot"
 readme = "README.md"
 requires-python = ">=3.11"

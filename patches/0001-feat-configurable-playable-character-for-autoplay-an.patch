@@ -1,0 +1,861 @@
+From bc9f5055b1ac9bec42e84b9799e1fcf8a3c7556e Mon Sep 17 00:00:00 2001
+From: lczment <lczment147@hotmail.com>
+Date: Wed, 20 May 2026 21:59:36 +0800
+Subject: [PATCH] feat: configurable playable character for autoplay and
+ new-run menus
+
+- Add character_choice module and sts2.character / STS2_CHARACTER / CLI -c
+- Update decision.py, run_flow.py, config defaults and docs for AstrBot/OpenClaw
+- Document character selection in README and integration SKILL files
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+---
+ .gitignore                                    |   3 +-
+ README.md                                     |  61 ++++++-
+ config.example.yaml                           |   6 +
+ plugins/sts2/README.md                        |  98 +++++------
+ plugins/sts2/autoplay.py                      |   2 +-
+ plugins/sts2/character_choice.py              | 155 ++++++++++++++++++
+ plugins/sts2/cli.py                           |  24 ++-
+ plugins/sts2/config.py                        |  12 ++
+ plugins/sts2/decision.py                      |  22 +--
+ plugins/sts2/integrations/astrbot/README.md   |  15 +-
+ .../astrbot/skills/slay-the-spire-2/SKILL.md  |   3 +-
+ plugins/sts2/integrations/openclaw/README.md  |  15 +-
+ .../openclaw/skills/slay-the-spire-2/SKILL.md |   3 +-
+ plugins/sts2/run_flow.py                      |  14 +-
+ pyproject.toml                                |   6 +-
+ skills/slay-the-spire-2/SKILL.md              |  12 +-
+ tests/plugins/test_sts2_character_choice.py   |  51 ++++++
+ 17 files changed, 397 insertions(+), 105 deletions(-)
+ create mode 100644 plugins/sts2/character_choice.py
+ create mode 100644 tests/plugins/test_sts2_character_choice.py
+
+diff --git a/.gitignore b/.gitignore
+index c4b1dde..06d7039 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -14,9 +14,10 @@ venv/
+ huiji_cookies.txt
+ *.cookies.txt
+ 
+-# STS2 runtime data (never commit)
++# STS2 runtime data (never commit) — do not use bare ``sts2/`` (ignores plugins/sts2/)
+ /sts2/
+ .hermes/sts2/
++~/.hermes/sts2/
+ 
+ # IDE
+ .vscode/
+diff --git a/README.md b/README.md
+index 18065ad..3ddc3ce 100644
+--- a/README.md
++++ b/README.md
+@@ -10,6 +10,7 @@ Agent tooling for **Slay the Spire 2** over [STS2MCP](https://github.com/Gennadi
+ ## Features
+ 
+ - HTTP bridge to the in-game STS2MCP API (`get_state`, `act`, wiki lookup)
++- **Configurable playable character** for autoplay / new-run menus (not locked to Ironclad)
+ - Bundled knowledge bases (mechanics, map flow, relics, wiki crawl snapshots)
+ - Optional combat coaching, Act 1 policy guards, and spectate / action logging
+ - Host integrations for **Hermes Agent**, **OpenClaw**, and **AstrBot**
+@@ -55,6 +56,17 @@ pip install "git+https://github.com/sakikoTGW/STS2_Skills.git[mcp]"
+ sts2 install-mod          # install STS2MCP into the game mods/ folder
+ # Launch the game (singleplayer, mod on)
+ sts2 ping                 # verify API connectivity
++sts2 status               # shows base_url, character, autoplay flags
++```
++
++### Autoplay with a chosen character
++
++```bash
++# One-off (CLI flag)
++sts2 autoplay study --character silent
++
++# Persistent (config file — see below)
++sts2 autoplay start -c defect
+ ```
+ 
+ Generate MCP server config for third-party hosts:
+@@ -75,13 +87,60 @@ sts2-mcp
+ 
+ | Variable / file | Purpose |
+ |-----------------|--------|
+-| `config.example.yaml` → `~/.config/sts2/config.yaml` | `base_url`, timeouts, autoplay flags |
++| `config.example.yaml` → `~/.config/sts2/config.yaml` | `base_url`, `character`, timeouts, autoplay flags |
+ | `STS2_MCP_BASE_URL` | Override API base (default `http://127.0.0.1:15526`) |
++| `STS2_CHARACTER` | Override playable character for this shell session |
+ | `STS2_HOME` | Runtime data (logs, strategy, trajectories) |
+ | `OPENCLAW_HOME` / `ASTRBOT_DATA` | Optional host-specific defaults under `…/sts2` |
+ 
+ See `plugins/sts2/config.py` for the full default set.
+ 
++### Character selection
++
++When autoplay or menu automation starts a **new run**, the bridge picks the character you configure instead of always selecting Ironclad.
++
++| Canonical ID | English | 中文常用名 |
++|--------------|---------|------------|
++| `IRONCLAD` | Ironclad | 铁甲战士 / 战士 |
++| `SILENT` | Silent | 猎手 / 刺客 |
++| `DEFECT` | Defect | 机器人 |
++| `NECROBINDER` | Necrobinder | 死灵 / 亡灵 |
++| `REGENT` | Regent | 储君 / 皇子 |
++
++**Priority (highest wins):** `STS2_CHARACTER` env → `sts2.character` in YAML → default `IRONCLAD`.
++
++**1. Config file** — copy `config.example.yaml` and set:
++
++```yaml
++sts2:
++  character: silent   # ironclad | silent | defect | necrobinder | regent
++```
++
++Windows path: `%USERPROFILE%\.config\sts2\config.yaml`  
++Hermes users can merge the same key under `sts2:` in `~/.hermes/config.yaml`.
++
++**2. Environment variable**
++
++```bash
++# bash
++export STS2_CHARACTER=necrobinder
++
++# PowerShell
++$env:STS2_CHARACTER = "regent"
++```
++
++**3. CLI** (sets `STS2_CHARACTER` for that command)
++
++```bash
++sts2 autoplay start --character defect
++sts2 autoplay study -c silent
++sts2 autoplay run --character regent --max-steps 500
++```
++
++Verify with `sts2 status` (prints `character: SILENT`, etc.).
++
++> **Note:** Deck-building and combat heuristics are richest for **Ironclad** (`ironclad_builds.py`). Other characters use generic rules and wiki context; autoplay still works but may be weaker than a character-specific guide.
++
+ ## Host integration
+ 
+ ### Hermes Agent
+diff --git a/config.example.yaml b/config.example.yaml
+index 9e43e72..6634f74 100644
+--- a/config.example.yaml
++++ b/config.example.yaml
+@@ -1,9 +1,15 @@
+ # Copy to ~/.config/sts2/config.yaml (standalone)
++# Windows: %USERPROFILE%\.config\sts2\config.yaml
+ # or merge into ~/.hermes/config.yaml under sts2: (Hermes)
++#
++# Full docs: README.md § Character selection
+ 
+ sts2:
+   base_url: "http://127.0.0.1:15526"
+   timeout: 15
++  # Playable character for autoplay / new-run menus: ironclad | silent | defect | necrobinder | regent
++  # Override anytime: STS2_CHARACTER=silent  or  sts2 autoplay start --character silent
++  character: ironclad
+   commentary: "verbose"
+   autoplay: false
+   pause_on_ask: true
+diff --git a/plugins/sts2/README.md b/plugins/sts2/README.md
+index c84c762..5fc0d56 100644
+--- a/plugins/sts2/README.md
++++ b/plugins/sts2/README.md
+@@ -1,21 +1,22 @@
+ # STS2 plugin (Slay the Spire 2)
+ 
+-Bridge [STS2MCP](https://github.com/Gennadiyev/STS2MCP) into AI agents. Supports **three host platforms**:
++Agent bridge for **Slay the Spire 2** via [STS2MCP](https://github.com/Gennadiyev/STS2MCP). Ships as a Hermes backend plugin and as a standalone package ([STS2_Skills](https://github.com/sakikoTGW/STS2_Skills)).
++
++## Host platforms
+ 
+ | Platform | Integration | Skill |
+ |----------|-------------|-------|
+-| **Hermes Agent** | Native `sts2_*` tools + optional MCP | `skills/gaming/slay-the-spire-2` |
+-| **OpenClaw** | MCP stdio via `scripts/sts2_mcp_bridge.py` | `integrations/openclaw/skills/` |
+-| **AstrBot** | MCP stdio (WebUI → MCP servers) | `integrations/astrbot/skills/` |
++| Hermes Agent | Native `sts2_*` tools + optional MCP | `skills/gaming/slay-the-spire-2` |
++| OpenClaw | stdio MCP (`scripts/sts2_mcp_bridge.py`) | `integrations/openclaw/skills/` |
++| AstrBot | MCP in WebUI | `integrations/astrbot/skills/` |
+ 
+-## Prerequisites (all platforms)
++## Requirements
+ 
+-1. **Slay the Spire 2** installed (Steam).
+-2. **STS2MCP** mod in the game `mods/` folder (`hermes sts2 install-mod` on Hermes; or see [STS2MCP releases](https://github.com/Gennadiyev/STS2MCP)).
+-3. Game running in **singleplayer** with the mod enabled.
+-4. HTTP API reachable at `http://127.0.0.1:15526` (override with `STS2_MCP_BASE_URL`).
++1. Slay the Spire 2 (Steam)
++2. STS2MCP mod in `mods/` (`hermes sts2 install-mod` or `sts2 install-mod`)
++3. Singleplayer with mod enabled; API at `http://127.0.0.1:15526` unless overridden
+ 
+-## Quick start — Hermes
++## Quick start (Hermes)
+ 
+ ```bash
+ hermes sts2 setup
+@@ -23,79 +24,54 @@ hermes sts2 install-mod
+ hermes sts2 ping
+ ```
+ 
+-Enable skill `slay-the-spire-2`. Mount mode: `Launch-Hermes-STS2.bat` (Windows).
+-
+-## Quick start — OpenClaw
+-
+-From this repo root (or after `pip install hermes-agent`):
++## Quick start (MCP hosts)
+ 
+ ```bash
+ pip install mcp
+-hermes sts2 integration-config --platform openclaw
++sts2 integration-config --platform openclaw   # or astrbot, generic
++sts2-mcp
+ ```
+ 
+-Copy the JSON into OpenClaw (`openclaw mcp set sts2 '...'`) or `mcp.servers.sts2`.
++See `integrations/` for per-host notes. Full standalone README: [STS2_Skills](https://github.com/sakikoTGW/STS2_Skills).
+ 
+-Install skill: copy `plugins/sts2/integrations/openclaw/skills/slay-the-spire-2` to your OpenClaw skills directory.
++## Character selection
+ 
+-Set runtime data (optional):
+-
+-```bash
+-export OPENCLAW_HOME=~/.openclaw
+-export STS2_HOME=$OPENCLAW_HOME/sts2
+-```
++Autoplay and `run_flow` menu automation honor `sts2.character` (and `STS2_CHARACTER` / CLI `--character`).
+ 
+-## Quick start — AstrBot
++| Setting | Example |
++|---------|---------|
++| `~/.config/sts2/config.yaml` | `character: silent` |
++| Env | `STS2_CHARACTER=defect` |
++| CLI | `sts2 autoplay study --character regent` |
+ 
+-AstrBot ≥ 3.5 with MCP support ([docs](https://docs.astrbot.app/en/use/mcp.html)):
++Supported values: `ironclad`, `silent`, `defect`, `necrobinder`, `regent` (Chinese aliases like `猎手`, `机器人` also work). Implementation: `character_choice.py`.
+ 
+-```bash
+-pip install mcp
+-hermes sts2 integration-config --platform astrbot --json-only
+-```
++Ironclad-specific build/combat playbooks remain in `ironclad_builds.py`; other characters fall back to generic scoring until dedicated guides are added.
+ 
+-Paste into **WebUI → MCP → Add server**.
+-
+-```bash
+-export ASTRBOT_DATA=/path/to/AstrBot/data
+-export STS2_HOME=$ASTRBOT_DATA/sts2
+-```
+-
+-Copy `integrations/astrbot/skills/slay-the-spire-2` into a plugin `skills/` folder or your workspace skills.
+-
+-## MCP tools (shared by OpenClaw / AstrBot / Cursor)
++## MCP tools
+ 
+ | Tool | Purpose |
+ |------|---------|
+ | `ping_mod` | API health |
+-| `get_game_state` | Snapshot (`format=summary` recommended) |
+-| `perform_action` | One action (`play_card`, `end_turn`, …) |
+-| `search_wiki` | Card/relic search |
++| `get_game_state` | Snapshot (`format=summary`) |
++| `perform_action` | One game action |
++| `search_wiki` | Card / relic search |
+ | `observe_player_actions` | Spectate manual play |
+-| `get_action_log` | Recent action trace |
+-
+-Host agents may prefix tools (e.g. `sts2_ping_mod`). Use the name shown in your MCP tool list.
++| `get_action_log` | Action trace tail |
+ 
+-## Runtime data layout (`STS2_HOME`)
++## Runtime data (`STS2_HOME`)
+ 
+ | Path | Content |
+ |------|---------|
+-| `action_log.md` | Spectate / inferred plays |
+-| `strategy/` | Learned strategy YAML |
+-| `trajectories/` | Run JSONL logs |
+-| `knowledge/` | Synced wiki / enemies (optional) |
++| `action_log.md` | Spectate log |
++| `strategy/` | Strategy YAML |
++| `trajectories/` | Run JSONL |
++| `knowledge/` | Synced wiki data |
+ 
+-Resolution order: `sts2.log_dir` in config → `STS2_HOME` → `OPENCLAW_HOME/sts2` → `ASTRBOT_DATA/sts2` → `HERMES_HOME/sts2`.
++Resolution: `sts2.log_dir` → `STS2_HOME` → `OPENCLAW_HOME/sts2` → `ASTRBOT_DATA/sts2` → `HERMES_HOME/sts2`.
+ 
+ ## Knowledge base
+ 
+-Bundled under `references/` (mechanics_kb, game_flow_kb, wiki_crawl). Refresh:
+-
+-```bash
+-hermes sts2 sync-wiki --merge-yaml
+-hermes sts2 crawl-wiki --integrate
+-```
+-
+-## License / data
++Bundled under `references/`. Refresh with `hermes sts2 sync-wiki` / `crawl-wiki` (or `sts2` CLI subcommands in standalone installs).
+ 
+-Wiki-derived JSON is for personal automation; respect [wiki.gg](https://slaythespire.wiki.gg) and 灰机 wiki terms. Do not commit `huiji_cookies.txt` or API keys.
++Wiki-derived data is for personal automation only; respect source site terms. Do not commit `huiji_cookies.txt` or secrets.
+diff --git a/plugins/sts2/autoplay.py b/plugins/sts2/autoplay.py
+index bf53086..949ffbb 100644
+--- a/plugins/sts2/autoplay.py
++++ b/plugins/sts2/autoplay.py
+@@ -1070,7 +1070,7 @@ class AutoplayController:
+         return False
+ 
+     def _maybe_restart_run(self, state: Dict[str, Any]) -> bool:
+-        """After game_over / post-run menu — click through to new Ironclad run."""
++        """After game_over / post-run menu — click through to a new run (configured character)."""
+         from plugins.sts2.run_flow import in_run, menu_fingerprint, run_needs_restart
+ 
+         st = str(state.get("state_type") or "")
+diff --git a/plugins/sts2/character_choice.py b/plugins/sts2/character_choice.py
+new file mode 100644
+index 0000000..80010fe
+--- /dev/null
++++ b/plugins/sts2/character_choice.py
+@@ -0,0 +1,155 @@
++"""Preferred playable character for menu / new-run automation."""
++
++from __future__ import annotations
++
++import os
++from typing import Any
++
++# Canonical IDs (STS2 / MCP menu labels are usually English names)
++VALID_CHARACTERS = ("IRONCLAD", "SILENT", "DEFECT", "NECROBINDER", "REGENT")
++DEFAULT_CHARACTER = "IRONCLAD"
++ALL_CHARACTERS = VALID_CHARACTERS
++
++_ALIASES: dict[str, str] = {
++    "ironclad": "IRONCLAD",
++    "iron_clad": "IRONCLAD",
++    "战士": "IRONCLAD",
++    "铁甲": "IRONCLAD",
++    "铁甲战士": "IRONCLAD",
++    "silent": "SILENT",
++    "the silent": "SILENT",
++    "猎手": "SILENT",
++    "刺客": "SILENT",
++    "defect": "DEFECT",
++    "机器人": "DEFECT",
++    "necrobinder": "NECROBINDER",
++    "necrobancer": "NECROBINDER",
++    "necro_binder": "NECROBINDER",
++    "死灵": "NECROBINDER",
++    "亡灵": "NECROBINDER",
++    "regent": "REGENT",
++    "储君": "REGENT",
++    "皇子": "REGENT",
++}
++
++# Legacy typo used in older decision.py preference lists
++_LEGACY_ALIASES = {"necrobancer": "NECROBINDER"}
++
++
++def normalize_character(name: str | None) -> str | None:
++    """Map user/config input to a canonical character id, or None if unknown."""
++    if not name:
++        return None
++    raw = str(name).strip()
++    if not raw:
++        return None
++    key = raw.lower().replace("-", "_").replace(" ", "_")
++    if key in _ALIASES:
++        return _ALIASES[key]
++    upper = raw.upper().replace("-", "_").replace(" ", "_")
++    if upper in VALID_CHARACTERS:
++        return upper
++    if upper in _LEGACY_ALIASES:
++        return _LEGACY_ALIASES[upper]
++    # Substring match for menu labels like "Ironclad (Unlocked)"
++    low = raw.lower()
++    for alias, canon in _ALIASES.items():
++        if len(alias) >= 4 and alias in low:
++            return canon
++    for canon in VALID_CHARACTERS:
++        if canon.lower() in low:
++            return canon
++    return None
++
++
++def get_preferred_character(cfg: dict[str, Any] | None = None) -> str:
++    """Preferred character from env ``STS2_CHARACTER``, then config, else Ironclad."""
++    env = (os.environ.get("STS2_CHARACTER") or "").strip()
++    if env:
++        norm = normalize_character(env)
++        if norm:
++            return norm
++    if cfg:
++        norm = normalize_character(str(cfg.get("character") or ""))
++        if norm:
++            return norm
++    return DEFAULT_CHARACTER
++
++
++def preference_order(cfg: dict[str, Any] | None = None) -> tuple[str, ...]:
++    """Character ids to try on character-select menus (preferred first)."""
++    pref = get_preferred_character(cfg)
++    rest = [c for c in ALL_CHARACTERS if c != pref]
++    return (pref, *rest)
++
++
++def _option_label(opt: dict) -> str:
++    return str(opt.get("option") or opt.get("title") or opt.get("name") or "")
++
++
++def option_matches_character(opt: dict, role: str) -> bool:
++    """True if menu option corresponds to ``role`` (canonical id)."""
++    label = _option_label(opt)
++    if not label:
++        return False
++    upper = label.upper()
++    role_u = role.upper()
++    if role_u in upper or upper == role_u:
++        return True
++    low = label.lower()
++    canon = normalize_character(role) or role_u
++    for alias, mapped in _ALIASES.items():
++        if mapped == canon and len(alias) >= 3 and alias in low:
++            return True
++    norm = normalize_character(label)
++    return norm == canon
++
++
++def pick_character_menu_action(
++    opts: list,
++    *,
++    cfg: dict[str, Any] | None = None,
++) -> dict[str, Any] | None:
++    """Pick unlocked character matching config preference."""
++    if cfg is None:
++        try:
++            from plugins.sts2.config import load_sts2_config
++
++            cfg = load_sts2_config()
++        except Exception:
++            cfg = {}
++    for role in preference_order(cfg):
++        for o in opts:
++            if not isinstance(o, dict) or o.get("is_locked"):
++                continue
++            if option_matches_character(o, role):
++                opt = _option_label(o) or role
++                return {"action": "menu_select", "option": opt}
++    for o in opts:
++        if isinstance(o, dict) and not o.get("is_locked"):
++            opt = _option_label(o)
++            if opt:
++                return {"action": "menu_select", "option": opt}
++    return None
++
++
++def find_character_in_options(opts: list, *, cfg: dict[str, Any] | None = None) -> str | None:
++    """Return the menu option label for the preferred character if present."""
++    if cfg is None:
++        try:
++            from plugins.sts2.config import load_sts2_config
++
++            cfg = load_sts2_config()
++        except Exception:
++            cfg = {}
++    pref = get_preferred_character(cfg)
++    from plugins.sts2.safe_parse import option_enabled, option_label
++
++    for o in opts:
++        if not option_enabled(o):
++            continue
++        if isinstance(o, dict) and o.get("is_locked"):
++            continue
++        if option_matches_character(o if isinstance(o, dict) else {"option": option_label(o)}, pref):
++            return option_label(o) if not isinstance(o, dict) else (_option_label(o) or pref)
++    return None
+diff --git a/plugins/sts2/cli.py b/plugins/sts2/cli.py
+index 8fe34c5..efb552c 100644
+--- a/plugins/sts2/cli.py
++++ b/plugins/sts2/cli.py
+@@ -44,16 +44,29 @@ def register_cli(subparser: argparse.ArgumentParser) -> None:
+ 
+     ap = subs.add_parser("autoplay", help="Background autoplay control")
+     ap_sub = ap.add_subparsers(dest="autoplay_command", required=True)
+-    ap_sub.add_parser("start", help="Start autoplay loop (rules, not LLM)")
++
++    def _character_arg(p: argparse.ArgumentParser) -> None:
++        p.add_argument(
++            "--character",
++            "-c",
++            default=None,
++            metavar="CHAR",
++            help="Character for new runs: ironclad, silent, defect, necrobinder, regent",
++        )
++
++    _character_arg(ap_sub.add_parser("start", help="Start autoplay loop (rules, not LLM)"))
+     ap_sub.add_parser("stop", help="Stop autoplay / watch / learn")
+     ap_sub.add_parser("status", help="Autoplay status")
+     ap_sub.add_parser("watch", help="Spectate your manual play (action log)")
+     ap_sub.add_parser("learn", help="Learn your style; ask when confused")
+-    ap_sub.add_parser("study", help="Self-play with rules + cross-run lessons")
++    _character_arg(
++        ap_sub.add_parser("study", help="Self-play with rules + cross-run lessons")
++    )
+     start_p = ap_sub.add_parser("step", help="Run one autoplay step")
+     start_p.add_argument("--hint", default="", help="User hint for this step")
+     sp = ap_sub.add_parser("run", help="Alias: start")
+     sp.add_argument("--max-steps", type=int, default=None)
++    _character_arg(sp)
+ 
+     inst = subs.add_parser(
+         "install-mod",
+@@ -215,8 +228,14 @@ def _cmd_mode() -> int:
+ 
+ 
+ def _cmd_autoplay(args: argparse.Namespace) -> int:
++    import os
++
+     from plugins.sts2.autoplay import get_controller
+ 
++    char = (getattr(args, "character", None) or "").strip()
++    if char:
++        os.environ["STS2_CHARACTER"] = char
++
+     sub = getattr(args, "autoplay_command", "status")
+     ctrl = get_controller()
+     if sub in ("start", "run", "study"):
+@@ -314,6 +333,7 @@ def _cmd_status() -> int:
+     lines = [
+         f"Hermes home: {display_hermes_home()}",
+         f"STS2 base_url: {cfg.get('base_url')}",
++        f"character: {cfg.get('character', 'IRONCLAD')}",
+         f"commentary: {cfg.get('commentary')}",
+         f"autoplay: {cfg.get('autoplay')}",
+     ]
+diff --git a/plugins/sts2/config.py b/plugins/sts2/config.py
+index 7f16298..98308b8 100644
+--- a/plugins/sts2/config.py
++++ b/plugins/sts2/config.py
+@@ -80,6 +80,7 @@ _DEFAULTS: dict[str, Any] = {
+     "auto_repair": True,
+     "hermes_may_patch_code": True,
+     "api_down_backoff_seconds": 8,
++    "character": "IRONCLAD",
+ }
+ 
+ 
+@@ -110,6 +111,17 @@ def load_sts2_config() -> dict[str, Any]:
+     if env_url:
+         merged["base_url"] = env_url.rstrip("/")
+ 
++    from plugins.sts2.character_choice import DEFAULT_CHARACTER, normalize_character
++
++    char_env = (os.environ.get("STS2_CHARACTER") or "").strip()
++    if char_env:
++        norm = normalize_character(char_env)
++        if norm:
++            merged["character"] = norm
++    else:
++        norm = normalize_character(str(merged.get("character") or ""))
++        merged["character"] = norm or DEFAULT_CHARACTER
++
+     try:
+         merged["timeout"] = float(merged.get("timeout", DEFAULT_TIMEOUT))
+     except (TypeError, ValueError):
+diff --git a/plugins/sts2/decision.py b/plugins/sts2/decision.py
+index ab86508..745e9aa 100644
+--- a/plugins/sts2/decision.py
++++ b/plugins/sts2/decision.py
+@@ -136,24 +136,10 @@ def _pick_best_card(cards: list[dict]) -> int | None:
+ 
+ 
+ def _menu_character_action(opts: list) -> dict | None:
+-    """Pick first unlocked character option (prefer Ironclad)."""
+-    preferred = ("IRONCLAD", "SILENT", "DEFECT", "NECROBANCER", "REGENT")
+-    for role in preferred:
+-        for o in opts:
+-            if o.get("is_locked"):
+-                continue
+-            label = str(o.get("option") or o.get("title") or "").upper()
+-            if role in label or label == role:
+-                return {
+-                    "action": "menu_select",
+-                    "option": o.get("option") or o.get("title") or role,
+-                }
+-    for o in opts:
+-        if not o.get("is_locked"):
+-            opt = o.get("option") or o.get("title")
+-            if opt:
+-                return {"action": "menu_select", "option": opt}
+-    return None
++    """Pick unlocked character from config (``sts2.character`` / ``STS2_CHARACTER``)."""
++    from plugins.sts2.character_choice import pick_character_menu_action
++
++    return pick_character_menu_action(opts)
+ 
+ 
+ def _hp_ratio(state: dict | None) -> float:
+diff --git a/plugins/sts2/integrations/astrbot/README.md b/plugins/sts2/integrations/astrbot/README.md
+index cc975ba..ea02883 100644
+--- a/plugins/sts2/integrations/astrbot/README.md
++++ b/plugins/sts2/integrations/astrbot/README.md
+@@ -37,7 +37,18 @@ Copy `skills/slay-the-spire-2/` into:
+ 
+ Reload the plugin / skill manager in WebUI.
+ 
+-## 4. Tool names
++## 4. Character selection
++
++Add to `~/.config/sts2/config.yaml` or the MCP `env` block:
++
++```yaml
++sts2:
++  character: necrobinder
++```
++
++Values: `ironclad`, `silent`, `defect`, `necrobinder`, `regent`. Used when `sts2 autoplay` drives menu / new-run flow. Details: root [README](../../../../README.md#character-selection).
++
++## 5. Tool names
+ 
+ AstrBot lists MCP tools with a server prefix. Typical loop:
+ 
+@@ -45,6 +56,6 @@ AstrBot lists MCP tools with a server prefix. Typical loop:
+ 2. `perform_action` with `action` + `parameters`
+ 3. `search_wiki` when you need card text
+ 
+-## 5. AstrBot-only plugin (alternative)
++## 6. AstrBot-only plugin (alternative)
+ 
+ You do **not** need a custom Star plugin if MCP is enough. For a native AstrBot plugin that bundles HTTP tools without MCP, track [issue/discussion in your fork] — MCP is the supported cross-platform path today.
+diff --git a/plugins/sts2/integrations/astrbot/skills/slay-the-spire-2/SKILL.md b/plugins/sts2/integrations/astrbot/skills/slay-the-spire-2/SKILL.md
+index f45907d..c6f3622 100644
+--- a/plugins/sts2/integrations/astrbot/skills/slay-the-spire-2/SKILL.md
++++ b/plugins/sts2/integrations/astrbot/skills/slay-the-spire-2/SKILL.md
+@@ -4,7 +4,7 @@ description: "Play STS2 via MCP; Act1-safe loop and full-run."
+ version: 1.0.0
+ author: Hermes Agent
+ license: MIT
+-tags: [gaming, sts2, ironclad, astrbot]
++tags: [gaming, sts2, ironclad, silent, defect, necrobinder, regent, astrbot]
+ platforms: [windows, macos, linux]
+ ---
+ 
+@@ -17,6 +17,7 @@ Use the **sts2** MCP server configured in AstrBot WebUI. Tool names may appear w
+ 1. STS2 running with MCP mod; API at `http://127.0.0.1:15526`.
+ 2. AstrBot MCP entry: `python` + `scripts/sts2_mcp_bridge.py` + env `STS2_MCP_BASE_URL`, `STS2_HOME`.
+ 3. `ping_mod` succeeds.
++4. **Character (optional):** set `sts2.character` in `~/.config/sts2/config.yaml`, or env `STS2_CHARACTER` (e.g. `silent`), or CLI `sts2 autoplay study --character defect`.
+ 
+ ## Core loop
+ 
+diff --git a/plugins/sts2/integrations/openclaw/README.md b/plugins/sts2/integrations/openclaw/README.md
+index 2f69180..ff7f021 100644
+--- a/plugins/sts2/integrations/openclaw/README.md
++++ b/plugins/sts2/integrations/openclaw/README.md
+@@ -37,7 +37,18 @@ Example shape:
+ 
+ Copy `skills/slay-the-spire-2/` into your OpenClaw workspace skills (e.g. `~/.openclaw/workspace/skills/`). Adjust paths if your install differs.
+ 
+-## 4. Play loop
++## 4. Character selection (autoplay / new run)
++
++Set in `~/.config/sts2/config.yaml`:
++
++```yaml
++sts2:
++  character: silent
++```
++
++Or pass env in the MCP server block: `"STS2_CHARACTER": "defect"`. CLI: `sts2 autoplay study --character regent`. See the root [README](../../../../README.md#character-selection).
++
++## 5. Play loop
+ 
+ 1. Start STS2 with MCP mod.
+ 2. Confirm `ping_mod` (or prefixed variant) succeeds.
+@@ -45,6 +56,6 @@ Copy `skills/slay-the-spire-2/` into your OpenClaw workspace skills (e.g. `~/.op
+ 
+ OpenClaw does **not** use Hermes `sts2_get_state` names — use MCP tool names from step 2.
+ 
+-## 5. Migrating from Hermes
++## 6. Migrating from Hermes
+ 
+ If you used `hermes claw migrate`, keep using `~/.hermes` or point `STS2_HOME` at `~/.openclaw/sts2` for a fresh OpenClaw-only data dir.
+diff --git a/plugins/sts2/integrations/openclaw/skills/slay-the-spire-2/SKILL.md b/plugins/sts2/integrations/openclaw/skills/slay-the-spire-2/SKILL.md
+index 42c7234..6a101fe 100644
+--- a/plugins/sts2/integrations/openclaw/skills/slay-the-spire-2/SKILL.md
++++ b/plugins/sts2/integrations/openclaw/skills/slay-the-spire-2/SKILL.md
+@@ -4,7 +4,7 @@ description: "Play STS2 via MCP; Act1-safe loop and full-run."
+ version: 1.0.0
+ author: Hermes Agent
+ license: MIT
+-tags: [gaming, sts2, ironclad, openclaw]
++tags: [gaming, sts2, ironclad, silent, defect, necrobinder, regent, openclaw]
+ platforms: [windows, macos, linux]
+ ---
+ 
+@@ -17,6 +17,7 @@ Drive **Slay the Spire 2** through the **sts2** MCP server (`ping_mod`). You are
+ 1. Game running with **STS2 MCP** mod.
+ 2. OpenClaw `mcp.servers.sts2` points at `scripts/sts2_mcp_bridge.py` from the Hermes STS2 repo.
+ 3. `ping_mod` returns success (tool name may be prefixed, e.g. `sts2_ping_mod`).
++4. **Character (optional):** `~/.config/sts2/config.yaml` → `sts2.character: silent`, or `STS2_CHARACTER=defect`, or `sts2 autoplay study --character regent`. Default is Ironclad.
+ 
+ ## Core loop
+ 
+diff --git a/plugins/sts2/run_flow.py b/plugins/sts2/run_flow.py
+index 7a4a351..842c810 100644
+--- a/plugins/sts2/run_flow.py
++++ b/plugins/sts2/run_flow.py
+@@ -6,7 +6,7 @@ from typing import Any, Dict, Optional
+ 
+ 
+ def next_menu_action(state: dict) -> Optional[Dict[str, Any]]:
+-    """One menu/game_over action toward starting a standard Ironclad run."""
++    """One menu/game_over action toward starting a new run (character from config)."""
+     st = str(state.get("state_type") or "")
+     screen = str(state.get("menu_screen") or "").lower()
+     from plugins.sts2.safe_parse import normalize_options, option_enabled, option_label
+@@ -57,13 +57,11 @@ def next_menu_action(state: dict) -> Optional[Dict[str, Any]]:
+     if "standard" in names:
+         return {"action": "menu_select", "option": "standard"}
+ 
+-    for o in opts:
+-        if isinstance(o, dict) and o.get("is_locked"):
+-            continue
+-        opt = option_label(o)
+-        low = opt.lower()
+-        if "ironclad" in low or opt.upper() == "IRONCLAD":
+-            return {"action": "menu_select", "option": opt}
++    from plugins.sts2.character_choice import pick_character_menu_action
++
++    picked = pick_character_menu_action(opts)
++    if picked:
++        return picked
+ 
+     if "embark" in names:
+         return {"action": "menu_select", "option": "embark"}
+diff --git a/pyproject.toml b/pyproject.toml
+index 6548677..7c5face 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -32,9 +32,9 @@ hermes = ["hermes-agent>=0.13"]
+ llm = ["openai>=1.0"]
+ 
+ [project.urls]
+-Homepage = "https://github.com/Brs/hermes-sts2"
+-Repository = "https://github.com/Brs/hermes-sts2"
+-Issues = "https://github.com/Brs/hermes-sts2/issues"
++Homepage = "https://github.com/sakikoTGW/hermes-sts2"
++Repository = "https://github.com/sakikoTGW/hermes-sts2"
++Issues = "https://github.com/sakikoTGW/hermes-sts2/issues"
+ 
+ [project.scripts]
+ sts2 = "plugins.sts2.cli_standalone:main"
+diff --git a/skills/slay-the-spire-2/SKILL.md b/skills/slay-the-spire-2/SKILL.md
+index 712d35c..34c6778 100644
+--- a/skills/slay-the-spire-2/SKILL.md
++++ b/skills/slay-the-spire-2/SKILL.md
+@@ -4,11 +4,12 @@ description: "Play STS2 via API; Act1-safe loop and full-run."
+ version: 2.0.0
+ author: Hermes Agent
+ license: MIT
+-tags: [gaming, sts2, ironclad]
++tags: [gaming, sts2, ironclad, silent, defect, necrobinder, regent]
+ platforms: [windows, macos, linux]
+ metadata.hermes.category: gaming
+ metadata.hermes.config:
+   - sts2.base_url
++  - sts2.character
+ ---
+ 
+ # Slay the Spire 2 Skill
+@@ -18,14 +19,15 @@ Drive **Slay the Spire 2** through STS2MCP (`hermes sts2 ping`). **You** are the
+ ## When to Use
+ 
+ - User wants a full run (`FULL_RUN_CLEARED`) or Act 1 clear
+-- Game open, singleplayer, Ironclad (or current character visible in state)
++- Game open, singleplayer; character matches config or is already in an active run
+ 
+ ## Prerequisites
+ 
+ 1. Game running with **STS2 MCP** mod enabled.
+ 2. `sts2_ping` returns ok.
+-3. 启动 `Launch-Hermes-STS2.bat`（**挂载模式**：边聊边打至通关）。
+-4. **怪物知识库**（首次）：`hermes sts2 sync-wiki --merge-yaml`（灰机 wiki 需浏览器 cookies 时用 `--cookies`；或 `--html-dir` 导入已保存 HTML）。仓库已内置 Act1 种子，无网也能读【怪物Wiki】。
++3. **角色（可选）**：在 `~/.hermes/config.yaml` 的 `sts2.character` 设为 `ironclad` / `silent` / `defect` / `necrobinder` / `regent`，或 `set STS2_CHARACTER=silent`。终端代打：`hermes sts2 autoplay study --character silent`（若 CLI 已透传）。默认仍为铁甲战士；其它角色策略库较薄，Agent 需更多 wiki/自行推理。
++4. 启动 `Launch-Hermes-STS2.bat`（**挂载模式**：边聊边打至通关）。
++5. **怪物知识库**（首次）：`hermes sts2 sync-wiki --merge-yaml`（灰机 wiki 需浏览器 cookies 时用 `--cookies`；或 `--html-dir` 导入已保存 HTML）。仓库已内置 Act1 种子，无网也能读【怪物Wiki】。
+ 
+ ## How to Run
+ 
+@@ -74,6 +76,8 @@ On Act 1, `validate_action` may **rewrite** map/rewards/rest mistakes (`act1_gua
+ 
+ `sts2_ping` → `sts2_get_state` → `sts2_act`（`setup_status` 最多一次）。挂载模式不要用 terminal 写 HTTP。
+ 
++若需**自动开新局并选角色**：配置 `sts2.character` 后使用 `sts2_autoplay action=study`（或 CLI `sts2 autoplay study -c <角色>`）；菜单阶段会 `menu_select` 对应角色，勿手动假定铁甲战士。
++
+ ### Until Act 1 Boss dies
+ 
+ Follow table above; after each combat read rewards brief before `proceed`.
+diff --git a/tests/plugins/test_sts2_character_choice.py b/tests/plugins/test_sts2_character_choice.py
+new file mode 100644
+index 0000000..e50e467
+--- /dev/null
++++ b/tests/plugins/test_sts2_character_choice.py
+@@ -0,0 +1,51 @@
++"""Character selection for menu / new-run flow."""
++
++from __future__ import annotations
++
++import os
++
++
++def test_normalize_character_aliases():
++    from plugins.sts2.character_choice import normalize_character
++
++    assert normalize_character("silent") == "SILENT"
++    assert normalize_character("猎手") == "SILENT"
++    assert normalize_character("necrobinder") == "NECROBINDER"
++    assert normalize_character("necrobancer") == "NECROBINDER"
++
++
++def test_pick_character_respects_config(sts2_env, monkeypatch):
++    from plugins.sts2.character_choice import pick_character_menu_action
++
++    monkeypatch.delenv("STS2_CHARACTER", raising=False)
++    opts = [
++        {"option": "Ironclad", "is_locked": False},
++        {"option": "Silent", "is_locked": False},
++        {"option": "Defect", "is_locked": False},
++    ]
++    act = pick_character_menu_action(opts, cfg={"character": "silent"})
++    assert act == {"action": "menu_select", "option": "Silent"}
++
++
++def test_run_flow_picks_configured_character(sts2_env, monkeypatch):
++    from plugins.sts2.run_flow import next_menu_action
++
++    monkeypatch.setenv("STS2_CHARACTER", "defect")
++    state = {
++        "state_type": "menu",
++        "menu_screen": "character",
++        "options": [
++            {"option": "Ironclad", "enabled": True},
++            {"option": "Defect", "enabled": True},
++        ],
++    }
++    act = next_menu_action(state)
++    assert act == {"action": "menu_select", "option": "Defect"}
++
++
++def test_sts2_character_env_overrides_config(sts2_env, monkeypatch):
++    from plugins.sts2.config import load_sts2_config
++
++    monkeypatch.setenv("STS2_CHARACTER", "regent")
++    cfg = load_sts2_config()
++    assert cfg["character"] == "REGENT"
+-- 
+2.49.0.windows.1
+

@@ -40,11 +40,11 @@ sts2-mcp
 
 | 配置方式 | 示例 |
 |----------|------|
-| `~/.config/sts2/config.yaml` | `character: silent` |
-| 环境变量 | `STS2_CHARACTER=defect` |
-| 命令行 | `sts2 autoplay study --character regent` |
+| `~/.config/sts2/config.yaml` | `character: 1` |
+| 环境变量 | `STS2_CHARACTER=2` |
+| 命令行 | `sts2 autoplay study --character 4` |
 
-支持：`ironclad`、`silent`、`defect`、`necrobinder`、`regent`（也识别 `猎手`、`机器人` 等中文别名）。实现见 `character_choice.py`。
+编号：**0** 铁甲战士 · **1** 静默猎手 · **2** 故障机器人 · **3** 亡灵契约师 · **4** 储君（亦支持英文名 / 中文别名）。实现见 `character_choice.py`。
 
 铁甲战士专用组牌/战斗指南在 `ironclad_builds.py`；其它角色暂用通用评分，后续可补充专精文档。
 

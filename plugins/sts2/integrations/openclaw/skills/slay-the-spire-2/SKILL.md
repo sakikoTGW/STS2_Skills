@@ -17,7 +17,7 @@ platforms: [windows, macos, linux]
 1. 游戏运行且开启 **STS2 MCP** 模组。
 2. OpenClaw 的 `mcp.servers.sts2` 指向本仓库的 `scripts/sts2_mcp_bridge.py`。
 3. `ping_mod` 成功（名称可能带前缀，如 `sts2_ping_mod`）。
-4. **角色（可选）：** `~/.config/sts2/config.yaml` → `sts2.character: silent`，或 `STS2_CHARACTER=defect`，或 `sts2 autoplay study --character regent`。默认为铁甲战士。
+4. **角色（可选）：** `sts2.character` 为 **0–4**（0 铁甲战士、1 静默猎手、2 故障机器人、3 亡灵契约师、4 储君），默认 0。
 
 ## 核心循环
 

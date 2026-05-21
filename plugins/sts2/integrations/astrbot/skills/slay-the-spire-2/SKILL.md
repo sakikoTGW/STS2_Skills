@@ -17,7 +17,7 @@ platforms: [windows, macos, linux]
 1. STS2 已运行且开启 MCP 模组；API 为 `http://127.0.0.1:15526`。
 2. AstrBot MCP 项：`python` + `scripts/sts2_mcp_bridge.py` + env `STS2_MCP_BASE_URL`、`STS2_HOME`。
 3. `ping_mod` 调用成功。
-4. **角色（可选）：** 在 `~/.config/sts2/config.yaml` 设置 `sts2.character`，或环境变量 `STS2_CHARACTER`（如 `silent`），或 CLI `sts2 autoplay study --character defect`。
+4. **角色（可选）：** `config.yaml` 中 `character: 0–4`（0 铁甲战士 … 4 储君），或 `STS2_CHARACTER` / `sts2 autoplay study -c 1`。
 
 ## 核心循环
 

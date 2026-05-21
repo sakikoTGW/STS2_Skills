@@ -7,9 +7,9 @@
 sts2:
   base_url: "http://127.0.0.1:15526"
   timeout: 15
-  # 自动代打 / 新局菜单可选角色: ironclad | silent | defect | necrobinder | regent
-  # 临时覆盖: STS2_CHARACTER=silent  或  sts2 autoplay start --character silent
-  character: ironclad
+  # 开局角色编号: 0=铁甲战士 1=静默猎手 2=故障机器人 3=亡灵契约师 4=储君
+  # 临时覆盖: STS2_CHARACTER=1  或  sts2 autoplay start --character 1
+  character: 0
   commentary: "verbose"
   autoplay: false
   pause_on_ask: true

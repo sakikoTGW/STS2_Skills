@@ -51,7 +51,7 @@ def register_cli(subparser: argparse.ArgumentParser) -> None:
             "-c",
             default=None,
             metavar="CHAR",
-            help="Character for new runs: ironclad, silent, defect, necrobinder, regent",
+            help="Character: 0-4 or name (0=铁甲战士 1=静默猎手 2=故障机器人 3=亡灵契约师 4=储君)",
         )
 
     _character_arg(ap_sub.add_parser("start", help="Start autoplay loop (rules, not LLM)"))
@@ -77,6 +77,17 @@ def register_cli(subparser: argparse.ArgumentParser) -> None:
         default=None,
         help="Slay the Spire 2 install directory (default: auto-detect)",
     )
+
+    wiz = subs.add_parser("install-wizard", help="一键安装向导（宿主 / Skill / 模组 / 角色）")
+    wiz.add_argument(
+        "--host",
+        choices=["standalone", "hermes", "openclaw", "astrbot"],
+    )
+    wiz.add_argument("--game-dir", default=None)
+    wiz.add_argument("--skill-dir", default=None)
+    wiz.add_argument("--astrbot-data", default=None)
+    wiz.add_argument("--character", "-c", default=None)
+    wiz.add_argument("-y", "--yes", action="store_true", help="非交互模式")
 
     sw = subs.add_parser(
         "sync-wiki",
@@ -199,6 +210,8 @@ def sts2_command(args: argparse.Namespace) -> int:
         return _cmd_status()
     if cmd == "install-mod":
         return _cmd_install_mod(getattr(args, "game_dir", None))
+    if cmd == "install-wizard":
+        return _cmd_install_wizard(args)
     if cmd == "sync-wiki":
         return _cmd_sync_wiki(args)
     if cmd == "sync-mechanics":
@@ -293,6 +306,28 @@ def _cmd_integration_config(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_install_wizard(args: argparse.Namespace) -> int:
+    import subprocess
+    import sys
+    from pathlib import Path
+
+    script = Path(__file__).resolve().parents[2] / "scripts" / "sts2_setup_wizard.py"
+    argv = [sys.executable, str(script)]
+    if getattr(args, "host", None):
+        argv += ["--host", args.host]
+    if getattr(args, "game_dir", None):
+        argv += ["--game-dir", args.game_dir]
+    if getattr(args, "skill_dir", None):
+        argv += ["--skill-dir", args.skill_dir]
+    if getattr(args, "astrbot_data", None):
+        argv += ["--astrbot-data", args.astrbot_data]
+    if getattr(args, "character", None) is not None:
+        argv += ["--character", str(args.character)]
+    if getattr(args, "yes", False):
+        argv.append("-y")
+    return subprocess.call(argv)
+
+
 def _cmd_setup() -> int:
     from hermes_cli.config import load_config, save_config
 
@@ -333,7 +368,7 @@ def _cmd_status() -> int:
     lines = [
         f"Hermes home: {display_hermes_home()}",
         f"STS2 base_url: {cfg.get('base_url')}",
-        f"character: {cfg.get('character', 'IRONCLAD')}",
+        f"character: {cfg.get('character_index', 0)} ({cfg.get('character', 'IRONCLAD')})",
         f"commentary: {cfg.get('commentary')}",
         f"autoplay: {cfg.get('autoplay')}",
     ]
