@@ -56,34 +56,8 @@ _ALIASES: dict[str, str] = {
 _LEGACY_ALIASES = {"necrobancer": "NECROBINDER"}
 
 
-def character_index(value: str | int | None) -> int | None:
-    """Parse config value to index 0–4, or None if unknown."""
-    if value is None:
-        return None
-    if isinstance(value, bool):
-        return None
-    if isinstance(value, int):
-        return value if value in CHARACTER_BY_INDEX else None
-    raw = str(value).strip()
-    if not raw:
-        return None
-    if raw.isdigit():
-        idx = int(raw)
-        return idx if idx in CHARACTER_BY_INDEX else None
-    canon = normalize_character(raw)
-    if canon:
-        return INDEX_BY_CHARACTER.get(canon)
-    return None
-
-
-def normalize_character(name: str | int | None) -> str | None:
-    """Map user/config input to a canonical character id, or None if unknown."""
-    idx = character_index(name)
-    if idx is not None:
-        return CHARACTER_BY_INDEX[idx]
-    if not name:
-        return None
-    raw = str(name).strip()
+def _canonical_from_text(raw: str) -> str | None:
+    """Map a text label to canonical id (no index round-trip)."""
     if not raw:
         return None
     key = raw.lower().replace("-", "_").replace(" ", "_")
@@ -102,6 +76,41 @@ def normalize_character(name: str | int | None) -> str | None:
         if canon.lower() in low:
             return canon
     return None
+
+
+def character_index(value: str | int | None) -> int | None:
+    """Parse config value to index 0–4, or None if unknown."""
+    if value is None:
+        return None
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value if value in CHARACTER_BY_INDEX else None
+    raw = str(value).strip()
+    if not raw:
+        return None
+    if raw.isdigit():
+        idx = int(raw)
+        return idx if idx in CHARACTER_BY_INDEX else None
+    canon = _canonical_from_text(raw)
+    if canon:
+        return INDEX_BY_CHARACTER.get(canon)
+    return None
+
+
+def normalize_character(name: str | int | None) -> str | None:
+    """Map user/config input to a canonical character id, or None if unknown."""
+    if name is None or isinstance(name, bool):
+        return None
+    if isinstance(name, int):
+        return CHARACTER_BY_INDEX.get(name) if name in CHARACTER_BY_INDEX else None
+    raw = str(name).strip()
+    if not raw:
+        return None
+    if raw.isdigit():
+        idx = int(raw)
+        return CHARACTER_BY_INDEX.get(idx) if idx in CHARACTER_BY_INDEX else None
+    return _canonical_from_text(raw)
 
 
 def resolve_character_setting(value: str | int | None) -> tuple[int, str]:

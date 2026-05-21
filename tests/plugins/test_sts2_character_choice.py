@@ -15,6 +15,8 @@ def test_normalize_character_aliases():
     assert normalize_character(0) == "IRONCLAD"
     assert normalize_character(1) == "SILENT"
     assert normalize_character("2") == "DEFECT"
+    assert normalize_character("IRONCLAD") == "IRONCLAD"
+    assert normalize_character("ironclad") == "IRONCLAD"
     assert normalize_character("静默猎手") == "SILENT"
     assert normalize_character("故障机器人") == "DEFECT"
     assert normalize_character("亡灵契约师") == "NECROBINDER"
