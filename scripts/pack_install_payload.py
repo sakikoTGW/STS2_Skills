@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_ZIP = ROOT / "dist" / "installer" / "payload.zip"
-MOD_API = "https://api.github.com/repos/Gennadiyev/STS2MCP/releases/latest"
+# STS2MCP version: compat.yaml (see plugins.sts2.sts2mcp_install)
 
 SKIP_DIRS = {
     ".git",
@@ -23,6 +23,7 @@ SKIP_DIRS = {
     "patches",
     "__pycache__",
     ".pytest_cache",
+    "sts2_skills.egg-info",
     "hermes_sts2.egg-info",
     "install_stub",  # dotnet build（bin/obj），勿打进 payload
     "bin",
@@ -45,23 +46,13 @@ def _skip(rel: Path) -> bool:
 
 
 def _download_mod_assets(dest_mods: Path) -> None:
-    dest_mods.mkdir(parents=True, exist_ok=True)
-    req = urllib.request.Request(MOD_API, headers={"User-Agent": "STS2_Skills-installer"})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        release = json.loads(resp.read().decode("utf-8"))
-    assets = {a["name"]: a["browser_download_url"] for a in release.get("assets", [])}
-    tag = release.get("tag_name", "?")
-    for name in ("STS2_MCP.dll", "STS2_MCP.json"):
-        url = assets.get(name)
-        if not url:
-            raise RuntimeError(f"STS2MCP release {tag} missing asset {name}")
-        print(f"[mod] {name} ({tag})")
-        dest = dest_mods / name
-        with urllib.request.urlopen(
-            urllib.request.Request(url, headers={"User-Agent": "STS2_Skills-installer"}),
-            timeout=120,
-        ) as r:
-            dest.write_bytes(r.read())
+    root = Path(__file__).resolve().parents[1]
+    if str(root) not in sys.path:
+        sys.path.insert(0, str(root))
+    from plugins.sts2.sts2mcp_install import download_mod_assets
+
+    tag = download_mod_assets(dest_mods)
+    print(f"[mod] STS2MCP {tag} -> {dest_mods}")
 
 
 def main() -> int:

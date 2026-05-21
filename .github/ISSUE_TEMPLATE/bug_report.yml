@@ -1,0 +1,35 @@
+name: Bug report
+description: Something broke (install, MCP, autoplay, host integration)
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: STS2_Skills version
+      placeholder: e.g. 1.0.4 or git commit
+  - type: input
+    id: sts2mcp
+    attributes:
+      label: STS2MCP mod tag
+      placeholder: e.g. 0.4.0 (see compat.yaml)
+  - type: dropdown
+    id: host
+    attributes:
+      label: Host
+      options:
+        - Standalone / sts2 CLI
+        - Hermes Agent
+        - OpenClaw
+        - AstrBot
+        - Cursor / other MCP
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      description: sts2 status, ping error, MCP stderr, etc.

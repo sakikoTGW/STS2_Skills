@@ -1,4 +1,7 @@
-"""Create GitHub Release and upload zip (uses git credential token)."""
+"""DEPRECATED: use scripts/release.ps1 + GitHub CLI (gh release create).
+
+Kept for emergency uploads only. Prefer CONTRIBUTING.md release flow.
+"""
 from __future__ import annotations
 
 import json

@@ -8,7 +8,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
-TAG = sys.argv[1] if len(sys.argv) > 1 else "v1.0.3"
+def _default_tag() -> str:
+    import re
+
+    text = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    m = re.search(r'^version\s*=\s*"([^"]+)"', text, re.MULTILINE)
+    v = m.group(1) if m else "0.0.0"
+    return f"v{v}"
+
+
+TAG = sys.argv[1] if len(sys.argv) > 1 else _default_tag()
 VER = TAG.lstrip("v")
 
 SKIP_DIRS = {
@@ -20,6 +29,7 @@ SKIP_DIRS = {
     "patches",
     "__pycache__",
     ".pytest_cache",
+    "sts2_skills.egg-info",
     "hermes_sts2.egg-info",
     "install_stub",
     "bin",

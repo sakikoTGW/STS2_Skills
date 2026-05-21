@@ -17,6 +17,11 @@ sts2:
     - card_reward
     - relic_select
     - relic_select_boss
+  # 单局最大步数（study / marathon 可能自动抬高）
+  # max_steps_per_run: 8000
+  # 安全默认：不自动改代码；需要时改为 true
+  # auto_repair: false
+  # hermes_may_patch_code: false
 
 # 可选: 自定义数据目录（日志、策略、轨迹）
 # log_dir: "~/.config/sts2/data"

@@ -52,7 +52,7 @@ def _parse_subcommand(event: AstrMessageEvent) -> tuple[str, bool]:
     "astrbot_plugin_sts2_agent",
     "Patchouli",
     "STS2 AI — STS2_Skills + STS2MCP（15526）",
-    "1.0.3",
+    "1.0.4",
 )
 class Sts2AgentPlugin(Star):
     def __init__(self, context: Context):
