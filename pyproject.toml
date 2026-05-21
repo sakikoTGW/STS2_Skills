@@ -9,7 +9,7 @@ description = "Slay the Spire 2 agent bridge — STS2MCP tools for Hermes, OpenC
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "STS2_Skills contributors" }]
+authors = [{ name = "sakikoTGW", email = "yanyang2333@foxmail.com" }]
 keywords = ["sts2", "slay-the-spire", "mcp", "hermes", "openclaw", "astrbot", "gaming"]
 classifiers = [
   "Development Status :: 4 - Beta",
