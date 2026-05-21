@@ -253,16 +253,17 @@ def _prepare_manual_act() -> str | None:
 
 
 def handle_sts2_act(args: Dict[str, Any], **kwargs: Any) -> str:
-    from plugins.sts2.config import load_sts2_config
     from plugins.sts2 import driver_lock
+    from plugins.sts2.config import enforce_single_driver_enabled
+
+    if enforce_single_driver_enabled():
+        blocked = driver_lock.manual_act_blocked()
+        if blocked:
+            return tool_error(blocked)
 
     err = _prepare_manual_act()
     if err:
         return tool_error(err)
-    if load_sts2_config().get("enforce_single_driver", False):
-        blocked = driver_lock.manual_act_blocked()
-        if blocked:
-            return tool_error(blocked)
 
     action = str(args.get("action") or "").strip()
     if not action:

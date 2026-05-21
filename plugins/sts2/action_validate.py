@@ -1,7 +1,7 @@
 """Validate/fix actions against live state before POST (fewer illegal clicks)."""
 from __future__ import annotations
 from typing import Any, Dict, Optional
-_COMBAT = frozenset({"monster", "elite", "boss", "hand_select"})
+_COMBAT = frozenset({"monster", "elite", "boss"})
 
 
 def _combat_play_fallback(state: dict) -> dict:
@@ -99,6 +99,15 @@ def _validate_action_inner(state: dict, body: dict) -> dict:
         except Exception:
             pass
         if not combat_should_end_turn(state):
+            from plugins.sts2.combat_brain import (
+                block_play_is_urgent,
+                incoming_attack_damage,
+            )
+
+            if not block_play_is_urgent(state):
+                enemies = (state.get("battle") or {}).get("enemies") or []
+                if incoming_attack_damage(enemies) <= 0 and enemies:
+                    return body
             return _combat_play_fallback(state)
         return body
     if action == "proceed":

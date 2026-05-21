@@ -14,12 +14,11 @@ from plugins.sts2.storage import sts2_home
 logger = logging.getLogger(__name__)
 
 _COMBAT = frozenset({"monster", "elite", "boss"})
-_HISTORY = sts2_home() / "run_history.jsonl"
 _MAX_HISTORY = 80
 
 
 def run_history_path() -> Path:
-    path = _HISTORY
+    path = sts2_home() / "run_history.jsonl"
     path.parent.mkdir(parents=True, exist_ok=True)
     return path
 
@@ -467,13 +466,11 @@ def finalize_trajectory(path: Path | None) -> Dict[str, Any]:
         pass
 
     if fail_count >= 3 and last_state:
-        from plugins.sts2.reflect import reflect_transition
-
-        return reflect_transition(
-            prev,
+        return record_outcome(
+            "stalled_run",
+            prev if prev is not None else last_state,
             last_state,
             recent_actions=recent,
-            use_llm=True,
         )
 
     return {"skipped": True}

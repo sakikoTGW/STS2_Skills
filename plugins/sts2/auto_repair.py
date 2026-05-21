@@ -23,7 +23,7 @@ def repair_allowed() -> bool:
 
     if os.environ.get("HERMES_TUI_STS2_AUTO_REPAIR", "").strip() in ("1", "true", "yes"):
         return True
-    return bool(load_sts2_config().get("auto_repair", True))
+    return bool(load_sts2_config().get("auto_repair", False))
 
 
 def may_patch_code() -> bool:
@@ -31,7 +31,7 @@ def may_patch_code() -> bool:
 
     if os.environ.get("HERMES_ALLOW_STS2_CODE_FIX", "").strip() in ("1", "true", "yes"):
         return True
-    return bool(load_sts2_config().get("hermes_may_patch_code", True))
+    return bool(load_sts2_config().get("hermes_may_patch_code", False))
 
 
 def attempt_auto_repair(

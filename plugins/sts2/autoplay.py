@@ -115,7 +115,9 @@ class AutoplayController:
         with self._lock:
             if self._status.running or self._status.watching or self._status.learning:
                 return {"success": False, "error": "sts2 session already active"}
-        if cfg.get("enforce_single_driver", True) and not driver_lock.acquire("autoplay"):
+        from plugins.sts2.config import enforce_single_driver_enabled
+
+        if enforce_single_driver_enabled(cfg) and not driver_lock.acquire("autoplay"):
             # Recover from stale in-process lock after crashed study thread
             if not self._status.running and not self._status.studying:
                 driver_lock.release("autoplay")
@@ -165,7 +167,9 @@ class AutoplayController:
                 with self._lock:
                     self._status.running = False
                     self._status.studying = False
-                if load_sts2_config().get("enforce_single_driver", True):
+                from plugins.sts2.config import enforce_single_driver_enabled
+
+                if enforce_single_driver_enabled():
                     driver_lock.release("autoplay")
 
         from plugins.sts2.lessons import bootstrap_learning_store
@@ -224,7 +228,9 @@ class AutoplayController:
         with self._lock:
             if self._status.running or self._status.watching or self._status.learning:
                 return {"success": False, "error": "sts2 session already active"}
-        if cfg.get("enforce_single_driver", True) and not driver_lock.acquire("autoplay"):
+        from plugins.sts2.config import enforce_single_driver_enabled
+
+        if enforce_single_driver_enabled(cfg) and not driver_lock.acquire("autoplay"):
             return {
                 "success": False,
                 "error": "sts2 driver busy — stop manual sts2_act loops or other autoplay first",
@@ -250,7 +256,9 @@ class AutoplayController:
             finally:
                 with self._lock:
                     self._status.running = False
-                if load_sts2_config().get("enforce_single_driver", True):
+                from plugins.sts2.config import enforce_single_driver_enabled
+
+                if enforce_single_driver_enabled():
                     driver_lock.release("autoplay")
 
         summary = lessons_summary_for_prompt()

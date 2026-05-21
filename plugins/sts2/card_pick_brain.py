@@ -27,6 +27,23 @@ from plugins.sts2.visibility import describe_situation
 logger = logging.getLogger(__name__)
 
 
+def _parse_json(text: str) -> dict | None:
+    """Parse JSON from LLM response, trying various formats."""
+    text = (text or "").strip()
+    if not text:
+        return None
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+    m = re.search(r"\{[\s\S]*\}", text)
+    if m:
+        try:
+            return json.loads(m.group(0))
+        except json.JSONDecodeError:
+            return None
+    return None
+
 
 def summarize_deck(state: dict) -> str:
     """Short deck composition for pick reasoning."""
@@ -321,28 +338,6 @@ def decide_card_reward(
     """
 
     from plugins.sts2.config import load_sts2_config
-def _parse_json(text: str) -> dict | None:
-    """Parse JSON from LLM response, trying various formats."""
-    text = (text or "").strip()
-    if not text:
-        return None
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError:
-        pass
-    import re
-    m = re.search(r"\{[\s\S]*\}", text)
-    if m:
-        try:
-            return json.loads(m.group(0))
-        except json.JSONDecodeError:
-            return None
-    return None
-
-
-
-
-
 
     cfg = load_sts2_config()
 

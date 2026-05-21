@@ -5,6 +5,22 @@ All notable changes to [STS2_Skills](https://github.com/sakikoTGW/STS2_Skills) a
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).  
 Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see [VERSION_MIGRATION.md](VERSION_MIGRATION.md)).
 
+## [1.0.5] - 2026-05-21
+
+### Fixed
+
+- `character_choice`: break `normalize_character` / `character_index` infinite recursion (Chinese aliases and menu pick)
+- `auto_repair`: default fallbacks align with config (`False`, not `True`)
+- `enforce_single_driver`: single helper `enforce_single_driver_enabled()`; `sts2_act` checks lock before `_prepare_manual_act` clears it
+- `lessons.run_history_path`: resolve under current `STS2_HOME` (fixes cross-test / multi-host pollution)
+- `lessons.finalize_trajectory`: record `stalled_run` when repeated `act_ok: false`
+- `action_validate`: debuff/non-attack turns allow explicit `end_turn`; `hand_select` removed from combat frozenset
+- `combat_state_machine.reset`: clear debounce timestamp
+
+### Changed
+
+- Tests: Hermes `agent` stub, MCP config assertion, stale expectations for STS2 reward-skip policy
+
 ## [1.0.4] - 2026-05-21
 
 ### Added

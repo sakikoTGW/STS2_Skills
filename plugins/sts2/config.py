@@ -82,6 +82,16 @@ _DEFAULTS: dict[str, Any] = {
     "character": 0,
 }
 
+# Single source for driver-lock fallback when reading a partial cfg dict.
+DEFAULT_ENFORCE_SINGLE_DRIVER = bool(_DEFAULTS["enforce_single_driver"])
+
+
+def enforce_single_driver_enabled(cfg: dict[str, Any] | None = None) -> bool:
+    """Whether MCP manual act must yield to autoplay/study driver lock."""
+    if cfg is None:
+        cfg = load_sts2_config()
+    return bool(cfg.get("enforce_single_driver", DEFAULT_ENFORCE_SINGLE_DRIVER))
+
 
 def load_sts2_config() -> dict[str, Any]:
     merged = dict(_DEFAULTS)

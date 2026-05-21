@@ -346,6 +346,7 @@ class CombatStateMachine:
         self._battle_key = ""
         self._zones.clear()
         self._last_think_fp = ""
+        self._last_think_ts = 0.0
 
     def _in_combat(self, state: dict) -> bool:
         return str(state.get("state_type") or "") in _COMBAT
