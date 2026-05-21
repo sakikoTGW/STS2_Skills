@@ -9,9 +9,10 @@ import urllib.request
 from pathlib import Path
 
 REPO = "sakikoTGW/STS2_Skills"
-TAG = "v1.2.0"
+TAG = "v1.3.0"
 ROOT = Path(__file__).resolve().parents[1]
-ZIP = ROOT / "dist" / f"STS2_Skills-{TAG}.zip"
+SOURCE_ZIP = ROOT / "dist" / f"STS2_Skills-{TAG}.zip"
+INSTALLER_ZIP = ROOT / "dist" / f"STS2_Skills-Installer-{TAG}.zip"
 NOTES = ROOT / f"RELEASE_NOTES_{TAG}.md"
 
 
@@ -45,15 +46,35 @@ def _api(method: str, url: str, token: str, data: bytes | None = None, content_t
     req = urllib.request.Request(url, data=data, method=method, headers=hdrs)
     try:
         with urllib.request.urlopen(req) as resp:
-            return json.loads(resp.read())
+            raw = resp.read()
+            return json.loads(raw) if raw else {}
     except urllib.error.HTTPError as exc:
         body = exc.read().decode("utf-8", errors="replace")
         raise SystemExit(f"{method} {url} -> {exc.code}: {body[:1200]}") from exc
 
 
+def _upload_asset(rel: dict, token: str, path: Path, base: str) -> None:
+    for asset in rel.get("assets") or []:
+        if asset.get("name") == path.name:
+            _api("DELETE", f"{base}/releases/assets/{asset['id']}", token)
+            print("Removed old asset", path.name)
+    upload_url = rel["upload_url"].split("{", 1)[0] + f"?name={path.name}"
+    upload_hdrs = _headers(token)
+    upload_hdrs["Content-Type"] = "application/zip"
+    req = urllib.request.Request(
+        upload_url,
+        data=path.read_bytes(),
+        method="POST",
+        headers=upload_hdrs,
+    )
+    with urllib.request.urlopen(req) as resp:
+        asset = json.loads(resp.read())
+    print("Uploaded", asset.get("browser_download_url"))
+
+
 def main() -> int:
-    if not ZIP.is_file():
-        raise SystemExit(f"Missing zip: {ZIP}")
+    if not SOURCE_ZIP.is_file():
+        raise SystemExit(f"Missing zip: {SOURCE_ZIP}")
     token = _token()
     notes = NOTES.read_text(encoding="utf-8") if NOTES.is_file() else f"Release {TAG}"
     base = f"https://api.github.com/repos/{REPO}"
@@ -78,23 +99,9 @@ def main() -> int:
             rel = _api("GET", f"{base}/releases/tags/{TAG}", token)
             print("Using existing release", rel["id"])
 
-    for asset in rel.get("assets") or []:
-        if asset.get("name") == ZIP.name:
-            _api("DELETE", f"{base}/releases/assets/{asset['id']}", token)
-            print("Removed old asset", ZIP.name)
-
-    upload_url = rel["upload_url"].split("{", 1)[0] + f"?name={ZIP.name}"
-    upload_hdrs = _headers(token)
-    upload_hdrs["Content-Type"] = "application/zip"
-    req = urllib.request.Request(
-        upload_url,
-        data=ZIP.read_bytes(),
-        method="POST",
-        headers=upload_hdrs,
-    )
-    with urllib.request.urlopen(req) as resp:
-        asset = json.loads(resp.read())
-    print("Uploaded", asset.get("browser_download_url"))
+    _upload_asset(rel, token, SOURCE_ZIP, base)
+    if INSTALLER_ZIP.is_file():
+        _upload_asset(rel, token, INSTALLER_ZIP, base)
     print("Release page", rel.get("html_url"))
     return 0
 
