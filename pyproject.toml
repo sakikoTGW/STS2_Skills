@@ -29,7 +29,7 @@ dependencies = [
 [project.optional-dependencies]
 mcp = ["mcp>=1.0,<2"]
 hermes = ["hermes-agent>=0.13"]
-llm = ["openai>=1.0,<2"]
+llm = ["openai>=1.0,<3"]
 dev = [
   "pytest>=8.0",
   "ruff>=0.8",
