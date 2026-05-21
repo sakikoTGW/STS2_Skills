@@ -246,8 +246,7 @@ sts2 crawl-wiki --integrate
 
 MIT — 见 [LICENSE](LICENSE)。游戏资源与 STS2MCP 模组不包含在本仓库中。
 
-## 预览
-
+##o.0?
 <p align="center">
   <img src="docs/images/readme-screenshot.jpg" alt="STS2 运行预览" width="720">
 </p>
