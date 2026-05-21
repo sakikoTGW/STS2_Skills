@@ -104,9 +104,12 @@ def report_exception(exc: BaseException, *, context: Optional[Dict[str, Any]] = 
     sev = "error"
     if "driver busy" in msg.lower():
         kind = "driver_busy"
+        from plugins.sts2.platform_home import resolve_sts2_home
+
+        lock = resolve_sts2_home() / ".autoplay.lock"
         fix = fix or (
             "结束重复督导/study 进程；运行 scripts/Start-STS2-Supervisor-Singleton.ps1；"
-            "删除 E:\\Hermes\\sts2\\.autoplay.lock（无进程占用时）。"
+            f"删除 {lock}（无进程占用时）。"
         )
     elif "ConnectionRefused" in type(exc).__name__ or "连接" in msg:
         kind = "api_down"

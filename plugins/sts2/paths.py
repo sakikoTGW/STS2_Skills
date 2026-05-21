@@ -17,17 +17,97 @@ def game_dir_from_env() -> Optional[Path]:
     return path if path.is_dir() else None
 
 
-def _read_cached_game_dir() -> Optional[Path]:
-    from hermes_constants import get_hermes_home
+def repo_root() -> Optional[Path]:
+    """STS2_Skills repository root (plugins/sts2/..)."""
+    here = Path(__file__).resolve().parent
+    root = here.parent.parent
+    if (root / "pyproject.toml").is_file() and (here / "decision.py").is_file():
+        return root
+    return None
 
-    for base in (get_hermes_home() / "sts2", Path.home() / ".hermes" / "sts2"):
-        hint = base / "game_dir.txt"
-        if hint.is_file():
+
+def sts2_runtime_bases() -> List[Path]:
+    """Directories that may hold game_dir.txt, config.yaml, logs."""
+    bases: List[Path] = []
+    seen: set[str] = set()
+
+    def add(path: Path) -> None:
+        key = str(path.expanduser().resolve()).lower()
+        if key not in seen:
+            seen.add(key)
+            bases.append(path.expanduser())
+
+    for raw in (
+        (os.environ.get("STS2_HOME") or "").strip(),
+        (os.environ.get("OPENCLAW_HOME") or "").strip(),
+        (os.environ.get("ASTRBOT_DATA") or "").strip(),
+        (os.environ.get("HERMES_HOME") or "").strip(),
+    ):
+        if raw:
+            add(Path(raw))
+    try:
+        from hermes_constants import get_hermes_home
+
+        add(get_hermes_home())
+    except Exception:
+        pass
+    for path in (
+        Path.home() / ".config" / "sts2",
+        Path.home() / ".hermes",
+        Path.home() / ".openclaw",
+        Path.home() / "AstrBot" / "data",
+    ):
+        add(path)
+    return bases
+
+
+def resolve_astrbot_data_dir(explicit: str = "") -> Path:
+    """AstrBot data root (not a hardcoded user profile path)."""
+    raw = (explicit or os.environ.get("ASTRBOT_DATA") or "").strip()
+    if raw:
+        return Path(raw).expanduser()
+    return Path.home() / "AstrBot" / "data"
+
+
+def resolve_game_dir(explicit: str = "") -> Optional[Path]:
+    """Plugin config → STS2_GAME_DIR → cache file → Steam discovery."""
+    raw = (explicit or os.environ.get("STS2_GAME_DIR") or "").strip()
+    if raw:
+        path = Path(raw).expanduser()
+        if _looks_like_sts2_install(path):
+            return path
+    return find_game_dir()
+
+
+def save_game_dir_hint(game_dir: Path) -> None:
+    """Write discovered install path for all active runtime bases."""
+    text = str(game_dir.resolve())
+    for base in sts2_runtime_bases():
+        sts2_base = base if base.name == "sts2" else base / "sts2"
+        for hint_parent in (sts2_base, base):
+            try:
+                hint = hint_parent / "game_dir.txt"
+                hint.parent.mkdir(parents=True, exist_ok=True)
+                hint.write_text(text, encoding="utf-8")
+            except OSError:
+                continue
+
+
+def _read_cached_game_dir() -> Optional[Path]:
+    for base in sts2_runtime_bases():
+        for hint_parent in (
+            base if base.name == "sts2" else base / "sts2",
+            base,
+        ):
+            hint = hint_parent / "game_dir.txt"
+            if not hint.is_file():
+                continue
             raw = hint.read_text(encoding="utf-8").strip()
-            if raw:
-                path = Path(raw)
-                if _looks_like_sts2_install(path):
-                    return path
+            if not raw:
+                continue
+            path = Path(raw).expanduser()
+            if _looks_like_sts2_install(path):
+                return path
     return None
 
 

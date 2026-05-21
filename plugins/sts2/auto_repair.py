@@ -116,7 +116,7 @@ def _write_code_repair_brief(
     try:
         allow.write_text(
             f"allowed_at={datetime.now(timezone.utc).isoformat()}\n"
-            "Hermes/TUI agent may edit e:\\hermes-agent-main\\plugins\\sts2\\ "
+            f"Hermes/TUI agent may edit {plugin_source_dir()} "
             "to fix STS2 plugin bugs. Restart TUI after patch.\n",
             encoding="utf-8",
         )

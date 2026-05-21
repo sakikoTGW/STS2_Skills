@@ -10,9 +10,6 @@ from typing import Any, Callable, List, Optional
 
 import yaml
 
-_ASTRBOT_DATA = Path(r"C:\Users\lczme\.astrbot\data")
-_DEFAULT_SKILLS_ROOT = Path(r"C:\Users\lczme\Documents\_build_tmp")
-_FALLBACK_SRC = _DEFAULT_SKILLS_ROOT
 _DEFAULT_BASE_URL = "http://127.0.0.1:15526"
 
 _initialized = False
@@ -23,19 +20,45 @@ def plugin_vendor_root() -> Path:
     return Path(__file__).resolve().parent / "vendor" / "STS2_Skills"
 
 
-def skills_root_from_cfg(plugin_cfg: dict) -> Path:
-    raw = (plugin_cfg.get("skills_root") or "").strip()
+def astrbot_data_dir(plugin_cfg: dict | None = None) -> Path:
+    cfg = plugin_cfg or {}
+    explicit = (cfg.get("astrbot_data_dir") or cfg.get("astrbot_data") or "").strip()
+    try:
+        from plugins.sts2.paths import resolve_astrbot_data_dir
+
+        return resolve_astrbot_data_dir(explicit)
+    except Exception:
+        raw = (explicit or os.environ.get("ASTRBOT_DATA") or "").strip()
+        return Path(raw).expanduser() if raw else Path.home() / "AstrBot" / "data"
+
+
+def default_skills_root(plugin_cfg: dict | None = None) -> Path:
+    """STS2_Skills repo: plugin cfg → vendor copy → STS2_SKILLS_ROOT → auto-detect."""
+    cfg = plugin_cfg or {}
+    raw = (cfg.get("skills_root") or os.environ.get("STS2_SKILLS_ROOT") or "").strip()
     if raw:
         return Path(raw).expanduser().resolve()
     vend = plugin_vendor_root()
     if (vend / "plugins" / "sts2" / "decision.py").is_file():
-        return vend
-    return _DEFAULT_SKILLS_ROOT
+        return vend.resolve()
+    try:
+        from plugins.sts2.paths import repo_root
+
+        root = repo_root()
+        if root:
+            return root.resolve()
+    except Exception:
+        pass
+    return vend.resolve()
+
+
+def skills_root_from_cfg(plugin_cfg: dict) -> Path:
+    return default_skills_root(plugin_cfg)
 
 
 def sync_vendor_from_source(src: Path | None = None) -> Path:
     """Copy STS2_Skills tree into plugin vendor/ (one-time / setup)."""
-    src = (src or _FALLBACK_SRC).resolve()
+    src = (src or default_skills_root({})).resolve()
     dst = plugin_vendor_root()
     if not (src / "plugins" / "sts2").is_dir():
         raise FileNotFoundError(f"源项目无效: {src}")
@@ -54,7 +77,7 @@ def sync_vendor_from_source(src: Path | None = None) -> Path:
     return dst
 
 
-def _install_hermes_stubs(root: Path) -> None:
+def _install_hermes_stubs(root: Path, data_dir: Path) -> None:
     global _stubs_installed
     if _stubs_installed:
         return
@@ -87,7 +110,7 @@ def _install_hermes_stubs(root: Path) -> None:
                 sys.modules["hermes_constants"] = mod
         else:
             hc = types.ModuleType("hermes_constants")
-            home = _ASTRBOT_DATA / "sts2"
+            home = data_dir / "sts2"
 
             def get_hermes_home() -> Path:
                 return home
@@ -104,7 +127,8 @@ def _install_hermes_stubs(root: Path) -> None:
 
 def write_astrbot_sts2_config(plugin_cfg: dict, *, use_llm: bool) -> Path:
     """Runtime config: never pause on card_reward; AstrBot autopilot friendly."""
-    sts2_home = _ASTRBOT_DATA / "sts2"
+    data = astrbot_data_dir(plugin_cfg)
+    sts2_home = data / "sts2"
     sts2_home.mkdir(parents=True, exist_ok=True)
     url = (plugin_cfg.get("base_url") or _DEFAULT_BASE_URL).rstrip("/")
     char_raw = plugin_cfg.get("character", 0)
@@ -143,11 +167,13 @@ def write_astrbot_sts2_config(plugin_cfg: dict, *, use_llm: bool) -> Path:
     os.environ["STS2_CONFIG_PATH"] = str(cfg_path)
     os.environ["STS2_HOME"] = str(sts2_home)
     os.environ["HERMES_HOME"] = str(sts2_home)
+    os.environ["ASTRBOT_DATA"] = str(data)
     return cfg_path
 
 
 def apply_astrbot_runtime(plugin_cfg: dict, *, use_llm: bool) -> None:
-    os.environ["ASTRBOT_DATA"] = str(_ASTRBOT_DATA)
+    data = astrbot_data_dir(plugin_cfg)
+    os.environ["ASTRBOT_DATA"] = str(data)
     os.environ.setdefault(
         "STS2_MCP_BASE_URL",
         (plugin_cfg.get("base_url") or _DEFAULT_BASE_URL).rstrip("/"),
@@ -175,7 +201,8 @@ def ensure_skills(
             f"STS2_Skills 目录不存在: {root}\n请先 /sts2ai setup 复制 vendor。"
         )
 
-    _install_hermes_stubs(root)
+    data = astrbot_data_dir(plugin_cfg)
+    _install_hermes_stubs(root, data)
     root_s = str(root)
     if root_s not in sys.path:
         sys.path.insert(0, root_s)
@@ -185,8 +212,17 @@ def ensure_skills(
         merged["base_url"] = base_url
     apply_astrbot_runtime(merged, use_llm=bool(plugin_cfg.get("_runtime_use_llm", True)))
 
-    (_ASTRBOT_DATA / "sts2").mkdir(parents=True, exist_ok=True)
+    (data / "sts2").mkdir(parents=True, exist_ok=True)
     game = (plugin_cfg.get("game_dir") or "").strip()
+    if not game:
+        try:
+            from plugins.sts2.paths import resolve_game_dir
+
+            found = resolve_game_dir()
+            if found:
+                game = str(found)
+        except Exception:
+            pass
     if game:
         os.environ["STS2_GAME_DIR"] = game
 
@@ -305,10 +341,12 @@ def mcp_server_block(plugin_cfg: dict) -> dict[str, Any]:
 
     py = plugin_cfg.get("mcp_python") or _sys.executable
     base = (plugin_cfg.get("base_url") or _DEFAULT_BASE_URL).rstrip("/")
+    data = astrbot_data_dir(plugin_cfg)
+    sts2_home = data / "sts2"
     env: dict[str, str] = {
         "STS2_MCP_BASE_URL": base,
-        "STS2_HOME": str(_ASTRBOT_DATA / "sts2"),
-        "ASTRBOT_DATA": str(_ASTRBOT_DATA),
+        "STS2_HOME": str(sts2_home),
+        "ASTRBOT_DATA": str(data),
     }
     char_raw = plugin_cfg.get("character", 0)
     try:
@@ -320,7 +358,7 @@ def mcp_server_block(plugin_cfg: dict) -> dict[str, Any]:
     except Exception:
         if char_raw is not None and str(char_raw).strip() != "":
             env["STS2_CHARACTER"] = str(char_raw).strip()
-    env["STS2_CONFIG_PATH"] = str(_ASTRBOT_DATA / "sts2" / "config.yaml")
+    env["STS2_CONFIG_PATH"] = str(sts2_home / "config.yaml")
     return {
         "command": str(py),
         "args": [str(root / "scripts" / "sts2_mcp_bridge.py")],

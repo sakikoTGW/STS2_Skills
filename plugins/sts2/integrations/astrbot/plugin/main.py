@@ -16,15 +16,17 @@ from astrbot.api.star import Context, Star, register
 
 from .runner import STS2Runner
 from .sts2_skills_bridge import (
-    _ASTRBOT_DATA,
-    _FALLBACK_SRC,
+    astrbot_data_dir,
+    default_skills_root,
     mcp_server_block,
     skills_root_from_cfg,
     sync_vendor_from_source,
     write_astrbot_sts2_config,
 )
 
-_MCP_JSON = _ASTRBOT_DATA / "mcp_server.json"
+
+def _mcp_json_path(plugin_cfg: dict) -> Path:
+    return astrbot_data_dir(plugin_cfg) / "mcp_server.json"
 _SKILL_SRC = (
     skills_root_from_cfg({})
     / "plugins"
@@ -168,7 +170,8 @@ class Sts2AgentPlugin(Star):
     async def _run_setup(self) -> str:
         lines: list[str] = []
         try:
-            vend = await asyncio.to_thread(sync_vendor_from_source, _FALLBACK_SRC)
+            src = default_skills_root(self._plugin_cfg)
+            vend = await asyncio.to_thread(sync_vendor_from_source, src)
             lines.append(f"已复制 STS2_Skills → {vend}")
             self._plugin_cfg.setdefault("skills_root", str(vend))
         except Exception as e:
@@ -210,21 +213,19 @@ class Sts2AgentPlugin(Star):
 
         game_dir = (self._plugin_cfg.get("game_dir") or "").strip()
         if not game_dir:
-            import os
             import sys
 
             if str(root) not in sys.path:
                 sys.path.insert(0, str(root))
             try:
-                from plugins.sts2.paths import find_game_dir
+                from plugins.sts2.paths import resolve_game_dir, save_game_dir_hint
 
-                found = find_game_dir()
+                found = resolve_game_dir()
                 if found:
                     game_dir = str(found)
+                    save_game_dir_hint(found)
             except Exception:
                 pass
-            if not game_dir:
-                game_dir = (os.environ.get("STS2_GAME_DIR") or "").strip()
         script = root / "scripts" / "install_sts2_mcp_mod.py"
         if script.is_file():
             import os
@@ -260,17 +261,19 @@ class Sts2AgentPlugin(Star):
 
         block = mcp_server_block(self._plugin_cfg)
         block["command"] = py
+        mcp_json = _mcp_json_path(self._plugin_cfg)
+        mcp_json.parent.mkdir(parents=True, exist_ok=True)
         try:
-            data = json.loads(_MCP_JSON.read_text(encoding="utf-8")) if _MCP_JSON.is_file() else {}
+            data = json.loads(mcp_json.read_text(encoding="utf-8")) if mcp_json.is_file() else {}
         except json.JSONDecodeError:
             data = {}
         servers = data.setdefault("mcpServers", {})
         servers["sts2"] = block
-        _MCP_JSON.write_text(
+        mcp_json.write_text(
             json.dumps(data, indent=2, ensure_ascii=False) + "\n",
             encoding="utf-8",
         )
-        lines.append(f"MCP 已写入 {_MCP_JSON}")
+        lines.append(f"MCP 已写入 {mcp_json}")
         lines.append("请在 WebUI 重载 MCP，游戏内启用 STS2 MCP 模组后 /sts2ai ping")
 
         return "\n".join(lines)

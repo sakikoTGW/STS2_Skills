@@ -9,7 +9,10 @@ Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see 
 
 ### Fixed
 
-- AstrBot `/sts2ai setup`: use `find_game_dir()` / `STS2_GAME_DIR` instead of hardcoded `D:\SteamLibrary\...` when `game_dir` is unset
+- Paths/config: centralize `resolve_astrbot_data_dir`, `resolve_game_dir`, `save_game_dir_hint`, and multi-host `game_dir.txt` / `config.yaml` discovery (Hermes, OpenClaw, AstrBot)
+- AstrBot bridge: remove hardcoded user profile paths; MCP JSON and vendor sync use plugin config + env + repo auto-detect
+- `host_config`, `auto_repair`, `program_health`, `install_sts2_mcp_mod`: dynamic paths instead of fixed `E:\Hermes\...` strings
+- AstrBot `/sts2ai setup`: use `resolve_game_dir()` / `STS2_GAME_DIR` instead of hardcoded `D:\SteamLibrary\...` when `game_dir` is unset
 
 - `character_choice`: break `normalize_character` / `character_index` infinite recursion (Chinese aliases and menu pick)
 - `auto_repair`: default fallbacks align with config (`False`, not `True`)

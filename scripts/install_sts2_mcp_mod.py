@@ -30,14 +30,9 @@ def _find_game_dir() -> Path:
 
 
 def _save_hint(game_dir: Path) -> None:
-    hints: list[Path] = []
-    home = os.environ.get("HERMES_HOME", "").strip()
-    if home:
-        hints.append(Path(home) / "sts2" / "game_dir.txt")
-    hints.append(Path.home() / ".hermes" / "sts2" / "game_dir.txt")
-    for hint in hints:
-        hint.parent.mkdir(parents=True, exist_ok=True)
-        hint.write_text(str(game_dir), encoding="utf-8")
+    from plugins.sts2.paths import save_game_dir_hint
+
+    save_game_dir_hint(game_dir)
 
 
 def main(argv: list[str] | None = None) -> int:

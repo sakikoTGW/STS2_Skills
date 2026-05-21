@@ -1,4 +1,9 @@
 {
+  "astrbot_data_dir": {
+    "type": "string",
+    "default": "",
+    "description": "AstrBot 数据目录（默认 ~/AstrBot/data 或环境变量 ASTRBOT_DATA）"
+  },
   "skills_root": {
     "type": "string",
     "default": "",
