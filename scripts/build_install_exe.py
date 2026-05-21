@@ -19,15 +19,15 @@ PACK_SCRIPT = ROOT / "scripts" / "pack_install_payload.py"
 
 def main() -> int:
     if shutil.which("dotnet") is None:
-        print("未找到 dotnet，请安装 .NET 8 SDK。", file=sys.stderr)
+        print("dotnet not found; install .NET 8 SDK", file=sys.stderr)
         return 1
 
-    print("[1/2] 打包 payload.zip …")
+    print("[1/2] pack payload.zip ...")
     rc = subprocess.call([sys.executable, str(PACK_SCRIPT)], cwd=str(ROOT))
     if rc != 0:
         return rc
     if not PAYLOAD_ZIP.is_file():
-        print(f"未生成 {PAYLOAD_ZIP}", file=sys.stderr)
+        print(f"missing {PAYLOAD_ZIP}", file=sys.stderr)
         return 2
 
     if PUBLISH_DIR.exists():
@@ -50,7 +50,7 @@ def main() -> int:
 
     built = PUBLISH_DIR / "sts2skill.exe"
     if not built.is_file():
-        print(f"未生成 {built}", file=sys.stderr)
+        print(f"missing {built}", file=sys.stderr)
         return 3
 
     for old in (OUT_EXE, LEGACY_EXE):
@@ -59,7 +59,7 @@ def main() -> int:
     shutil.copy2(built, OUT_EXE)
     zip_mb = PAYLOAD_ZIP.stat().st_size / (1024 * 1024)
     exe_mb = OUT_EXE.stat().st_size / (1024 * 1024)
-    print(f"OK: {OUT_EXE} ({exe_mb:.2f} MB, 内嵌 payload {zip_mb:.2f} MB)")
+    print(f"OK: {OUT_EXE} ({exe_mb:.2f} MB, payload {zip_mb:.2f} MB)")
     return 0
 
 

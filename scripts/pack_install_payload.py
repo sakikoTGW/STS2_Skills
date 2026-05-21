@@ -62,7 +62,7 @@ def main() -> int:
     try:
         _download_mod_assets(staging_mods)
     except Exception as e:
-        print(f"警告：无法下载 STS2MCP 模组（可稍后手动安装）: {e}", file=sys.stderr)
+        print(f"warn: STS2MCP mod download failed (install manually later): {e}", file=sys.stderr)
 
     if OUT_ZIP.is_file():
         OUT_ZIP.unlink()
