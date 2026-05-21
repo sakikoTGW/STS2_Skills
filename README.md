@@ -66,6 +66,16 @@ pip install "git+https://github.com/sakikoTGW/STS2_Skills.git[mcp]"
 
 **版本号**：采用 `1.0.x` 小版本；从旧 **v1.3.0** / 插件 **v2.x** 迁移见 [VERSION_MIGRATION.md](VERSION_MIGRATION.md)。
 
+### 按宿主一键配置
+
+```bash
+sts2 setup --host openclaw --install-mod    # 写入 ~/.openclaw/openclaw.json + sts2 配置
+sts2 setup --host astrbot --install-mod     # 同步 AstrBot 插件 + mcp_server.json
+sts2 setup --host hermes --install-mod      # 需已安装 Hermes CLI；否则写入 ~/.hermes
+sts2 setup --host standalone                # ~/.config/sts2 + MCP 片段
+python scripts/sts2_setup_wizard.py         # 交互式同上
+```
+
 ### 手动步骤
 
 ```bash

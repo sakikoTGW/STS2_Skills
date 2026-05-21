@@ -9,9 +9,17 @@ from plugins.sts2.integrations.mcp_config import (
     openclaw_mcp_block,
     repo_root_from_plugin,
 )
+from plugins.sts2.integrations.host_setup import (
+    ENFORCE_SINGLE_DRIVER_BY_HOST,
+    SetupResult,
+    setup_host,
+)
 from plugins.sts2.platform_home import detect_runtime_host, resolve_sts2_home
 
 __all__ = [
+    "ENFORCE_SINGLE_DRIVER_BY_HOST",
+    "SetupResult",
+    "setup_host",
     "astrbot_mcp_block",
     "detect_runtime_host",
     "generic_mcp_block",

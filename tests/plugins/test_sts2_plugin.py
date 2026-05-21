@@ -23,6 +23,10 @@ def sts2_env(monkeypatch, tmp_path):
 def test_ping_parses_json(sts2_env, monkeypatch):
     from plugins.sts2 import client as c
 
+    cfg = sts2_env / "config.yaml"
+    monkeypatch.setenv("STS2_CONFIG_PATH", str(cfg))
+    monkeypatch.setenv("HERMES_HOME", str(sts2_env))
+
     class FakeResp:
         status = 200
 

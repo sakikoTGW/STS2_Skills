@@ -150,7 +150,7 @@ def write_astrbot_sts2_config(plugin_cfg: dict, *, use_llm: bool) -> Path:
         "pause_on_ask": False,
         "ask_user_on": [],
         "autopilot_until_victory": True,
-        "enforce_single_driver": False,
+        "enforce_single_driver": False,  # AstrBot: MCP + Star plugin; see host_setup.ENFORCE_SINGLE_DRIVER_BY_HOST
         "study_marathon": True,
         "study_use_llm": use_llm,
         "study_card_pick_llm": False,

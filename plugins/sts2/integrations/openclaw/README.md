@@ -18,7 +18,13 @@ cd /path/to/STS2_Skills
 sts2 integration-config --platform openclaw
 ```
 
-执行输出的 `openclaw mcp set sts2 '...'`，或将 JSON 合并进 OpenClaw 配置中的 `mcp.servers.sts2`。
+```bash
+sts2 setup --host openclaw --install-mod
+# 或仅写入 MCP：
+sts2 integration-config --platform openclaw --install
+```
+
+会自动尝试 `openclaw mcp set sts2 …`，否则合并进 `~/.openclaw/openclaw.json` 的 `mcp.servers.sts2`。
 
 示例结构：
 

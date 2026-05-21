@@ -17,7 +17,27 @@ from plugins.sts2.paths import find_game_dir, mods_dir
 def register_cli(subparser: argparse.ArgumentParser) -> None:
     subs = subparser.add_subparsers(dest="sts2_command", required=True)
 
-    subs.add_parser("setup", help="Enable sts2 toolset + optional MCP server in config")
+    sp_setup = subs.add_parser(
+        "setup",
+        help="Configure STS2 for Hermes, OpenClaw, AstrBot, or standalone",
+    )
+    sp_setup.add_argument(
+        "--host",
+        choices=("standalone", "hermes", "openclaw", "astrbot"),
+        default=None,
+        help="Target host (default: auto-detect)",
+    )
+    sp_setup.add_argument("--character", "-c", default=None, help="Character 0-4")
+    sp_setup.add_argument("--game-dir", default=None, help="Game install directory")
+    sp_setup.add_argument("--sts2-home", default=None)
+    sp_setup.add_argument("--openclaw-home", default=None)
+    sp_setup.add_argument("--astrbot-data", default=None)
+    sp_setup.add_argument("--skill-dir", default=None)
+    sp_setup.add_argument(
+        "--install-mod",
+        action="store_true",
+        help="Run install_sts2_mcp_mod after writing config",
+    )
     ic = subs.add_parser(
         "integration-config",
         help="Print MCP JSON for OpenClaw, AstrBot, or generic MCP clients",
@@ -41,6 +61,11 @@ def register_cli(subparser: argparse.ArgumentParser) -> None:
     ic.add_argument("--sts2-home", default=None, help="Override STS2_HOME for MCP env")
     ic.add_argument("--openclaw-home", default=None, help="Override OPENCLAW_HOME")
     ic.add_argument("--astrbot-data", default=None, help="Override ASTRBOT_DATA")
+    ic.add_argument(
+        "--install",
+        action="store_true",
+        help="Write MCP into host config (OpenClaw openclaw.json / AstrBot mcp_server.json)",
+    )
     subs.add_parser("ping", help="Ping STS2MCP HTTP API (game must be running)")
     subs.add_parser("status", help="Show game path, mod dir, config, connectivity")
     subs.add_parser("mode", help="Show STS2 play mode (一口气代打 vs 聊天手操)")
@@ -204,7 +229,7 @@ def _enable_mcp(cfg: dict) -> None:
 def sts2_command(args: argparse.Namespace) -> int:
     cmd = getattr(args, "sts2_command", None)
     if cmd == "setup":
-        return _cmd_setup()
+        return _cmd_setup(args)
     if cmd == "integration-config":
         return _cmd_integration_config(args)
     if cmd == "ping":
@@ -309,6 +334,17 @@ def _cmd_integration_config(args: argparse.Namespace) -> int:
     if platform == "hermes":
         print(format_integration_doc("hermes", **kwargs))
         return 0
+    if getattr(args, "install", False) and platform in ("openclaw", "astrbot", "hermes", "standalone"):
+        from plugins.sts2.integrations.host_setup import setup_host
+
+        host = platform if platform != "generic" else "standalone"
+        res = setup_host(host, install_mod=False, skip_pip=True)
+        for line in res.messages:
+            print(line)
+        for warn in res.warnings:
+            print(f"警告: {warn}", file=sys.stderr)
+        return 0 if res.ok() else 1
+
     print(format_integration_doc(platform, **kwargs))
     return 0
 
@@ -335,26 +371,36 @@ def _cmd_install_wizard(args: argparse.Namespace) -> int:
     return subprocess.call(argv)
 
 
-def _cmd_setup() -> int:
-    from hermes_cli.config import load_config, save_config
+def _cmd_setup(args: argparse.Namespace) -> int:
+    from plugins.sts2.character_choice import resolve_character_setting
+    from plugins.sts2.integrations.host_setup import setup_host
+    from plugins.sts2.platform_home import detect_runtime_host
 
-    cfg = load_config()
-    cfg.setdefault("sts2", {}).update(
-        {k: v for k, v in load_sts2_config().items() if k in (
-            "base_url", "commentary", "autoplay", "ask_user_on", "pause_on_ask"
-        )}
+    host = getattr(args, "host", None) or detect_runtime_host()
+    if host not in ("standalone", "hermes", "openclaw", "astrbot"):
+        host = "standalone"
+
+    char_index = 0
+    if getattr(args, "character", None) is not None:
+        char_index, _ = resolve_character_setting(args.character)
+
+    result = setup_host(
+        host,
+        character_index=char_index,
+        game_dir=getattr(args, "game_dir", None) or "",
+        sts2_home=getattr(args, "sts2_home", None),
+        openclaw_home=getattr(args, "openclaw_home", None),
+        astrbot_data=getattr(args, "astrbot_data", None),
+        skill_dir=getattr(args, "skill_dir", None),
+        install_mod=bool(getattr(args, "install_mod", False)),
     )
-    _enable_sts2_toolset(cfg)
-    if load_sts2_config().get("enable_mcp_on_setup", True):
-        _enable_mcp(cfg)
-    save_config(cfg)
-    home = display_hermes_home()
-    print(f"Saved {home}/config.yaml")
-    print("  - sts2 toolset enabled for CLI")
-    print("  - mcp_servers.sts2 configured (reload MCP or restart Hermes)")
-    print("Next: install-mod → launch game with mod → ping")
-    print("Skill: already bundled — use skill_view('slay-the-spire-2') in chat, or /skills list")
-    return 0
+    for line in result.messages:
+        print(line)
+    for warn in result.warnings:
+        print(f"警告: {warn}", file=sys.stderr)
+    print(f"\n宿主: {result.host}  数据目录: {result.sts2_home}")
+    print("下一步: 启动游戏并启用 STS2 MCP 模组 → sts2 ping")
+    return 0 if result.ok() else 1
 
 
 def _cmd_ping() -> int:

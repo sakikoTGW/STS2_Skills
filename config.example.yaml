@@ -13,6 +13,8 @@ sts2:
   commentary: "verbose"
   autoplay: false
   pause_on_ask: true
+  # OpenClaw / Hermes / standalone 建议 true；AstrBot 插件路径会写 false（MCP 与 Star 可并存）
+  enforce_single_driver: true
   ask_user_on:
     - card_reward
     - relic_select

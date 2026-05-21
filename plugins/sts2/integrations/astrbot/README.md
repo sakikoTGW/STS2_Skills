@@ -11,7 +11,9 @@
 ## 2. WebUI 配置
 
 ```bash
-sts2 integration-config --platform astrbot --json-only
+sts2 setup --host astrbot --install-mod
+# 或仅写入 MCP + 同步插件：
+sts2 integration-config --platform astrbot --install
 ```
 
 在 AstrBot WebUI → **MCP** → 添加服务器 → 粘贴 JSON：

@@ -66,6 +66,12 @@ def resolve_astrbot_data_dir(explicit: str = "") -> Path:
     raw = (explicit or os.environ.get("ASTRBOT_DATA") or "").strip()
     if raw:
         return Path(raw).expanduser()
+    for cand in (
+        Path.home() / ".astrbot" / "data",
+        Path.home() / "AstrBot" / "data",
+    ):
+        if cand.is_dir():
+            return cand
     return Path.home() / "AstrBot" / "data"
 
 

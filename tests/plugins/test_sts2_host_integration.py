@@ -50,6 +50,8 @@ def test_mcp_block_includes_config_path(tmp_path, monkeypatch):
         encoding="utf-8",
     )
     monkeypatch.setenv("ASTRBOT_DATA", str(data))
+    monkeypatch.setenv("STS2_CONFIG_PATH", str(sts2 / "config.yaml"))
+    monkeypatch.delenv("STS2_CHARACTER", raising=False)
     block = astrbot_mcp_block(sts2_home=str(sts2), astrbot_data=str(data))
     env = block["env"]
     assert env["STS2_HOME"] == str(sts2)
