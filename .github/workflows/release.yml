@@ -98,6 +98,9 @@ jobs:
           dotnet-version: "8.0.x"
 
       - name: Build sts2skill.exe
+        env:
+          PYTHONUTF8: "1"
+          PYTHONIOENCODING: utf-8
         run: python scripts/build_install_exe.py
 
       - name: Upload installer exe
