@@ -124,7 +124,7 @@ sts2-mcp
 
 ### 角色选择
 
-自动代打或菜单自动化开**新局**时，按配置选择角色，而不再默认铁甲战士。
+自动代打或菜单自动化开**新局**时，按配置选择角色
 
 | 编号 | 规范 ID | 中文名 |
 |------|---------|--------|
@@ -134,7 +134,7 @@ sts2-mcp
 | **3** | `NECROBINDER` | 亡灵契约师 |
 | **4** | `REGENT` | 储君 |
 
-**优先级（高者生效）：** 环境变量 `STS2_CHARACTER` → YAML 中 `sts2.character`（**0–4**）→ 默认 **0**（铁甲战士）。
+**优先级（高者生效）：** 环境变量 `STS2_CHARACTER` → YAML 中 `sts2.character`（**0–4**）→ 默认 **0**（铁甲战士）。（实际上战士的知识库最丰富desuwa）
 
 **1. 配置文件** — 复制 `config.example.yaml` 后设置：
 
@@ -245,3 +245,9 @@ sts2 crawl-wiki --integrate
 ## 许可证
 
 MIT — 见 [LICENSE](LICENSE)。游戏资源与 STS2MCP 模组不包含在本仓库中。
+
+## 预览
+
+<p align="center">
+  <img src="docs/images/readme-screenshot.jpg" alt="STS2 运行预览" width="720">
+</p>
