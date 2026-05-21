@@ -1,10 +1,9 @@
-"""Install STS2MCP mod assets from repo ``mods/STS2MCP`` or GitHub releases."""
+"""Download and install STS2MCP mod assets from GitHub releases."""
 
 from __future__ import annotations
 
 import json
 import os
-import shutil
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -13,10 +12,6 @@ from typing import Any
 REPO = "Gennadiyev/STS2MCP"
 USER_AGENT = "STS2_Skills/1.0"
 MOD_FILES = ("STS2_MCP.dll", "STS2_MCP.json")
-
-
-def bundled_mod_dir() -> Path:
-    return Path(__file__).resolve().parents[2] / "mods" / "STS2MCP"
 
 
 def _compat_path() -> Path:
@@ -58,16 +53,8 @@ def download_mod_assets(
     *,
     tag: str | None = None,
 ) -> str:
-    """Install DLL + JSON into dest_mods (repo bundle first, else GitHub). Returns tag label."""
+    """Download DLL + JSON into dest_mods. Returns installed release tag_name."""
     dest_mods.mkdir(parents=True, exist_ok=True)
-    bundled = bundled_mod_dir()
-    if all((bundled / name).is_file() for name in MOD_FILES):
-        for name in MOD_FILES:
-            shutil.copy2(bundled / name, dest_mods / name)
-        ver_file = bundled / "VERSION"
-        if ver_file.is_file():
-            return ver_file.read_text(encoding="utf-8").strip()
-        return "bundled"
     release = fetch_release(tag=tag)
     assets = release_asset_urls(release)
     installed_tag = str(release.get("tag_name") or tag or "?")

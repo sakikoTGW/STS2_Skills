@@ -89,15 +89,9 @@ internal static class Deployer
     {
         var modsDir = Path.Combine(gameDir, "mods");
         Directory.CreateDirectory(modsDir);
-        string[] modDirs =
+        var bundled = Path.Combine(payloadRoot, "payload", "mods");
+        if (Directory.Exists(bundled))
         {
-            Path.Combine(payloadRoot, "mods", "STS2MCP"),
-            Path.Combine(payloadRoot, "payload", "mods"),
-        };
-        foreach (var bundled in modDirs)
-        {
-            if (!Directory.Exists(bundled))
-                continue;
             foreach (var name in new[] { "STS2_MCP.dll", "STS2_MCP.json" })
             {
                 var src = Path.Combine(bundled, name);
@@ -108,8 +102,8 @@ internal static class Deployer
             return;
         }
         log(I18n.T(
-            "  安装包内无模组，请从仓库 mods/STS2MCP 复制或运行 install_sts2_mcp_mod.py",
-            "  No bundled mod; copy mods/STS2MCP from repo or run install_sts2_mcp_mod.py"));
+            "  安装包内无模组，请稍后运行 install_sts2_mcp_mod.py",
+            "  No bundled mod; run install_sts2_mcp_mod.py later"));
     }
 
     private static void SetupStandalone(InstallOptions opt, Action<string> log)

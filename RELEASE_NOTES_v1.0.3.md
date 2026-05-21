@@ -15,8 +15,7 @@
 
 | 文件 | 说明 |
 |------|------|
-| `STS2_Skills-v1.0.3.zip` | 源码（含 `mods/STS2MCP/`，不含 exe） |
-| `STS2MCP-mod-0.4.0.zip` | 游戏模组 `STS2_MCP.dll` + `STS2_MCP.json`（可复制到游戏 `mods/`） |
+| `STS2_Skills-v1.0.3.zip` | 源码（不含 exe） |
 | `sts2skill.exe` | Windows GUI 安装程序（中英双语） |
 
 从旧版 **v1.3.0** 升级见 [VERSION_MIGRATION.md](VERSION_MIGRATION.md)。

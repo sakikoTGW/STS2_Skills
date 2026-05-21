@@ -28,8 +28,8 @@
 
 ### 从 Release 压缩包
 
-1. 在 [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest) 下载最新源码 `.zip`（Windows 可另下 **`sts2skill.exe`**；仅需模组可下 **`STS2MCP-mod-*.zip`**）。
-2. 解压后在项目根目录打开终端。仓库内已含 **`mods/STS2MCP/`**（`STS2_MCP.dll`、`STS2_MCP.json`），见该目录 README。
+1. 在 [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest) 下载最新源码 `.zip`（Windows 一键安装可另下 **`sts2skill.exe`**）。
+2. 解压后在项目根目录打开终端。
 
 ```bash
 python -m venv .venv
@@ -76,12 +76,10 @@ sts2 setup --host standalone                # ~/.config/sts2 + MCP 片段
 python scripts/sts2_setup_wizard.py         # 交互式同上
 ```
 
-游戏模组位于仓库 **`mods/STS2MCP/`**（或 Release 的 **`STS2MCP-mod-*.zip`**）。`--install-mod` / `install_sts2_mcp_mod.py` 会**优先复制仓库内文件**，否则按 `compat.yaml` 从上游下载。
-
 ### 手动步骤
 
 ```bash
-sts2 install-mod          # 安装模组到游戏 mods/（优先 mods/STS2MCP）
+sts2 install-mod          # 将 STS2MCP 安装到游戏 mods/ 目录
 # 启动游戏（单人 + 模组开启）
 sts2 ping                 # 检测 API 是否连通
 sts2 status               # 查看 base_url、角色编号、autoplay 等
