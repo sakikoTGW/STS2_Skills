@@ -29,12 +29,12 @@ internal sealed class MainForm : Form
     private readonly TextBox _txtSkillsPath = new() { Width = 400, Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top };
     private readonly Button _btnSkillsBrowse = new() { AutoSize = true };
 
-    private readonly Label _lblCharacter = new() { AutoSize = true };
-    private readonly ComboBox _cmbCharacter = new() { DropDownStyle = ComboBoxStyle.DropDownList, Width = 220 };
-
+    private readonly GroupBox _advancedGroup = new() { Padding = new Padding(10), Visible = false };
     private readonly Label _lblPython = new() { AutoSize = true };
     private readonly TextBox _txtPython = new() { Width = 400, Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top };
     private readonly Button _btnPythonBrowse = new() { AutoSize = true };
+
+    private readonly Button _btnAutoDetect = new() { AutoSize = true, Height = 32 };
 
     private readonly GroupBox _logGroup = new() { Padding = new Padding(10) };
     private readonly TextBox _txtLog = new()
@@ -57,8 +57,8 @@ internal sealed class MainForm : Form
     public MainForm()
     {
         Text = "STS2_Skills";
-        MinimumSize = new Size(620, 640);
-        Size = new Size(640, 720);
+        MinimumSize = new Size(620, 560);
+        Size = new Size(640, 620);
         StartPosition = FormStartPosition.CenterScreen;
         Font = new Font("Microsoft YaHei UI", 9f);
         _titleLabel.Font = new Font(Font.FontFamily, 12f, FontStyle.Bold);
@@ -67,29 +67,23 @@ internal sealed class MainForm : Form
         _langCombo.SelectedIndex = 0;
         _langCombo.SelectedIndexChanged += (_, _) => OnLanguageChanged();
 
-        _rbStandalone.CheckedChanged += (_, _) => OnHostChanged(updateHintsOnly: true);
-        _rbHermes.CheckedChanged += (_, _) => OnHostChanged(updateHintsOnly: true);
-        _rbOpenClaw.CheckedChanged += (_, _) => OnHostChanged(updateHintsOnly: true);
-        _rbAstrBot.CheckedChanged += (_, _) => OnHostChanged(updateHintsOnly: true);
+        _rbStandalone.CheckedChanged += (_, _) => OnHostChanged();
+        _rbHermes.CheckedChanged += (_, _) => OnHostChanged();
+        _rbOpenClaw.CheckedChanged += (_, _) => OnHostChanged();
+        _rbAstrBot.CheckedChanged += (_, _) => OnHostChanged();
 
         _btnHostBrowse.Click += (_, _) => BrowseFolder(_txtHostPath, _lblHostPath.Text);
         _btnGameBrowse.Click += (_, _) => BrowseFolder(_txtGamePath, _lblGamePath.Text);
         _btnSkillsBrowse.Click += (_, _) => BrowseFolder(_txtSkillsPath, _lblSkillsPath.Text);
         _btnPythonBrowse.Click += (_, _) => BrowsePython();
+        _btnAutoDetect.Click += (_, _) => RunAutoDetect(refreshHostDerived: true);
         _btnInstall.Click += async (_, _) => await RunInstallAsync();
         _btnExit.Click += (_, _) => Close();
 
         BuildLayout();
-        for (var i = 0; i < 5; i++)
-            _cmbCharacter.Items.Add(I18n.CharacterName(i));
-        _cmbCharacter.SelectedIndex = 0;
-
-        _txtHostPath.Text = "";
-        _txtGamePath.Text = "";
-        _txtSkillsPath.Text = "";
 
         OnLanguageChanged();
-        OnHostChanged(updateHintsOnly: true);
+        Shown += (_, _) => RunAutoDetect(refreshHostDerived: true);
     }
 
     private void BuildLayout()
@@ -165,14 +159,26 @@ internal sealed class MainForm : Form
         AddRow(_lblSkillsPath, _txtSkillsPath, _btnSkillsBrowse);
 
         pathsTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-        pathsTable.Controls.Add(_lblCharacter, 0, row);
-        pathsTable.Controls.Add(_cmbCharacter, 1, row);
-        pathsTable.SetColumnSpan(_cmbCharacter, 2);
+        var detectFlow = new FlowLayoutPanel { AutoSize = true, FlowDirection = FlowDirection.LeftToRight };
+        detectFlow.Controls.Add(_btnAutoDetect);
+        pathsTable.Controls.Add(detectFlow, 0, row);
+        pathsTable.SetColumnSpan(detectFlow, 3);
         row++;
 
-        AddRow(_lblPython, _txtPython, _btnPythonBrowse);
-
         _pathsGroup.Controls.Add(pathsTable);
+
+        _advancedGroup.Dock = DockStyle.Top;
+        _advancedGroup.AutoSize = true;
+        _advancedGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        var advTable = new TableLayoutPanel { ColumnCount = 3, AutoSize = true, Dock = DockStyle.Top };
+        advTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 140));
+        advTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+        advTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 90));
+        advTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        advTable.Controls.Add(_lblPython, 0, 0);
+        advTable.Controls.Add(_txtPython, 1, 0);
+        advTable.Controls.Add(_btnPythonBrowse, 2, 0);
+        _advancedGroup.Controls.Add(advTable);
 
         _logGroup.Dock = DockStyle.Fill;
         _progress.Dock = DockStyle.Top;
@@ -191,9 +197,9 @@ internal sealed class MainForm : Form
         bottom.Controls.Add(_btnExit);
         bottom.Controls.Add(_btnInstall);
 
-        var padding = new Panel { Dock = DockStyle.Fill, Padding = new Padding(12, 0, 12, 0) };
         var stack = new Panel { Dock = DockStyle.Fill };
         stack.Controls.Add(_logGroup);
+        stack.Controls.Add(_advancedGroup);
         stack.Controls.Add(_pathsGroup);
         stack.Controls.Add(_hostGroup);
         stack.Controls.Add(top);
@@ -229,7 +235,6 @@ internal sealed class MainForm : Form
         _lblHostPath.Text = I18n.HostPathLabel;
         _lblGamePath.Text = I18n.GamePathLabel;
         _lblSkillsPath.Text = I18n.SkillsPathLabel;
-        _lblCharacter.Text = I18n.CharacterLabel;
         _lblPython.Text = I18n.PythonLabel;
         _hintGamePath.Text = I18n.GamePathHint;
 
@@ -237,15 +242,11 @@ internal sealed class MainForm : Form
         _btnGameBrowse.Text = I18n.Browse;
         _btnSkillsBrowse.Text = I18n.Browse;
         _btnPythonBrowse.Text = I18n.Browse;
+        _btnAutoDetect.Text = I18n.AutoDetect;
         _btnInstall.Text = I18n.Install;
         _btnExit.Text = I18n.Exit;
         _logGroup.Text = I18n.LogGroup;
-
-        var sel = _cmbCharacter.SelectedIndex;
-        _cmbCharacter.Items.Clear();
-        for (var i = 0; i < 5; i++)
-            _cmbCharacter.Items.Add(I18n.CharacterName(i));
-        _cmbCharacter.SelectedIndex = sel >= 0 && sel < 5 ? sel : 0;
+        _advancedGroup.Text = I18n.AdvancedGroup;
 
         OnHostChanged(updateHintsOnly: true);
     }
@@ -254,12 +255,22 @@ internal sealed class MainForm : Form
     {
         var host = CurrentHost();
         _hintHostPath.Text = PathHelper.HostPathHint(host);
-        if (updateHintsOnly)
-            return;
+        if (!updateHintsOnly)
+            RunAutoDetect(refreshHostDerived: true);
+    }
 
-        var py = host == "astrbot" ? PathHelper.FindPythonForAstrBot() : PathHelper.FindOnPath("python");
-        if (!string.IsNullOrEmpty(py) && string.IsNullOrWhiteSpace(_txtPython.Text))
-            _txtPython.Text = py;
+    private void RunAutoDetect(bool refreshHostDerived)
+    {
+        PathHelper.ApplyAutoDetect(
+            CurrentHost(),
+            _txtHostPath,
+            _txtGamePath,
+            _txtSkillsPath,
+            _txtPython,
+            refreshHostDerived);
+
+        var py = _txtPython.Text.Trim();
+        _advancedGroup.Visible = string.IsNullOrEmpty(py) || !File.Exists(py);
     }
 
     private void BrowseFolder(TextBox target, string purpose)
@@ -276,7 +287,7 @@ internal sealed class MainForm : Form
         else
         {
             var host = CurrentHost();
-            var fallback = PathHelper.DefaultHostPath(host);
+            var fallback = PathHelper.DetectHostPath(host) ?? PathHelper.DefaultHostPath(host);
             if (Directory.Exists(fallback))
                 dlg.InitialDirectory = fallback;
         }
@@ -308,13 +319,14 @@ internal sealed class MainForm : Form
 
     private bool ValidateInputs()
     {
-        if (!Directory.Exists(_txtHostPath.Text.Trim()))
+        var hostDir = _txtHostPath.Text.Trim();
+        if (!Directory.Exists(hostDir))
         {
             MessageBox.Show(this, I18n.ErrHostPath, I18n.AppTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return false;
         }
         var game = _txtGamePath.Text.Trim();
-        if (!File.Exists(Path.Combine(game, "SlayTheSpire2.exe")))
+        if (!PathHelper.LooksLikeGameDir(game))
         {
             MessageBox.Show(this, I18n.ErrGamePath, I18n.AppTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return false;
@@ -331,6 +343,8 @@ internal sealed class MainForm : Form
     {
         if (_installing)
             return;
+
+        RunAutoDetect(refreshHostDerived: false);
         if (!ValidateInputs())
             return;
 
@@ -349,13 +363,11 @@ internal sealed class MainForm : Form
         _txtLog.Clear();
         AppendLog(I18n.Installing);
 
-        var host = CurrentHost();
         var opt = new InstallOptions(
-            host,
+            CurrentHost(),
             _txtHostPath.Text.Trim(),
             _txtGamePath.Text.Trim(),
             _txtSkillsPath.Text.Trim(),
-            _cmbCharacter.SelectedIndex,
             _txtPython.Text.Trim());
 
         try

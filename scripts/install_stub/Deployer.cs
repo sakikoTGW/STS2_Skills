@@ -11,7 +11,6 @@ internal sealed record InstallOptions(
     string HostPath,
     string GameDir,
     string SkillsDir,
-    int Character,
     string PythonPath
 );
 
@@ -126,7 +125,6 @@ internal static class Deployer
         args.Append(" --repo-root \"").Append(opt.SkillsDir).Append('"');
         args.Append(" --game-dir \"").Append(opt.GameDir).Append('"');
         args.Append(" --python \"").Append(opt.PythonPath).Append('"');
-        args.Append(" --character ").Append(opt.Character);
         args.Append(" --json");
 
         if (opt.Host == "openclaw")

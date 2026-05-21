@@ -56,7 +56,7 @@ pip install "git+https://github.com/sakikoTGW/STS2_Skills.git[mcp]"
 
 ### GUI installer (Windows)
 
-Download **`sts2skill.exe`** from [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest), pick host (standalone / Hermes / OpenClaw / AstrBot), paths, and character. It unpacks STS2_Skills, installs the mod, and writes MCP + config.
+Download **`sts2skill.exe`** from [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest), pick host, use **Auto-detect paths** (Steam / common host folders) or browse manually. It unpacks STS2_Skills, installs the mod, and writes MCP + config. Starting character is set later in `config.yaml` or host WebUI—not in the installer.
 
 CLI alternative: `python scripts/sts2_setup_wizard.py` or `sts2 install-wizard`.
 

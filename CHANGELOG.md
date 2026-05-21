@@ -7,6 +7,10 @@ Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see 
 
 ## [Unreleased]
 
+### Changed
+
+- GUI installer (`sts2skill.exe`): remove starting-character picker; auto-detect Steam game dir, host data dir, and STS2_Skills path; optional advanced Python row
+
 ## [1.0.6] - 2026-05-21
 
 ### Added

@@ -19,7 +19,13 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--repo-root", required=True, help="STS2_Skills root (after extract/copy)")
     ap.add_argument("--game-dir", default="", help="Game install folder")
     ap.add_argument("--python", default=sys.executable)
-    ap.add_argument("--character", "-c", type=int, default=0)
+    ap.add_argument(
+        "--character",
+        "-c",
+        type=int,
+        default=None,
+        help="Optional; default Ironclad (0). Set later in config / WebUI.",
+    )
     ap.add_argument("--openclaw-home", default="")
     ap.add_argument("--astrbot-data", default="")
     ap.add_argument("--sts2-home", default="")
@@ -30,11 +36,15 @@ def main(argv: list[str] | None = None) -> int:
 
     from plugins.sts2.integrations.host_setup import setup_host
 
+    setup_kw: dict = {}
+    if args.character is not None:
+        setup_kw["character_index"] = args.character
+
     result = setup_host(
         args.host,
         repo_root_path=args.repo_root,
         python=args.python,
-        character_index=args.character,
+        **setup_kw,
         game_dir=args.game_dir or "",
         sts2_home=args.sts2_home or None,
         openclaw_home=args.openclaw_home or None,
