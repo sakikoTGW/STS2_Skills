@@ -24,6 +24,7 @@ Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see 
 
 ### Changed
 
+- GUI installer (`sts2skill.exe`): host setup via `scripts/sts2_host_setup_cli.py` (same logic as `host_setup` / wizard)
 - Host integrations: `host_setup` module — `sts2 setup --host …`, wizard + `integration-config --install`; OpenClaw auto-merge `openclaw.json` / `openclaw mcp set`; per-host `enforce_single_driver` defaults
 - Host integrations: unified `platform_home` / MCP env (`STS2_CONFIG_PATH`, `STS2_CHARACTER`); standalone `~/.config/sts2` fallback; `STS2_*` aliases for play-mode flags; AstrBot bridge no longer sets `HERMES_HOME`
 - Docs: tighten README / CONTRIBUTING / integration guides; drop internal or preachy wording

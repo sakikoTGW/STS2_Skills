@@ -13,7 +13,7 @@ internal static class I18n
     public static string T(string zh, string en) => Current == Lang.Zh ? zh : en;
 
     public static string AppTitle => T("STS2_Skills 安装程序", "STS2_Skills Setup");
-    public static string VersionLine => T("版本 1.0.3", "Version 1.0.3");
+    public static string VersionLine => T("版本 1.0.5", "Version 1.0.5");
     public static string LangLabel => T("语言", "Language");
     public static string LangZh => "中文";
     public static string LangEn => "English";
@@ -70,8 +70,8 @@ internal static class I18n
         "Missing embedded payload.zip. Rebuild sts2skill.exe.");
     public static string DoneTitle => T("安装完成", "Installation complete");
     public static string DoneBody => T(
-        "1. 启动游戏并启用 STS2 MCP 模组\n2. AstrBot 用户请重载 MCP 与插件\n3. 可用 /sts2ai ping 测试",
-        "1. Launch the game and enable STS2 MCP mod\n2. AstrBot: reload MCP and plugin\n3. Test with /sts2ai ping");
+        "1. 启动游戏并启用 STS2 MCP 模组\n2. OpenClaw：重载 MCP / gateway restart\n3. AstrBot：重载 MCP 与插件，/sts2ai ping\n4. 命令行：sts2 ping",
+        "1. Launch the game and enable STS2 MCP mod\n2. OpenClaw: reload MCP or gateway restart\n3. AstrBot: reload MCP + plugin, /sts2ai ping\n4. CLI: sts2 ping");
     public static string FailTitle => T("安装失败", "Installation failed");
 
     public static string StepExtract => T("[1/4] 解压 STS2_Skills", "[1/4] Extract STS2_Skills");

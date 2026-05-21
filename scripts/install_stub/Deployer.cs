@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.IO.Compression;
 using System.Text;
 using System.Text.Json;
@@ -39,21 +40,7 @@ internal static class Deployer
         InstallMod(payloadRoot, opt.GameDir, L);
 
         L($"{I18n.StepHost}: {opt.Host}");
-        switch (opt.Host)
-        {
-            case "astrbot":
-                SetupAstrBot(opt, L);
-                break;
-            case "hermes":
-                SetupHermes(opt, L);
-                break;
-            case "openclaw":
-                SetupOpenClaw(opt, L);
-                break;
-            default:
-                SetupStandalone(opt, L);
-                break;
-        }
+        RunHostSetup(opt, L);
 
         L(I18n.StepPip);
         TryPipInstall(opt, L);
@@ -102,182 +89,133 @@ internal static class Deployer
             return;
         }
         log(I18n.T(
-            "  安装包内无模组，请稍后运行 install_sts2_mcp_mod.py",
-            "  No bundled mod; run install_sts2_mcp_mod.py later"));
+            "  安装包内无模组，请稍后运行 sts2 install-mod",
+            "  No bundled mod; run sts2 install-mod later"));
     }
 
-    private static void SetupStandalone(InstallOptions opt, Action<string> log)
+    private static string? SkillDirForHost(InstallOptions opt) => opt.Host switch
     {
-        var sts2Home = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
-            ".config", "sts2");
-        WriteSts2Config(sts2Home, opt.Character);
-        log($"  {sts2Home}\\config.yaml");
-    }
+        "openclaw" => Path.Combine(opt.HostPath, "workspace", "skills"),
+        "astrbot" => Path.Combine(opt.HostPath, "plugins", "astrbot_plugin_sts2_agent", "skills"),
+        "hermes" => Path.Combine(opt.HostPath, "skills"),
+        _ => null,
+    };
 
-    private static void SetupHermes(InstallOptions opt, Action<string> log)
+    private static void RunHostSetup(InstallOptions opt, Action<string> log)
     {
-        var hermesHome = opt.HostPath;
-        var sts2Home = Path.Combine(hermesHome, "sts2");
-        WriteSts2Config(sts2Home, opt.Character);
-        MergeHermesConfig(hermesHome, opt.Character);
-        CopySkill(
-            Path.Combine(opt.SkillsDir, "skills", "slay-the-spire-2"),
-            Path.Combine(hermesHome, "skills", "slay-the-spire-2"),
-            log);
-        log($"  Hermes: {hermesHome}");
-    }
-
-    private static void SetupOpenClaw(InstallOptions opt, Action<string> log)
-    {
-        var ocHome = opt.HostPath;
-        var sts2Home = Path.Combine(ocHome, "sts2");
-        WriteSts2Config(sts2Home, opt.Character);
-        var block = BuildMcpBlock(opt.SkillsDir, opt.PythonPath, sts2Home, opt.Character);
-        var mcpPath = Path.Combine(ocHome, "mcp.sts2.json");
-        File.WriteAllText(mcpPath, block.ToJsonString(new JsonSerializerOptions { WriteIndented = true }), Encoding.UTF8);
-        log($"  {mcpPath}");
-        CopySkill(
-            Path.Combine(opt.SkillsDir, "skills", "slay-the-spire-2"),
-            Path.Combine(ocHome, "workspace", "skills", "slay-the-spire-2"),
-            log);
-    }
-
-    private static void SetupAstrBot(InstallOptions opt, Action<string> log)
-    {
-        var data = opt.HostPath;
-        var sts2Home = Path.Combine(data, "sts2");
-        WriteSts2Config(sts2Home, opt.Character);
-
-        var pluginSrc = Path.Combine(opt.SkillsDir, "plugins", "sts2", "integrations", "astrbot", "plugin");
-        var pluginDst = Path.Combine(data, "plugins", "astrbot_plugin_sts2_agent");
-        if (Directory.Exists(pluginSrc))
+        var script = Path.Combine(opt.SkillsDir, "scripts", "sts2_host_setup_cli.py");
+        if (!File.Exists(script))
         {
-            CopyTree(pluginSrc, pluginDst);
-            log($"  {pluginDst}");
-        }
-
-        var skillSrc = Path.Combine(opt.SkillsDir, "skills", "slay-the-spire-2");
-        var skillDst = Path.Combine(pluginDst, "skills", "slay-the-spire-2");
-        CopySkill(skillSrc, skillDst, log);
-
-        var mcpBlock = BuildMcpBlock(opt.SkillsDir, opt.PythonPath, sts2Home, opt.Character);
-        mcpBlock["env"]!["STS2_CONFIG_PATH"] = Path.Combine(sts2Home, "config.yaml");
-        mcpBlock["env"]!["ASTRBOT_DATA"] = data;
-        MergeAstrBotMcp(data, mcpBlock, log);
-
-        var cfgDir = Path.Combine(data, "config");
-        Directory.CreateDirectory(cfgDir);
-        var plugPath = Path.Combine(cfgDir, "astrbot_plugin_sts2_agent_config.json");
-        var plug = ReadJsonObject(plugPath);
-        plug["skills_root"] = opt.SkillsDir;
-        plug["base_url"] = "http://127.0.0.1:15526";
-        plug["character"] = opt.Character;
-        plug["game_dir"] = opt.GameDir;
-        plug["mcp_python"] = opt.PythonPath;
-        if (!plug.ContainsKey("interval")) plug["interval"] = 0.7;
-        if (!plug.ContainsKey("llm_min_interval")) plug["llm_min_interval"] = 4.0;
-        if (!plug.ContainsKey("llm_post_think_delay")) plug["llm_post_think_delay"] = 1.2;
-        if (!plug.ContainsKey("llm_provider_id")) plug["llm_provider_id"] = "";
-        File.WriteAllText(plugPath, plug.ToJsonString(new JsonSerializerOptions { WriteIndented = true }), Encoding.UTF8);
-        log($"  {plugPath}");
-    }
-
-    private static void CopySkill(string src, string dst, Action<string> log)
-    {
-        if (!Directory.Exists(src))
-        {
-            log(I18n.T($"  跳过 Skill: {src}", $"  Skip skill: {src}"));
+            log(I18n.T(
+                $"  缺少 {script}，无法配置宿主。",
+                $"  Missing {script}; host setup skipped."));
             return;
         }
-        if (Directory.Exists(dst))
-            Directory.Delete(dst, true);
-        CopyDirectoryRecursive(src, dst);
-        log($"  {dst}");
-    }
 
-    private static JsonObject BuildMcpBlock(string skillsRoot, string python, string sts2Home, int character)
-    {
-        var bridge = Path.Combine(skillsRoot, "scripts", "sts2_mcp_bridge.py");
-        return new JsonObject
+        if (string.IsNullOrWhiteSpace(opt.PythonPath) || !File.Exists(opt.PythonPath))
         {
-            ["command"] = python,
-            ["args"] = new JsonArray { bridge },
-            ["env"] = new JsonObject
-            {
-                ["STS2_MCP_BASE_URL"] = "http://127.0.0.1:15526",
-                ["STS2_HOME"] = sts2Home,
-                ["STS2_CHARACTER"] = character.ToString(),
-            },
-        };
-    }
-
-    private static void MergeAstrBotMcp(string dataDir, JsonObject block, Action<string> log)
-    {
-        var path = Path.Combine(dataDir, "mcp_server.json");
-        var root = ReadJsonObject(path);
-        if (root["mcpServers"] is not JsonObject servers)
-        {
-            servers = new JsonObject();
-            root["mcpServers"] = servers;
+            log(I18n.T(
+                "  跳过宿主配置（未找到 Python）",
+                "  Skip host setup (Python not found)"));
+            return;
         }
-        servers["sts2"] = block;
-        File.WriteAllText(path, root.ToJsonString(new JsonSerializerOptions { WriteIndented = true }), Encoding.UTF8);
-        log($"  MCP: {path}");
-    }
 
-    private static void MergeHermesConfig(string hermesHome, int character)
-    {
-        var path = Path.Combine(hermesHome, "config.yaml");
-        var block = new StringBuilder();
-        block.AppendLine("sts2:");
-        block.AppendLine("  base_url: http://127.0.0.1:15526");
-        block.AppendLine($"  character: {character}");
-        block.AppendLine("  pause_on_ask: false");
-        block.AppendLine("  ask_user_on: []");
-        if (File.Exists(path))
-        {
-            var text = File.ReadAllText(path, Encoding.UTF8);
-            if (!text.Contains("sts2:", StringComparison.Ordinal))
-                File.AppendAllText(path, "\n" + block, Encoding.UTF8);
-        }
-        else
-        {
-            Directory.CreateDirectory(hermesHome);
-            File.WriteAllText(path, block.ToString(), Encoding.UTF8);
-        }
-    }
+        var args = new StringBuilder();
+        args.Append('"').Append(script).Append('"');
+        args.Append(" --host ").Append(opt.Host);
+        args.Append(" --repo-root \"").Append(opt.SkillsDir).Append('"');
+        args.Append(" --game-dir \"").Append(opt.GameDir).Append('"');
+        args.Append(" --python \"").Append(opt.PythonPath).Append('"');
+        args.Append(" --character ").Append(opt.Character);
+        args.Append(" --json");
 
-    private static JsonObject ReadJsonObject(string path)
-    {
-        if (!File.Exists(path))
-            return new JsonObject();
+        if (opt.Host == "openclaw")
+            args.Append(" --openclaw-home \"").Append(opt.HostPath).Append('"');
+        else if (opt.Host == "astrbot")
+            args.Append(" --astrbot-data \"").Append(opt.HostPath).Append('"');
+
+        var skillDir = SkillDirForHost(opt);
+        if (!string.IsNullOrEmpty(skillDir))
+            args.Append(" --skill-dir \"").Append(skillDir).Append('"');
+
         try
         {
-            return JsonNode.Parse(File.ReadAllText(path, Encoding.UTF8)) as JsonObject ?? new JsonObject();
-        }
-        catch
-        {
-            return new JsonObject();
-        }
-    }
+            var psi = new ProcessStartInfo
+            {
+                FileName = opt.PythonPath,
+                Arguments = args.ToString(),
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                StandardOutputEncoding = Encoding.UTF8,
+                StandardErrorEncoding = Encoding.UTF8,
+                WorkingDirectory = opt.SkillsDir,
+            };
+            using var proc = Process.Start(psi);
+            if (proc is null)
+            {
+                log(I18n.T("  宿主配置进程启动失败", "  Failed to start host setup process"));
+                return;
+            }
+            var stdout = proc.StandardOutput.ReadToEnd();
+            var stderr = proc.StandardError.ReadToEnd();
+            proc.WaitForExit();
 
-    private static void WriteSts2Config(string sts2Home, int character)
-    {
-        Directory.CreateDirectory(sts2Home);
-        var yaml = new StringBuilder();
-        yaml.AppendLine("sts2:");
-        yaml.AppendLine("  base_url: http://127.0.0.1:15526");
-        yaml.AppendLine("  timeout: 15");
-        yaml.AppendLine($"  character: {character}");
-        yaml.AppendLine("  commentary: verbose");
-        yaml.AppendLine("  autoplay: false");
-        yaml.AppendLine("  pause_on_ask: false");
-        yaml.AppendLine("  ask_user_on: []");
-        yaml.AppendLine("  autopilot_until_victory: true");
-        yaml.AppendLine("  study_marathon: true");
-        yaml.AppendLine("  loop_runs: true");
-        File.WriteAllText(Path.Combine(sts2Home, "config.yaml"), yaml.ToString(), Encoding.UTF8);
+            if (!string.IsNullOrWhiteSpace(stdout))
+            {
+                try
+                {
+                    var node = JsonNode.Parse(stdout) as JsonObject;
+                    if (node is not null)
+                    {
+                        if (node["messages"] is JsonArray msgs)
+                        {
+                            foreach (var item in msgs)
+                            {
+                                var line = item?.GetValue<string>();
+                                if (!string.IsNullOrWhiteSpace(line))
+                                    log("  " + line);
+                            }
+                        }
+                        if (node["warnings"] is JsonArray warns)
+                        {
+                            foreach (var item in warns)
+                            {
+                                var line = item?.GetValue<string>();
+                                if (!string.IsNullOrWhiteSpace(line))
+                                    log(I18n.T($"  警告: {line}", $"  Warning: {line}"));
+                            }
+                        }
+                        var ok = node["ok"]?.GetValue<bool>() ?? false;
+                        if (!ok || proc.ExitCode != 0)
+                            log(I18n.T(
+                                "  宿主配置未完全成功（见日志）",
+                                "  Host setup incomplete (see log)"));
+                        return;
+                    }
+                }
+                catch
+                {
+                    foreach (var line in stdout.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+                        log("  " + line.Trim());
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(stderr))
+                log("  " + stderr.Trim());
+
+            if (proc.ExitCode != 0)
+                log(I18n.T(
+                    $"  宿主配置退出码 {proc.ExitCode}",
+                    $"  Host setup exit code {proc.ExitCode}"));
+        }
+        catch (Exception ex)
+        {
+            log(I18n.T(
+                $"  宿主配置异常: {ex.Message}",
+                $"  Host setup error: {ex.Message}"));
+        }
     }
 
     private static void TryPipInstall(InstallOptions opt, Action<string> log)
@@ -291,14 +229,14 @@ internal static class Deployer
         }
         try
         {
-            var psi = new System.Diagnostics.ProcessStartInfo
+            var psi = new ProcessStartInfo
             {
                 FileName = opt.PythonPath,
                 Arguments = $"-m pip install -e \"{opt.SkillsDir}[mcp]\"",
                 UseShellExecute = false,
                 CreateNoWindow = true,
             };
-            using var p = System.Diagnostics.Process.Start(psi);
+            using var p = Process.Start(psi);
             p?.WaitForExit();
             log(p?.ExitCode == 0
                 ? I18n.T("  pip 完成", "  pip OK")
