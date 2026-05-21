@@ -71,10 +71,25 @@ def main() -> int:
     with zipfile.ZipFile(src_zip, "w", zipfile.ZIP_DEFLATED) as zf:
         _zip_tree(zf, staging, f"STS2_Skills-{VER}")
     shutil.rmtree(staging)
+
+    mod_dir = ROOT / "mods" / "STS2MCP"
+    mod_ver = "unknown"
+    ver_file = mod_dir / "VERSION"
+    if ver_file.is_file():
+        mod_ver = ver_file.read_text(encoding="utf-8").strip().lstrip("v")
+    mod_zip = DIST / f"STS2MCP-mod-{mod_ver}.zip"
+    if mod_zip.exists():
+        mod_zip.unlink()
+    with zipfile.ZipFile(mod_zip, "w", zipfile.ZIP_DEFLATED) as zf:
+        for name in ("STS2_MCP.dll", "STS2_MCP.json", "VERSION", "README.md"):
+            p = mod_dir / name
+            if p.is_file():
+                zf.write(p, arcname=name)
     print(src_zip)
+    print(mod_zip)
     exe = ROOT / "sts2skill.exe"
     if exe.is_file():
-        print(f"(Release 附件，不入源码 zip) {exe}")
+        print(f"(Release 附件) {exe}")
     return 0
 
 

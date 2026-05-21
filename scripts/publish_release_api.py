@@ -19,6 +19,15 @@ SETUP_EXE = ROOT / "sts2skill.exe"
 NOTES = ROOT / f"RELEASE_NOTES_{TAG}.md"
 
 
+def _mod_zip_path() -> Path:
+    mod_dir = ROOT / "mods" / "STS2MCP"
+    ver = "unknown"
+    vf = mod_dir / "VERSION"
+    if vf.is_file():
+        ver = vf.read_text(encoding="utf-8").strip().lstrip("v")
+    return ROOT / "dist" / f"STS2MCP-mod-{ver}.zip"
+
+
 def _token() -> str:
     proc = subprocess.run(
         ["git", "credential", "fill"],
@@ -110,9 +119,22 @@ def main() -> int:
             print("Using existing release", rel["id"])
 
     _upload_asset(rel, token, SOURCE_ZIP, base)
+    mod_zip = _mod_zip_path()
+    if mod_zip.is_file():
+        _upload_asset(rel, token, mod_zip, base)
+    else:
+        print("Skip mod zip (missing):", mod_zip, file=sys.stderr)
     if not SETUP_EXE.is_file():
         raise SystemExit(f"Missing setup exe (build first): {SETUP_EXE}")
     _upload_asset(rel, token, SETUP_EXE, base, content_type="application/octet-stream")
+    # 更新 Release 说明正文
+    _api(
+        "PATCH",
+        f"{base}/releases/{rel['id']}",
+        token,
+        json.dumps({"body": notes}).encode("utf-8"),
+    )
+    print("Updated release notes")
     print("Release page", rel.get("html_url"))
     return 0
 

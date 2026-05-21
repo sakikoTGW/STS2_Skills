@@ -4,7 +4,7 @@
 
 ## 1. 依赖
 
-- 游戏 + [STS2MCP](https://github.com/Gennadiyev/STS2MCP) 模组
+- 游戏 + [STS2MCP](https://github.com/Gennadiyev/STS2MCP) 模组（仓库 `mods/STS2MCP/` 或 Release 的 `STS2MCP-mod-*.zip`）
 - 在 **与 AstrBot 相同的 Python 环境** 中执行 `pip install mcp`
 - 本仓库（或 `pip install hermes-agent` 以使用 `plugins.sts2`）
 
