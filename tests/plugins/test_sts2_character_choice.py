@@ -52,6 +52,15 @@ def test_run_flow_picks_configured_character(sts2_env, monkeypatch):
     assert act == {"action": "menu_select", "option": "Defect"}
 
 
+def test_character_chinese_env_no_recursion(sts2_env, monkeypatch):
+    from plugins.sts2.config import load_sts2_config
+
+    monkeypatch.setenv("STS2_CHARACTER", "静默猎手")
+    cfg = load_sts2_config()
+    assert cfg["character"] == "SILENT"
+    assert cfg["character_index"] == 1
+
+
 def test_sts2_character_env_overrides_config(sts2_env, monkeypatch):
     from plugins.sts2.config import load_sts2_config
 
