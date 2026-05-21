@@ -1,7 +1,7 @@
 ---
 name: slay-the-spire-2
 description: "通过 API 游玩 STS2；第一层安全循环与通关。"
-version: 2.0.0
+version: 1.0.3
 author: Hermes Agent
 license: MIT
 tags: [gaming, sts2, ironclad, silent, defect, necrobinder, regent]
@@ -25,7 +25,7 @@ metadata.hermes.config:
 
 1. 游戏运行且启用 **STS2 MCP** 模组。
 2. `sts2_ping` 返回成功。
-3. **角色（可选）：** `sts2.character` 设为 **0–4**（0 铁甲战士、1 静默猎手、2 故障机器人、3 亡灵契约师、4 储君），或 `STS2_CHARACTER=1`。也可运行仓库 **`install.bat`** 一键配置。
+3. **角色（可选）：** `sts2.character` 设为 **0–4**（0 铁甲战士、1 静默猎手、2 故障机器人、3 亡灵契约师、4 储君），或 `STS2_CHARACTER=1`。也可运行仓库 **`sts2skill.exe`** 或 `sts2 install-wizard` 一键配置。
 4. 启动 `Launch-Hermes-STS2.bat`（**挂载模式**：边聊边打至通关）。
 5. **怪物知识库**（首次）：`hermes sts2 sync-wiki --merge-yaml`（灰机 wiki 需浏览器 cookies 时用 `--cookies`；或 `--html-dir` 导入已保存 HTML）。仓库已内置 Act1 种子，无网也能读【怪物Wiki】。
 

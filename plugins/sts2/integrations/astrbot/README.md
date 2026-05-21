@@ -48,7 +48,11 @@ sts2:
 
 编号 **0–4**：铁甲战士 / 静默猎手 / 故障机器人 / 亡灵契约师 / 储君。详见根目录 [README 角色选择](../../../../README.md#角色选择)。
 
-一键安装：仓库根目录 **`install.bat`** → 选择 **AstrBot**。
+一键安装：运行 **`sts2skill.exe`** → 选 **4. AstrBot** → 选择 **AstrBot 数据目录**（如 `%USERPROFILE%\.astrbot\data`）、**游戏目录**、**STS2_Skills 安装目录**。安装程序会解压源码、写入模组、同步插件与 MCP 配置。
+
+**`integrations/astrbot/plugin/_conf_schema.json`** 定义 WebUI 可视化配置（角色 **0–4 整数**）。版本迁移见仓库根目录 [VERSION_MIGRATION.md](../../../../VERSION_MIGRATION.md)。
+
+若 WebUI 仍显示旧字段，请 **重载插件** 或重新运行安装程序。
 
 ## 5. 工具名称
 

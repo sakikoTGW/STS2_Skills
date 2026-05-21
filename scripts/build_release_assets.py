@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
-TAG = sys.argv[1] if len(sys.argv) > 1 else "v1.3.0"
+TAG = sys.argv[1] if len(sys.argv) > 1 else "v1.0.3"
 VER = TAG.lstrip("v")
 
 SKIP_DIRS = {
@@ -16,10 +16,14 @@ SKIP_DIRS = {
     ".venv",
     "venv",
     "dist",
+    "build",
     "patches",
     "__pycache__",
     ".pytest_cache",
     "hermes_sts2.egg-info",
+    "install_stub",
+    "bin",
+    "obj",
 }
 SKIP_SUFFIX = {".pyc"}
 
@@ -52,18 +56,15 @@ def main() -> int:
         ignore=shutil.ignore_patterns(*SKIP_DIRS, "*.pyc"),
     )
     src_zip = DIST / f"STS2_Skills-{TAG}.zip"
-    inst_zip = DIST / f"STS2_Skills-Installer-{TAG}.zip"
     if src_zip.exists():
         src_zip.unlink()
-    if inst_zip.exists():
-        inst_zip.unlink()
     with zipfile.ZipFile(src_zip, "w", zipfile.ZIP_DEFLATED) as zf:
-        _zip_tree(zf, staging, f"STS2_Skills-{VER}")
-    with zipfile.ZipFile(inst_zip, "w", zipfile.ZIP_DEFLATED) as zf:
         _zip_tree(zf, staging, f"STS2_Skills-{VER}")
     shutil.rmtree(staging)
     print(src_zip)
-    print(inst_zip)
+    exe = ROOT / "sts2skill.exe"
+    if exe.is_file():
+        print(f"(Release 附件，不入源码 zip) {exe}")
     return 0
 
 

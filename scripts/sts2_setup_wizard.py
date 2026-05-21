@@ -187,6 +187,28 @@ def _setup_openclaw(
         _copy_skill(Path(skill_dir) / "slay-the-spire-2")
 
 
+def _deploy_astrbot_plugin(astrbot_data: Path) -> Path:
+    """将 integrations/astrbot/plugin 同步到 AstrBot 插件目录（含 WebUI schema）。"""
+    src = ROOT / "plugins" / "sts2" / "integrations" / "astrbot" / "plugin"
+    dst = astrbot_data / "plugins" / "astrbot_plugin_sts2_agent"
+    if not src.is_dir():
+        print(f"[astrbot] 跳过插件同步：未找到 {src}")
+        return dst
+    dst.mkdir(parents=True, exist_ok=True)
+    for item in src.iterdir():
+        if item.name.startswith("."):
+            continue
+        target = dst / item.name
+        if item.is_dir():
+            if target.exists():
+                shutil.rmtree(target)
+            shutil.copytree(item, target)
+        else:
+            shutil.copy2(item, target)
+    print(f"[astrbot] 插件已同步 → {dst}（含 _conf_schema.json）")
+    return dst
+
+
 def _setup_astrbot(
     astrbot_data: Path,
     skill_dir: str,
@@ -194,6 +216,7 @@ def _setup_astrbot(
     character_index: int,
     sts2_home: Path,
 ) -> None:
+    _deploy_astrbot_plugin(astrbot_data)
     from plugins.sts2.integrations.mcp_config import astrbot_mcp_block
 
     block = astrbot_mcp_block(
@@ -233,8 +256,13 @@ def _setup_astrbot(
                 "base_url": "http://127.0.0.1:15526",
                 "character": character_index,
                 "mcp_python": python,
+                "game_dir": plug.get("game_dir") or "",
             }
         )
+        if not plug.get("game_dir"):
+            gd = _detect_game_dir()
+            if gd:
+                plug["game_dir"] = gd
         plugin_cfg.write_text(
             json.dumps(plug, indent=2, ensure_ascii=False) + "\n",
             encoding="utf-8",

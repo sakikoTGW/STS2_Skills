@@ -1,0 +1,49 @@
+{
+  "skills_root": {
+    "type": "string",
+    "default": "",
+    "description": "STS2_Skills 项目根目录（含 scripts/sts2_mcp_bridge.py）"
+  },
+  "base_url": {
+    "type": "string",
+    "default": "http://127.0.0.1:15526",
+    "description": "STS2MCP HTTP API 地址"
+  },
+  "game_dir": {
+    "type": "string",
+    "default": "",
+    "description": "游戏安装目录（含 SlayTheSpire2.exe，用于安装模组）"
+  },
+  "mcp_python": {
+    "type": "string",
+    "default": "",
+    "description": "MCP 桥接 Python（建议填 AstrBot 自带 python.exe 路径）"
+  },
+  "character": {
+    "type": "int",
+    "default": 0,
+    "description": "自动开新局角色编号",
+    "hint": "0=铁甲战士 1=静默猎手 2=故障机器人 3=亡灵契约师 4=储君"
+  },
+  "interval": {
+    "type": "float",
+    "default": 0.7,
+    "description": "规则 auto 轮询间隔（秒）"
+  },
+  "llm_min_interval": {
+    "type": "float",
+    "default": 4.0,
+    "description": "LLM auto 每步最少间隔（秒）"
+  },
+  "llm_post_think_delay": {
+    "type": "float",
+    "default": 1.2,
+    "description": "LLM 思考完毕到执行动作之间的停顿（秒）"
+  },
+  "llm_provider_id": {
+    "type": "string",
+    "default": "",
+    "description": "LLM Provider ID，留空用当前会话聊天模型",
+    "_special": "select_provider"
+  }
+}

@@ -9,10 +9,10 @@ import urllib.request
 from pathlib import Path
 
 REPO = "sakikoTGW/STS2_Skills"
-TAG = "v1.3.0"
+TAG = "v1.0.3"
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_ZIP = ROOT / "dist" / f"STS2_Skills-{TAG}.zip"
-INSTALLER_ZIP = ROOT / "dist" / f"STS2_Skills-Installer-{TAG}.zip"
+SETUP_EXE = ROOT / "sts2skill.exe"
 NOTES = ROOT / f"RELEASE_NOTES_{TAG}.md"
 
 
@@ -53,14 +53,21 @@ def _api(method: str, url: str, token: str, data: bytes | None = None, content_t
         raise SystemExit(f"{method} {url} -> {exc.code}: {body[:1200]}") from exc
 
 
-def _upload_asset(rel: dict, token: str, path: Path, base: str) -> None:
+def _upload_asset(
+    rel: dict,
+    token: str,
+    path: Path,
+    base: str,
+    *,
+    content_type: str = "application/zip",
+) -> None:
     for asset in rel.get("assets") or []:
         if asset.get("name") == path.name:
             _api("DELETE", f"{base}/releases/assets/{asset['id']}", token)
             print("Removed old asset", path.name)
     upload_url = rel["upload_url"].split("{", 1)[0] + f"?name={path.name}"
     upload_hdrs = _headers(token)
-    upload_hdrs["Content-Type"] = "application/zip"
+    upload_hdrs["Content-Type"] = content_type
     req = urllib.request.Request(
         upload_url,
         data=path.read_bytes(),
@@ -100,8 +107,9 @@ def main() -> int:
             print("Using existing release", rel["id"])
 
     _upload_asset(rel, token, SOURCE_ZIP, base)
-    if INSTALLER_ZIP.is_file():
-        _upload_asset(rel, token, INSTALLER_ZIP, base)
+    if not SETUP_EXE.is_file():
+        raise SystemExit(f"Missing setup exe (build first): {SETUP_EXE}")
+    _upload_asset(rel, token, SETUP_EXE, base, content_type="application/octet-stream")
     print("Release page", rel.get("html_url"))
     return 0
 

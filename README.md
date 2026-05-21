@@ -56,14 +56,23 @@ pip install "git+https://github.com/sakikoTGW/STS2_Skills.git[mcp]"
 
 ### 一键安装（推荐）
 
-Windows 双击根目录 **`install.bat`**，或在项目根目录执行：
+Windows 双击根目录 **`sts2skill.exe`**（图形界面，**中/英** 可切换，需先构建）。安装程序会：
+
+1. 选择 **宿主**（独立 / Hermes / OpenClaw / AstrBot）
+2. 用 **浏览** 按钮选择 **宿主数据目录**、**游戏安装目录**、**STS2_Skills 安装目录**
+3. 将内嵌的 STS2_Skills 与 STS2MCP 模组 **解压到对应路径**，并写入 MCP、插件与 `config.yaml`
+
+命令行备选：`python scripts/sts2_setup_wizard.py` 或 `sts2 install-wizard`（需已有 Python 环境）。
+
+**构建 sts2skill.exe（本机 / 未发布）：**
 
 ```bash
-python scripts/sts2_setup_wizard.py
-# 或: sts2 install-wizard
+python scripts/build_install_exe.py   # 需 .NET 8 SDK；会打包 payload.zip 并嵌入 exe
 ```
 
-按提示选择 **宿主**（独立 / Hermes / OpenClaw / AstrBot）、**Skill 目录**、**游戏路径**、**角色编号 0–4**，向导会自动：安装 Python 包、写入配置、安装 STS2MCP 模组、复制 Skill / MCP 配置。
+体积约为 **源码压缩包 + 模组 DLL + 小型 .NET 启动器**（通常 1–3 MB），不再打包 Python 运行时。
+
+**版本号**：采用 `1.0.x` 小版本；从旧 **v1.3.0** / 插件 **v2.x** 迁移见 [VERSION_MIGRATION.md](VERSION_MIGRATION.md)。
 
 ### 手动步骤
 

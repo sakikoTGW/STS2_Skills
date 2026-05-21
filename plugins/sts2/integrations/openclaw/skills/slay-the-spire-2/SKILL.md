@@ -1,7 +1,7 @@
 ---
 name: slay-the-spire-2
 description: "通过 MCP 游玩 STS2；第一层安全循环与通关。"
-version: 1.0.0
+version: 1.0.3
 author: Hermes Agent
 license: MIT
 tags: [gaming, sts2, ironclad, silent, defect, necrobinder, regent, openclaw]
