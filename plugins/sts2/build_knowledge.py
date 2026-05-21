@@ -5,10 +5,10 @@ from __future__ import annotations
 import json
 import logging
 import re
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 from urllib.request import Request, urlopen
 
 from plugins.sts2.storage import sts2_home
@@ -65,7 +65,7 @@ def _character(state: dict) -> str:
     return "IRONCLAD"
 
 
-def _floor_act(state: dict) -> Tuple[int, int]:
+def _floor_act(state: dict) -> tuple[int, int]:
     run = state.get("run") or {}
     try:
         return int(run.get("floor") or 0), max(1, int(run.get("act") or 1))
@@ -73,13 +73,13 @@ def _floor_act(state: dict) -> Tuple[int, int]:
         return 0, 1
 
 
-def list_archetypes(char: str) -> List[dict]:
+def list_archetypes(char: str) -> list[dict]:
     cat = load_catalog()
     ch = (cat.get("characters") or {}).get(char.upper()) or {}
     return list(ch.get("archetypes") or [])
 
 
-def detect_archetype_from_catalog(state: dict) -> Tuple[str, str]:
+def detect_archetype_from_catalog(state: dict) -> tuple[str, str]:
     """Return (archetype_id, source) — ironclad uses ironclad_builds when available."""
     char = _character(state)
     if char in ("IRONCLAD", "IRON_CLAD"):
@@ -87,7 +87,7 @@ def detect_archetype_from_catalog(state: dict) -> Tuple[str, str]:
 
         return detect_archetype(state), "ironclad_builds"
 
-    ids: List[str] = []
+    ids: list[str] = []
     player = state.get("player") or {}
     for key in ("deck", "master_deck", "cards", "draw_pile", "discard_pile", "hand"):
         for c in player.get(key) or []:
@@ -110,7 +110,7 @@ def detect_archetype_from_catalog(state: dict) -> Tuple[str, str]:
     return best_id, "catalog"
 
 
-def archetype_record(state: dict) -> Optional[dict]:
+def archetype_record(state: dict) -> dict | None:
     char = _character(state)
     aid, _ = detect_archetype_from_catalog(state)
     for arch in list_archetypes(char):
@@ -141,11 +141,11 @@ def score_card_for_archetype(card_id: str, state: dict) -> float:
     return 20.0
 
 
-def layer_threat_lines(state: dict) -> List[str]:
+def layer_threat_lines(state: dict) -> list[str]:
     """Act/floor/boss threats — pick & combat counterplay."""
     floor, act = _floor_act(state)
     cat = load_catalog()
-    lines: List[str] = []
+    lines: list[str] = []
     enemies = []
     for e in (state.get("battle") or {}).get("enemies") or []:
         if isinstance(e, dict):
@@ -185,7 +185,7 @@ def format_layer_threat_block(state: dict) -> str:
     )
 
 
-def format_build_pick_brief(state: dict, offers: Optional[List[dict]] = None) -> str:
+def format_build_pick_brief(state: dict, offers: list[dict] | None = None) -> str:
     """Card reward / upgrade screen coaching."""
     char = _character(state)
     aid, src = detect_archetype_from_catalog(state)
@@ -294,7 +294,7 @@ def _profile_hint(char: str) -> str:
 def record_card_pick(state: dict, card_id: str, *, index: int = 0) -> None:
     """Session note — which card reinforced the build."""
     row = {
-        "ts": datetime.now(timezone.utc).isoformat(),
+        "ts": datetime.now(UTC).isoformat(),
         "event": "card_pick",
         "card_id": card_id,
         "index": index,
@@ -312,9 +312,9 @@ def _append_journal(row: dict) -> None:
         pass
 
 
-def refresh_web_build_cache(*, timeout: float = 12.0) -> Dict[str, Any]:
+def refresh_web_build_cache(*, timeout: float = 12.0) -> dict[str, Any]:
     """Fetch public build pages into ~/.hermes/sts2/knowledge/builds_web/ (best-effort)."""
-    out: Dict[str, Any] = {"fetched": [], "errors": []}
+    out: dict[str, Any] = {"fetched": [], "errors": []}
     dest = web_cache_dir()
     for url in _WEB_SOURCES:
         safe = re.sub(r"[^\w]+", "_", url)[:60]
@@ -332,7 +332,7 @@ def refresh_web_build_cache(*, timeout: float = 12.0) -> Dict[str, Any]:
 
 def web_digest(*, max_chars: int = 1500) -> str:
     """Snippet from cached web pages for LLM context."""
-    parts: List[str] = []
+    parts: list[str] = []
     for path in sorted(web_cache_dir().glob("*.html"))[:3]:
         try:
             text = re.sub(r"<[^>]+>", " ", path.read_text(encoding="utf-8", errors="replace"))

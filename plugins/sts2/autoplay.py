@@ -7,19 +7,20 @@ import json
 import logging
 import threading
 import time
+from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any
 
 from plugins.sts2 import client as sts2_client
-from plugins.sts2.config import load_sts2_config
 from plugins.sts2 import decision as _sts2_decision
-from plugins.sts2.reflect import reflect_if_changed, reflect_transition
+from plugins.sts2 import driver_lock
+from plugins.sts2.action_trace import append_action_log, format_action_trace
+from plugins.sts2.config import load_sts2_config
+from plugins.sts2.lessons import finalize_trajectory, lessons_summary_for_prompt
+from plugins.sts2.reflect import reflect_if_changed
 from plugins.sts2.rewards import compute_step_reward
 from plugins.sts2.storage import live_feed_path, pending_question_path
-from plugins.sts2 import driver_lock
-from plugins.sts2.lessons import finalize_trajectory, lessons_summary_for_prompt
 from plugins.sts2.trajectory import current_path, log_event, start_session
-from plugins.sts2.action_trace import append_action_log, format_action_trace
 from plugins.sts2.visibility import (
     describe_situation,
     format_turn_commentary,
@@ -45,22 +46,22 @@ class AutoplayStatus:
     trajectory: str = ""
     paused: bool = False
     pause_reason: str = ""
-    errors: List[str] = field(default_factory=list)
+    errors: list[str] = field(default_factory=list)
 
 
 class AutoplayController:
     def __init__(self) -> None:
         self._lock = threading.Lock()
-        self._thread: Optional[threading.Thread] = None
+        self._thread: threading.Thread | None = None
         self._stop = threading.Event()
         self._status = AutoplayStatus()
-        self._emit: Optional[EmitFn] = None
-        self._prev_state: Optional[Dict[str, Any]] = None
-        self._recent_actions: List[Dict[str, Any]] = []
+        self._emit: EmitFn | None = None
+        self._prev_state: dict[str, Any] | None = None
+        self._recent_actions: list[dict[str, Any]] = []
         self._repeat_hash = ""
         self._repeat_count = 0
         self._user_hint = ""
-        self._last_observed_state: Optional[Dict[str, Any]] = None
+        self._last_observed_state: dict[str, Any] | None = None
         self._last_fingerprint: str = ""
         self._coach = None
         self._consecutive_failures = 0
@@ -72,10 +73,10 @@ class AutoplayController:
         self._lesson_cast_fps: set[str] = set()
         self._potion_fail_streak = 0
 
-    def set_emit(self, fn: Optional[EmitFn]) -> None:
+    def set_emit(self, fn: EmitFn | None) -> None:
         self._emit = fn
 
-    def status(self) -> Dict[str, Any]:
+    def status(self) -> dict[str, Any]:
         with self._lock:
             s = self._status
             return {
@@ -95,8 +96,8 @@ class AutoplayController:
             }
 
     def start_study(
-        self, *, max_steps: Optional[int] = None, announce: bool = True
-    ) -> Dict[str, Any]:
+        self, *, max_steps: int | None = None, announce: bool = True
+    ) -> dict[str, Any]:
         """Study autoplay: LLM decides + rules validate; lessons on death."""
         from plugins.sts2.play_mode import rule_marathon_allowed, rule_marathon_blocked_message
 
@@ -107,8 +108,8 @@ class AutoplayController:
                 "rule_marathon": "disabled",
             }
 
-        from plugins.sts2.study_mode import set_study_mode
         from plugins.sts2.manual_mode import set_manual_mode
+        from plugins.sts2.study_mode import set_study_mode
 
         set_manual_mode(False)
         cfg = load_sts2_config()
@@ -172,15 +173,14 @@ class AutoplayController:
                 if enforce_single_driver_enabled():
                     driver_lock.release("autoplay")
 
+        from plugins.sts2.act1_clear import bootstrap_win_focus_rules
+        from plugins.sts2.autonomy import clear_user_wait_state
+        from plugins.sts2.evolution_loop import begin_run, bootstrap_evolution_store
         from plugins.sts2.lessons import bootstrap_learning_store
         from plugins.sts2.run_victory import bootstrap_full_run_rules
-        from plugins.sts2.act1_clear import bootstrap_win_focus_rules
-        from plugins.sts2.evolution_loop import begin_run, bootstrap_evolution_store
-
-        from plugins.sts2.autonomy import clear_user_wait_state
 
         clear_user_wait_state()
-        boot = bootstrap_learning_store()
+        bootstrap_learning_store()
         bootstrap_full_run_rules()
         bootstrap_win_focus_rules()
         bootstrap_evolution_store()
@@ -219,11 +219,11 @@ class AutoplayController:
             "lessons_loaded": bool(summary),
         }
 
-    def start(self, *, max_steps: Optional[int] = None, user_hint: str = "") -> Dict[str, Any]:
+    def start(self, *, max_steps: int | None = None, user_hint: str = "") -> dict[str, Any]:
         """Alias for start_study (LLM autoplay until victory)."""
         return self.start_study(max_steps=max_steps, announce=True)
 
-    def _start_rule_loop(self, *, max_steps: Optional[int] = None, user_hint: str = "") -> Dict[str, Any]:
+    def _start_rule_loop(self, *, max_steps: int | None = None, user_hint: str = "") -> dict[str, Any]:
         cfg = load_sts2_config()
         with self._lock:
             if self._status.running or self._status.watching or self._status.learning:
@@ -267,7 +267,7 @@ class AutoplayController:
 
         self._thread = threading.Thread(target=_run, name="sts2-autoplay", daemon=True)
         self._thread.start()
-        out: Dict[str, Any] = {
+        out: dict[str, Any] = {
             "success": True,
             "trajectory": self._status.trajectory,
             "max_steps": limit,
@@ -276,7 +276,7 @@ class AutoplayController:
             out["lessons_loaded"] = True
         return out
 
-    def pause(self, *, reason: str = "") -> Dict[str, Any]:
+    def pause(self, *, reason: str = "") -> dict[str, Any]:
         with self._lock:
             self._status.paused = True
             if reason:
@@ -289,7 +289,7 @@ class AutoplayController:
             pass
         return {"success": True, "paused": True, "pause_reason": self._status.pause_reason}
 
-    def resume(self) -> Dict[str, Any]:
+    def resume(self) -> dict[str, Any]:
         pending_question_path().unlink(missing_ok=True)
         with self._lock:
             self._status.paused = False
@@ -302,7 +302,7 @@ class AutoplayController:
             pass
         return {"success": True, "paused": False}
 
-    def stop(self) -> Dict[str, Any]:
+    def stop(self) -> dict[str, Any]:
         self._stop.set()
         with self._lock:
             self._status.running = False
@@ -339,7 +339,7 @@ class AutoplayController:
             "manual_mode": not autopilot_enabled(),
         }
 
-    def start_learn(self) -> Dict[str, Any]:
+    def start_learn(self) -> dict[str, Any]:
         """Watch user play; ask at end of turn when confused; save answers as style rules."""
         from plugins.sts2.learn_coach import LearnCoach
 
@@ -374,7 +374,7 @@ class AutoplayController:
         )
         return {"success": True, "learning": True, "trajectory": self._status.trajectory}
 
-    def start_watch(self) -> Dict[str, Any]:
+    def start_watch(self) -> dict[str, Any]:
         """Poll game state and narrate changes (user plays manually; no sts2_act)."""
         with self._lock:
             if self._status.running or self._status.watching or self._status.learning:
@@ -421,7 +421,7 @@ class AutoplayController:
             self._status.paused = False
             self._status.pause_reason = ""
 
-    def step_once(self, *, user_hint: str = "") -> Dict[str, Any]:
+    def step_once(self, *, user_hint: str = "") -> dict[str, Any]:
         """Single synchronous step (for tool action=step)."""
         if user_hint:
             self._user_hint = user_hint
@@ -439,7 +439,7 @@ class AutoplayController:
         except Exception:
             pass
 
-    def _emit_reflection(self, refl: Dict[str, Any]) -> None:
+    def _emit_reflection(self, refl: dict[str, Any]) -> None:
         from plugins.sts2.reflection_journal import format_reflection_cast
 
         line = format_reflection_cast(refl)
@@ -497,7 +497,7 @@ class AutoplayController:
                 setattr(self, attr, mtime)
                 importlib.reload(mod)
 
-    def _single_step(self) -> Dict[str, Any]:
+    def _single_step(self) -> dict[str, Any]:
         self._reload_decision()
         cfg = load_sts2_config()
         status, state = sts2_client.get_singleplayer_state(fmt="json")
@@ -635,7 +635,7 @@ class AutoplayController:
         if not act_ok and isinstance(act_payload, dict):
             err_msg = str(act_payload.get("message") or act_payload.get("error") or "")
 
-        post_state: Optional[Dict[str, Any]] = None
+        post_state: dict[str, Any] | None = None
         if act_ok:
             try:
                 _, post_state = sts2_client.get_singleplayer_state(fmt="json")
@@ -789,7 +789,7 @@ class AutoplayController:
         }
 
     def _remember_state(
-        self, state: Dict[str, Any], *, action_trace: str = ""
+        self, state: dict[str, Any], *, action_trace: str = ""
     ) -> None:
         self._last_observed_state = state
         self._last_fingerprint = state_fingerprint(state)
@@ -798,7 +798,7 @@ class AutoplayController:
             if action_trace:
                 self._status.last_action_trace = action_trace
 
-    def observe_once(self) -> Dict[str, Any]:
+    def observe_once(self) -> dict[str, Any]:
         """One-shot snapshot + delta (for sts2_observe / sts2_get_state summary)."""
         from plugins.sts2.visibility import describe_delta
 
@@ -832,7 +832,7 @@ class AutoplayController:
         from plugins.sts2.visibility import describe_delta
 
         interval = float(load_sts2_config().get("watch_interval_seconds", 0.65))
-        prev_state: Optional[Dict[str, Any]] = None
+        prev_state: dict[str, Any] | None = None
         prev_fp = ""
         while not self._stop.is_set():
             status, state = sts2_client.get_singleplayer_state(fmt="json")
@@ -860,7 +860,7 @@ class AutoplayController:
             time.sleep(interval)
 
     def _track_repeat(
-        self, state: Dict[str, Any], *, act_ok: bool, body: Optional[Dict[str, Any]] = None
+        self, state: dict[str, Any], *, act_ok: bool, body: dict[str, Any] | None = None
     ) -> None:
         cfg = load_sts2_config()
         action = str((body or {}).get("action") or "")
@@ -895,9 +895,9 @@ class AutoplayController:
     def _write_pending(
         self,
         question: str,
-        state: Dict[str, Any],
+        state: dict[str, Any],
         *,
-        meta: Optional[Dict[str, Any]] = None,
+        meta: dict[str, Any] | None = None,
         mode: str = "",
     ) -> None:
         pending_question_path().write_text(
@@ -917,9 +917,9 @@ class AutoplayController:
     def _pause_for_question(
         self,
         question: str,
-        state: Dict[str, Any],
+        state: dict[str, Any],
         *,
-        meta: Optional[Dict[str, Any]] = None,
+        meta: dict[str, Any] | None = None,
     ) -> None:
         self._write_pending(question, state, meta=meta, mode="learn")
         with self._lock:
@@ -933,7 +933,7 @@ class AutoplayController:
 
         interval = float(load_sts2_config().get("watch_interval_seconds", 0.65))
         coach = self._coach
-        prev_state: Optional[Dict[str, Any]] = None
+        prev_state: dict[str, Any] | None = None
         prev_fp = ""
         while not self._stop.is_set():
             with self._lock:
@@ -977,7 +977,7 @@ class AutoplayController:
         self._cast("学习模式已停止。打法笔记在 hot_notes / strategy.yaml。")
 
     def _execute_action(
-        self, state: Dict[str, Any], body: Dict[str, Any]
+        self, state: dict[str, Any], body: dict[str, Any]
     ) -> tuple[int, Any, bool]:
         from plugins.sts2.action_validate import validate_action
 
@@ -1014,7 +1014,7 @@ class AutoplayController:
 
     def _menu_burst(
         self,
-        state: Dict[str, Any],
+        state: dict[str, Any],
         *,
         max_clicks: int = 12,
         announce: bool = False,
@@ -1077,7 +1077,7 @@ class AutoplayController:
             time.sleep(0.55)
         return False
 
-    def _maybe_restart_run(self, state: Dict[str, Any]) -> bool:
+    def _maybe_restart_run(self, state: dict[str, Any]) -> bool:
         """After game_over / post-run menu — click through to a new run (configured character)."""
         from plugins.sts2.run_flow import in_run, menu_fingerprint, run_needs_restart
 

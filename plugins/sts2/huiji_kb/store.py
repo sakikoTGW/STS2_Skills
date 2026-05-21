@@ -5,10 +5,10 @@ from __future__ import annotations
 import json
 import logging
 import re
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from plugins.sts2.storage import sts2_home
 
@@ -32,7 +32,7 @@ def _enemies_file(path: Path) -> Path:
 
 
 @lru_cache(maxsize=1)
-def _load_loop_overlays() -> Dict[str, Dict[str, Any]]:
+def _load_loop_overlays() -> dict[str, dict[str, Any]]:
     fp = bundled_dir() / "loops_act1.json"
     if not fp.is_file():
         return {}
@@ -45,7 +45,7 @@ def _load_loop_overlays() -> Dict[str, Dict[str, Any]]:
 
 
 @lru_cache(maxsize=1)
-def _load_bundled() -> Dict[str, Any]:
+def _load_bundled() -> dict[str, Any]:
     fp = _enemies_file(bundled_dir())
     if not fp.is_file():
         return {"version": 0, "entries": {}}
@@ -64,7 +64,7 @@ def _load_bundled() -> Dict[str, Any]:
     return data
 
 
-def _load_user() -> Dict[str, Any]:
+def _load_user() -> dict[str, Any]:
     fp = _enemies_file(user_kb_path())
     if not fp.is_file():
         return {"version": 0, "entries": {}}
@@ -75,15 +75,15 @@ def _load_user() -> Dict[str, Any]:
         return {"version": 0, "entries": {}}
 
 
-def _merged_entries() -> Dict[str, Dict[str, Any]]:
+def _merged_entries() -> dict[str, dict[str, Any]]:
     bundled = (_load_bundled().get("entries") or {}).copy()
     user = (_load_user().get("entries") or {})
     bundled.update(user)  # user overrides bundled
     return bundled
 
 
-def _alias_index() -> Dict[str, str]:
-    idx: Dict[str, str] = {}
+def _alias_index() -> dict[str, str]:
+    idx: dict[str, str] = {}
     for eid, ent in _merged_entries().items():
         idx[_norm(eid)] = eid
         for key in ("name_zh", "name_en", "wiki_title"):
@@ -113,7 +113,7 @@ def normalize_enemy_id(raw: str) -> str:
     return idx.get(key, key)
 
 
-def _resolve_inherits(ent: Dict[str, Any]) -> Dict[str, Any]:
+def _resolve_inherits(ent: dict[str, Any]) -> dict[str, Any]:
     parent_id = str(ent.get("inherits") or "").strip().upper()
     if not parent_id:
         return _finalize_entry(ent)
@@ -125,13 +125,13 @@ def _resolve_inherits(ent: Dict[str, Any]) -> Dict[str, Any]:
     return _finalize_entry(merged)
 
 
-def _finalize_entry(ent: Dict[str, Any]) -> Dict[str, Any]:
+def _finalize_entry(ent: dict[str, Any]) -> dict[str, Any]:
     from plugins.sts2.huiji_kb.loops import attach_behavior_loop
 
     return attach_behavior_loop(dict(ent))
 
 
-def lookup_enemy(item_id: str) -> Optional[Dict[str, Any]]:
+def lookup_enemy(item_id: str) -> dict[str, Any] | None:
     eid = normalize_enemy_id(item_id)
     ent = _merged_entries().get(eid)
     if ent:
@@ -144,19 +144,19 @@ def lookup_enemy(item_id: str) -> Optional[Dict[str, Any]]:
     return None
 
 
-def get_behavior_loop(item_id: str) -> Optional[Dict[str, Any]]:
+def get_behavior_loop(item_id: str) -> dict[str, Any] | None:
     ent = lookup_enemy(item_id)
     if not ent:
         return None
     return ent.get("behavior_loop")
 
 
-def get_enemy(item_id: str) -> Optional[Dict[str, Any]]:
+def get_enemy(item_id: str) -> dict[str, Any] | None:
     return lookup_enemy(item_id)
 
 
-def list_enemies(*, act: Optional[int] = None) -> List[Dict[str, Any]]:
-    out: List[Dict[str, Any]] = []
+def list_enemies(*, act: int | None = None) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
     for ent in _merged_entries().values():
         if act is not None:
             acts = ent.get("acts") or []
@@ -166,13 +166,13 @@ def list_enemies(*, act: Optional[int] = None) -> List[Dict[str, Any]]:
     return sorted(out, key=lambda e: str(e.get("id") or ""))
 
 
-def import_enemy_entry(entry: Dict[str, Any]) -> Dict[str, Any]:
+def import_enemy_entry(entry: dict[str, Any]) -> dict[str, Any]:
     eid = normalize_enemy_id(str(entry.get("id") or entry.get("wiki_title") or ""))
     if not eid or eid == "UNKNOWN":
         raise ValueError("entry missing id")
     entry = dict(entry)
     entry["id"] = eid
-    entry["synced_at"] = datetime.now(timezone.utc).isoformat()
+    entry["synced_at"] = datetime.now(UTC).isoformat()
 
     data = _load_user()
     entries = dict(data.get("entries") or {})
@@ -188,12 +188,12 @@ def import_enemy_entry(entry: Dict[str, Any]) -> Dict[str, Any]:
     return merged
 
 
-def save_user_store(entries: Dict[str, Dict[str, Any]], *, source: str = "sync") -> Path:
+def save_user_store(entries: dict[str, dict[str, Any]], *, source: str = "sync") -> Path:
     fp = _enemies_file(user_kb_path())
     payload = {
         "version": 1,
         "source": source,
-        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "updated_at": datetime.now(UTC).isoformat(),
         "entries": entries,
     }
     fp.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -201,9 +201,9 @@ def save_user_store(entries: Dict[str, Dict[str, Any]], *, source: str = "sync")
     return fp
 
 
-def kb_stats() -> Dict[str, Any]:
-    bundled = len((_load_bundled().get("entries") or {}))
-    user = len((_load_user().get("entries") or {}))
+def kb_stats() -> dict[str, Any]:
+    bundled = len(_load_bundled().get("entries") or {})
+    user = len(_load_user().get("entries") or {})
     merged = len(_merged_entries())
     return {
         "bundled": bundled,
@@ -214,7 +214,7 @@ def kb_stats() -> Dict[str, Any]:
     }
 
 
-def to_knowledge_entry(huiji: Dict[str, Any]) -> Dict[str, Any]:
+def to_knowledge_entry(huiji: dict[str, Any]) -> dict[str, Any]:
     """Shape for plugins.sts2.knowledge yaml store."""
     intents = huiji.get("intents") or []
     intent_txt = "; ".join(

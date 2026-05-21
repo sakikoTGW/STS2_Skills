@@ -5,7 +5,6 @@ from __future__ import annotations
 from collections import Counter
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
 
 # --- Anchor cards per archetype (STS2 API ids) ---
 _STRENGTH_CORE = frozenset(
@@ -104,7 +103,7 @@ _USUALLY_SKIP = frozenset(
     }
 )
 
-_EARLY_PICKS: Dict[str, float] = {}
+_EARLY_PICKS: dict[str, float] = {}
 for cid in _MUST_PICK:
     _EARLY_PICKS[cid] = 95.0
 for cid in _STRONG_PICK:
@@ -122,7 +121,7 @@ _EARLY_PICKS.update(
     }
 )
 
-_ARCHETYPE_PLAYBOOKS: Dict[str, str] = {
+_ARCHETYPE_PLAYBOOKS: dict[str, str] = {
     "early": (
         "【前期通用】Act1 前 8 层：定方向比瞎拿重要。\n"
         "痛击(易伤)优先升级；商店删打击；奖励拿功能牌：耸肩、火焰屏障、顺劈/雷霆、战斗专注、欺凌。\n"
@@ -152,7 +151,7 @@ _ARCHETYPE_PLAYBOOKS: Dict[str, str] = {
     ),
 }
 
-_ARCHETYPE_EXCERPTS: Dict[str, str] = {
+_ARCHETYPE_EXCERPTS: dict[str, str] = {
     "strength": "必拿倾向: 恶魔形态、燃烧、极限突破 | 跳过: 冲突、狂乱打击",
     "block": "必拿倾向: 壁垒、全身撞击 | 跳过: 无壁垒时纯堆防",
     "exhaust": "必拿倾向: 腐化+无痛+黑暗拥抱三件套 | 跳过: 无 FNP 时乱拿消耗",
@@ -173,9 +172,9 @@ def _guide_digest() -> str:
     return ""
 
 
-def _deck_ids(state: dict) -> Tuple[List[str], Counter[str]]:
+def _deck_ids(state: dict) -> tuple[list[str], Counter[str]]:
     player = state.get("player") or {}
-    ids: List[str] = []
+    ids: list[str] = []
     for key in ("deck", "master_deck", "cards", "draw_pile", "discard_pile", "hand"):
         for c in player.get(key) or []:
             if isinstance(c, dict):
@@ -343,7 +342,7 @@ def bootstrap_build_rules() -> None:
     )
 
 
-def pick_best_offer_index(state: dict, offers: List[dict]) -> int:
+def pick_best_offer_index(state: dict, offers: list[dict]) -> int:
     arch = detect_archetype(state)
     run = state.get("run") or {}
     try:

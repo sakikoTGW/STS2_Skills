@@ -5,7 +5,6 @@ from __future__ import annotations
 import json
 import logging
 import re
-from typing import Any, Dict, List, Optional, Tuple
 
 from plugins.sts2.combat_brain import (
     combat_should_end_turn,
@@ -14,14 +13,13 @@ from plugins.sts2.combat_brain import (
     is_safe_from_incoming,
 )
 from plugins.sts2.knowledge import fetch_and_store, get_entry, has_entry
-from plugins.sts2.visibility import describe_situation
 
 logger = logging.getLogger(__name__)
 
 _COMBAT = frozenset({"monster", "elite", "boss"})
 
 
-def _parse_json(text: str) -> Optional[dict]:
+def _parse_json(text: str) -> dict | None:
     text = (text or "").strip()
     if not text:
         return None
@@ -38,12 +36,12 @@ def _parse_json(text: str) -> Optional[dict]:
     return None
 
 
-def _hand_cards(state: dict) -> List[dict]:
+def _hand_cards(state: dict) -> list[dict]:
     return list((state.get("player") or {}).get("hand") or [])
 
 
 def _enemy_brief(state: dict) -> str:
-    lines: List[str] = []
+    lines: list[str] = []
     for e in (state.get("battle") or {}).get("enemies") or []:
         if not isinstance(e, dict):
             continue
@@ -77,14 +75,14 @@ def _enemy_wiki_brief(state: dict) -> str:
     return format_enemy_wiki_lines(state)
 
 
-def _prefetch_hand_wiki(hand: List[dict], max_fetch: int) -> List[str]:
+def _prefetch_hand_wiki(hand: list[dict], max_fetch: int) -> list[str]:
     from plugins.sts2.config import load_sts2_config
 
     cfg = load_sts2_config()
     if not cfg.get("study_combat_wiki_first", True):
         return []
     use_llm = bool(cfg.get("knowledge_use_llm", False))
-    fetched: List[str] = []
+    fetched: list[str] = []
     budget = max(0, int(max_fetch))
     for c in hand:
         if budget <= 0:
@@ -101,8 +99,8 @@ def _prefetch_hand_wiki(hand: List[dict], max_fetch: int) -> List[str]:
     return fetched
 
 
-def _hand_wiki_block(hand: List[dict]) -> str:
-    lines: List[str] = []
+def _hand_wiki_block(hand: list[dict]) -> str:
+    lines: list[str] = []
     for c in hand:
         cid = str(c.get("id") or "").upper()
         idx = c.get("index", "?")
@@ -119,7 +117,7 @@ def _hand_wiki_block(hand: List[dict]) -> str:
     return "手牌:\n" + ("\n".join(lines) if lines else "  (空)")
 
 
-def rule_combat_fallback(state: dict) -> Tuple[str, dict, bool]:
+def rule_combat_fallback(state: dict) -> tuple[str, dict, bool]:
     from plugins.sts2.combat_brain import decide_combat
     from plugins.sts2.visibility import describe_action
 
@@ -131,7 +129,7 @@ def decide_combat_play(
     state: dict,
     *,
     memory: str = "",
-) -> Tuple[str, dict, bool]:
+) -> tuple[str, dict, bool]:
     """LLM combat with wiki + lessons; fallback to combat_scorer."""
     from plugins.sts2.config import load_sts2_config
 
@@ -155,7 +153,7 @@ def decide_combat_play(
 
 def _combat_rule_shortcuts(
     state: dict, cfg: dict, memory: str
-) -> Tuple[str, dict, bool]:
+) -> tuple[str, dict, bool]:
     """Legacy heuristics before LLM (off by default)."""
     from plugins.sts2.combat_brain import (
         prefer_block_play,
@@ -243,8 +241,8 @@ def _combat_rule_shortcuts(
 
 
 def _combat_llm_turn(
-    state: dict, cfg: dict, memory: str, hand: List[dict]
-) -> Tuple[str, dict, bool]:
+    state: dict, cfg: dict, memory: str, hand: list[dict]
+) -> tuple[str, dict, bool]:
     wiki_budget = max(
         0, int(cfg.get("study_combat_play_wiki_max_fetches", 4))
     )
@@ -384,9 +382,9 @@ def _combat_llm_turn(
 
 
 def note_combat_aftermath(
-    prev: Optional[dict],
+    prev: dict | None,
     nxt: dict,
-) -> Optional[str]:
+) -> str | None:
     """After leaving combat, record hp swing as a learnable rule."""
     if not prev or not nxt:
         return None

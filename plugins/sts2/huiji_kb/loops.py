@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 _ATTACK = frozenset({"attack", "multi_attack", "multicast", "damage"})
 
@@ -35,11 +35,11 @@ def enemy_strength(enemy: dict) -> int:
         return 0
 
 
-def normalize_step(raw: Dict[str, Any], *, idx: int = 0) -> Dict[str, Any]:
+def normalize_step(raw: dict[str, Any], *, idx: int = 0) -> dict[str, Any]:
     """Canonical loop step for damage / prediction."""
     name = str(raw.get("name") or raw.get("intent_key") or f"step_{idx}")
     typ = str(raw.get("type") or "other").lower()
-    step: Dict[str, Any] = {
+    step: dict[str, Any] = {
         "key": str(raw.get("key") or _slug(name)),
         "name": name,
         "type": typ,
@@ -86,14 +86,14 @@ def normalize_step(raw: Dict[str, Any], *, idx: int = 0) -> Dict[str, Any]:
     return step
 
 
-def build_cycle_from_intents(intents: List[Dict[str, Any]]) -> Dict[str, Any]:
+def build_cycle_from_intents(intents: list[dict[str, Any]]) -> dict[str, Any]:
     steps = [normalize_step(it, idx=i) for i, it in enumerate(intents) if it.get("name")]
     if not steps:
         return {}
     return {"kind": "cycle", "length": len(steps), "steps": steps}
 
 
-def parse_loop_arrow_text(text: str, intent_names: List[str]) -> List[str]:
+def parse_loop_arrow_text(text: str, intent_names: list[str]) -> list[str]:
     """Parse '咆哮→咬→猛击' or 'A-B-C' order from wiki prose."""
     if not text:
         return []
@@ -113,12 +113,12 @@ def parse_loop_arrow_text(text: str, intent_names: List[str]) -> List[str]:
 
 
 def reorder_steps_by_names(
-    steps: List[Dict[str, Any]], order: List[str]
-) -> List[Dict[str, Any]]:
+    steps: list[dict[str, Any]], order: list[str]
+) -> list[dict[str, Any]]:
     if not order:
         return steps
     by_name = {_norm_label(s["name"]): s for s in steps}
-    out: List[Dict[str, Any]] = []
+    out: list[dict[str, Any]] = []
     used: set[str] = set()
     for nm in order:
         key = _norm_label(nm)
@@ -131,7 +131,7 @@ def reorder_steps_by_names(
     return out
 
 
-def attach_behavior_loop(entry: Dict[str, Any]) -> Dict[str, Any]:
+def attach_behavior_loop(entry: dict[str, Any]) -> dict[str, Any]:
     """Ensure entry has behavior_loop (from explicit, prose, or intents)."""
     if entry.get("behavior_loop"):
         bl = entry["behavior_loop"]
@@ -158,7 +158,7 @@ def attach_behavior_loop(entry: Dict[str, Any]) -> Dict[str, Any]:
     return entry
 
 
-def step_matches_intent(step: Dict[str, Any], intent: dict) -> bool:
+def step_matches_intent(step: dict[str, Any], intent: dict) -> bool:
     label = _norm_label(
         str(intent.get("label") or intent.get("name") or intent.get("description") or "")
     )
@@ -186,7 +186,7 @@ def step_matches_intent(step: Dict[str, Any], intent: dict) -> bool:
     return False
 
 
-def match_cycle_index(loop: Dict[str, Any], intent: Optional[dict]) -> int:
+def match_cycle_index(loop: dict[str, Any], intent: dict | None) -> int:
     steps = loop.get("steps") or []
     if not steps:
         return 0
@@ -199,17 +199,17 @@ def match_cycle_index(loop: Dict[str, Any], intent: Optional[dict]) -> int:
 
 
 def predict_cycle_steps(
-    loop: Dict[str, Any],
+    loop: dict[str, Any],
     *,
     start_index: int = 0,
     count: int = 3,
-) -> List[Tuple[int, Dict[str, Any]]]:
+) -> list[tuple[int, dict[str, Any]]]:
     """Return [(cycle_index, step), ...] for T+0..T+(count-1)."""
     steps = loop.get("steps") or []
     if not steps:
         return []
     n = len(steps)
-    out: List[Tuple[int, Dict[str, Any]]] = []
+    out: list[tuple[int, dict[str, Any]]] = []
     for off in range(count):
         idx = (start_index + off) % n
         out.append((idx, steps[idx]))
@@ -217,7 +217,7 @@ def predict_cycle_steps(
 
 
 def apply_step_effects_to_virtual(
-    step: Dict[str, Any], virtual: Dict[str, int]
+    step: dict[str, Any], virtual: dict[str, int]
 ) -> None:
     for eff in step.get("effects") or []:
         if not isinstance(eff, dict):
@@ -232,7 +232,7 @@ def apply_step_effects_to_virtual(
 
 
 def _apply_damage_modifiers(
-    dmg: int, loop: Optional[Dict[str, Any]]
+    dmg: int, loop: dict[str, Any] | None
 ) -> int:
     if dmg <= 0 or not loop:
         return dmg
@@ -248,12 +248,12 @@ def _apply_damage_modifiers(
 
 
 def estimate_step_damage(
-    step: Dict[str, Any],
+    step: dict[str, Any],
     enemy: dict,
     *,
-    context: Optional[Dict[str, Any]] = None,
-    virtual_strength: Optional[int] = None,
-    loop: Optional[Dict[str, Any]] = None,
+    context: dict[str, Any] | None = None,
+    virtual_strength: int | None = None,
+    loop: dict[str, Any] | None = None,
 ) -> int:
     """Total incoming damage this step (all hits)."""
     ctx = context or {}
@@ -285,12 +285,12 @@ def estimate_step_damage(
 
 
 def forecast_enemy(
-    kb_entry: Dict[str, Any],
+    kb_entry: dict[str, Any],
     enemy: dict,
     *,
     horizon: int = 3,
-    context: Optional[Dict[str, Any]] = None,
-) -> Dict[str, Any]:
+    context: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     """Computes cycle position + T+0..T+(horizon-1) damage estimates."""
     loop = kb_entry.get("behavior_loop") or {}
     intents = enemy.get("intents") or []
@@ -304,7 +304,7 @@ def forecast_enemy(
 
     idx = match_cycle_index(loop, it0)
     virtual = {"strength": enemy_strength(enemy)}
-    rows: List[Dict[str, Any]] = []
+    rows: list[dict[str, Any]] = []
     total_atk = 0
 
     for off, (cidx, step) in enumerate(
@@ -342,12 +342,12 @@ def forecast_enemy(
 
 
 def _forecast_phases(
-    kb_entry: Dict[str, Any],
+    kb_entry: dict[str, Any],
     enemy: dict,
     *,
     horizon: int,
-    context: Optional[Dict[str, Any]],
-) -> Dict[str, Any]:
+    context: dict[str, Any] | None,
+) -> dict[str, Any]:
     """Lagavulin-style phased loops."""
     phases = (kb_entry.get("behavior_loop") or {}).get("phases") or []
     it0 = (enemy.get("intents") or [{}])[0] if enemy.get("intents") else {}
@@ -366,10 +366,10 @@ def _forecast_phases(
     return out
 
 
-def format_loop_forecast(forecast: Dict[str, Any]) -> str:
+def format_loop_forecast(forecast: dict[str, Any]) -> str:
     if not forecast.get("ok"):
         return ""
-    parts: List[str] = []
+    parts: list[str] = []
     phase = forecast.get("phase")
     if phase:
         parts.append(f"阶段={phase}")
@@ -397,12 +397,12 @@ def format_loop_forecast(forecast: Dict[str, Any]) -> str:
 
 
 def kb_predicted_slot(
-    kb_entry: Dict[str, Any],
+    kb_entry: dict[str, Any],
     enemy: dict,
     offset: int,
     *,
-    context: Optional[Dict[str, Any]] = None,
-) -> Tuple[str, str, int, int]:
+    context: dict[str, Any] | None = None,
+) -> tuple[str, str, int, int]:
     """Combat FSM slot: (type, label, damage, hits)."""
     loop = kb_entry.get("behavior_loop") or {}
     if not loop.get("steps") and loop.get("kind") != "phases":

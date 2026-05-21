@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-import re
-from typing import Any, Dict, List, Optional
-
 from plugins.sts2.mechanics_kb.store import power_match_index
 
 
@@ -14,7 +11,7 @@ def _blob(power: dict) -> str:
     )
 
 
-def match_power_id(power: dict) -> Optional[str]:
+def match_power_id(power: dict) -> str | None:
     if not isinstance(power, dict):
         return None
     blob = _blob(power).lower()
@@ -40,9 +37,9 @@ def power_amount(power: dict, *, default: int = 1) -> int:
     return default
 
 
-def collect_powers(entity: dict) -> Dict[str, int]:
+def collect_powers(entity: dict) -> dict[str, int]:
     """Canonical power_id -> stacks (duration or intensity per KB entry)."""
-    out: Dict[str, int] = {}
+    out: dict[str, int] = {}
     if not isinstance(entity, dict):
         return out
     for p in entity.get("powers") or []:
@@ -69,7 +66,7 @@ def collect_powers(entity: dict) -> Dict[str, int]:
     return out
 
 
-def has_duration_debuff(powers: Dict[str, int], debuff_id: str) -> bool:
+def has_duration_debuff(powers: dict[str, int], debuff_id: str) -> bool:
     """Duration debuffs: active if stacks>0; stacks are turns not intensity."""
     return int(powers.get(debuff_id.upper(), 0) or 0) > 0
 

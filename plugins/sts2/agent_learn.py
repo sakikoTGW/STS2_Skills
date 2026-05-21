@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, Optional
+from typing import Any
 
 
 def agent_learn_enabled() -> bool:
@@ -30,8 +30,8 @@ def agent_learn_enabled() -> bool:
 def tick_after_step(
     state: dict,
     *,
-    action: Optional[dict] = None,
-) -> Dict[str, Any]:
+    action: dict | None = None,
+) -> dict[str, Any]:
     """Reflect on state transitions during autopilot (death / act clear)."""
     if not agent_learn_enabled() or not isinstance(state, dict):
         return {}

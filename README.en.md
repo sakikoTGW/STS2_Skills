@@ -7,7 +7,7 @@
 
 Agent tooling for **Slay the Spire 2** over [STS2MCP](https://github.com/Gennadiyev/STS2MCP). Exposes game state and actions to LLM hosts via native Hermes tools or a stdio [MCP](https://modelcontextprotocol.io/) server (OpenClaw, AstrBot, Cursor, and others).
 
-**Latest release:** [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest)
+**Latest release:** [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest) · [Quick start](docs/QUICKSTART.md)
 
 ## Features
 
@@ -77,6 +77,7 @@ python scripts/sts2_setup_wizard.py
 ```bash
 sts2 install-mod
 # Launch game (singleplayer + mod on)
+sts2 doctor
 sts2 ping
 sts2 status
 ```

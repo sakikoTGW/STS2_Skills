@@ -5,10 +5,14 @@ from __future__ import annotations
 from plugins.sts2.mechanics_kb.damage_engine import (
     DamageContext,
     card_applies_vulnerable_turns,
-    compute_attack_damage as _kb_compute,
     compute_block_from_card,
     estimate_poison_tick,
     projected_vulnerable_turns,
+)
+from plugins.sts2.mechanics_kb.damage_engine import (
+    compute_attack_damage as _kb_compute,
+)
+from plugins.sts2.mechanics_kb.damage_engine import (
     vulnerable_multiplier as _vulnerable_multiplier,
 )
 from plugins.sts2.mechanics_kb.power_parse import collect_powers, has_duration_debuff
@@ -46,7 +50,7 @@ def estimate_attack_damage(
     if apply_vulnerable and turns is None and enemy is not None:
         turns = vulnerable_turns(enemy)
     if apply_vulnerable and turns is None and state is not None:
-        hand = list((player.get("hand") or []))
+        hand = list(player.get("hand") or [])
         from plugins.sts2.combat_brain import focus_enemy
 
         turns = projected_vulnerable_turns(state, hand, card, enemy=enemy or focus_enemy(state))
@@ -71,7 +75,7 @@ def format_attack_damage_hint(card: dict, player: dict, state: dict) -> str:
 
     if not _card_is_attack(card):
         return ""
-    hand = list((player.get("hand") or []))
+    hand = list(player.get("hand") or [])
     applies = card_applies_vulnerable_turns(card)
     base = estimate_attack_damage(card, player, state=state, apply_vulnerable=False)
     if applies:

@@ -5,12 +5,12 @@ from __future__ import annotations
 import json
 import logging
 import re
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
 
-def _parse_json(text: str) -> Optional[dict]:
+def _parse_json(text: str) -> dict | None:
     text = (text or "").strip()
     if not text:
         return None
@@ -31,9 +31,9 @@ def run_mount_deep_think(
     state: dict,
     *,
     zone_note: str,
-    changed_zones: List[str],
+    changed_zones: list[str],
     memory_prefix: str = "",
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Auxiliary deep think for mount mode — reference only, not auto-execute."""
     from plugins.sts2.config import load_sts2_config
     from plugins.sts2.play_mode import llm_play_enabled

@@ -2,19 +2,19 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 # Gold first (instant), then card/relic/potion (may open sub-screens).
 _CLAIM_PREF = ("gold", "card", "relic", "potion")
 
 
-def rewards_items(state: dict) -> List[dict]:
+def rewards_items(state: dict) -> list[dict]:
     rw = state.get("rewards") or {}
     raw = rw.get("items") or rw.get("options") or []
     return [i for i in raw if isinstance(i, dict)]
 
 
-def rewards_unclaimed(state: dict) -> List[dict]:
+def rewards_unclaimed(state: dict) -> list[dict]:
     return [
         i
         for i in rewards_items(state)
@@ -29,7 +29,7 @@ def _matches_pref(item: dict, pref: str) -> bool:
     return pref in itype
 
 
-def decide_rewards_screen(state: dict) -> Dict[str, Any]:
+def decide_rewards_screen(state: dict) -> dict[str, Any]:
     """Next legal action on the rewards screen."""
     unclaimed = rewards_unclaimed(state)
     if not unclaimed:

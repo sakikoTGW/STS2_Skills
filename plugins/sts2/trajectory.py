@@ -5,12 +5,12 @@ from __future__ import annotations
 import json
 import threading
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any
 
 from plugins.sts2.storage import new_trajectory_path
 
 _lock = threading.Lock()
-_current_path: Optional[Path] = None
+_current_path: Path | None = None
 
 
 def start_session() -> Path:
@@ -20,15 +20,15 @@ def start_session() -> Path:
         return _current_path
 
 
-def current_path() -> Optional[Path]:
+def current_path() -> Path | None:
     return _current_path
 
 
 def log_event(
     event_type: str,
-    payload: Dict[str, Any],
+    payload: dict[str, Any],
     *,
-    path: Optional[Path] = None,
+    path: Path | None = None,
 ) -> None:
     target = path or _current_path
     if target is None:

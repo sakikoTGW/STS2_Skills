@@ -4,9 +4,8 @@ from __future__ import annotations
 
 import hashlib
 import time
-from typing import Dict
 
-_RECENT: Dict[str, float] = {}
+_RECENT: dict[str, float] = {}
 
 # Shown once at study boot; must not repeat every resume/watchdog tick.
 _META_MARKERS = (

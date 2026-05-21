@@ -6,10 +6,9 @@ import os
 import platform
 import re
 from pathlib import Path
-from typing import List, Optional
 
 
-def game_dir_from_env() -> Optional[Path]:
+def game_dir_from_env() -> Path | None:
     raw = (os.environ.get("STS2_GAME_DIR") or "").strip()
     if not raw:
         return None
@@ -17,7 +16,7 @@ def game_dir_from_env() -> Optional[Path]:
     return path if path.is_dir() else None
 
 
-def repo_root() -> Optional[Path]:
+def repo_root() -> Path | None:
     """STS2_Skills repository root (plugins/sts2/..)."""
     here = Path(__file__).resolve().parent
     root = here.parent.parent
@@ -26,9 +25,9 @@ def repo_root() -> Optional[Path]:
     return None
 
 
-def sts2_runtime_bases() -> List[Path]:
+def sts2_runtime_bases() -> list[Path]:
     """Directories that may hold game_dir.txt, config.yaml, logs."""
-    bases: List[Path] = []
+    bases: list[Path] = []
     seen: set[str] = set()
 
     def add(path: Path) -> None:
@@ -75,7 +74,7 @@ def resolve_astrbot_data_dir(explicit: str = "") -> Path:
     return Path.home() / "AstrBot" / "data"
 
 
-def resolve_game_dir(explicit: str = "") -> Optional[Path]:
+def resolve_game_dir(explicit: str = "") -> Path | None:
     """Plugin config → STS2_GAME_DIR → cache file → Steam discovery."""
     raw = (explicit or os.environ.get("STS2_GAME_DIR") or "").strip()
     if raw:
@@ -99,7 +98,7 @@ def save_game_dir_hint(game_dir: Path) -> None:
                 continue
 
 
-def _read_cached_game_dir() -> Optional[Path]:
+def _read_cached_game_dir() -> Path | None:
     for base in sts2_runtime_bases():
         for hint_parent in (
             base if base.name == "sts2" else base / "sts2",
@@ -117,8 +116,8 @@ def _read_cached_game_dir() -> Optional[Path]:
     return None
 
 
-def _existing_windows_drives() -> List[str]:
-    drives: List[str] = []
+def _existing_windows_drives() -> list[str]:
+    drives: list[str] = []
     if platform.system() != "Windows":
         return drives
     try:
@@ -133,8 +132,8 @@ def _existing_windows_drives() -> List[str]:
     return drives
 
 
-def _steam_library_paths(steam_path: Optional[Path]) -> List[Path]:
-    libs: List[Path] = []
+def _steam_library_paths(steam_path: Path | None) -> list[Path]:
+    libs: list[Path] = []
     if steam_path and steam_path.is_dir():
         libs.append(steam_path)
     if not steam_path:
@@ -153,10 +152,10 @@ def _steam_library_paths(steam_path: Optional[Path]) -> List[Path]:
     return libs
 
 
-def _steam_install_roots() -> List[Path]:
-    roots: List[Path] = []
+def _steam_install_roots() -> list[Path]:
+    roots: list[Path] = []
     if platform.system() == "Windows":
-        steam_path: Optional[Path] = None
+        steam_path: Path | None = None
         try:
             import winreg
 
@@ -209,7 +208,7 @@ def _looks_like_sts2_install(path: Path) -> bool:
     return False
 
 
-def find_game_dir() -> Optional[Path]:
+def find_game_dir() -> Path | None:
     env = game_dir_from_env()
     if env and _looks_like_sts2_install(env):
         return env
@@ -220,7 +219,7 @@ def find_game_dir() -> Optional[Path]:
 
     rel = Path("steamapps") / "common" / "Slay the Spire 2"
     seen: set[str] = set()
-    candidates: List[Path] = []
+    candidates: list[Path] = []
     for root in _steam_install_roots():
         for path in (root, root / rel if root.name != "Slay the Spire 2" else root):
             key = str(path).lower()

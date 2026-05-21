@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
-from typing import Any, Dict, Optional
+from typing import Any
 
 from plugins.sts2.lessons import detect_outcome_label, record_outcome
 
@@ -35,17 +35,17 @@ def _llm_summarize(prompt: str, *, max_tokens: int = 600) -> str:
 
 
 def reflect_transition(
-    prev: Optional[Dict[str, Any]],
-    nxt: Dict[str, Any],
+    prev: dict[str, Any] | None,
+    nxt: dict[str, Any],
     *,
     recent_actions: list,
     use_llm: bool = True,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     trigger, label = detect_outcome_label(prev, nxt)
     if not trigger:
         return {"skipped": True}
 
-    from plugins.sts2.lessons import _last_actions_summary, _floor
+    from plugins.sts2.lessons import _floor, _last_actions_summary
 
     prev_type = (prev or {}).get("state_type")
     nxt_type = nxt.get("state_type")
@@ -159,12 +159,12 @@ def reflect_transition(
 
 
 def reflect_if_changed(
-    prev: Optional[Dict[str, Any]],
-    nxt: Dict[str, Any],
+    prev: dict[str, Any] | None,
+    nxt: dict[str, Any],
     *,
     recent_actions: list,
     use_llm: bool = False,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Reflect on any detectable outcome (including post-action state)."""
     if not prev or not nxt:
         return {"skipped": True}

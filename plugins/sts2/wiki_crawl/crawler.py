@@ -10,7 +10,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from plugins.sts2.storage import sts2_home
 from plugins.sts2.wiki_crawl.parser import page_to_facts
@@ -31,20 +31,20 @@ def user_dir() -> Path:
     return p
 
 
-def load_manifest() -> Dict[str, Any]:
+def load_manifest() -> dict[str, Any]:
     fp = bundled_dir() / "manifest.json"
     return json.loads(fp.read_text(encoding="utf-8"))
 
 
-def all_pages(manifest: Dict[str, Any] | None = None) -> List[str]:
+def all_pages(manifest: dict[str, Any] | None = None) -> list[str]:
     m = manifest or load_manifest()
-    pages: List[str] = []
+    pages: list[str] = []
     for cat in (m.get("categories") or {}).values():
         pages.extend(cat)
     return pages
 
 
-def crawl_page(page_title: str, *, delay_sec: float = 0.35) -> Dict[str, Any]:
+def crawl_page(page_title: str, *, delay_sec: float = 0.35) -> dict[str, Any]:
     params = urllib.parse.urlencode(
         {
             "action": "parse",
@@ -75,13 +75,13 @@ def _safe_filename(page_title: str) -> str:
 
 def crawl_manifest(
     *,
-    categories: Optional[List[str]] = None,
-    max_pages: Optional[int] = None,
+    categories: list[str] | None = None,
+    max_pages: int | None = None,
     out_dir: Path | None = None,
     delay_sec: float = 0.35,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     manifest = load_manifest()
-    pages: List[str] = []
+    pages: list[str] = []
     cats = categories or list((manifest.get("categories") or {}).keys())
     for cat in cats:
         pages.extend((manifest.get("categories") or {}).get(cat) or [])
@@ -92,10 +92,10 @@ def crawl_manifest(
     pages_dir = target / "pages"
     pages_dir.mkdir(parents=True, exist_ok=True)
 
-    ok: List[str] = []
-    errors: List[str] = []
+    ok: list[str] = []
+    errors: list[str] = []
     index_path = target / "index.json"
-    index: Dict[str, Any] = {"version": manifest.get("version"), "pages": {}}
+    index: dict[str, Any] = {"version": manifest.get("version"), "pages": {}}
     if index_path.is_file():
         try:
             prev = json.loads(index_path.read_text(encoding="utf-8"))
@@ -133,9 +133,9 @@ def crawl_manifest(
     }
 
 
-def load_crawled_index() -> Dict[str, Any]:
+def load_crawled_index() -> dict[str, Any]:
     """User crawl overrides bundled pages."""
-    idx: Dict[str, Any] = {"pages": {}}
+    idx: dict[str, Any] = {"pages": {}}
     for root in (bundled_dir(), user_dir()):
         fp = root / "index.json"
         if not fp.is_file():
@@ -148,7 +148,7 @@ def load_crawled_index() -> Dict[str, Any]:
     return idx
 
 
-def load_page_facts(page_title: str) -> Optional[Dict[str, Any]]:
+def load_page_facts(page_title: str) -> dict[str, Any] | None:
     idx = load_crawled_index()
     meta = (idx.get("pages") or {}).get(page_title)
     if not meta:

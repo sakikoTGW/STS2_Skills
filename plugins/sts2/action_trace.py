@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Tuple
+from datetime import UTC
+from typing import Any
 
 from plugins.sts2.combat_brain import incoming_attack_damage
 
@@ -12,7 +13,7 @@ from plugins.sts2.combat_brain import incoming_attack_damage
 class InferredAction:
     kind: str
     detail: str
-    effects: List[str] = field(default_factory=list)
+    effects: list[str] = field(default_factory=list)
 
 
 def _int(v: Any, default: int = 0) -> int:
@@ -22,7 +23,7 @@ def _int(v: Any, default: int = 0) -> int:
         return default
 
 
-def _hand_keys(state: dict) -> List[Tuple[str, str, int]]:
+def _hand_keys(state: dict) -> list[tuple[str, str, int]]:
     out = []
     for c in (state.get("player") or {}).get("hand") or []:
         out.append(
@@ -35,17 +36,17 @@ def _hand_keys(state: dict) -> List[Tuple[str, str, int]]:
     return out
 
 
-def _pile_tail(state: dict, pile: str) -> List[str]:
+def _pile_tail(state: dict, pile: str) -> list[str]:
     names = []
     for c in (state.get("player") or {}).get(pile) or []:
         names.append(str(c.get("name") or c.get("id") or "?"))
     return names
 
 
-def _potions(state: dict) -> List[Optional[dict]]:
+def _potions(state: dict) -> list[dict | None]:
     pots = (state.get("player") or {}).get("potions") or []
     slots = _int((state.get("player") or {}).get("max_potion_slots"), 3)
-    out: List[Optional[dict]] = [None] * max(slots, len(pots))
+    out: list[dict | None] = [None] * max(slots, len(pots))
     for p in pots:
         if not isinstance(p, dict):
             continue
@@ -57,7 +58,7 @@ def _potions(state: dict) -> List[Optional[dict]]:
     return out
 
 
-def _enemy_lines(state: dict) -> List[str]:
+def _enemy_lines(state: dict) -> list[str]:
     lines = []
     for e in (state.get("battle") or {}).get("enemies") or []:
         name = e.get("name") or e.get("id") or "敌人"
@@ -72,7 +73,7 @@ def _enemy_lines(state: dict) -> List[str]:
     return lines
 
 
-def _status_names(state: dict) -> List[str]:
+def _status_names(state: dict) -> list[str]:
     return [
         str(p.get("name") or p.get("id"))
         for p in (state.get("player") or {}).get("status") or []
@@ -80,14 +81,14 @@ def _status_names(state: dict) -> List[str]:
     ]
 
 
-def infer_player_actions(before: dict, after: dict) -> List[InferredAction]:
+def infer_player_actions(before: dict, after: dict) -> list[InferredAction]:
     """Best-effort reconstruction of what the human did between two polls."""
     if not before or not after:
         return []
 
-    actions: List[InferredAction] = []
+    actions: list[InferredAction] = []
     bp = before.get("player") or {}
-    ap = after.get("player") or {}
+    after.get("player") or {}
     bb = before.get("battle") or {}
     ab = after.get("battle") or {}
 
@@ -167,12 +168,12 @@ def infer_player_actions(before: dict, after: dict) -> List[InferredAction]:
     return actions
 
 
-def infer_effects(before: dict, after: dict) -> List[str]:
+def infer_effects(before: dict, after: dict) -> list[str]:
     """Observable combat / run effects between polls."""
     if not before or not after:
         return []
 
-    effects: List[str] = []
+    effects: list[str] = []
     bp = before.get("player") or {}
     ap = after.get("player") or {}
 
@@ -243,7 +244,7 @@ def format_action_trace(before: dict, after: dict) -> str:
     if not actions and not effects:
         return ""
 
-    lines: List[str] = []
+    lines: list[str] = []
     if actions:
         lines.append("【你的操作】")
         for a in actions:
@@ -265,11 +266,11 @@ def format_action_trace(before: dict, after: dict) -> str:
 def append_action_log(text: str) -> None:
     if not text.strip():
         return
-    from datetime import datetime, timezone
+    from datetime import datetime
 
     from plugins.sts2.storage import action_log_path
 
-    stamp = datetime.now(timezone.utc).strftime("%H:%M:%S")
+    stamp = datetime.now(UTC).strftime("%H:%M:%S")
     try:
         with action_log_path().open("a", encoding="utf-8") as fh:
             fh.write(f"\n### {stamp} UTC\n{text.strip()}\n")

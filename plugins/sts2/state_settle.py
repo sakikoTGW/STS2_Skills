@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import time
-from typing import Any, Dict, Optional, Tuple
+from typing import Any
 
 from plugins.sts2.visibility import state_fingerprint
 
@@ -29,13 +29,13 @@ def _still_settling(pre: dict, cur: dict, action: str) -> bool:
 
 
 def wait_for_settled_state(
-    pre_state: Optional[dict],
+    pre_state: dict | None,
     action: str,
     *,
     max_wait_sec: float | None = None,
     poll_sec: float | None = None,
     min_wait_sec: float | None = None,
-) -> Tuple[Optional[dict], Dict[str, Any]]:
+) -> tuple[dict | None, dict[str, Any]]:
     """
   Poll STS2MCP until state differs from pre-action (or timeout).
 
@@ -44,7 +44,7 @@ def wait_for_settled_state(
     from plugins.sts2 import client as sts2_client
     from plugins.sts2.config import load_sts2_config
 
-    meta: Dict[str, Any] = {
+    meta: dict[str, Any] = {
         "settled": True,
         "polls": 0,
         "elapsed_ms": 0,
@@ -91,7 +91,7 @@ def wait_for_settled_state(
 
     t0 = time.monotonic()
     deadline = t0 + max_w
-    latest: Optional[dict] = None
+    latest: dict | None = None
     polls = 0
 
     time.sleep(min_w)

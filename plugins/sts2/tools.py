@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 from plugins.sts2 import client as sts2_client
 
@@ -90,7 +90,7 @@ def _http_result(status: int, payload: Any, *, ok_statuses: tuple[int, ...] = (2
     return tool_error(f"STS2MCP request failed (HTTP {status})", http_status=status, body=payload)
 
 
-def handle_sts2_ping(args: Dict[str, Any], **kwargs: Any) -> str:
+def handle_sts2_ping(args: dict[str, Any], **kwargs: Any) -> str:
     try:
         payload = sts2_client.ping()
     except ConnectionError as exc:
@@ -107,7 +107,7 @@ def handle_sts2_ping(args: Dict[str, Any], **kwargs: Any) -> str:
     return tool_result(success=True, sts2_mode=mode, auto_run=ar, **payload)
 
 
-def handle_sts2_get_state(args: Dict[str, Any], **kwargs: Any) -> str:
+def handle_sts2_get_state(args: dict[str, Any], **kwargs: Any) -> str:
     fmt = str(args.get("format") or "json").strip().lower()
     if fmt not in ("json", "markdown"):
         return tool_error('format must be "json" or "markdown"')
@@ -205,7 +205,7 @@ def handle_sts2_get_state(args: Dict[str, Any], **kwargs: Any) -> str:
     return _http_result(status, payload)
 
 
-def handle_sts2_observe(args: Dict[str, Any], **kwargs: Any) -> str:
+def handle_sts2_observe(args: dict[str, Any], **kwargs: Any) -> str:
     """Readable snapshot + what changed since last observe (user or bot plays)."""
     from plugins.sts2.autoplay import get_controller
 
@@ -252,7 +252,7 @@ def _prepare_manual_act() -> str | None:
     return None
 
 
-def handle_sts2_act(args: Dict[str, Any], **kwargs: Any) -> str:
+def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
     from plugins.sts2 import driver_lock
     from plugins.sts2.config import enforce_single_driver_enabled
 
@@ -270,7 +270,7 @@ def handle_sts2_act(args: Dict[str, Any], **kwargs: Any) -> str:
         return tool_error('Missing required "action" (e.g. play_card, end_turn, menu_select)')
 
     params = args.get("parameters")
-    body: Dict[str, Any] = {"action": action}
+    body: dict[str, Any] = {"action": action}
     if params is not None:
         if not isinstance(params, dict):
             return tool_error('"parameters" must be a JSON object')
@@ -295,7 +295,7 @@ def handle_sts2_act(args: Dict[str, Any], **kwargs: Any) -> str:
 
     requested_action = action
     body_before_validate = dict(body)
-    live_state: Dict[str, Any] | None = None
+    live_state: dict[str, Any] | None = None
     corrected = False
     try:
         _st, live_state = sts2_client.get_singleplayer_state(fmt="json")
@@ -444,10 +444,9 @@ def handle_sts2_act(args: Dict[str, Any], **kwargs: Any) -> str:
     except Exception as exc:
         return tool_error(f"sts2_act failed: {type(exc).__name__}: {exc}")
 
-    import json
 
-    extra: Dict[str, Any] = {}
-    requested_body = dict(body)
+    extra: dict[str, Any] = {}
+    dict(body)
     if corrected:
         extra["requested_action"] = requested_action
         extra["action_corrected"] = True
@@ -541,7 +540,7 @@ def handle_sts2_act(args: Dict[str, Any], **kwargs: Any) -> str:
     return tool_result(success=status == 200, http_status=status, data=payload, **extra)
 
 
-def handle_sts2_wiki_search(args: Dict[str, Any], **kwargs: Any) -> str:
+def handle_sts2_wiki_search(args: dict[str, Any], **kwargs: Any) -> str:
     query = str(args.get("query") or "").strip()
     if not query:
         return tool_error('Missing required "query"')
@@ -563,7 +562,7 @@ def handle_sts2_wiki_search(args: Dict[str, Any], **kwargs: Any) -> str:
     return _http_result(status, payload)
 
 
-def handle_sts2_setup_status(args: Dict[str, Any], **kwargs: Any) -> str:
+def handle_sts2_setup_status(args: dict[str, Any], **kwargs: Any) -> str:
     from plugins.sts2.config import load_sts2_config
     from plugins.sts2.paths import find_game_dir, mods_dir
 
@@ -611,7 +610,7 @@ def handle_sts2_setup_status(args: Dict[str, Any], **kwargs: Any) -> str:
         "standalone": "sts2 integration-config --platform generic",
     }
 
-    out: Dict[str, Any] = dict(
+    out: dict[str, Any] = dict(
         success=True,
         base_url=cfg.get("base_url"),
         commentary=cfg.get("commentary"),
@@ -654,7 +653,7 @@ def handle_sts2_setup_status(args: Dict[str, Any], **kwargs: Any) -> str:
     return tool_result(**out)
 
 
-def handle_sts2_get_profile(args: Dict[str, Any], **kwargs: Any) -> str:
+def handle_sts2_get_profile(args: dict[str, Any], **kwargs: Any) -> str:
     try:
         status, payload = sts2_client.get_profile()
     except ConnectionError as exc:
@@ -664,7 +663,7 @@ def handle_sts2_get_profile(args: Dict[str, Any], **kwargs: Any) -> str:
     return _http_result(status, payload)
 
 
-def handle_sts2_get_compendium(args: Dict[str, Any], **kwargs: Any) -> str:
+def handle_sts2_get_compendium(args: dict[str, Any], **kwargs: Any) -> str:
     try:
         status, payload = sts2_client.get_compendium()
     except ConnectionError as exc:
@@ -674,7 +673,7 @@ def handle_sts2_get_compendium(args: Dict[str, Any], **kwargs: Any) -> str:
     return _http_result(status, payload)
 
 
-def handle_sts2_autoplay(args: Dict[str, Any], **kwargs: Any) -> str:
+def handle_sts2_autoplay(args: dict[str, Any], **kwargs: Any) -> str:
     from plugins.sts2.autoplay import get_controller
     from plugins.sts2.play_mode import llm_step_context, marathon_blocked_message, mount_mode
 
@@ -764,7 +763,7 @@ def handle_sts2_autoplay(args: Dict[str, Any], **kwargs: Any) -> str:
     return tool_result(**out) if isinstance(out, dict) else tool_result(success=True, data=out)
 
 
-def handle_sts2_recall(args: Dict[str, Any], **kwargs: Any) -> str:
+def handle_sts2_recall(args: dict[str, Any], **kwargs: Any) -> str:
     from plugins.sts2.autoplay import get_controller
     from plugins.sts2.notes import recall_block
     from plugins.sts2.storage import live_feed_path
@@ -792,7 +791,7 @@ def handle_sts2_recall(args: Dict[str, Any], **kwargs: Any) -> str:
     )
 
 
-def handle_sts2_learn(args: Dict[str, Any], **kwargs: Any) -> str:
+def handle_sts2_learn(args: dict[str, Any], **kwargs: Any) -> str:
     from plugins.sts2.evolution_loop import (
         approve_pending_rules,
         evolution_summary_for_status,
@@ -840,8 +839,8 @@ def handle_sts2_learn(args: Dict[str, Any], **kwargs: Any) -> str:
 
         return tool_result(success=True, **refresh_web_build_cache())
     if act == "build_profile":
-        from plugins.sts2.build_knowledge import _load_profile
         from plugins.sts2.build_analyzer import format_build_journal_tail
+        from plugins.sts2.build_knowledge import _load_profile
 
         return tool_result(
             success=True,
@@ -853,8 +852,8 @@ def handle_sts2_learn(args: Dict[str, Any], **kwargs: Any) -> str:
     )
 
 
-def handle_sts2_note(args: Dict[str, Any], **kwargs: Any) -> str:
-    from plugins.sts2.notes import append_hot_note, read_hot_notes, merge_strategy_rules
+def handle_sts2_note(args: dict[str, Any], **kwargs: Any) -> str:
+    from plugins.sts2.notes import append_hot_note, merge_strategy_rules, read_hot_notes
 
     mode = str(args.get("mode") or "append").strip().lower()
     if mode == "read":

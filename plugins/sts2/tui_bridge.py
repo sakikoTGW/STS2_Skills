@@ -8,7 +8,6 @@ import os
 import threading
 import time
 from pathlib import Path
-from typing import Any, Dict, Optional
 
 from plugins.sts2.storage import sts2_home
 
@@ -200,7 +199,6 @@ def _start_tui_watchdog() -> None:
     _WATCHDOG_STARTED = True
 
     def _loop() -> None:
-        from plugins.sts2 import client as sts2_client
         from plugins.sts2.autoplay import get_controller
         from plugins.sts2.config import load_sts2_config
 

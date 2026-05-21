@@ -8,7 +8,7 @@ import asyncio
 import json
 import shutil
 from pathlib import Path
-from typing import Any, List, Union
+from typing import Any
 
 from astrbot.api import logger
 from astrbot.api.event import AstrMessageEvent, filter
@@ -114,7 +114,7 @@ class Sts2AgentPlugin(Star):
         plugin = self
 
         async def _llm(
-            messages: Union[str, List[dict]],
+            messages: str | list[dict],
             *,
             max_tokens: int = 720,
             temperature: float = 0.3,

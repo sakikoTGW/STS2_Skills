@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, Optional
+from typing import Any
 
 
 def _floor(run: Any) -> int:
@@ -14,7 +14,7 @@ def _floor(run: Any) -> int:
         return 0
 
 
-def _hp(player: Any) -> Optional[int]:
+def _hp(player: Any) -> int | None:
     if not isinstance(player, dict):
         return None
     try:
@@ -24,8 +24,8 @@ def _hp(player: Any) -> Optional[int]:
 
 
 def compute_step_reward(
-    prev: Optional[Dict[str, Any]],
-    nxt: Dict[str, Any],
+    prev: dict[str, Any] | None,
+    nxt: dict[str, Any],
     *,
     act_ok: bool,
 ) -> float:

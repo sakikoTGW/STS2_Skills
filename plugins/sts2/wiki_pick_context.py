@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Dict, List, Set
+from typing import Any
 
 from plugins.sts2.reward_cards import offer_reward_cards
 
@@ -49,9 +49,9 @@ def situation_context(state: dict) -> str:
     )
 
 
-def _card_ids(cards: List[dict]) -> List[str]:
-    out: List[str] = []
-    seen: Set[str] = set()
+def _card_ids(cards: list[dict]) -> list[str]:
+    out: list[str] = []
+    seen: set[str] = set()
     for c in cards:
         if not isinstance(c, dict):
             continue
@@ -65,10 +65,10 @@ def _card_ids(cards: List[dict]) -> List[str]:
 def prefetch_wiki_for_pick(
     state: dict,
     *,
-    offers: List[dict] | None = None,
+    offers: list[dict] | None = None,
     extra_deck_ids: int = 3,
     max_fetches: int | None = None,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
     Pull wiki into local knowledge/ before LLM pick.
     Returns stats {fetched, cached, ids}.
@@ -90,7 +90,7 @@ def prefetch_wiki_for_pick(
     use_llm = bool(cfg.get("knowledge_use_llm", True))
     offers = offers if offers is not None else offer_reward_cards(state)
 
-    ids_ordered: List[str] = _card_ids(offers)
+    ids_ordered: list[str] = _card_ids(offers)
 
     # Also wiki top deck staples (for 构筑连贯)
     from plugins.sts2.card_pick_brain import _collect_deck_cards
@@ -101,8 +101,8 @@ def prefetch_wiki_for_pick(
         if cid not in ids_ordered:
             ids_ordered.append(cid)
 
-    fetched: List[str] = []
-    cached: List[str] = []
+    fetched: list[str] = []
+    cached: list[str] = []
     budget = max(0, limit)
 
     for cid in ids_ordered:
@@ -129,11 +129,11 @@ def prefetch_wiki_for_pick(
     }
 
 
-def wiki_dossier_for_cards(card_ids: List[str], *, max_entries: int = 12) -> str:
+def wiki_dossier_for_cards(card_ids: list[str], *, max_entries: int = 12) -> str:
     """Formatted wiki + distilled rules for prompt injection."""
     from plugins.sts2.knowledge import get_entry
 
-    lines: List[str] = []
+    lines: list[str] = []
     for cid in card_ids[:max_entries]:
         ent = get_entry("cards", cid)
         if not ent:
@@ -156,7 +156,7 @@ def wiki_dossier_for_cards(card_ids: List[str], *, max_entries: int = 12) -> str
 def build_pick_context(
     state: dict,
     *,
-    offers: List[dict] | None = None,
+    offers: list[dict] | None = None,
 ) -> str:
     """Full block: 局势 + wiki prefetch + dossier + strategy knowledge rules."""
     from plugins.sts2.knowledge import list_rules_from_knowledge

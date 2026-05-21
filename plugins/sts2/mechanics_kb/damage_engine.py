@@ -5,7 +5,6 @@ from __future__ import annotations
 import math
 import re
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional
 
 from plugins.sts2.mechanics_kb.power_parse import (
     collect_powers,
@@ -26,10 +25,10 @@ class DamageBreakdown:
     final: int = 0
     per_hit: int = 0
     hit_count: int = 1
-    steps: List[str] = field(default_factory=list)
-    multipliers: Dict[str, float] = field(default_factory=dict)
+    steps: list[str] = field(default_factory=list)
+    multipliers: dict[str, float] = field(default_factory=dict)
     additive: int = 0
-    warnings: List[str] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
 
     def add_step(self, text: str) -> None:
         self.steps.append(text)
@@ -41,8 +40,8 @@ class DamageContext:
     player: dict
     enemy: dict | None = None
     state: dict | None = None
-    player_powers: Dict[str, int] | None = None
-    enemy_powers: Dict[str, int] | None = None
+    player_powers: dict[str, int] | None = None
+    enemy_powers: dict[str, int] | None = None
     vulnerable_turns_override: int | None = None
     skip_incoming_vuln: bool = False
     hit_index: int = 0
@@ -137,7 +136,7 @@ def card_hit_count(card: dict, *, energy: int = 0) -> int:
         hs = row["hits"]
         return int(hs[1] if _card_upgraded(card) and len(hs) > 1 else hs[0])
     if cid == "WHIRLWIND" or "WHIRL" in cid:
-        per = int(row.get("base_per_hit", 5))
+        int(row.get("base_per_hit", 5))
         return max(1, energy) if energy > 0 else 1
     desc = str(card.get("description", "") or "")
     for pat in get_multi_hit_patterns():
@@ -171,12 +170,12 @@ def _enchant_additive(card: dict) -> int:
 # ---------------------------------------------------------------------------
 
 
-def _debilitate_doubles(holder_powers: Dict[str, int]) -> bool:
+def _debilitate_doubles(holder_powers: dict[str, int]) -> bool:
     return has_duration_debuff(holder_powers, "DEBILITATE")
 
 
 def vulnerable_multiplier(
-    enemy_powers: Dict[str, int],
+    enemy_powers: dict[str, int],
     player: dict,
     *,
     turns_active: bool = True,
@@ -193,7 +192,7 @@ def vulnerable_multiplier(
     return mult
 
 
-def weak_multiplier(holder_powers: Dict[str, int], player: dict) -> float:
+def weak_multiplier(holder_powers: dict[str, int], player: dict) -> float:
     if not has_duration_debuff(holder_powers, "WEAK"):
         return 1.0
     mult = float((get_power_entry("WEAK") or {}).get("damage_multiplier") or 0.75)
@@ -205,7 +204,7 @@ def weak_multiplier(holder_powers: Dict[str, int], player: dict) -> float:
     return mult
 
 
-def slow_multiplier(enemy_powers: Dict[str, int], cards_played: int) -> float:
+def slow_multiplier(enemy_powers: dict[str, int], cards_played: int) -> float:
     stacks = int(enemy_powers.get("SLOW", 0) or 0)
     if stacks <= 0 or cards_played <= 0:
         return 1.0
@@ -213,7 +212,7 @@ def slow_multiplier(enemy_powers: Dict[str, int], cards_played: int) -> float:
 
 
 def incoming_special_multiplier(
-    enemy_powers: Dict[str, int],
+    enemy_powers: dict[str, int],
     *,
     hit_from_behind: bool,
     is_hang_attack: bool,
@@ -239,7 +238,7 @@ def incoming_special_multiplier(
 
 
 def outgoing_special_multiplier(
-    player_powers: Dict[str, int],
+    player_powers: dict[str, int],
     player: dict,
     *,
     attacks_played: int,
@@ -254,7 +253,6 @@ def outgoing_special_multiplier(
         if str(ent.get("id")) == "DOUBLE_DAMAGE" and int(player_powers.get("DOUBLE_DAMAGE", 0) or 0) > 0:
             mult *= float(ent.get("multiplier") or 2.0)
     if pen_nib_triggers and relic_active(player, "PEN_NIB"):
-        n = 10
         for r in get_special_multipliers():
             pass
         # 第 10、20… 次攻击牌双倍
@@ -268,7 +266,7 @@ def outgoing_special_multiplier(
 # ---------------------------------------------------------------------------
 
 
-def _additive_per_hit(card: dict, player_powers: Dict[str, int], player: dict) -> int:
+def _additive_per_hit(card: dict, player_powers: dict[str, int], player: dict) -> int:
     base = _card_base_damage(card)
     strength = int(player_powers.get("STRENGTH", 0) or 0)
     accuracy = int(player_powers.get("ACCURACY", 0) or 0)
@@ -313,7 +311,7 @@ def compute_single_hit(ctx: DamageContext) -> DamageBreakdown:
     value = pre + additive_rest
     bd.additive = int(value)
     bd.add_step(
-        f"加算: {'%.0f' % pre}+{additive_rest}"
+        f"加算: {f'{pre:.0f}'}+{additive_rest}"
         f"(力{strength}准{accuracy}活{vigor}附{enchant})"
     )
 
@@ -428,7 +426,7 @@ def compute_block_from_card(
     card: dict,
     player: dict,
     *,
-    player_powers: Dict[str, int] | None = None,
+    player_powers: dict[str, int] | None = None,
 ) -> int:
     base = 0
     for key in ("block", "base_block", "display_block"):

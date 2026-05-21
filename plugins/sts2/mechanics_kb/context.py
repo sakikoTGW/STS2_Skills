@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 
-def combat_runtime(state: dict | None) -> Dict[str, Any]:
+def combat_runtime(state: dict | None) -> dict[str, Any]:
     if not state:
         return {}
     battle = state.get("battle") or {}

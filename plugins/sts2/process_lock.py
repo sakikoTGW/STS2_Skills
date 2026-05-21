@@ -6,9 +6,8 @@ import atexit
 import os
 import sys
 from pathlib import Path
-from typing import Optional
 
-_lock_path: Optional[Path] = None
+_lock_path: Path | None = None
 _lock_fh = None
 
 
@@ -66,7 +65,7 @@ def _unlock_fd(fd: int) -> None:
         pass
 
 
-def holder_pid(path: Path) -> Optional[int]:
+def holder_pid(path: Path) -> int | None:
     try:
         text = Path(path).read_text(encoding="utf-8").strip().splitlines()
         if text:

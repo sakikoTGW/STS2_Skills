@@ -43,9 +43,10 @@ def test_ensure_autoplay_retries_when_game_down(sts2_env, monkeypatch):
     monkeypatch.setenv("HERMES_STS2_AUTO_RUN", "1")
     monkeypatch.setenv("HERMES_STS2_AGENT_PLAY", "1")
 
+    from unittest.mock import patch
+
     from plugins.sts2 import client as sts2_client
     from plugins.sts2.mode_display import ensure_autoplay_running
-    from unittest.mock import patch
 
     with patch.object(sts2_client, "ping", side_effect=ConnectionError("down")):
         r1 = ensure_autoplay_running(reason="test")

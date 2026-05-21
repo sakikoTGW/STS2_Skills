@@ -1,0 +1,35 @@
+name: Host integration
+description: OpenClaw, AstrBot, Hermes, or other MCP host issues
+labels: ["integration"]
+body:
+  - type: dropdown
+    id: host
+    attributes:
+      label: Host
+      options:
+        - OpenClaw
+        - AstrBot
+        - Hermes Agent
+        - Cursor / generic MCP
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: setup
+    attributes:
+      label: Setup steps you ran
+      description: e.g. sts2 setup --host astrbot, /sts2ai setup, openclaw mcp set
+      placeholder: |
+        sts2 doctor output (paste)
+        sts2 integration-config --platform ...
+  - type: input
+    id: version
+    attributes:
+      label: STS2_Skills version
+      placeholder: e.g. 1.0.5

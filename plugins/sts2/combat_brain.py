@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List, Optional
 
 _POWER_IDS = frozenset({
     "INFLAME", "DEMON_FORM", "SPOT_WEAKNESS", "FEEL_NO_PAIN", "DARK_EMBRACE",
@@ -162,7 +161,7 @@ def block_play_is_urgent(state: dict) -> bool:
     return net >= hp
 
 
-def prefer_block_play(state: dict) -> Optional[dict]:
+def prefer_block_play(state: dict) -> dict | None:
     """Play block only when incoming damage would kill this turn."""
     if combat_should_wait(state) or not block_play_is_urgent(state):
         return None
@@ -270,7 +269,7 @@ def estimate_card_damage(
     if turns is None and enemy is not None:
         turns = enemy_vulnerable_stacks(enemy)
     if turns is None and state is not None:
-        hand = list((player.get("hand") or []))
+        hand = list(player.get("hand") or [])
         turns = vuln_stacks_when_playing_card(state, hand, card, enemy=enemy)
 
     return estimate_attack_damage(
@@ -319,7 +318,7 @@ def next_turn_incoming_from_loops(state: dict) -> int:
     return total
 
 
-def try_lethal_attack(state: dict) -> Optional[dict]:
+def try_lethal_attack(state: dict) -> dict | None:
     """If affordable attacks can kill the lowest-HP enemy, play the best kill card."""
     if combat_should_wait(state):
         return None
@@ -340,7 +339,7 @@ def try_lethal_attack(state: dict) -> Optional[dict]:
     focus = min(living, key=lambda e: int(e.get("hp", 9999)))
     need = int(focus.get("hp", 0) or 0)
     eid = focus.get("entity_id")
-    hand = list((player.get("hand") or []))
+    hand = list(player.get("hand") or [])
     total = sum(
         estimate_card_damage(
             c,
@@ -409,7 +408,7 @@ def incoming_attack_damage_excluding(enemies: list, exclude_entity_id: str) -> i
     return total
 
 
-def _target_entity_id(enemies: list) -> Optional[str]:
+def _target_entity_id(enemies: list) -> str | None:
     living = [e for e in enemies if int(e.get("hp", 0)) > 0]
     if not living:
         return None
@@ -445,7 +444,7 @@ def combat_should_end_turn(state: dict) -> bool:
     return False
 
 
-def _play_card(card: dict, target: Optional[str]) -> dict:
+def _play_card(card: dict, target: str | None) -> dict:
     body: dict = {"action": "play_card", "card_index": card["index"]}
     tt = str(card.get("target_type") or "").lower()
     if tt in ("anyenemy", "enemy", "singleenemy") and target:
@@ -545,8 +544,7 @@ def decide_combat(state: dict, *, apply_lessons: bool = True) -> dict:
     # Draw animation — hand not dealt yet
     if not hand and energy > 0 and not playable:
         return {"action": "__wait__"}
-    floor = _run_floor(state)
-    early_act = floor <= 8
+    _run_floor(state)
     cautious = apply_lessons and _lessons_want_caution(state)
     rnd = int(battle.get("round", 1) or 1)
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from plugins.sts2.game_flow_kb.ascension import _ascension_level
 from plugins.sts2.game_flow_kb.store import merchant_data
@@ -31,7 +31,7 @@ def _removal_times(state: dict) -> int:
     return 0
 
 
-def card_removal_cost(state: dict) -> Dict[str, Any]:
+def card_removal_cost(state: dict) -> dict[str, Any]:
     """Next card removal gold cost (wiki + ascension 6)."""
     m = merchant_data()
     cr = m.get("card_removal") or {}
@@ -47,7 +47,7 @@ def card_removal_cost(state: dict) -> Dict[str, Any]:
 
     player = state.get("player") or {}
     mult = 1.0
-    notes: List[str] = []
+    notes: list[str] = []
     for ent in m.get("relic_interactions") or []:
         rid = ent.get("id")
         if not rid or not relic_active(player, str(rid)):

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, List
+from typing import Any
 
 TREASURE_CLAIM_ACTION = "claim_treasure_relic"
 
@@ -32,7 +32,7 @@ def treasure_claim_body(state: dict, index: int) -> dict:
     return {"action": treasure_claim_action(state), "index": int(index)}
 
 
-def _extend_items(raw: Any, out: List[dict]) -> None:
+def _extend_items(raw: Any, out: list[dict]) -> None:
     if isinstance(raw, list):
         for item in raw:
             if isinstance(item, dict):
@@ -41,11 +41,11 @@ def _extend_items(raw: Any, out: List[dict]) -> None:
         out.append(raw)
 
 
-def treasure_claimables(state: dict) -> List[dict]:
+def treasure_claimables(state: dict) -> list[dict]:
     """Relics/cards/gold offered in a treasure room (many API shapes)."""
     if not state:
         return []
-    out: List[dict] = []
+    out: list[dict] = []
     tr = state.get("treasure") or {}
     for key in (
         "relics",
@@ -80,7 +80,7 @@ def treasure_claimables(state: dict) -> List[dict]:
         for key in ("relics", "cards", "items", "choices"):
             _extend_items(screen.get(key), out)
     seen: set[tuple] = set()
-    deduped: List[dict] = []
+    deduped: list[dict] = []
     for i, item in enumerate(out):
         key = (item.get("index", i), str(item.get("id") or ""), str(item.get("name") or ""))
         if key in seen:

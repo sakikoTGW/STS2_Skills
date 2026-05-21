@@ -5,6 +5,20 @@ All notable changes to [STS2_Skills](https://github.com/sakikoTGW/STS2_Skills) a
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).  
 Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see [VERSION_MIGRATION.md](VERSION_MIGRATION.md)).
 
+## [Unreleased]
+
+### Added
+
+- `sts2 doctor` — install/API/MCP diagnostics; `sts2 status` includes doctor summary
+- [docs/QUICKSTART.md](docs/QUICKSTART.md) — three-minute setup guide
+- GitHub Issue templates: feature request, host integration; `config.yml` links
+- Release workflow: push tag `v*` → ruff, pytest, version check, source zip, GitHub Release
+
+### Changed
+
+- CI: `ruff check plugins/sts2 scripts tests` (full `plugins/sts2` tree)
+- README / README.en: link QUICKSTART; document `doctor` CLI
+
 ## [1.0.5] - 2026-05-21
 
 ### Fixed

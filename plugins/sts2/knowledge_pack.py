@@ -5,7 +5,6 @@ from __future__ import annotations
 import logging
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -36,7 +35,7 @@ def _char_is_ironclad(state: dict) -> bool:
 
 def macro_strategy_block(state: dict) -> str:
     """Run goal + build diagnosis — must appear before micro tactics."""
-    parts: List[str] = []
+    parts: list[str] = []
     try:
         from plugins.sts2.run_objective import format_run_objective_block
 
@@ -68,7 +67,7 @@ def macro_strategy_block(state: dict) -> str:
     return "\n\n".join(p for p in parts if p)
 
 
-def wiki_combat_block(state: dict, hand: List[dict], *, prefetched: Optional[List[str]] = None) -> str:
+def wiki_combat_block(state: dict, hand: list[dict], *, prefetched: list[str] | None = None) -> str:
     from plugins.sts2.combat_play_brain import (
         _enemy_wiki_brief,
         _hand_wiki_block,
@@ -79,7 +78,7 @@ def wiki_combat_block(state: dict, hand: List[dict], *, prefetched: Optional[Lis
     cfg = load_sts2_config()
     budget = max(0, int(cfg.get("study_combat_wiki_max_fetches", 6)))
     fetched = prefetched if prefetched is not None else _prefetch_hand_wiki(hand, budget)
-    lines: List[str] = ["【Wiki·战斗必读】先读怪物行为与手牌词条，再定本动。"]
+    lines: list[str] = ["【Wiki·战斗必读】先读怪物行为与手牌词条，再定本动。"]
     ew = _enemy_wiki_brief(state)
     if ew:
         lines.append(ew)
@@ -94,7 +93,7 @@ def wiki_combat_block(state: dict, hand: List[dict], *, prefetched: Optional[Lis
     return "\n".join(lines)
 
 
-def wiki_pick_block(state: dict, *, offers: Optional[List[dict]] = None) -> str:
+def wiki_pick_block(state: dict, *, offers: list[dict] | None = None) -> str:
     from plugins.sts2.wiki_pick_context import build_pick_context
 
     return build_pick_context(state, offers=offers)
@@ -102,10 +101,10 @@ def wiki_pick_block(state: dict, *, offers: Optional[List[dict]] = None) -> str:
 
 def assemble_combat_pack(
     state: dict,
-    hand: List[dict],
+    hand: list[dict],
     *,
     memory: str = "",
-    prefetched_wiki: Optional[List[str]] = None,
+    prefetched_wiki: list[str] | None = None,
 ) -> str:
     """Combat LLM user message: same L0/L1 order as agent play_brief."""
     try:
@@ -116,7 +115,7 @@ def assemble_combat_pack(
         )
     except Exception:
         head = macro_strategy_block(state)
-    parts: List[str] = [head, wiki_combat_block(state, hand, prefetched=prefetched_wiki)]
+    parts: list[str] = [head, wiki_combat_block(state, hand, prefetched=prefetched_wiki)]
     try:
         from plugins.sts2.build_knowledge import format_build_combat_hint
 
@@ -140,8 +139,8 @@ def assemble_combat_pack(
     except Exception:
         pass
     try:
-        from plugins.sts2.wiki_pick_context import situation_context
         from plugins.sts2.combat_play_brain import _enemy_brief
+        from plugins.sts2.wiki_pick_context import situation_context
 
         parts.append(situation_context(state))
         parts.append(_enemy_brief(state))
@@ -160,10 +159,10 @@ def assemble_combat_pack(
     return "\n\n".join(p for p in parts if p)
 
 
-def assemble_decide_pack(state: dict, *, offers: Optional[List[dict]] = None) -> str:
+def assemble_decide_pack(state: dict, *, offers: list[dict] | None = None) -> str:
     """Map / reward / event / rest — wiki + 构筑 + route."""
     st = str(state.get("state_type") or "")
-    parts: List[str] = [macro_strategy_block(state)]
+    parts: list[str] = [macro_strategy_block(state)]
 
     if st == "map":
         try:

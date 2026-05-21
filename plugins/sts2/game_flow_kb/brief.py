@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from typing import List
-
 from plugins.sts2.game_flow_kb.ascension import (
     ancient_heal_amount,
     format_ascension_block,
@@ -11,6 +9,12 @@ from plugins.sts2.game_flow_kb.ascension import (
 )
 from plugins.sts2.game_flow_kb.hand_turn_plan import format_hand_turn_plan
 from plugins.sts2.game_flow_kb.merchant import format_merchant_brief
+from plugins.sts2.game_flow_kb.store import (
+    ancients_data,
+    kb_version,
+    map_data,
+    screens_data,
+)
 from plugins.sts2.game_flow_kb.wiki_rules import (
     format_boss_brief,
     format_elite_brief,
@@ -21,17 +25,11 @@ from plugins.sts2.game_flow_kb.wiki_rules import (
     format_rewards_brief,
     format_treasure_brief,
 )
-from plugins.sts2.game_flow_kb.store import (
-    ancients_data,
-    kb_version,
-    map_data,
-    screens_data,
-)
 
 
 def _run_summary(state: dict) -> str:
     run = state.get("run") or {}
-    parts: List[str] = []
+    parts: list[str] = []
     for k, label in (
         ("character", "角色"),
         ("act", "幕"),
@@ -129,7 +127,7 @@ def _ancient_act_hint(state: dict) -> str:
 def format_game_flow_brief(state: dict) -> str:
     if not state:
         return ""
-    parts: List[str] = [
+    parts: list[str] = [
         f"【游戏流程知识库 v{kb_version()}】",
         _run_summary(state),
         format_ascension_block(state),

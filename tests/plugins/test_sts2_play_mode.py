@@ -2,10 +2,6 @@
 
 from __future__ import annotations
 
-import os
-
-import pytest
-
 
 def test_marathon_not_blocked_by_agent_play(monkeypatch):
     monkeypatch.delenv("HERMES_STS2_NO_MARATHON", raising=False)

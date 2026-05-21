@@ -12,7 +12,7 @@ Only the main Hermes agent decides; this module only *formats facts*.
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 _COMBAT = frozenset({"monster", "elite", "boss", "hand_select"})
 
@@ -20,10 +20,10 @@ _COMBAT = frozenset({"monster", "elite", "boss", "hand_select"})
 def layer_macro(state: dict) -> str:
     """L0 — whole-run strategy (every screen)."""
     st = str(state.get("state_type") or "")
-    parts: List[str] = []
+    parts: list[str] = []
     if st in ("card_reward", "card_select"):
         try:
-            from plugins.sts2.card_pick_brain import summarize_deck, _archetype_hint
+            from plugins.sts2.card_pick_brain import _archetype_hint, summarize_deck
             from plugins.sts2.reward_cards import format_card_offers, offer_reward_cards
 
             offers = offer_reward_cards(state)
@@ -64,7 +64,7 @@ def layer_macro(state: dict) -> str:
 
 def layer_game_flow(state: dict) -> str:
     """L0.5 — ascension, ancients heal, rest, map flow, full-hand plan."""
-    parts: List[str] = []
+    parts: list[str] = []
     try:
         from plugins.sts2.game_flow_kb.brief import format_game_flow_brief
 
@@ -90,7 +90,7 @@ def layer_compute(state: dict) -> str:
     if st not in _COMBAT:
         return ""
 
-    parts: List[str] = ["【算数层·先读再动】"]
+    parts: list[str] = ["【算数层·先读再动】"]
     checklist = thinking_checklist(state)
     if checklist:
         parts.append(checklist)
@@ -148,7 +148,7 @@ def layer_discipline(state: dict) -> str:
 
 def layer_memory(state: dict) -> str:
     """L4 — notes / manual learn context."""
-    parts: List[str] = []
+    parts: list[str] = []
     try:
         from plugins.sts2.notes import recall_block
 
@@ -180,7 +180,7 @@ def assemble_play_brief(state: dict) -> str:
         layer_discipline,
         layer_memory,
     )
-    parts: List[str] = []
+    parts: list[str] = []
     for fn in layers:
         block = fn(state)
         if block:
@@ -203,7 +203,7 @@ def thinking_checklist(state: dict) -> str:
     ]
 
     enemies = (state.get("battle") or {}).get("enemies") or []
-    loop_bits: List[str] = []
+    loop_bits: list[str] = []
     try:
         from plugins.sts2.huiji_kb.loops import forecast_enemy, format_loop_forecast
         from plugins.sts2.huiji_kb.store import lookup_enemy
@@ -229,10 +229,10 @@ def thinking_checklist(state: dict) -> str:
     return "\n".join(lines)
 
 
-def structured_context(state: dict) -> Dict[str, Any]:
+def structured_context(state: dict) -> dict[str, Any]:
     """Machine-readable slice for tools / logging (optional)."""
     st = str(state.get("state_type") or "")
-    out: Dict[str, Any] = {
+    out: dict[str, Any] = {
         "state_type": st,
         "layers": ["macro", "game_flow", "compute", "screen", "discipline", "memory"],
     }

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 
 def option_label(opt: Any) -> str:
@@ -19,11 +19,11 @@ def option_enabled(opt: Any) -> bool:
     return True
 
 
-def normalize_options(raw: Any) -> List[Dict[str, Any]]:
+def normalize_options(raw: Any) -> list[dict[str, Any]]:
     """Coerce mixed option lists to dicts with at least 'option' key."""
     if not isinstance(raw, list):
         return []
-    out: List[Dict[str, Any]] = []
+    out: list[dict[str, Any]] = []
     for i, item in enumerate(raw):
         if isinstance(item, dict):
             out.append(item)

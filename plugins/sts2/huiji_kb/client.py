@@ -10,7 +10,7 @@ import urllib.parse
 import urllib.request
 from http.cookiejar import MozillaCookieJar
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -60,7 +60,7 @@ class HuijiWikiClient:
         if elapsed < self.delay_sec:
             time.sleep(self.delay_sec - elapsed)
 
-    def api_get(self, params: Dict[str, Any]) -> Dict[str, Any]:
+    def api_get(self, params: dict[str, Any]) -> dict[str, Any]:
         self._throttle()
         q = dict(params)
         q.setdefault("format", "json")
@@ -80,10 +80,9 @@ class HuijiWikiClient:
             body = exc.read(800).decode("utf-8", "replace")
             if "Just a moment" in body or exc.code == 403:
                 raise HuijiWikiError(
-                    "灰机 wiki 被 Cloudflare 拦截 (HTTP %s)。"
+                    f"灰机 wiki 被 Cloudflare 拦截 (HTTP {exc.code})。"
                     "请用浏览器登录后导出 cookies 到 ~/.hermes/sts2/huiji_cookies.txt，"
                     "或把已保存的 HTML 放到 --html-dir 再 sync。"
-                    % exc.code
                 ) from exc
             raise HuijiWikiError(f"HTTP {exc.code}: {body[:200]}") from exc
         except urllib.error.URLError as exc:
@@ -121,13 +120,13 @@ class HuijiWikiClient:
         category: str,
         *,
         limit: int = 500,
-    ) -> List[str]:
+    ) -> list[str]:
         if not category.startswith("Category:"):
             category = f"Category:{category}"
-        titles: List[str] = []
-        cmcontinue: Optional[str] = None
+        titles: list[str] = []
+        cmcontinue: str | None = None
         while len(titles) < limit:
-            params: Dict[str, Any] = {
+            params: dict[str, Any] = {
                 "action": "query",
                 "list": "categorymembers",
                 "cmtitle": category,
@@ -147,7 +146,7 @@ class HuijiWikiClient:
                 break
         return titles[:limit]
 
-    def links_on_page(self, title: str) -> List[str]:
+    def links_on_page(self, title: str) -> list[str]:
         """Parse index page and extract /wiki/ links (fallback when API blocked)."""
         html = self.parse_page(title)
         from plugins.sts2.huiji_kb.parse import extract_wiki_links

@@ -3,9 +3,8 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Dict, List, Optional
 
-from plugins.sts2.act1_clear import hp_ratio, pick_map_node, run_floor, map_node_score
+from plugins.sts2.act1_clear import hp_ratio, map_node_score, pick_map_node, run_floor
 
 
 def run_act(state: dict | None) -> int:
@@ -55,7 +54,7 @@ def format_act1_mission_banner(state: dict) -> str:
     return "\n".join(lines)
 
 
-def suggested_map_action(state: dict) -> Optional[dict]:
+def suggested_map_action(state: dict) -> dict | None:
     """Code-suggested map pick for agent (not forced POST)."""
     if str(state.get("state_type") or "") != "map":
         return None

@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, Optional
+from typing import Any
 
 
-def next_menu_action(state: dict) -> Optional[Dict[str, Any]]:
+def next_menu_action(state: dict) -> dict[str, Any] | None:
     """One menu/game_over action toward starting a new run (character from config)."""
     st = str(state.get("state_type") or "")
     screen = str(state.get("menu_screen") or "").lower()

@@ -5,8 +5,8 @@ from __future__ import annotations
 import json
 import logging
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
-from typing import Any, Callable, Dict, List, Optional
+from datetime import UTC, datetime
+from typing import Any
 
 from plugins.sts2.combat_brain import decide_combat, incoming_attack_damage
 from plugins.sts2.decision import _pick_map_node, _rule_action
@@ -29,7 +29,7 @@ _DECISION_SCREENS = frozenset({
 class CoachEvent:
     kind: str  # narrate | ask
     text: str
-    meta: Dict[str, Any] = field(default_factory=dict)
+    meta: dict[str, Any] = field(default_factory=dict)
 
 
 def learn_log_path():
@@ -46,7 +46,7 @@ def _log_learn(record: dict) -> None:
         logger.debug("learn log: %s", exc)
 
 
-def absorb_user_answer(question: str, answer: str, *, meta: Optional[dict] = None) -> dict:
+def absorb_user_answer(question: str, answer: str, *, meta: dict | None = None) -> dict:
     """Persist Q&A into hot_notes + strategy (called from autoplay provide_hint)."""
     answer = (answer or "").strip()
     if not answer:
@@ -60,7 +60,7 @@ def absorb_user_answer(question: str, answer: str, *, meta: Optional[dict] = Non
     merge_strategy_rules([rule])
     _log_learn(
         {
-            "ts": datetime.now(timezone.utc).isoformat(),
+            "ts": datetime.now(UTC).isoformat(),
             "question": question,
             "answer": answer,
             "meta": meta,
@@ -107,14 +107,14 @@ class LearnCoach:
     """Stateful observer for one learn-mode session."""
 
     def __init__(self) -> None:
-        self._turn_start: Optional[dict] = None
-        self._prev_turn: Optional[str] = None
-        self._pending_map: Optional[dict] = None
-        self._pending_event: Optional[dict] = None
+        self._turn_start: dict | None = None
+        self._prev_turn: str | None = None
+        self._pending_map: dict | None = None
+        self._pending_event: dict | None = None
         self._asked_fingerprints: set[str] = set()
 
-    def tick(self, prev: Optional[dict], curr: dict) -> List[CoachEvent]:
-        events: List[CoachEvent] = []
+    def tick(self, prev: dict | None, curr: dict) -> list[CoachEvent]:
+        events: list[CoachEvent] = []
         if not curr:
             return events
 
@@ -140,8 +140,8 @@ class LearnCoach:
 
     def _check_combat_turn_end(
         self, prev: dict, curr: dict, turn: str
-    ) -> List[CoachEvent]:
-        events: List[CoachEvent] = []
+    ) -> list[CoachEvent]:
+        events: list[CoachEvent] = []
         pt = str((prev.get("battle") or {}).get("turn") or "").lower()
         if pt != "player" or turn != "enemy" or not self._turn_start:
             return events
@@ -170,7 +170,7 @@ class LearnCoach:
             bot = decide_combat(start)
             _log_learn(
                 {
-                    "ts": datetime.now(timezone.utc).isoformat(),
+                    "ts": datetime.now(UTC).isoformat(),
                     "kind": "combat_turn_ok",
                     "floor": _floor(start),
                     "delta": delta,
@@ -179,8 +179,8 @@ class LearnCoach:
             )
         return events
 
-    def _combat_turn_question(self, start: dict, end: dict) -> Optional[str]:
-        reasons: List[str] = []
+    def _combat_turn_question(self, start: dict, end: dict) -> str | None:
+        reasons: list[str] = []
         p0 = _player_stats(start)
         p1 = _player_stats(end)
         enemies = (start.get("battle") or {}).get("enemies") or []
@@ -228,8 +228,8 @@ class LearnCoach:
             f"请用一句话说明你这回合的思路（回复后我会记入你的打法笔记）。"
         )
 
-    def _check_map_choice(self, prev: dict, curr: dict) -> List[CoachEvent]:
-        events: List[CoachEvent] = []
+    def _check_map_choice(self, prev: dict, curr: dict) -> list[CoachEvent]:
+        events: list[CoachEvent] = []
         if str(prev.get("state_type")) != "map":
             return events
         if str(curr.get("state_type")) == "map":
@@ -262,8 +262,8 @@ class LearnCoach:
                 )
         return events
 
-    def _check_decision_screen(self, prev: dict, curr: dict) -> List[CoachEvent]:
-        events: List[CoachEvent] = []
+    def _check_decision_screen(self, prev: dict, curr: dict) -> list[CoachEvent]:
+        events: list[CoachEvent] = []
         pst = str(prev.get("state_type") or "")
         cst = str(curr.get("state_type") or "")
         if pst in _DECISION_SCREENS and cst not in _DECISION_SCREENS:
@@ -277,7 +277,7 @@ class LearnCoach:
                     )
         return events
 
-    def _question_on_decision_screen(self, state: dict) -> Optional[str]:
+    def _question_on_decision_screen(self, state: dict) -> str | None:
         st = str(state.get("state_type") or "")
         if st == "card_reward":
             cards = (state.get("card_reward") or {}).get("cards") or state.get("cards") or []
@@ -306,7 +306,7 @@ class LearnCoach:
                 )
         return None
 
-    def _question_after_decision(self, prev: dict, next_type: str) -> Optional[str]:
+    def _question_after_decision(self, prev: dict, next_type: str) -> str | None:
         st = str(prev.get("state_type") or "")
         ruled = _rule_action(prev)
         if not ruled:
@@ -319,7 +319,7 @@ class LearnCoach:
         )
 
 
-def _hand_card(state: dict, index: Any) -> Optional[dict]:
+def _hand_card(state: dict, index: Any) -> dict | None:
     try:
         want = int(index)
     except (TypeError, ValueError):

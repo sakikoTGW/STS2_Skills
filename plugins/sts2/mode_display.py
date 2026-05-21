@@ -6,7 +6,7 @@ import logging
 import os
 import threading
 import time
-from typing import Any, Dict, List
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -54,7 +54,7 @@ def user_asked_stop(text: str) -> bool:
     return any(k in s for k in stops if len(k) >= 2)
 
 
-def try_stop_on_user_message(text: str) -> Dict[str, Any]:
+def try_stop_on_user_message(text: str) -> dict[str, Any]:
     if not user_asked_stop(text):
         return {"stopped": False}
     from plugins.sts2.autoplay import get_controller
@@ -71,15 +71,15 @@ def try_stop_on_user_message(text: str) -> Dict[str, Any]:
     return {"stopped": True, **out}
 
 
-def resolve_sts2_mode() -> Dict[str, Any]:
+def resolve_sts2_mode() -> dict[str, Any]:
     """Current mode snapshot for UI and tools."""
     from plugins.sts2.autoplay import get_controller
     from plugins.sts2.play_mode import (
         agent_play_mode,
         autopilot_active,
-        mount_mode,
         llm_marathon_allowed,
         marathon_forbidden,
+        mount_mode,
     )
 
     ctrl = get_controller()
@@ -127,7 +127,7 @@ def resolve_sts2_mode() -> Dict[str, Any]:
         MODE_WATCH: "你在游戏里操作，Hermes 只解说",
         MODE_LEARN: "你操作，Hermes 提问记笔记",
     }
-    controls: Dict[str, List[str]] = {
+    controls: dict[str, list[str]] = {
         MODE_AUTOPILOT_RUNNING: ["说「停」· pause|resume|hint"],
         MODE_AUTOPILOT_PAUSED: ["resume|stop"],
         MODE_AUTOPILOT_READY: ["action=run 或等游戏连上"],
@@ -137,7 +137,7 @@ def resolve_sts2_mode() -> Dict[str, Any]:
         MODE_LEARN: ["stop|hint"],
     }
 
-    out: Dict[str, Any] = {
+    out: dict[str, Any] = {
         "mode_id": mode_id,
         "title": titles.get(mode_id, mode_id),
         "subtitle": subtitles.get(mode_id, ""),
@@ -185,7 +185,7 @@ def format_mode_banner(*, compact: bool = False) -> str:
     return "\n".join(lines)
 
 
-def structured_mode_status() -> Dict[str, Any]:
+def structured_mode_status() -> dict[str, Any]:
     m = resolve_sts2_mode()
     return {
         **m,
@@ -212,7 +212,7 @@ def emit_mode_banner_to_tui(*, force: bool = False) -> bool:
         return False
 
 
-def ensure_autoplay_running(*, reason: str = "") -> Dict[str, Any]:
+def ensure_autoplay_running(*, reason: str = "") -> dict[str, Any]:
     """Start background LLM autopilot if AUTO_RUN / user asked run. Safe to call often."""
     from plugins.sts2.play_mode import mount_mode
 
@@ -293,6 +293,6 @@ def start_auto_run_watcher() -> None:
     threading.Thread(target=_loop, name="sts2-auto-run-watcher", daemon=True).start()
 
 
-def maybe_auto_start_autoplay() -> Dict[str, Any]:
+def maybe_auto_start_autoplay() -> dict[str, Any]:
     start_auto_run_watcher()
     return ensure_autoplay_running(reason="plugin_load")

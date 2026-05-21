@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import re
-from typing import Any, Dict, Optional, Tuple
+from typing import Any
 
 from plugins.sts2.visibility import describe_action, describe_situation
 
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 _COMBAT = frozenset({"monster", "elite", "boss", "hand_select"})
 
 
-def _parse_json(text: str) -> Optional[dict]:
+def _parse_json(text: str) -> dict | None:
     text = (text or "").strip()
     if not text:
         return None
@@ -115,7 +115,7 @@ def _compact_state(state: dict) -> str:
     """Situation text + small JSON slice for indices only."""
     base = describe_situation(state)
     st = str(state.get("state_type") or "")
-    extra: Dict[str, Any] = {"state_type": st}
+    extra: dict[str, Any] = {"state_type": st}
     if st == "map":
         opts = (state.get("map") or {}).get("next_options") or state.get("next_options")
         extra["next_options"] = opts
@@ -154,7 +154,7 @@ def llm_decide_step(
     *,
     user_hint: str = "",
     memory: str = "",
-) -> Tuple[str, dict, bool]:
+) -> tuple[str, dict, bool]:
     """
     Ask auxiliary LLM for one action. Returns (commentary, body, success).
   On failure body is {} and success False.

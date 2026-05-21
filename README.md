@@ -7,7 +7,7 @@
 
 面向 **杀戮尖塔 2（Slay the Spire 2）** 的 Agent 工具包，通过 [STS2MCP](https://github.com/Gennadiyev/STS2MCP) 与游戏通信。可将局面与操作暴露给 LLM 宿主：Hermes Agent 原生工具，或 stdio [MCP](https://modelcontextprotocol.io/) 服务（OpenClaw、AstrBot、Cursor 等）。
 
-**最新发布：** [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest)
+**最新发布：** [Releases](https://github.com/sakikoTGW/STS2_Skills/releases/latest) · [三分钟上手](docs/QUICKSTART.md)
 
 ## 功能
 
@@ -81,8 +81,9 @@ python scripts/sts2_setup_wizard.py         # 交互式同上
 ```bash
 sts2 install-mod          # 将 STS2MCP 安装到游戏 mods/ 目录
 # 启动游戏（单人 + 模组开启）
-sts2 ping                 # 检测 API 是否连通
-sts2 status               # 查看 base_url、角色编号、autoplay 等
+sts2 doctor               # 检查路径、模组、API、MCP 配置
+sts2 ping                 # 检测 API 是否连通（需游戏运行）
+sts2 status               # 状态 + doctor 摘要
 ```
 
 ### 指定角色自动游玩

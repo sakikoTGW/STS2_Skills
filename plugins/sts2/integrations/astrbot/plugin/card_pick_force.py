@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Tuple
+from typing import Any
 
 _CARD_STATES = frozenset({"card_reward", "card_select", "rewards"})
 
@@ -11,7 +11,7 @@ def is_card_flow_state(state: dict) -> bool:
     return str(state.get("state_type") or "") in _CARD_STATES
 
 
-def decide_card_flow(state: dict) -> Tuple[str, dict[str, Any]]:
+def decide_card_flow(state: dict) -> tuple[str, dict[str, Any]]:
     """Always return a legal pick/claim action for reward screens."""
     from plugins.sts2.action_validate import validate_action  # noqa: WPS433
 
@@ -50,9 +50,9 @@ async def run_card_flow_until_clear(
     from .sts2_skills_bridge import ensure_skills
 
     ensure_skills(plugin_cfg, base_url=plugin_cfg.get("base_url"))
-    from plugins.sts2 import client as sts2_client  # noqa: WPS433
-
     import asyncio
+
+    from plugins.sts2 import client as sts2_client  # noqa: WPS433
 
     last: dict[str, Any] = {}
     for _ in range(max_steps):

@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 import asyncio
-from typing import Any, Awaitable, Callable
+from collections.abc import Awaitable, Callable
+from typing import Any
 
 from .card_pick_force import is_card_flow_state, run_card_flow_until_clear
 from .sts2_skills_bridge import (
@@ -174,9 +175,9 @@ class STS2Runner:
         if out.get("paused") and st in ("card_reward", "card_select", "relic_select", "relic_select_boss"):
             force_unpause_controller(ctrl)
             try:
-                from plugins.sts2.decision import decide  # noqa: WPS433
-                from plugins.sts2.action_validate import validate_action  # noqa: WPS433
                 from plugins.sts2 import client as sts2_client  # noqa: WPS433
+                from plugins.sts2.action_validate import validate_action  # noqa: WPS433
+                from plugins.sts2.decision import decide  # noqa: WPS433
 
                 status, state = await asyncio.to_thread(
                     sts2_client.get_singleplayer_state, fmt="json"

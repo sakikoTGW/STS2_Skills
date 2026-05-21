@@ -6,9 +6,9 @@ import json
 import logging
 import re
 import traceback
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from plugins.sts2.storage import sts2_home
 
@@ -16,8 +16,8 @@ logger = logging.getLogger(__name__)
 
 _ISSUES_JSONL = "program_issues.jsonl"
 _ISSUES_MD = "PROGRAM_ISSUES.md"
-_RECENT_FP: Dict[str, float] = {}
-_CAST_FP: Dict[str, float] = {}
+_RECENT_FP: dict[str, float] = {}
+_CAST_FP: dict[str, float] = {}
 _DEDUPE_SEC = 120.0
 _CAST_DEDUPE_SEC = 45.0
 
@@ -31,7 +31,7 @@ def issues_md_path() -> Path:
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    return datetime.now(UTC).strftime("%Y-%m-%d %H:%M:%S UTC")
 
 
 def _fingerprint(kind: str, message: str) -> str:
@@ -46,10 +46,10 @@ def report_issue(
     message: str,
     *,
     severity: str = "warning",
-    context: Optional[Dict[str, Any]] = None,
+    context: dict[str, Any] | None = None,
     fix_hint: str = "",
     fingerprint: str = "",
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Append issue for Hermes / human to fix. Returns row + whether self-heal ran."""
     import time
 
@@ -60,7 +60,7 @@ def report_issue(
     _RECENT_FP[fp] = now
 
     row = {
-        "ts": datetime.now(timezone.utc).isoformat(),
+        "ts": datetime.now(UTC).isoformat(),
         "kind": kind,
         "severity": severity,
         "message": message[:2000],
@@ -71,7 +71,7 @@ def report_issue(
     }
 
     healed = _try_safe_heal(kind, message, context or {})
-    repair_out: Dict[str, Any] = {}
+    repair_out: dict[str, Any] = {}
     try:
         from plugins.sts2.auto_repair import attempt_auto_repair
 
@@ -96,7 +96,7 @@ def report_issue(
     return row
 
 
-def report_exception(exc: BaseException, *, context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+def report_exception(exc: BaseException, *, context: dict[str, Any] | None = None) -> dict[str, Any]:
     tb = traceback.format_exc()
     msg = f"{type(exc).__name__}: {exc}"
     fix = _suggest_fix_from_traceback(tb, str(exc))
@@ -124,7 +124,7 @@ def report_exception(exc: BaseException, *, context: Optional[Dict[str, Any]] = 
     )
 
 
-def report_action_failure(error: str, action: Dict[str, Any], state: Dict[str, Any]) -> None:
+def report_action_failure(error: str, action: dict[str, Any], state: dict[str, Any]) -> None:
     err = str(error or "").strip()
     if not err:
         return
@@ -148,7 +148,7 @@ def report_action_failure(error: str, action: Dict[str, Any], state: Dict[str, A
     )
 
 
-def scan_controller_errors(errors: List[str]) -> None:
+def scan_controller_errors(errors: list[str]) -> None:
     for err in errors[-5:]:
         if not err:
             continue
@@ -159,7 +159,7 @@ def issues_summary_for_status(*, max_lines: int = 5) -> str:
     path = issues_path()
     if not path.is_file():
         return "程序健康: 无上报记录"
-    rows: List[Dict[str, Any]] = []
+    rows: list[dict[str, Any]] = []
     try:
         for line in path.read_text(encoding="utf-8").splitlines()[-max_lines:]:
             if line.strip():
@@ -189,7 +189,7 @@ def _suggest_fix_from_traceback(tb: str, msg: str) -> str:
     return "把 PROGRAM_ISSUES.md 与 traceback 交给 Cursor/Hermes 修代码后重启督导。"
 
 
-def _try_safe_heal(kind: str, message: str, context: Dict[str, Any]) -> bool:
+def _try_safe_heal(kind: str, message: str, context: dict[str, Any]) -> bool:
     """Only non-destructive recovery (stale locks)."""
     low = message.lower()
     if kind != "driver_busy" and "driver busy" not in low:
@@ -215,7 +215,7 @@ def _try_safe_heal(kind: str, message: str, context: Dict[str, Any]) -> bool:
         return False
 
 
-def _refresh_issues_md(latest: Dict[str, Any]) -> None:
+def _refresh_issues_md(latest: dict[str, Any]) -> None:
     lines = [
         f"# STS2 程序问题上报 · {_now()}\n\n",
         "Hermes 自动发现插件/驱动/API 异常。请把本节交给 Cursor 修复代码。\n\n",
@@ -250,7 +250,7 @@ def _refresh_issues_md(latest: Dict[str, Any]) -> None:
         pass
 
 
-def _maybe_cast(row: Dict[str, Any]) -> None:
+def _maybe_cast(row: dict[str, Any]) -> None:
     if row.get("severity") not in ("error", "critical"):
         return
     import time

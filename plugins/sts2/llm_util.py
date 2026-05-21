@@ -2,11 +2,9 @@
 
 from __future__ import annotations
 
-from typing import Any, List, Optional
-
 
 def sts2_call_llm(
-    messages: List[dict],
+    messages: list[dict],
     *,
     max_tokens: int = 500,
     temperature: float = 0.3,

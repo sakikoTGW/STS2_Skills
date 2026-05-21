@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from plugins.sts2.storage import sts2_home
 
@@ -22,7 +22,7 @@ def set_manual_mode(enabled: bool) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if enabled:
         path.write_text(
-            f"enabled_at={datetime.now(timezone.utc).isoformat()}\n"
+            f"enabled_at={datetime.now(UTC).isoformat()}\n"
             "Hermes STS2: hand play via sts2_get_state + sts2_act. "
             "Rule autopilot is permanently disabled; use sts2_get_state + sts2_act.\n",
             encoding="utf-8",

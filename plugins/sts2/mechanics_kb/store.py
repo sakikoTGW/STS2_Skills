@@ -6,7 +6,7 @@ import json
 import logging
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from plugins.sts2.storage import sts2_home
 
@@ -24,7 +24,7 @@ def user_dir() -> Path:
 
 
 @lru_cache(maxsize=1)
-def load_catalog() -> Dict[str, Any]:
+def load_catalog() -> dict[str, Any]:
     fp = bundled_dir() / "catalog.json"
     if not fp.is_file():
         return {"version": 0, "entry_files": []}
@@ -46,10 +46,10 @@ def _load_json(path: Path) -> Any:
 
 
 @lru_cache(maxsize=1)
-def _merged_bundle() -> Dict[str, Any]:
+def _merged_bundle() -> dict[str, Any]:
     cat = load_catalog()
     root = bundled_dir()
-    out: Dict[str, Any] = {
+    out: dict[str, Any] = {
         "catalog": cat,
         "powers": {},
         "power_match": {},
@@ -100,54 +100,54 @@ def _merged_bundle() -> Dict[str, Any]:
     return out
 
 
-def power_match_index() -> Dict[str, str]:
+def power_match_index() -> dict[str, str]:
     return dict(_merged_bundle().get("power_match") or {})
 
 
-def get_power_entry(power_id: str) -> Optional[Dict[str, Any]]:
+def get_power_entry(power_id: str) -> dict[str, Any] | None:
     return (_merged_bundle().get("powers") or {}).get(power_id.upper())
 
 
-def get_pipeline() -> Dict[str, Any]:
+def get_pipeline() -> dict[str, Any]:
     return dict(_merged_bundle().get("pipeline") or {})
 
 
-def lookup_wiki_examples() -> List[Dict[str, Any]]:
+def lookup_wiki_examples() -> list[dict[str, Any]]:
     return list(_merged_bundle().get("wiki_examples") or [])
 
 
-def get_card_debuff_table() -> Dict[str, Any]:
+def get_card_debuff_table() -> dict[str, Any]:
     return dict(_merged_bundle().get("card_debuffs") or {})
 
 
-def get_multi_hit_table() -> Dict[str, Any]:
+def get_multi_hit_table() -> dict[str, Any]:
     return dict((_merged_bundle().get("multi_hit") or {}).get("cards") or {})
 
 
-def get_multi_hit_patterns() -> List[Dict[str, Any]]:
+def get_multi_hit_patterns() -> list[dict[str, Any]]:
     return list((_merged_bundle().get("multi_hit") or {}).get("parse_patterns") or [])
 
 
-def get_relic_entries() -> List[Dict[str, Any]]:
+def get_relic_entries() -> list[dict[str, Any]]:
     return list(_merged_bundle().get("relics") or [])
 
 
-def get_shop_relic_entries() -> List[Dict[str, Any]]:
+def get_shop_relic_entries() -> list[dict[str, Any]]:
     return list(_merged_bundle().get("shop_relics") or [])
 
 
-def get_core_card_table() -> Dict[str, Any]:
+def get_core_card_table() -> dict[str, Any]:
     return dict(_merged_bundle().get("core_cards") or {})
 
 
-def relics_index_data() -> Dict[str, Any]:
+def relics_index_data() -> dict[str, Any]:
     raw = _merged_bundle().get("relics_index")
     if isinstance(raw, dict) and raw.get("entries"):
         return raw
     return {"entries": raw if isinstance(raw, dict) else {}}
 
 
-def get_special_multipliers() -> List[Dict[str, Any]]:
+def get_special_multipliers() -> list[dict[str, Any]]:
     return list(_merged_bundle().get("special_multipliers") or [])
 
 

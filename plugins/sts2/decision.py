@@ -7,11 +7,9 @@ import logging
 import os
 import re
 import sys
-from typing import Any, Dict, Optional, Tuple
 
-from plugins.sts2.config import load_sts2_config
 from plugins.sts2.combat_brain import decide_combat
-from plugins.sts2.lessons import should_avoid_elite_early
+from plugins.sts2.config import load_sts2_config
 from plugins.sts2.notes import recall_block
 from plugins.sts2.study_mode import is_study_mode
 from plugins.sts2.visibility import describe_action, describe_situation
@@ -343,7 +341,7 @@ def _rule_action(state: dict) -> dict | None:
         from plugins.sts2.reward_cards import offer_reward_cards
 
         cs = state.get("card_select") or {}
-        screen_type = str(cs.get("screen_type", "")).lower()
+        str(cs.get("screen_type", "")).lower()
         cards = offer_reward_cards(state)
         if cs.get("preview_showing", False):
             if cs.get("can_confirm", False):
@@ -509,7 +507,7 @@ def decide(
     state: dict,
     *,
     user_hint: str = "",
-    recent_actions: Optional[list] = None,
+    recent_actions: list | None = None,
 ) -> tuple[str, dict]:
     """Return (commentary, act_body)."""
     _ensure_fresh()
@@ -528,7 +526,7 @@ def _decide_impl(
     state: dict,
     *,
     user_hint: str = "",
-    recent_actions: Optional[list] = None,
+    recent_actions: list | None = None,
 ) -> tuple[str, dict]:
     """Core decide logic (called via indirection for hot-reload)."""
     cfg = load_sts2_config()
@@ -700,7 +698,6 @@ def _decide_impl(
     prompt += f"\nState:\n{state_json}"
 
     try:
-        from agent.auxiliary_client import call_llm
 
         from plugins.sts2.llm_util import sts2_call_llm
 

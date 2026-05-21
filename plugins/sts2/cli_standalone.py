@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-import sys
 
 from plugins.sts2.cli import register_cli, sts2_command
 

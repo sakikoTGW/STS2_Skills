@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, Optional
+from typing import Any
 
 from plugins.sts2.combat_brain import (
     _affordable,
@@ -39,7 +39,7 @@ def _potion_usable(pot: dict) -> bool:
     return True
 
 
-def prefer_potion_play(state: dict) -> Optional[dict]:
+def prefer_potion_play(state: dict) -> dict | None:
     """Use potions when they save the run or unlock a turn (energy)."""
     if combat_should_wait(state):
         return None
@@ -106,7 +106,7 @@ def prefer_potion_play(state: dict) -> Optional[dict]:
                 + str(pot.get("id", ""))
             ).lower()
             if any(k in blob for k in ("block", "格挡", "heal", "治疗", "生命", "hp")):
-                body: Dict[str, Any] = {"action": "use_potion", "slot": slot}
+                body: dict[str, Any] = {"action": "use_potion", "slot": slot}
                 if target and any(
                     k in blob for k in ("enemy", "敌人", "weak", "虚弱", "fire", "火")
                 ):
@@ -151,7 +151,7 @@ def prefer_potion_play(state: dict) -> Optional[dict]:
     return None
 
 
-def prefer_bloodletting_play(state: dict) -> Optional[dict]:
+def prefer_bloodletting_play(state: dict) -> dict | None:
     """0-cost 放血 when HP buffer exists and we need energy."""
     if combat_should_wait(state):
         return None

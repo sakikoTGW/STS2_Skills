@@ -4,27 +4,15 @@
 
 from __future__ import annotations
 
-
-
 import logging
-
 import re
-
-from datetime import datetime, timezone
-
+from datetime import UTC, datetime
 from pathlib import Path
-
-from typing import Any, Dict, List, Optional, Tuple
-
-
+from typing import Any
 
 import yaml
 
-
-
 from plugins.sts2.storage import sts2_home
-
-
 
 logger = logging.getLogger(__name__)
 
@@ -60,7 +48,7 @@ def knowledge_path(kind: str) -> Path:
 
 
 
-def _empty_store() -> Dict[str, Any]:
+def _empty_store() -> dict[str, Any]:
 
     return {"version": 0, "entries": {}}
 
@@ -68,7 +56,7 @@ def _empty_store() -> Dict[str, Any]:
 
 
 
-def load_store(kind: str) -> Dict[str, Any]:
+def load_store(kind: str) -> dict[str, Any]:
 
     path = knowledge_path(kind)
 
@@ -100,13 +88,13 @@ def load_store(kind: str) -> Dict[str, Any]:
 
 
 
-def save_store(kind: str, data: Dict[str, Any]) -> None:
+def save_store(kind: str, data: dict[str, Any]) -> None:
 
     data = dict(data)
 
     data["version"] = int(data.get("version", 0)) + 1
 
-    data["updated_at"] = datetime.now(timezone.utc).isoformat()
+    data["updated_at"] = datetime.now(UTC).isoformat()
 
     knowledge_path(kind).write_text(
 
@@ -120,7 +108,7 @@ def save_store(kind: str, data: Dict[str, Any]) -> None:
 
 
 
-def get_entry(kind: str, item_id: str) -> Optional[Dict[str, Any]]:
+def get_entry(kind: str, item_id: str) -> dict[str, Any] | None:
 
     key = _norm_id(item_id)
 
@@ -150,7 +138,7 @@ def _norm_id(item_id: str) -> str:
 
 
 
-def upsert_entry(kind: str, item_id: str, entry: Dict[str, Any]) -> Dict[str, Any]:
+def upsert_entry(kind: str, item_id: str, entry: dict[str, Any]) -> dict[str, Any]:
 
     key = _norm_id(item_id)
 
@@ -168,7 +156,7 @@ def upsert_entry(kind: str, item_id: str, entry: Dict[str, Any]) -> Dict[str, An
 
     merged["id"] = key
 
-    merged.setdefault("curated_at", datetime.now(timezone.utc).isoformat())
+    merged.setdefault("curated_at", datetime.now(UTC).isoformat())
 
     entries[key] = merged
 
@@ -180,9 +168,9 @@ def upsert_entry(kind: str, item_id: str, entry: Dict[str, Any]) -> Dict[str, An
 
 
 
-def list_rules_from_knowledge(*, limit: int = 12) -> List[str]:
+def list_rules_from_knowledge(*, limit: int = 12) -> list[str]:
 
-    out: List[str] = []
+    out: list[str] = []
 
     for kind in _KINDS:
 
@@ -240,7 +228,7 @@ def combat_card_bonus(card_id: str) -> float:
 
 
 
-def _wiki_results(payload: Any) -> List[Dict[str, Any]]:
+def _wiki_results(payload: Any) -> list[dict[str, Any]]:
 
     if isinstance(payload, list):
 
@@ -264,7 +252,7 @@ def _wiki_results(payload: Any) -> List[Dict[str, Any]]:
 
 
 
-def _pick_best_wiki_match(results: List[Dict[str, Any]], *, query: str, item_id: str) -> Optional[Dict[str, Any]]:
+def _pick_best_wiki_match(results: list[dict[str, Any]], *, query: str, item_id: str) -> dict[str, Any] | None:
 
     if not results:
 
@@ -286,9 +274,9 @@ def _pick_best_wiki_match(results: List[Dict[str, Any]], *, query: str, item_id:
 
 
 
-def _text_blob(entry: Dict[str, Any]) -> str:
+def _text_blob(entry: dict[str, Any]) -> str:
 
-    parts: List[str] = []
+    parts: list[str] = []
 
     for key in ("description", "text", "effect", "flavor", "summary"):
 
@@ -304,7 +292,7 @@ def _text_blob(entry: Dict[str, Any]) -> str:
 
 
 
-def analyze_wiki_entry(entry: Dict[str, Any], *, kind: str = "cards") -> Dict[str, Any]:
+def analyze_wiki_entry(entry: dict[str, Any], *, kind: str = "cards") -> dict[str, Any]:
 
     """Heuristic tags + scores from wiki text (no LLM)."""
 
@@ -314,7 +302,7 @@ def analyze_wiki_entry(entry: Dict[str, Any], *, kind: str = "cards") -> Dict[st
 
     text = _text_blob(entry)
 
-    tags: List[str] = []
+    tags: list[str] = []
 
 
 
@@ -442,7 +430,7 @@ def analyze_wiki_entry(entry: Dict[str, Any], *, kind: str = "cards") -> Dict[st
 
 
 
-def _llm_distill_rule(name: str, wiki_text: str, *, tags: List[str]) -> str:
+def _llm_distill_rule(name: str, wiki_text: str, *, tags: list[str]) -> str:
 
     try:
 
@@ -514,7 +502,7 @@ def fetch_and_store(
 
     use_llm: bool = False,
 
-) -> Tuple[Optional[Dict[str, Any]], str]:
+) -> tuple[dict[str, Any] | None, str]:
 
     """Wiki lookup → local yaml. Returns (entry, rule_to_merge)."""
 

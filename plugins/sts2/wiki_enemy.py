@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List, Tuple
 
 _SUFFIX_NUM = re.compile(r"_(\d+)$")
 
@@ -27,7 +26,7 @@ def enemy_display_name(enemy: dict) -> str:
 
 
 def enemy_powers_blob(enemy: dict) -> str:
-    parts: List[str] = []
+    parts: list[str] = []
     for p in enemy.get("powers") or []:
         if not isinstance(p, dict):
             continue
@@ -40,7 +39,7 @@ def enemy_powers_blob(enemy: dict) -> str:
     return " ".join(parts)
 
 
-def fetch_enemy_wiki(enemy: dict, *, use_llm: bool = False) -> Tuple[dict | None, str]:
+def fetch_enemy_wiki(enemy: dict, *, use_llm: bool = False) -> tuple[dict | None, str]:
     """Fetch wiki entry for one enemy. Returns (entry, wiki_key)."""
     wiki_key = normalize_enemy_wiki_id(enemy)
     if not wiki_key:
@@ -57,7 +56,7 @@ def _format_kb_intents(ent: dict) -> str:
     intents = ent.get("intents") or []
     if not intents:
         return ""
-    parts: List[str] = []
+    parts: list[str] = []
     for it in intents[:6]:
         if not isinstance(it, dict):
             continue
@@ -95,7 +94,7 @@ def format_enemy_wiki_lines(state: dict) -> str:
         budget = 4
 
     stats = kb_stats()
-    lines: List[str] = [
+    lines: list[str] = [
         f"【怪物Wiki·本地库{stats['merged']}条+游戏API，禁止臆测机制】",
         "  每只怪以本块为准；缺条目: sts2_wiki_search(item_type=enemy)。全量同步: hermes sts2 sync-wiki",
     ]
@@ -164,9 +163,9 @@ def format_enemy_wiki_lines(state: dict) -> str:
     return "\n".join(lines)
 
 
-def prefetch_battle_wiki(state: dict) -> List[str]:
+def prefetch_battle_wiki(state: dict) -> list[str]:
     """Eager fetch for all enemies; returns wiki keys fetched."""
-    keys: List[str] = []
+    keys: list[str] = []
     for e in (state.get("battle") or {}).get("enemies") or []:
         if int((e or {}).get("hp", 0) or 0) <= 0:
             continue

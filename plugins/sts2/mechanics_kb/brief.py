@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from plugins.sts2.mechanics_kb.damage_engine import (
     DamageContext,
@@ -13,7 +13,7 @@ from plugins.sts2.mechanics_kb.damage_engine import (
     estimate_poison_tick,
     projected_vulnerable_turns,
 )
-from plugins.sts2.mechanics_kb.power_parse import collect_powers, has_duration_debuff
+from plugins.sts2.mechanics_kb.power_parse import collect_powers
 from plugins.sts2.mechanics_kb.store import get_pipeline, kb_version, lookup_wiki_examples
 
 
@@ -21,7 +21,7 @@ def format_combat_mechanics_brief(state: dict) -> str:
     if str(state.get("state_type") or "").lower() not in ("monster", "combat", "battle"):
         return ""
 
-    lines: List[str] = [
+    lines: list[str] = [
         f"【机制知识库 v{kb_version()}·wiki.gg 全管道】",
         "Duration 易伤/虚弱/脆弱: 层数=回合，倍率固定(×1.5/×0.75/格挡×0.75)",
         "Intensity 力量/毒/缓慢: 层数=强度 | 攻击: 眷顾→加算→攻方乘算→受击乘算→floor",
@@ -37,7 +37,7 @@ def format_combat_mechanics_brief(state: dict) -> str:
     if pp:
         lines.append("玩家: " + ", ".join(f"{k}{v}" for k, v in sorted(pp.items()) if v))
 
-    from plugins.sts2.combat_brain import focus_enemy, _card_is_attack
+    from plugins.sts2.combat_brain import _card_is_attack, focus_enemy
 
     focus = focus_enemy(state)
     if focus:
@@ -49,7 +49,7 @@ def format_combat_mechanics_brief(state: dict) -> str:
             + (f" | 下回合毒{poison}" if poison else "")
         )
 
-    hand = list((player.get("hand") or []))
+    hand = list(player.get("hand") or [])
     for c in sorted(hand, key=lambda x: int(x.get("index", 0) or 0)):
         if not _card_is_attack(c):
             blk = c.get("block")
@@ -106,7 +106,7 @@ def format_combat_mechanics_brief(state: dict) -> str:
     return "\n".join(lines)
 
 
-def validate_wiki_examples() -> List[Dict[str, Any]]:
+def validate_wiki_examples() -> list[dict[str, Any]]:
     results = []
     for ex in lookup_wiki_examples():
         name = ex.get("name", "?")

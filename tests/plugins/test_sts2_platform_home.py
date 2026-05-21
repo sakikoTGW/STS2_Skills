@@ -2,11 +2,6 @@
 
 from __future__ import annotations
 
-import os
-from pathlib import Path
-
-import pytest
-
 from plugins.sts2.platform_home import resolve_sts2_home
 
 

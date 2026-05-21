@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from plugins.sts2.game_flow_kb.store import events_catalog_data
 
@@ -12,7 +12,7 @@ def _norm_event_id(raw: str) -> str:
     return re.sub(r"[^A-Z0-9]+", "_", raw.upper()).strip("_")
 
 
-def resolve_event_id(state: dict) -> Optional[str]:
+def resolve_event_id(state: dict) -> str | None:
     ev = state.get("event") or {}
     for key in ("event_id", "id", "event_name", "name"):
         val = ev.get(key)
@@ -21,7 +21,7 @@ def resolve_event_id(state: dict) -> Optional[str]:
     return None
 
 
-def lookup_event(entry_id: str) -> Optional[Dict[str, Any]]:
+def lookup_event(entry_id: str) -> dict[str, Any] | None:
     return (events_catalog_data().get("entries") or {}).get(entry_id)
 
 

@@ -5,11 +5,10 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
-import re
 import shutil
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 import yaml
 
@@ -22,7 +21,7 @@ _REGISTRY = "rule_registry.yaml"
 _PENDING = "pending_rules.json"
 _BASELINE = "evolution_baseline.json"
 
-_RUN: Dict[str, Any] = {
+_RUN: dict[str, Any] = {
     "id": "",
     "reward_sum": 0.0,
     "steps": 0,
@@ -52,7 +51,7 @@ def pending_path() -> Path:
 
 
 def _now_iso() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def _rule_id(text: str) -> str:
@@ -78,7 +77,7 @@ def _act(run: Any) -> int:
         return 1
 
 
-def read_registry() -> Dict[str, Any]:
+def read_registry() -> dict[str, Any]:
     path = registry_path()
     if not path.is_file():
         return {"version": 0, "rules": [], "updated_at": ""}
@@ -92,7 +91,7 @@ def read_registry() -> Dict[str, Any]:
     return data
 
 
-def write_registry(data: Dict[str, Any]) -> None:
+def write_registry(data: dict[str, Any]) -> None:
     data["updated_at"] = _now_iso()
     data["version"] = int(data.get("version", 0)) + 1
     registry_path().write_text(
@@ -102,7 +101,7 @@ def write_registry(data: Dict[str, Any]) -> None:
     _sync_strategy_yaml_from_registry(data)
 
 
-def _sync_strategy_yaml_from_registry(data: Dict[str, Any]) -> None:
+def _sync_strategy_yaml_from_registry(data: dict[str, Any]) -> None:
     """Keep strategy.yaml aligned with active registry rules (backward compat)."""
     active = [
         str(r.get("text") or "").strip()
@@ -122,18 +121,18 @@ def _sync_strategy_yaml_from_registry(data: Dict[str, Any]) -> None:
     )
 
 
-def _score_for_text(text: str, data: Dict[str, Any]) -> float:
+def _score_for_text(text: str, data: dict[str, Any]) -> float:
     for r in data.get("rules") or []:
         if str(r.get("text") or "").strip() == text.strip():
             return float(r.get("score") or 0)
     return 0.0
 
 
-def read_results(limit: int = 50) -> List[Dict[str, Any]]:
+def read_results(limit: int = 50) -> list[dict[str, Any]]:
     path = results_path()
     if not path.is_file():
         return []
-    rows: List[Dict[str, Any]] = []
+    rows: list[dict[str, Any]] = []
     try:
         for line in path.read_text(encoding="utf-8").splitlines():
             line = line.strip()
@@ -148,7 +147,7 @@ def read_results(limit: int = 50) -> List[Dict[str, Any]]:
     return rows[-limit:]
 
 
-def append_result(row: Dict[str, Any]) -> None:
+def append_result(row: dict[str, Any]) -> None:
     path = results_path()
     with path.open("a", encoding="utf-8") as fh:
         fh.write(json.dumps(row, ensure_ascii=False) + "\n")
@@ -160,7 +159,7 @@ def append_result(row: Dict[str, Any]) -> None:
         pass
 
 
-def read_pending() -> List[Dict[str, Any]]:
+def read_pending() -> list[dict[str, Any]]:
     path = pending_path()
     if not path.is_file():
         return []
@@ -171,7 +170,7 @@ def read_pending() -> List[Dict[str, Any]]:
         return []
 
 
-def write_pending(items: List[Dict[str, Any]]) -> None:
+def write_pending(items: list[dict[str, Any]]) -> None:
     pending_path().write_text(
         json.dumps(items, ensure_ascii=False, indent=2),
         encoding="utf-8",
@@ -180,7 +179,7 @@ def write_pending(items: List[Dict[str, Any]]) -> None:
 
 def begin_run() -> str:
     """Start per-run reward / floor tracking."""
-    rid = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    rid = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     global _RUN
     _RUN = {
         "id": rid,
@@ -221,7 +220,7 @@ def _rollback_strategy() -> bool:
 
 def accumulate_step_reward(
     reward: float,
-    state: Optional[Dict[str, Any]] = None,
+    state: dict[str, Any] | None = None,
     *,
     act_ok: bool = True,
 ) -> None:
@@ -238,7 +237,7 @@ def accumulate_step_reward(
         _RUN["max_act"] = max(int(_RUN.get("max_act", 1)), _act(run))
 
 
-def _rolling_baseline(*, window: int = 8) -> Dict[str, float]:
+def _rolling_baseline(*, window: int = 8) -> dict[str, float]:
     rows = read_results(window)
     if not rows:
         return {"median_max_floor": 0.0, "median_max_act": 1.0, "n": 0}
@@ -252,7 +251,7 @@ def _rolling_baseline(*, window: int = 8) -> Dict[str, float]:
     }
 
 
-def _save_baseline(b: Dict[str, float]) -> None:
+def _save_baseline(b: dict[str, float]) -> None:
     p = evolution_dir() / _BASELINE
     try:
         p.write_text(json.dumps(b, indent=2), encoding="utf-8")
@@ -261,11 +260,11 @@ def _save_baseline(b: Dict[str, float]) -> None:
 
 
 def propose_rule_changes(
-    rules: List[str],
+    rules: list[str],
     *,
     source: str = "reflection",
     force_activate: bool = False,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Queue rule changes; system/bootstrap rules can force_activate."""
     cleaned = [str(r).strip() for r in rules if str(r).strip()]
     if not cleaned:
@@ -294,9 +293,9 @@ def propose_rule_changes(
     return {"proposed": added, "pending_total": len(pending)}
 
 
-def _activate_rules(rules: List[str], *, source: str) -> Dict[str, Any]:
+def _activate_rules(rules: list[str], *, source: str) -> dict[str, Any]:
     data = read_registry()
-    reg_rules: List[Dict[str, Any]] = list(data.get("rules") or [])
+    reg_rules: list[dict[str, Any]] = list(data.get("rules") or [])
     by_id = {str(r.get("id")): r for r in reg_rules}
     activated = 0
     for text in rules:
@@ -361,9 +360,9 @@ def _promote_pending() -> int:
 
 def approve_pending_rules(
     *,
-    indices: Optional[List[int]] = None,
+    indices: list[int] | None = None,
     all: bool = False,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """User confirms proposed rules (manual learn / coach chat)."""
     pending = read_pending()
     if not pending:
@@ -397,9 +396,9 @@ def approve_pending_rules(
 
 def reject_pending_rules(
     *,
-    indices: Optional[List[int]] = None,
+    indices: list[int] | None = None,
     all: bool = False,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     pending = read_pending()
     if not pending:
         return {"rejected": 0, "message": "没有待拒绝规则"}
@@ -419,10 +418,10 @@ def reject_pending_rules(
 
 
 def evolution_gate(
-    metrics: Dict[str, Any],
+    metrics: dict[str, Any],
     *,
     label: str = "",
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """After a run: keep pending rules only if we beat rolling baseline."""
     pending = read_pending()
     baseline = _rolling_baseline(window=8)
@@ -442,7 +441,7 @@ def evolution_gate(
         cur_act < b_act or (cur_act <= b_act and cur_floor < b_floor - 3)
     )
 
-    result: Dict[str, Any] = {
+    result: dict[str, Any] = {
         "baseline": baseline,
         "metrics": metrics,
         "improved": improved,
@@ -470,7 +469,7 @@ def evolution_gate(
     return result
 
 
-def _bump_rule_scores(metrics: Dict[str, Any], *, helped: bool) -> None:
+def _bump_rule_scores(metrics: dict[str, Any], *, helped: bool) -> None:
     data = read_registry()
     delta = 0.35 if helped else -0.15
     if metrics.get("max_act", 1) >= 2:
@@ -497,9 +496,9 @@ _LAST_FINALIZED = ""
 def finalize_run(
     *,
     label: str,
-    last_state: Optional[Dict[str, Any]] = None,
+    last_state: dict[str, Any] | None = None,
     llm_summary: str = "",
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """End of run: log metrics, run evolution gate."""
     global _RUN, _LAST_FINALIZED
     rid = str(_RUN.get("id") or "")
@@ -545,7 +544,7 @@ def finalize_run(
     return {"metrics": metrics, "gate": gate}
 
 
-def ranked_rules_for_prompt(*, limit: int = 12) -> List[str]:
+def ranked_rules_for_prompt(*, limit: int = 12) -> list[str]:
     data = read_registry()
     active = [
         r
@@ -553,7 +552,7 @@ def ranked_rules_for_prompt(*, limit: int = 12) -> List[str]:
         if str(r.get("status") or "") == "active" and str(r.get("text") or "").strip()
     ]
     active.sort(key=lambda r: float(r.get("score") or 0), reverse=True)
-    out: List[str] = []
+    out: list[str] = []
     for r in active[:limit]:
         out.append(str(r["text"]).strip())
     if not out:
@@ -578,7 +577,7 @@ def evolution_summary_for_status() -> str:
             f"上局: {r0.get('label')} Act{r0.get('max_act')} 层{r0.get('max_floor')} "
             f"reward={r0.get('reward_sum')}"
         )
-    reg = read_registry()
+    read_registry()
     top = ranked_rules_for_prompt(limit=3)
     if top:
         lines.append("高分规则: " + " | ".join(t[:50] for t in top))
@@ -604,7 +603,7 @@ def note_act_cleared(act: int) -> None:
         )
 
 
-def bootstrap_evolution_store() -> Dict[str, Any]:
+def bootstrap_evolution_store() -> dict[str, Any]:
     """Seed registry from existing strategy.yaml once."""
     reg = read_registry()
     if reg.get("rules"):
@@ -618,8 +617,8 @@ def bootstrap_evolution_store() -> Dict[str, Any]:
     return {"bootstrapped": True, "count": len(texts)}
 
 
-def extract_rules_from_text(text: str, *, max_rules: int = 3) -> List[str]:
-    rules: List[str] = []
+def extract_rules_from_text(text: str, *, max_rules: int = 3) -> list[str]:
+    rules: list[str] = []
     for line in text.splitlines():
         line = line.strip()
         if not line:

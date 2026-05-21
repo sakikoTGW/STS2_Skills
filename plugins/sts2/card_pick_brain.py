@@ -4,25 +4,13 @@
 
 from __future__ import annotations
 
-
-
 import json
-
 import logging
-
 import re
-
 from collections import Counter
 
-from typing import Any, Dict, List, Optional, Tuple
-
-
-
 from plugins.sts2.reward_cards import format_card_offers, offer_reward_cards
-
 from plugins.sts2.visibility import describe_situation
-
-
 
 logger = logging.getLogger(__name__)
 
@@ -179,7 +167,7 @@ def card_reward_can_skip(state: dict) -> bool:
 
 
 
-def card_reward_should_skip(state: dict, offers: List[dict]) -> bool:
+def card_reward_should_skip(state: dict, offers: list[dict]) -> bool:
 
     """STS2 rewards are curated pools — almost never skip (no STS1 '3 Strikes' spam)."""
 
@@ -212,11 +200,10 @@ def _archetype_hint(state: dict) -> str:
 
 
 
-def rule_card_reward_fallback(state: dict) -> Tuple[str, dict]:
+def rule_card_reward_fallback(state: dict) -> tuple[str, dict]:
 
     """Rules + deck pollution heuristics when LLM unavailable."""
 
-    from plugins.sts2.decision import _pick_best_card
 
 
 
@@ -298,7 +285,7 @@ def card_select_should_confirm(state: dict) -> bool:
     return bool(cs.get("can_confirm", False))
 
 
-def rule_card_select_fallback(state: dict) -> Tuple[str, dict]:
+def rule_card_select_fallback(state: dict) -> tuple[str, dict]:
     """Smith / upgrade / transform grid — preview then confirm."""
     from plugins.sts2.decision import _pick_best_card
 
@@ -327,7 +314,7 @@ def decide_card_reward(
 
     memory: str = "",
 
-) -> Tuple[str, dict, bool]:
+) -> tuple[str, dict, bool]:
 
     """
 
@@ -428,9 +415,6 @@ def decide_card_reward(
 
 
     from plugins.sts2.ironclad_builds import combat_playbook_snippet
-
-
-
     from plugins.sts2.run_objective import llm_run_objective_system
 
     system = (
@@ -551,7 +535,6 @@ def decide_card_reward(
         return comm, body, True
 
     from plugins.sts2.action_validate import validate_action
-
     from plugins.sts2.decision import _coerce_action
 
 

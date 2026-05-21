@@ -11,7 +11,7 @@ test: dev
 	python tests/test_repo_meta.py
 
 lint: dev
-	ruff check plugins scripts tests
+	ruff check plugins/sts2 scripts tests
 
 sync-version:
 	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/sync-version.ps1

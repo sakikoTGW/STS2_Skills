@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Dict, List, Optional, Tuple
 
 CLICK_ACTION = "crystal_sphere_click_cell"
 SET_TOOL_ACTION = "crystal_sphere_set_tool"
@@ -67,7 +66,7 @@ def can_proceed(state: dict) -> bool:
     return divinations_remaining(state) <= 0
 
 
-def map_next_options(state: dict) -> List[dict]:
+def map_next_options(state: dict) -> list[dict]:
     m = state.get("map") if isinstance(state.get("map"), dict) else {}
     opts = m.get("next_options") or state.get("next_options") or []
     return [o for o in opts if isinstance(o, dict)]
@@ -105,7 +104,7 @@ def current_tool(state: dict) -> str:
     return tool if tool in ("big", "small") else "big"
 
 
-def clickable_cells(state: dict) -> List[dict]:
+def clickable_cells(state: dict) -> list[dict]:
     cs = _cs_block(state)
     cells = cs.get("clickable_cells") or cs.get("cells") or state.get("clickable_cells")
     if not isinstance(cells, list):
@@ -113,14 +112,14 @@ def clickable_cells(state: dict) -> List[dict]:
     return [c for c in cells if isinstance(c, dict)]
 
 
-def pick_click_xy(state: dict) -> Tuple[int, int]:
+def pick_click_xy(state: dict) -> tuple[int, int]:
     cells = clickable_cells(state)
     highlighted = [c for c in cells if c.get("is_highlighted")]
     pool = highlighted or cells
     if not pool:
         return 3, 1
 
-    def _xy(c: dict) -> Tuple[int, int]:
+    def _xy(c: dict) -> tuple[int, int]:
         try:
             return int(c.get("x", 0)), int(c.get("y", 0))
         except (TypeError, ValueError):
@@ -131,7 +130,7 @@ def pick_click_xy(state: dict) -> Tuple[int, int]:
     return round(sum(xs) / len(xs)), round(sum(ys) / len(ys))
 
 
-def _parse_xy(body: dict) -> Optional[Tuple[int, int]]:
+def _parse_xy(body: dict) -> tuple[int, int] | None:
     for xk, yk in (("x", "y"), ("cell_x", "cell_y"), ("col", "row")):
         if xk in body and yk in body:
             try:
@@ -254,8 +253,8 @@ def format_crystal_brief(state: dict) -> str:
     lines = [
         "【水晶球】必须用 STS2MCP 专用动作，勿用 proceed/divine/big 当 action。",
         f"当前工具={tool}（big=3×3 大刮，small=1×1 小刮）| 剩余占卜次数≈{rem}",
-        f"crystal_sphere_set_tool(tool=\"big\"|\"small\") → "
-        f"crystal_sphere_click_cell(x,y) → 次数用尽后 crystal_sphere_proceed()",
+        "crystal_sphere_set_tool(tool=\"big\"|\"small\") → "
+        "crystal_sphere_click_cell(x,y) → 次数用尽后 crystal_sphere_proceed()",
     ]
     if stale:
         from plugins.sts2.visibility import _map_line

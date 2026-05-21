@@ -61,7 +61,6 @@ def is_internal_act() -> bool:
 
 def manual_act_blocked() -> str | None:
     # File-based kill switch: create ~/.hermes/sts2/.unlock to bypass
-    import os
     try:
         from plugins.sts2.storage import sts2_home
         if (sts2_home() / ".unlock").is_file():

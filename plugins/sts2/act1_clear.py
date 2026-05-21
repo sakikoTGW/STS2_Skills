@@ -2,9 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List
-
-_WIN_RULES: List[str] = [
+_WIN_RULES: list[str] = [
     "通关优先：HP<50% 绝不选精英；地图有营火且HP<75% 必选营火。",
     "Act1 前9层只打普通战或?，HP>70% 才考虑精英。",
     "多怪战集火最低血敌人；预估伤害≥当前HP 必须先格挡再输出。",

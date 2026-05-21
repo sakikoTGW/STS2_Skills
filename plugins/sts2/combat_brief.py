@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 from plugins.sts2.combat_brain import (
     _affordable,
@@ -85,7 +85,7 @@ def format_combat_brief(state: dict) -> str:
     except Exception:
         survival = ""
 
-    sections: List[str] = [
+    sections: list[str] = [
         survival,
         run_block,
         build_hint,
@@ -143,7 +143,7 @@ def _battle_header(state: dict) -> str:
 def _fmt_powers(powers: Any, limit: int = 8) -> str:
     if not powers:
         return "(无)"
-    bits: List[str] = []
+    bits: list[str] = []
     for p in powers:
         if not isinstance(p, dict):
             continue
@@ -238,9 +238,9 @@ def _enemy_panel(state: dict) -> str:
     return "\n".join(lines)
 
 
-def _behavior_loop_ledger(enemies: List[dict]) -> List[str]:
+def _behavior_loop_ledger(enemies: list[dict]) -> list[str]:
     """Per-enemy KB loop forecast — shown in play_brief damage ledger."""
-    out: List[str] = []
+    out: list[str] = []
     try:
         from plugins.sts2.huiji_kb.loops import forecast_enemy, format_loop_forecast
         from plugins.sts2.huiji_kb.store import lookup_enemy
@@ -337,7 +337,9 @@ def _damage_ledger(state: dict) -> str:
     return "\n".join(lines)
 
 
-def _card_target_hint(card: dict, enemies: List[dict], player: dict) -> str:
+def _card_target_hint(
+    card: dict, enemies: list[dict], player: dict, *, state: dict | None = None
+) -> str:
     tt = str(card.get("target_type") or card.get("target") or "").lower()
     if tt in ("self", "none", "") and "enemy" not in tt:
         if _card_is_block(card) or _card_is_power(card):
@@ -352,19 +354,19 @@ def _card_target_hint(card: dict, enemies: List[dict], player: dict) -> str:
         return f"target={e.get('entity_id')} ({e.get('name')})"
     low = min(living, key=lambda e: int(e.get("hp", 9999)))
     eid = low.get("entity_id")
-    from plugins.sts2.combat_turn_plan import predict_next_turn, _enemy_key
+    from plugins.sts2.combat_turn_plan import _enemy_key, predict_next_turn
 
     key = _enemy_key(low)
     pred, note = predict_next_turn(key)
     if pred == "likely_non_attack":
         return f"慎选 {eid}（下回合常休息）| 优先打将攻击的怪"
-    dmg = estimate_card_damage(card, player, state=state, enemy=low)
+    dmg = estimate_card_damage(card, player, state=state or {}, enemy=low)
     if dmg >= int(low.get("hp", 0) or 0):
         return f"斩杀 target={eid} ({low.get('name')})"
     return f"默认 target={eid}（血最少）"
 
 
-def _hand_tactics(state: dict, hand: List[dict]) -> str:
+def _hand_tactics(state: dict, hand: list[dict]) -> str:
     if not hand:
         return "【手牌战术】手牌为空（可能在补牌动画）"
     player = state.get("player") or {}
@@ -392,7 +394,7 @@ def _hand_tactics(state: dict, hand: List[dict]) -> str:
         elif _cost(c) > energy:
             tag = f"×(费{cost}>能{energy})"
 
-        extras: List[str] = []
+        extras: list[str] = []
         if _card_is_block(c):
             extras.append(f"格挡≈{estimate_block_gain(c, player)}")
         if _card_is_attack(c):
@@ -402,7 +404,7 @@ def _hand_tactics(state: dict, hand: List[dict]) -> str:
             extras.append(hint_dmg or f"伤害≈{estimate_card_damage(c, player, state=state)}")
         if _card_is_power(c):
             extras.append("能力牌")
-        hint = _card_target_hint(c, enemies, player) if ok else ""
+        hint = _card_target_hint(c, enemies, player, state=state) if ok else ""
         extra_s = " | ".join(extras)
         line = f"  [{idx}] {name} 费{cost} {tag}"
         if extra_s:
@@ -413,7 +415,7 @@ def _hand_tactics(state: dict, hand: List[dict]) -> str:
     return "\n".join(lines)
 
 
-def _lethal_panel(state: dict, hand: List[dict]) -> str:
+def _lethal_panel(state: dict, hand: list[dict]) -> str:
     player = state.get("player") or {}
     try:
         energy = int(player.get("energy", 0))
@@ -466,7 +468,7 @@ def _lethal_panel(state: dict, hand: List[dict]) -> str:
     return "\n".join(lines)
 
 
-def _damage_control_panel(state: dict, hand: List[dict]) -> str:
+def _damage_control_panel(state: dict, hand: list[dict]) -> str:
     """When kill is impossible this turn but enemy attacks next — prefer block over chip."""
     player = state.get("player") or {}
     try:
@@ -578,7 +580,7 @@ def _line_plan_block(state: dict) -> str:
         return f"【出牌计划】规划器暂不可用: {exc}"
 
 
-def _energy_spend_plan(state: dict, hand: List[dict]) -> str:
+def _energy_spend_plan(state: dict, hand: list[dict]) -> str:
     """Explicit: spend all energy in one player turn across multiple sts2_act calls."""
     player = state.get("player") or {}
     try:
@@ -641,8 +643,8 @@ def _energy_spend_plan(state: dict, hand: List[dict]) -> str:
     return "\n".join(lines)
 
 
-def _turn_decision(state: dict, hand: List[dict]) -> str:
-    lines: List[str] = []
+def _turn_decision(state: dict, hand: list[dict]) -> str:
+    lines: list[str] = []
     if combat_should_end_turn(state):
         lines.append(
             "【回合动作】手牌/能量已用尽 → sts2_act {\"action\":\"end_turn\"}"
@@ -678,7 +680,7 @@ def _turn_decision(state: dict, hand: List[dict]) -> str:
 def _intent_notes(state: dict) -> str:
     """Per-enemy intent coaching (buff turn vs attack turn)."""
     enemies = (state.get("battle") or {}).get("enemies") or []
-    bits: List[str] = []
+    bits: list[str] = []
     for e in enemies:
         if not isinstance(e, dict):
             continue
@@ -701,7 +703,7 @@ def _intent_notes(state: dict) -> str:
     return "【意图速读】\n" + "\n".join(f"  · {b}" for b in bits)
 
 
-def _legal_actions_sheet(state: dict, hand: List[dict]) -> str:
+def _legal_actions_sheet(state: dict, hand: list[dict]) -> str:
     """Concrete JSON the model can copy."""
     player = state.get("player") or {}
     try:
@@ -712,9 +714,9 @@ def _legal_actions_sheet(state: dict, hand: List[dict]) -> str:
     enemies = (state.get("battle") or {}).get("enemies") or []
     tgt = _target_entity_id(enemies)
 
-    opts: List[str] = []
+    opts: list[str] = []
     for c in playable[:5]:
-        body: Dict[str, Any] = {"action": "play_card", "card_index": c.get("index", 0)}
+        body: dict[str, Any] = {"action": "play_card", "card_index": c.get("index", 0)}
         tt = str(c.get("target_type") or "").lower()
         if tgt and ("enemy" in tt or _card_is_attack(c)):
             body["target"] = tgt

@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-import json
-from typing import Any, Dict, List
-
 _BRIEF_STRIP_MARKERS = (
     "规则引擎建议",
     "LLM出牌建议",
@@ -39,7 +36,7 @@ def format_agent_contract(state: dict) -> str:
         ap_running = False
 
     if ap_running:
-        lines: List[str] = [
+        lines: list[str] = [
             "【架构·一口气代打中 — 你不要自己出牌】",
             "后台线程在自动通关；你=教练/解说，除非用户说「停」。",
             "禁止: 用 sts2_act 抢操作（会 pause 代打）；禁止问「继续吗」。",
@@ -81,7 +78,7 @@ def format_agent_contract(state: dict) -> str:
 
         m = resolve_sts2_mode()
         if auto_run_env_enabled() and m.get("mode_id") == "autopilot_ready":
-            lines: List[str] = [
+            lines: list[str] = [
                 "【架构·AUTO_RUN 待启动】",
                 "一口气代打尚未 run：游戏连上后会自动开，或你立刻 sts2_autoplay action=run。",
                 "禁止用 sts2_act 边聊边打代替代打（除非用户明确要手操）。",
@@ -104,7 +101,7 @@ def format_agent_contract(state: dict) -> str:
     except Exception:
         mode_hdr = ""
 
-    lines: List[str] = []
+    lines: list[str] = []
     if mode_hdr:
         lines.append(mode_hdr)
     lines.extend(

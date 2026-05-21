@@ -19,23 +19,15 @@ MCP tools expose **readable** action traces (出牌/用药/效果) for agents th
 
 from __future__ import annotations
 
-
-
 import argparse
-
 import json
-
 import sys
-
-
-
 
 
 def _observe_payload() -> dict:
 
-    from plugins.sts2.autoplay import get_controller
-
     from plugins.sts2.action_trace import read_action_log_tail
+    from plugins.sts2.autoplay import get_controller
 
 
 
@@ -78,13 +70,9 @@ def _run() -> None:
 
 
     from plugins.sts2 import client as sts2_client
-
     from plugins.sts2.action_trace import read_action_log_tail
-
     from plugins.sts2.autoplay import get_controller
-
     from plugins.sts2.config import load_sts2_config
-
     from plugins.sts2.visibility import describe_situation
 
 

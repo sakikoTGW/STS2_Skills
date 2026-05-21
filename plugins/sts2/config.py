@@ -121,7 +121,6 @@ def load_sts2_config() -> dict[str, Any]:
         merged["base_url"] = env_url.rstrip("/")
 
     from plugins.sts2.character_choice import (
-        DEFAULT_CHARACTER,
         DEFAULT_CHARACTER_INDEX,
         resolve_character_setting,
     )
@@ -150,7 +149,7 @@ def load_sts2_config() -> dict[str, Any]:
         except (TypeError, ValueError):
             merged["max_steps_per_run"] = 8000
 
-    from plugins.sts2.autonomy import autopilot_until_victory, full_run_cleared
+    from plugins.sts2.autonomy import autopilot_until_victory
 
     if autopilot_until_victory(merged):
         merged["pause_on_ask"] = False

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import re
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 from plugins.sts2.combat_brain import (
     _affordable,
@@ -26,7 +26,7 @@ def relic_turn_hp_loss(state: dict) -> int:
     """Start-of-turn HP loss from relics/powers (e.g. Crimson Mantle)."""
     total = 0
     player = state.get("player") or {}
-    blob_parts: List[str] = []
+    blob_parts: list[str] = []
     for key in ("powers", "relics", "buffs"):
         for p in player.get(key) or []:
             if isinstance(p, dict):
@@ -50,7 +50,7 @@ def relic_turn_hp_loss(state: dict) -> int:
     return total
 
 
-def survival_snapshot(state: dict) -> Dict[str, Any]:
+def survival_snapshot(state: dict) -> dict[str, Any]:
     """Numbers the agent must read before any play_card."""
     if combat_should_wait(state):
         return {"active": False, "reason": "enemy_turn"}
@@ -157,7 +157,7 @@ def _attack_kill_reduces_lethal(state: dict, body: dict, card: dict) -> bool:
     return net_after < max(1, hp_eff)
 
 
-def potion_required_before_play(state: dict) -> Optional[dict]:
+def potion_required_before_play(state: dict) -> dict | None:
     """Lethal turn: use energy/draw/heal potion before wasting blocks."""
     snap = survival_snapshot(state)
     if not snap.get("active") or not snap.get("lethal_this_turn"):
@@ -178,8 +178,8 @@ def potion_required_before_play(state: dict) -> Optional[dict]:
 def pick_survival_card(
     state: dict,
     *,
-    preferred_index: Optional[int] = None,
-) -> Optional[dict]:
+    preferred_index: int | None = None,
+) -> dict | None:
     snap = survival_snapshot(state)
     if not snap.get("active"):
         return None
@@ -239,7 +239,7 @@ def play_card_would_lethal(state: dict, body: dict) -> bool:
     return False
 
 
-def forbid_non_survival_play(state: dict, body: dict) -> Optional[dict]:
+def forbid_non_survival_play(state: dict, body: dict) -> dict | None:
     if str(body.get("action") or "") != "play_card":
         return None
     if not must_survive_turn(state):
@@ -264,7 +264,7 @@ def resolve_play_card_correction(
     state: dict,
     requested: dict,
     validated: dict,
-) -> Tuple[str, Optional[dict]]:
+) -> tuple[str, dict | None]:
     """Decide whether to execute validated play_card after index change.
 
     Returns (policy, body):

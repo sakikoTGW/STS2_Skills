@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 
 
 def test_merge_openclaw_mcp_into_json(tmp_path):
@@ -30,9 +29,8 @@ def test_merge_openclaw_mcp_into_json(tmp_path):
 
 
 def test_write_sts2_config_enforce_by_host(tmp_path):
-    from plugins.sts2.integrations.host_setup import write_sts2_config
-
     import yaml
+    from plugins.sts2.integrations.host_setup import write_sts2_config
 
     ab_home = tmp_path / "ab" / "sts2"
     write_sts2_config(host="astrbot", sts2_home=ab_home, character_index=2)

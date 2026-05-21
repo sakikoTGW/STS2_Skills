@@ -2,13 +2,11 @@
 
 from __future__ import annotations
 
-from typing import List
-
-_CACHE: List[str] = []
+_CACHE: list[str] = []
 _CACHE_TS = 0.0
 
 
-def refresh_memory_cache() -> List[str]:
+def refresh_memory_cache() -> list[str]:
     """Rules + recent death lessons (re-read each call in study mode)."""
     global _CACHE, _CACHE_TS
     import time
@@ -21,7 +19,7 @@ def refresh_memory_cache() -> List[str]:
     if _CACHE and now - _CACHE_TS < 2.0:
         return _CACHE
 
-    lines: List[str] = []
+    lines: list[str] = []
     for r in list_rules_from_knowledge(limit=8):
         if r not in lines:
             lines.append(r)
@@ -46,7 +44,7 @@ def refresh_memory_cache() -> List[str]:
     lines.extend(lessons_for_combat({}))
     # dedupe preserve order
     seen = set()
-    out: List[str] = []
+    out: list[str] = []
     for ln in lines:
         if ln not in seen:
             seen.add(ln)

@@ -3,9 +3,8 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Dict, Optional
 
-from plugins.sts2.act1_clear import hp_ratio, pick_map_node, run_floor, _option_label
+from plugins.sts2.act1_clear import _option_label, hp_ratio, pick_map_node, run_floor
 
 
 def act1_guarantee_enabled() -> bool:
@@ -61,7 +60,7 @@ def _is_elite_option(option: dict) -> bool:
     return "elite" in _option_label(option)
 
 
-def veto_objective_mistake(state: dict, body: dict) -> Optional[str]:
+def veto_objective_mistake(state: dict, body: dict) -> str | None:
     """Human-readable reason if this action is objectively losing for Act1."""
     if not act1_guarantee_enabled() or _run_act(state) != 1:
         return None

@@ -1,0 +1,92 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package + dev tools
+        run: |
+          python -m pip install -U pip
+          pip install -e ".[mcp,dev]"
+
+      - name: Repo metadata
+        run: python tests/test_repo_meta.py
+
+      - name: Ruff
+        run: ruff check plugins/sts2 scripts tests
+
+      - name: Pytest
+        run: pytest
+
+      - name: Verify version matches tag
+        shell: bash
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          VER=$(python -c "import re; t=open('pyproject.toml').read(); m=re.search(r'^version = \"([^\"]+)\"', t, re.M); print(m.group(1))")
+          test "$VER" = "$TAG" || { echo "Tag $GITHUB_REF_NAME != pyproject $VER"; exit 1; }
+
+  build-assets:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build source zip
+        run: python scripts/build_release_assets.py "${{ github.ref_name }}"
+
+      - name: Upload source artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-zip
+          path: dist/STS2_Skills-${{ github.ref_name }}.zip
+
+  publish:
+    needs: build-assets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download zip
+        uses: actions/download-artifact@v4
+        with:
+          name: release-zip
+          path: dist
+
+      - name: Extract release notes from CHANGELOG
+        id: notes
+        shell: bash
+        run: |
+          VER="${GITHUB_REF_NAME#v}"
+          awk -v ver="$VER" '
+            /^## \[/ { if ($0 ~ "\\[" ver "\\]") { found=1; next } else if (found) exit }
+            found { print }
+          ' CHANGELOG.md > release_notes.md
+          if [ ! -s release_notes.md ]; then
+            echo "Release ${{ github.ref_name }} — see CHANGELOG.md" > release_notes.md
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/STS2_Skills-${{ github.ref_name }}.zip
+          body_path: release_notes.md
+          generate_release_notes: false
+          draft: false

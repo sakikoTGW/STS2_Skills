@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 from plugins.sts2.combat_brain import (
     _affordable,
@@ -20,7 +20,7 @@ from plugins.sts2.combat_brain import (
     try_lethal_attack,
 )
 
-Action = Dict[str, Any]
+Action = dict[str, Any]
 
 
 def _lessons_text(state: dict) -> str:
@@ -213,7 +213,7 @@ def decide_combat_scored(state: dict) -> Action:
     if urgent_block:
         return urgent_block
 
-    candidates: List[Tuple[Action, float]] = []
+    candidates: list[tuple[Action, float]] = []
     best_atk = -999.0
     best_blk = -999.0
 

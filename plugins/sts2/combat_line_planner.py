@@ -6,17 +6,14 @@ import copy
 import json
 import math
 import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
 
 from plugins.sts2.combat_brain import (
-    _affordable,
     _card_is_attack,
     _card_is_block,
     _cost,
-    _target_entity_id,
     card_applies_vulnerable,
     enemy_vulnerable_stacks,
     estimate_block_gain,
@@ -65,7 +62,7 @@ class EnemyMech:
     hp: int
     block: int = 0
     vuln_stacks: int = 0
-    damage_cap_per_turn: Optional[int] = None
+    damage_cap_per_turn: int | None = None
     damage_taken_this_turn: int = 0
     notes: str = ""
 
@@ -74,8 +71,8 @@ class EnemyMech:
 class PlanState:
     energy: int
     player_block: int
-    hand: List[dict]
-    enemies: List[EnemyMech]
+    hand: list[dict]
+    enemies: list[EnemyMech]
     player: dict
 
 
@@ -83,7 +80,7 @@ def _blob(entity: dict) -> str:
     return json.dumps(entity, ensure_ascii=False).lower()
 
 
-def _match_patterns(text: str) -> Optional[dict]:
+def _match_patterns(text: str) -> dict | None:
     for pat in _mech_catalog().get("power_patterns") or []:
         if not isinstance(pat, dict):
             continue
@@ -93,7 +90,7 @@ def _match_patterns(text: str) -> Optional[dict]:
     return None
 
 
-def _enemy_catalog_match(e: dict) -> Optional[dict]:
+def _enemy_catalog_match(e: dict) -> dict | None:
     blob = _blob(e)
     for _key, ent in (_mech_catalog().get("enemies") or {}).items():
         if not isinstance(ent, dict):
@@ -104,10 +101,10 @@ def _enemy_catalog_match(e: dict) -> Optional[dict]:
     return None
 
 
-def detect_enemy_mechanics(enemy: dict) -> Tuple[Optional[int], str]:
+def detect_enemy_mechanics(enemy: dict) -> tuple[int | None, str]:
     """Return (damage_cap_per_turn, coaching note)."""
-    notes: List[str] = []
-    cap: Optional[int] = None
+    notes: list[str] = []
+    cap: int | None = None
 
     ent = _enemy_catalog_match(enemy)
     if ent:
@@ -144,8 +141,8 @@ def detect_enemy_mechanics(enemy: dict) -> Tuple[Optional[int], str]:
     return cap, note
 
 
-def _build_enemy_sims(state: dict) -> List[EnemyMech]:
-    out: List[EnemyMech] = []
+def _build_enemy_sims(state: dict) -> list[EnemyMech]:
+    out: list[EnemyMech] = []
     for e in (state.get("battle") or {}).get("enemies") or []:
         if not isinstance(e, dict):
             continue
@@ -240,14 +237,14 @@ def _apply_hit(enemy: EnemyMech, raw: int) -> int:
     return dmg
 
 
-def _pick_target(enemies: List[EnemyMech]) -> Optional[EnemyMech]:
+def _pick_target(enemies: list[EnemyMech]) -> EnemyMech | None:
     living = [e for e in enemies if e.hp > 0]
     if not living:
         return None
     return min(living, key=lambda e: e.hp)
 
 
-def _simulate_play(ps: PlanState, card: dict) -> Tuple[PlanState, dict, int]:
+def _simulate_play(ps: PlanState, card: dict) -> tuple[PlanState, dict, int]:
     """Return new state, action body, score delta for this play."""
     cost = _play_cost(card, ps.energy)
     if cost > ps.energy or not card.get("can_play", True):
@@ -325,9 +322,9 @@ def _search_best_sequence(
     incoming: int,
     depth: int = 0,
     max_depth: int = 8,
-) -> Tuple[float, List[dict]]:
+) -> tuple[float, list[dict]]:
     best_score = _score_terminal(ps, incoming)
-    best_seq: List[dict] = []
+    best_seq: list[dict] = []
 
     if depth >= max_depth or ps.energy <= 0:
         return best_score, best_seq
@@ -359,7 +356,7 @@ def _search_best_sequence(
     return best_score, best_seq
 
 
-def plan_turn_sequence(state: dict) -> List[dict]:
+def plan_turn_sequence(state: dict) -> list[dict]:
     """Best-effort multi-card plan for current player turn."""
     player = state.get("player") or {}
     try:
@@ -421,7 +418,7 @@ def format_line_plan_block(state: dict) -> str:
     if turn and turn not in ("player", "play", "your_turn"):
         return ""
 
-    parts: List[str] = [
+    parts: list[str] = [
         "【决策权】最终出牌由你（LLM）判断；下列计划/组合仅为辅助，可因抽牌/教练纠正而改。",
         battle_budget_block(state),
     ]
@@ -489,7 +486,7 @@ def format_line_plan_block(state: dict) -> str:
     return "\n\n".join(p for p in parts if p)
 
 
-def first_planned_action(state: dict) -> Optional[dict]:
+def first_planned_action(state: dict) -> dict | None:
     seq = plan_turn_sequence(state)
     return seq[0] if seq else None
 
@@ -514,9 +511,9 @@ def format_combo_alternatives(state: dict, *, limit: int = 3) -> str:
     )
     incoming = incoming_attack_damage((state.get("battle") or {}).get("enemies") or [])
 
-    scored: List[Tuple[float, List[dict], PlanState]] = []
+    scored: list[tuple[float, list[dict], PlanState]] = []
 
-    def _collect(ps: PlanState, seq: List[dict], depth: int) -> None:
+    def _collect(ps: PlanState, seq: list[dict], depth: int) -> None:
         sc = _score_terminal(ps, incoming)
         scored.append((sc, list(seq), ps))
         if depth >= 6 or ps.energy <= 0:
@@ -567,9 +564,9 @@ def check_action_vs_plan(
     before: dict,
     after: dict,
     body: dict,
-) -> List[str]:
+) -> list[str]:
     """Warnings when LLM action diverges from energy/shell discipline."""
-    warnings: List[str] = []
+    warnings: list[str] = []
     action = str(body.get("action") or "")
     if str(before.get("state_type") or "") not in ("monster", "elite", "boss"):
         return warnings

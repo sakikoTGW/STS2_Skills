@@ -24,7 +24,6 @@ from plugins.sts2.platform_home import (
     detect_runtime_host,
     resolve_astrbot_data_dir,
     resolve_openclaw_home,
-    resolve_sts2_home,
 )
 
 DEFAULT_BASE_URL = "http://127.0.0.1:15526"
@@ -368,6 +367,7 @@ def setup_hermes_native(
     try:
         from hermes_cli.config import load_config, save_config
         from hermes_constants import display_hermes_home, get_hermes_home
+
         from plugins.sts2.config import load_sts2_config
     except Exception:
         return None

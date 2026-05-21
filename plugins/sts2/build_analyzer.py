@@ -5,8 +5,8 @@ from __future__ import annotations
 import json
 import logging
 from collections import Counter
-from datetime import datetime, timezone
-from typing import Any, Dict, List, Optional
+from datetime import UTC, datetime
+from typing import Any
 
 from plugins.sts2.build_knowledge import (
     _append_journal,
@@ -19,13 +19,12 @@ from plugins.sts2.build_knowledge import (
     list_archetypes,
     web_digest,
 )
-from plugins.sts2.storage import sts2_home
 
 logger = logging.getLogger(__name__)
 
 
-def _deck_ids(state: dict) -> List[str]:
-    ids: List[str] = []
+def _deck_ids(state: dict) -> list[str]:
+    ids: list[str] = []
     player = state.get("player") or {}
     for key in ("deck", "master_deck", "cards", "draw_pile", "discard_pile"):
         for c in player.get(key) or []:
@@ -37,12 +36,12 @@ def _deck_ids(state: dict) -> List[str]:
 
 
 def analyze_run_end(
-    prev: Optional[dict],
+    prev: dict | None,
     nxt: dict,
     *,
     label: str = "",
     llm_summary: str = "",
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Called on game_over / run_end — update profile + optional LLM build review."""
     from plugins.sts2.config import load_sts2_config
 
@@ -66,7 +65,7 @@ def analyze_run_end(
     counts = Counter(deck)
 
     row = {
-        "ts": datetime.now(timezone.utc).isoformat(),
+        "ts": datetime.now(UTC).isoformat(),
         "event": "run_end",
         "label": label,
         "char": char,
@@ -80,7 +79,7 @@ def analyze_run_end(
     _append_journal(row)
     _update_profile(char, arch_id, floor, win, deck)
 
-    out: Dict[str, Any] = {"recorded": True, "archetype": arch_id, "floor": floor, "win": win}
+    out: dict[str, Any] = {"recorded": True, "archetype": arch_id, "floor": floor, "win": win}
 
     if not load_sts2_config().get("build_analyze_use_llm", True):
         out["llm_skipped"] = True
@@ -92,7 +91,7 @@ def analyze_run_end(
         if summary:
             _append_journal(
                 {
-                    "ts": datetime.now(timezone.utc).isoformat(),
+                    "ts": datetime.now(UTC).isoformat(),
                     "event": "build_review",
                     "text": summary[:3000],
                 }
@@ -104,13 +103,13 @@ def analyze_run_end(
     return out
 
 
-def _update_profile(char: str, arch_id: str, floor: int, win: bool, deck: List[str]) -> None:
+def _update_profile(char: str, arch_id: str, floor: int, win: bool, deck: list[str]) -> None:
     prof = _load_profile()
     ch = prof.setdefault("characters", {}).setdefault(char.upper(), {"runs": []})
-    runs: List[dict] = list(ch.get("runs") or [])
+    runs: list[dict] = list(ch.get("runs") or [])
     runs.append(
         {
-            "ts": datetime.now(timezone.utc).isoformat(),
+            "ts": datetime.now(UTC).isoformat(),
             "archetype": arch_id,
             "floor": floor,
             "win": win,
@@ -127,7 +126,7 @@ def _llm_build_review(
     state: dict,
     *,
     label: str,
-    deck: List[str],
+    deck: list[str],
     llm_prior: str = "",
 ) -> str:
     from plugins.sts2.llm_util import sts2_call_llm
@@ -179,7 +178,7 @@ def format_build_journal_tail(*, limit: int = 3) -> str:
     path = journal_path()
     if not path.is_file():
         return ""
-    rows: List[dict] = []
+    rows: list[dict] = []
     try:
         for line in path.read_text(encoding="utf-8").splitlines()[-limit * 3 :]:
             if line.strip():

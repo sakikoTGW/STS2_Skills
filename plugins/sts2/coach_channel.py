@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from plugins.sts2.storage import sts2_home
 
@@ -16,7 +16,7 @@ _STATE = "coach_state.json"
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    return datetime.now(UTC).strftime("%Y-%m-%d %H:%M:%S UTC")
 
 
 def inbox_path() -> Path:
@@ -68,7 +68,7 @@ def ensure_coach_files() -> None:
         )
 
 
-def _read_state() -> Dict[str, Any]:
+def _read_state() -> dict[str, Any]:
     path = state_path()
     if not path.is_file():
         return {"inbox_offset": 0, "last_reply_ts": ""}
@@ -78,7 +78,7 @@ def _read_state() -> Dict[str, Any]:
         return {"inbox_offset": 0, "last_reply_ts": ""}
 
 
-def _write_state(data: Dict[str, Any]) -> None:
+def _write_state(data: dict[str, Any]) -> None:
     try:
         state_path().write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     except OSError:
@@ -92,7 +92,7 @@ def _extract_user_block(text: str, offset: int) -> tuple[str, int]:
         body = text.split(marker, 1)[-1].strip()
     else:
         body = text[offset:].strip() if offset else text.strip()
-    lines: List[str] = []
+    lines: list[str] = []
     for line in body.splitlines():
         s = line.strip()
         if s.startswith("#") and not lines:
@@ -148,7 +148,7 @@ def acknowledge_hint(hint: str, *, state_type: str = "", floor: int = 0) -> None
 def append_thinking(
     *,
     commentary: str,
-    action: Dict[str, Any],
+    action: dict[str, Any],
     state_type: str = "",
     floor: int = 0,
     act: int = 1,

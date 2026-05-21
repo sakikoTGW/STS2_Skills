@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import math
-from typing import Any, Dict, List
+from typing import Any
 
 from plugins.sts2.game_flow_kb.store import ancients_data, ascension_data, rest_data
 from plugins.sts2.mechanics_kb.power_parse import relic_active
@@ -27,11 +27,11 @@ def _player_hp(state: dict) -> tuple[int, int]:
         return 0, 1
 
 
-def active_ascension_modifiers(state: dict) -> List[Dict[str, Any]]:
+def active_ascension_modifiers(state: dict) -> list[dict[str, Any]]:
     """Cumulative modifiers for current run ascension level."""
     lvl = _ascension_level(state)
     levels = (ascension_data().get("levels") or {})
-    out: List[Dict[str, Any]] = []
+    out: list[dict[str, Any]] = []
     for i in range(1, lvl + 1):
         ent = levels.get(str(i)) or levels.get(i)
         if ent:
@@ -53,14 +53,13 @@ def format_ascension_block(state: dict) -> str:
     return "\n".join(lines)
 
 
-def rest_heal_amount(state: dict) -> Dict[str, Any]:
+def rest_heal_amount(state: dict) -> dict[str, Any]:
     """Predict Rest option heal (not ancient)."""
     hp, mx = _player_hp(state)
     player = state.get("player") or {}
     std = (rest_data().get("standard_options") or {}).get("rest") or {}
     ratio = float(std.get("heal_ratio_max_hp") or 0.3)
     heal = int(math.floor(mx * ratio))
-    flat = 0
     max_hp_gain = 0
     for rid, ent in (rest_data().get("relic_modifiers") or {}).items():
         if relic_active(player, rid):
@@ -77,7 +76,7 @@ def rest_heal_amount(state: dict) -> Dict[str, Any]:
     }
 
 
-def ancient_heal_amount(state: dict, *, missing_hp: int | None = None) -> Dict[str, Any]:
+def ancient_heal_amount(state: dict, *, missing_hp: int | None = None) -> dict[str, Any]:
     """Ascension-aware heal when ancient/Neow restores missing HP."""
     hp, mx = _player_hp(state)
     missing = missing_hp if missing_hp is not None else max(0, mx - hp)

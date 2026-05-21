@@ -2,9 +2,8 @@
 
 from __future__ import annotations
 
-import re
-from datetime import datetime, timezone
-from typing import Any, Dict, List
+from datetime import UTC, datetime
+from typing import Any
 
 import yaml
 
@@ -20,7 +19,7 @@ def read_hot_notes() -> str:
 
 def append_hot_note(section: str, body: str, *, max_chars: int = 12000) -> None:
     path = hot_notes_path()
-    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    stamp = datetime.now(UTC).strftime("%Y-%m-%d %H:%M UTC")
     block = f"\n\n## {section} ({stamp})\n{body.strip()}\n"
     existing = path.read_text(encoding="utf-8") if path.is_file() else "# STS2 hot notes\n"
     merged = (existing + block).strip() + "\n"
@@ -31,7 +30,7 @@ def append_hot_note(section: str, body: str, *, max_chars: int = 12000) -> None:
     path.write_text(merged, encoding="utf-8")
 
 
-def read_strategy() -> Dict[str, Any]:
+def read_strategy() -> dict[str, Any]:
     path = strategy_path()
     if not path.is_file():
         return {"version": 0, "rules": []}
@@ -46,13 +45,13 @@ def read_strategy() -> Dict[str, Any]:
 
 
 def merge_strategy_rules(
-    new_rules: List[str],
+    new_rules: list[str],
     *,
     source: str = "merge",
     force_activate: bool = False,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Route through evolution loop (measure → gate → keep/rollback)."""
-    from plugins.sts2.evolution_loop import propose_rule_changes, read_registry
+    from plugins.sts2.evolution_loop import propose_rule_changes
 
     cleaned = [str(r).strip() for r in new_rules if str(r).strip()]
     if not cleaned:

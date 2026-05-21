@@ -8,10 +8,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from hermes_constants import display_hermes_home, get_hermes_home
-
-from plugins.sts2.config import load_sts2_config, mcp_server_config
-from plugins.sts2.paths import find_game_dir, mods_dir
+from plugins.sts2.config import mcp_server_config
 
 
 def register_cli(subparser: argparse.ArgumentParser) -> None:
@@ -68,6 +65,8 @@ def register_cli(subparser: argparse.ArgumentParser) -> None:
     )
     subs.add_parser("ping", help="Ping STS2MCP HTTP API (game must be running)")
     subs.add_parser("status", help="Show game path, mod dir, config, connectivity")
+    doc = subs.add_parser("doctor", help="Diagnose install paths, mod, API, MCP config")
+    doc.add_argument("--json", action="store_true", help="JSON report")
     subs.add_parser("mode", help="Show STS2 play mode (一口气代打 vs 聊天手操)")
 
     ap = subs.add_parser("autoplay", help="Background autoplay control")
@@ -234,8 +233,10 @@ def sts2_command(args: argparse.Namespace) -> int:
         return _cmd_integration_config(args)
     if cmd == "ping":
         return _cmd_ping()
+    if cmd == "doctor":
+        return _cmd_doctor(args)
     if cmd == "status":
-        return _cmd_status()
+        return _cmd_status(args)
     if cmd == "install-mod":
         return _cmd_install_mod(getattr(args, "game_dir", None))
     if cmd == "install-wizard":
@@ -415,39 +416,24 @@ def _cmd_ping() -> int:
     return 0
 
 
-def _cmd_status() -> int:
-    game = find_game_dir()
-    cfg = load_sts2_config()
-    lines = [
-        f"Hermes home: {display_hermes_home()}",
-        f"STS2 base_url: {cfg.get('base_url')}",
-        f"character: {cfg.get('character_index', 0)} ({cfg.get('character', 'IRONCLAD')})",
-        f"commentary: {cfg.get('commentary')}",
-        f"autoplay: {cfg.get('autoplay')}",
-    ]
-    if game:
-        lines.append(f"Game dir: {game}")
-        lines.append(f"Mods dir: {mods_dir(game)}")
-    else:
-        lines.append("Game dir: not found (set STS2_GAME_DIR)")
+def _cmd_status(args: argparse.Namespace) -> int:
+    from plugins.sts2.doctor import format_status_report
 
-    try:
-        from hermes_cli.config import load_config
-
-        mcp = (load_config().get("mcp_servers") or {}).get("sts2")
-        lines.append(f"MCP configured: {bool(mcp)}")
-    except Exception:
-        lines.append("MCP configured: unknown")
-
-    print("\n".join(lines))
-    try:
-        from plugins.sts2 import client as sts2_client
-
-        payload = sts2_client.ping()
-        print(f"HTTP ping: OK ({payload.get('message', payload)})")
-    except Exception as exc:
-        print(f"HTTP ping: FAIL ({exc})")
+    print(format_status_report(include_doctor=True))
     return 0
+
+
+def _cmd_doctor(args: argparse.Namespace) -> int:
+    import json as _json
+
+    from plugins.sts2.doctor import format_doctor_report, run_doctor
+
+    report = run_doctor()
+    if getattr(args, "json", False):
+        print(_json.dumps(report, indent=2, ensure_ascii=False))
+    else:
+        print(format_doctor_report(report))
+    return 0 if report.get("ok") else 1
 
 
 def _cmd_crawl_wiki(args: argparse.Namespace) -> int:

@@ -3,10 +3,8 @@
 
 from __future__ import annotations
 
-import json
 import shutil
 import sys
-import urllib.request
 import zipfile
 from pathlib import Path
 

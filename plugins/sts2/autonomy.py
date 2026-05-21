@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, Tuple
+from typing import Any
 
 from plugins.sts2.config import load_sts2_config
 
@@ -10,6 +10,7 @@ from plugins.sts2.config import load_sts2_config
 def full_run_cleared() -> bool:
     """Check victory marker without calling load_sts2_config (avoids import cycle)."""
     from hermes_constants import get_hermes_home
+
     from plugins.sts2.run_victory import victory_file_name
 
     return (get_hermes_home() / "sts2" / victory_file_name()).is_file()
@@ -25,7 +26,7 @@ def autopilot_until_victory(cfg: dict[str, Any] | None = None) -> bool:
     return bool(merged.get("autopilot_until_victory", True))
 
 
-def resolve_without_user(state: dict) -> Tuple[str, dict]:
+def resolve_without_user(state: dict) -> tuple[str, dict]:
     """Pick a legal action when we must not pause for the human."""
     from plugins.sts2.action_validate import validate_action
     from plugins.sts2.decision import _coerce_action, _rule_action, _safe_fallback

@@ -5,9 +5,9 @@ from __future__ import annotations
 import json
 import logging
 import re
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 from plugins.sts2.storage import sts2_home
 
@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 _ROUTE_LOG = "evolution/route_log.jsonl"
 _STATS_FILE = "evolution/route_stats.json"
-_PENDING: Optional[Dict[str, Any]] = None
+_PENDING: dict[str, Any] | None = None
 
 _NODE_KINDS = ("elite", "boss", "rest", "shop", "monster", "event", "unknown")
 
@@ -83,7 +83,7 @@ def _character(state: dict) -> str:
     return "UNKNOWN"
 
 
-def map_options(state: dict) -> List[dict]:
+def map_options(state: dict) -> list[dict]:
     m = state.get("map") if isinstance(state.get("map"), dict) else {}
     opts = m.get("next_options") or state.get("next_options") or []
     return [o for o in opts if isinstance(o, dict)]
@@ -125,11 +125,11 @@ def _append_log(row: dict) -> None:
         logger.debug("route log: %s", exc)
 
 
-def _read_log(*, limit: int = 80) -> List[dict]:
+def _read_log(*, limit: int = 80) -> list[dict]:
     path = _log_path()
     if not path.is_file():
         return []
-    rows: List[dict] = []
+    rows: list[dict] = []
     try:
         for line in path.read_text(encoding="utf-8").splitlines():
             line = line.strip()
@@ -144,7 +144,7 @@ def _read_log(*, limit: int = 80) -> List[dict]:
     return rows[-limit:]
 
 
-def _load_stats() -> Dict[str, Any]:
+def _load_stats() -> dict[str, Any]:
     path = _stats_path()
     if not path.is_file():
         return {"version": 1, "by_act_char": {}}
@@ -158,7 +158,7 @@ def _load_stats() -> Dict[str, Any]:
     return {"version": 1, "by_act_char": {}}
 
 
-def _save_stats(data: Dict[str, Any]) -> None:
+def _save_stats(data: dict[str, Any]) -> None:
     try:
         _stats_path().write_text(
             json.dumps(data, ensure_ascii=False, indent=2),
@@ -212,19 +212,19 @@ def _bump_stat(
     _save_stats(data)
 
 
-def _median(vals: List[float]) -> Optional[float]:
+def _median(vals: list[float]) -> float | None:
     if not vals:
         return None
     s = sorted(vals)
     return s[len(s) // 2]
 
 
-def stats_summary(act: int, char: str) -> List[str]:
+def stats_summary(act: int, char: str) -> list[str]:
     """Human lines from logged outcomes (your account, not generic guides)."""
     data = _load_stats()
     bucket = (data.get("by_act_char") or {}).get(_stats_key(act, char)) or {}
     kinds = bucket.get("kinds") or {}
-    lines: List[str] = []
+    lines: list[str] = []
     for kind in _NODE_KINDS:
         k = kinds.get(kind)
         if not k or not k.get("picked"):
@@ -262,7 +262,7 @@ def record_map_pick(state: dict, body: dict) -> None:
     opt = next((o for o in opts if o.get("index") == ix), opts[0] if opts else {})
     kind = _node_kind(opt)
     _PENDING = {
-        "ts": datetime.now(timezone.utc).isoformat(),
+        "ts": datetime.now(UTC).isoformat(),
         "act": _act(state),
         "floor": _floor(state),
         "char": _character(state),
@@ -373,8 +373,8 @@ def _maybe_reflect_route(pick: dict, state: dict, *, outcome: str) -> None:
         pass
 
 
-def _extract_candidate_rules(text: str) -> List[str]:
-    rules: List[str] = []
+def _extract_candidate_rules(text: str) -> list[str]:
+    rules: list[str] = []
     for line in (text or "").splitlines():
         line = line.strip()
         if not line:
@@ -446,13 +446,13 @@ def _reflect_act_transition(prev: dict, nxt: dict) -> None:
 
 
 def observe_transition(
-    prev: Optional[dict],
+    prev: dict | None,
     nxt: dict,
     *,
-    action: Optional[dict] = None,
-) -> Dict[str, Any]:
+    action: dict | None = None,
+) -> dict[str, Any]:
     """Hook from manual_learn.tick — map picks and outcomes."""
-    out: Dict[str, Any] = {}
+    out: dict[str, Any] = {}
     if not _enabled() or not isinstance(nxt, dict):
         return out
 
@@ -529,7 +529,7 @@ def format_map_route_brief(state: dict) -> str:
     except Exception:
         objective = ""
 
-    lines: List[str] = []
+    lines: list[str] = []
     if objective:
         lines.append(objective)
         lines.append("")
@@ -565,7 +565,7 @@ def format_map_route_brief(state: dict) -> str:
     return "\n".join(lines)
 
 
-def route_rules_for_prompt(*, act: int | None = None) -> List[str]:
+def route_rules_for_prompt(*, act: int | None = None) -> list[str]:
     """Active strategy rules tagged map-related."""
     try:
         from plugins.sts2.evolution_loop import ranked_rules_for_prompt
@@ -575,7 +575,7 @@ def route_rules_for_prompt(*, act: int | None = None) -> List[str]:
         from plugins.sts2.notes import read_strategy
 
         rules = [str(r) for r in (read_strategy().get("rules") or [])]
-    out: List[str] = []
+    out: list[str] = []
     for r in rules:
         low = r.lower()
         if any(

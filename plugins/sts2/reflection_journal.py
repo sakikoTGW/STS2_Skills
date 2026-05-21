@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from plugins.sts2.storage import sts2_home
 
@@ -22,7 +22,7 @@ def runner_status_path() -> Path:
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    return datetime.now(UTC).strftime("%Y-%m-%d %H:%M:%S UTC")
 
 
 def append_reflection(
@@ -32,7 +32,7 @@ def append_reflection(
     rule: str,
     llm_summary: str = "",
     actions_tail: str = "",
-    extra_rules: Optional[List[str]] = None,
+    extra_rules: list[str] | None = None,
 ) -> None:
     """Append a human-readable reflection block (always, even without LLM)."""
     lines = [
@@ -78,7 +78,7 @@ def read_last_reflection_summary(*, max_chars: int = 400) -> str:
         return "(读取失败)"
 
 
-def format_reflection_cast(refl: Dict[str, Any]) -> str:
+def format_reflection_cast(refl: dict[str, Any]) -> str:
     """One loud line for live_feed."""
     if not refl.get("reflected") and not refl.get("recorded"):
         return ""
@@ -115,7 +115,7 @@ def write_runner_status(
     supervisor_msg: str = "",
     study_running: bool = False,
     study_steps: int = 0,
-    game_state: Optional[dict] = None,
+    game_state: dict | None = None,
 ) -> None:
     """Single file the user can open to see auto-run + last reflection."""
     lines = [
@@ -166,9 +166,9 @@ def write_runner_status(
         pass
 
 
-def extract_rules_from_reflection(text: str, *, max_rules: int = 3) -> List[str]:
+def extract_rules_from_reflection(text: str, *, max_rules: int = 3) -> list[str]:
     """Pull bullet lines from LLM postmortem into strategy.yaml."""
-    rules: List[str] = []
+    rules: list[str] = []
     for line in text.splitlines():
         line = line.strip()
         if not line:

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Quick start
+    url: https://github.com/sakikoTGW/STS2_Skills/blob/main/docs/QUICKSTART.md
+    about: Three-minute setup guide
+  - name: README
+    url: https://github.com/sakikoTGW/STS2_Skills#readme
+    about: Full documentation

@@ -6,9 +6,8 @@ import json
 import logging
 import re
 from collections import deque
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Deque, Dict, List, Optional, Tuple
 
 from plugins.sts2.combat_brain import incoming_attack_damage
 from plugins.sts2.storage import sts2_home
@@ -33,9 +32,9 @@ _NON_ATTACK_HINTS = (
     "虚弱",
 )
 
-_INTENT_HIST: Dict[str, Deque[dict]] = {}
-_COACH_HINTS: Deque[str] = deque(maxlen=12)
-_LAST_WARNINGS: List[str] = []
+_INTENT_HIST: dict[str, deque[dict]] = {}
+_COACH_HINTS: deque[str] = deque(maxlen=12)
+_LAST_WARNINGS: list[str] = []
 
 
 def _coach_log_path() -> Path:
@@ -117,7 +116,7 @@ def update_from_state(state: dict) -> None:
         dq.append(row)
 
 
-def predict_next_turn(key: str) -> Tuple[str, str]:
+def predict_next_turn(key: str) -> tuple[str, str]:
     """Return (prediction, coaching line) from intent history."""
     hist = list(_INTENT_HIST.get(key) or [])
     if not hist:
@@ -171,7 +170,7 @@ def record_coach_hint(text: str) -> None:
     if not raw:
         return
     _COACH_HINTS.appendleft(raw[:500])
-    row = {"ts": datetime.now(timezone.utc).isoformat(), "text": raw[:2000]}
+    row = {"ts": datetime.now(UTC).isoformat(), "text": raw[:2000]}
     try:
         with _coach_log_path().open("a", encoding="utf-8") as fh:
             fh.write(json.dumps(row, ensure_ascii=False) + "\n")
@@ -253,10 +252,10 @@ def check_after_action(
     before: dict,
     after: dict,
     body: dict,
-) -> List[str]:
+) -> list[str]:
     """Lightweight sanity check after one play_card / end_turn."""
     global _LAST_WARNINGS
-    warnings: List[str] = []
+    warnings: list[str] = []
     if not _in_combat(before):
         return warnings
 
@@ -303,7 +302,7 @@ def check_after_action(
     return warnings
 
 
-def observe_transition(prev: Optional[dict], nxt: dict) -> None:
+def observe_transition(prev: dict | None, nxt: dict) -> None:
     """Leave combat → reset; enter combat → fresh session."""
     if not prev:
         return

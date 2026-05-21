@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List
-
 from plugins.sts2.visibility import describe_situation
 
 _COMBAT = frozenset({"monster", "elite", "boss", "hand_select"})
@@ -19,7 +17,7 @@ def build_play_brief(state: dict) -> str:
 
     st = str(state.get("state_type") or "")
     head = describe_situation(state)
-    extras: List[str] = []
+    extras: list[str] = []
 
     contract = str(state.get("manual_contract") or "").strip()
     if contract:
@@ -56,7 +54,7 @@ def build_screen_brief(state: dict) -> str:
     if not state:
         return ""
     st = str(state.get("state_type") or "")
-    parts: List[str] = []
+    parts: list[str] = []
 
     if st in _COMBAT:
         parts.append(_combat_block(state))
@@ -204,7 +202,10 @@ def _event_block(state: dict) -> str:
     name_l = str(ev.get("event_name") or ev.get("event_id") or "").lower()
     if any(x in name_l for x in ("neow", "涅奥", "ancient", "先古", "orobas", "pael", "tezc")):
         try:
-            from plugins.sts2.game_flow_kb.ascension import ancient_heal_amount, format_ascension_block
+            from plugins.sts2.game_flow_kb.ascension import (
+                ancient_heal_amount,
+                format_ascension_block,
+            )
 
             lines.append("【先古】三选一必选；不可跳过")
             lines.append(format_ascension_block(state))

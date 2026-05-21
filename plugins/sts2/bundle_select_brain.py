@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Dict, List, Optional
 
 from plugins.sts2.safe_parse import normalize_options, option_enabled, option_label
 
@@ -13,7 +12,7 @@ def _bs_dict(state: dict) -> dict:
     return raw if isinstance(raw, dict) else {}
 
 
-def _bundle_list(bs: dict) -> List[dict]:
+def _bundle_list(bs: dict) -> list[dict]:
     for key in ("bundles", "choices", "options", "offers"):
         raw = bs.get(key)
         if isinstance(raw, list) and raw:
@@ -21,7 +20,7 @@ def _bundle_list(bs: dict) -> List[dict]:
     return []
 
 
-def _cards(state: dict, bs: dict) -> List[dict]:
+def _cards(state: dict, bs: dict) -> list[dict]:
     for key in ("cards",):
         raw = bs.get(key)
         if isinstance(raw, list) and raw:
@@ -49,7 +48,7 @@ def _score_bundle(blob: dict) -> int:
     return score
 
 
-def _pick_bundle_index(bundles: List[dict]) -> int:
+def _pick_bundle_index(bundles: list[dict]) -> int:
     if not bundles:
         return 0
     best_i = 0
@@ -65,7 +64,7 @@ def _pick_bundle_index(bundles: List[dict]) -> int:
         return best_i
 
 
-def _action_from_allowed(bs: dict, bundles: List[dict]) -> Optional[dict]:
+def _action_from_allowed(bs: dict, bundles: list[dict]) -> dict | None:
     allowed = bs.get("allowed_actions") or bs.get("valid_actions") or []
     if isinstance(allowed, str):
         allowed = [allowed]

@@ -2,13 +2,17 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional, Set
+from typing import Any
 
 from plugins.sts2.wiki_crawl.crawler import load_crawled_index, load_page_facts
 
 # state_type / signals → wiki page titles
-_SCREEN_PAGES: Dict[str, List[str]] = {
-    "rest_site": ["Slay_the_Spire_2:Rest_Sites", "Slay_the_Spire_2:Ascension"],
+_SCREEN_PAGES: dict[str, list[str]] = {
+    "rest_site": [
+        "Slay_the_Spire_2:Rest_Sites",
+        "Slay_the_Spire_2:Ascension",
+        "Slay_the_Spire_2:Potions",
+    ],
     "shop": ["Slay_the_Spire_2:The_Merchant", "Slay_the_Spire_2:Gold"],
     "merchant": ["Slay_the_Spire_2:The_Merchant", "Slay_the_Spire_2:Gold"],
     "fake_merchant": ["Slay_the_Spire_2:The_Merchant"],
@@ -22,10 +26,9 @@ _SCREEN_PAGES: Dict[str, List[str]] = {
     "treasure": ["Slay_the_Spire_2:Map_Locations", "Slay_the_Spire_2:Relics"],
     "relic_select": ["Slay_the_Spire_2:Relics"],
     "relic_select_boss": ["Slay_the_Spire_2:Relics", "Slay_the_Spire_2:Bosses"],
-    "rest_site": ["Slay_the_Spire_2:Rest_Sites", "Slay_the_Spire_2:Potions"],
 }
 
-_POWER_PAGES: Dict[str, str] = {
+_POWER_PAGES: dict[str, str] = {
     "vulnerable": "Slay_the_Spire_2:Vulnerable",
     "weak": "Slay_the_Spire_2:Weak",
     "frail": "Slay_the_Spire_2:Frail",
@@ -44,8 +47,8 @@ def _normalize_power_id(raw: str) -> str:
     return raw.lower().replace(" ", "_").split(":")[-1]
 
 
-def _powers_on_battlefield(state: dict) -> Set[str]:
-    ids: Set[str] = set()
+def _powers_on_battlefield(state: dict) -> set[str]:
+    ids: set[str] = set()
     battle = state.get("battle") or {}
     for side in ("player", "enemies"):
         if side == "player":
@@ -65,9 +68,9 @@ def _powers_on_battlefield(state: dict) -> Set[str]:
     return ids
 
 
-def pages_for_state(state: dict) -> List[str]:
+def pages_for_state(state: dict) -> list[str]:
     st = str(state.get("state_type") or "")
-    pages: List[str] = []
+    pages: list[str] = []
 
     if st in _SCREEN_PAGES:
         pages.extend(_SCREEN_PAGES[st])
@@ -91,8 +94,8 @@ def pages_for_state(state: dict) -> List[str]:
         )
 
     # dedupe preserve order
-    seen: Set[str] = set()
-    out: List[str] = []
+    seen: set[str] = set()
+    out: list[str] = []
     for p in pages:
         if p not in seen:
             seen.add(p)
@@ -130,9 +133,9 @@ def format_wiki_facts_block(state: dict, *, max_pages: int = 4) -> str:
     return "\n".join(lines)
 
 
-def wiki_facts_for_state(state: dict) -> Dict[str, Any]:
+def wiki_facts_for_state(state: dict) -> dict[str, Any]:
     """Structured slice for logging / tools."""
-    out: Dict[str, Any] = {"pages": []}
+    out: dict[str, Any] = {"pages": []}
     for title in pages_for_state(state):
         facts = load_page_facts(title)
         if facts:

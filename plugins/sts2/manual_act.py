@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 _COMBAT = frozenset({"monster", "elite", "boss", "hand_select"})
 
@@ -21,15 +21,15 @@ def target_only_correction(requested: dict, validated: dict) -> bool:
 
 def _agent_or_manual_play() -> bool:
     try:
-        from plugins.sts2.play_mode import agent_play_mode
         from plugins.sts2.manual_mode import manual_mode_enabled
+        from plugins.sts2.play_mode import agent_play_mode
 
         return manual_mode_enabled() or agent_play_mode()
     except Exception:
         return False
 
 
-def build_legal_actions(state: dict) -> Optional[List[Dict[str, Any]]]:
+def build_legal_actions(state: dict) -> list[dict[str, Any]] | None:
     """Enumerated actions the model may copy into sts2_act (agent / manual play)."""
     if not _agent_or_manual_play():
         return None
@@ -39,7 +39,7 @@ def build_legal_actions(state: dict) -> Optional[List[Dict[str, Any]]]:
     if st not in _COMBAT:
         return None
 
-    from plugins.sts2.combat_brain import combat_should_wait, _affordable, _cost
+    from plugins.sts2.combat_brain import _cost, combat_should_wait
     from plugins.sts2.combat_survival_gate import must_survive_turn, play_card_would_lethal
 
     if combat_should_wait(state):
@@ -77,7 +77,7 @@ def build_legal_actions(state: dict) -> Optional[List[Dict[str, Any]]]:
     except (TypeError, ValueError):
         energy = 0
 
-    actions: List[Dict[str, Any]] = []
+    actions: list[dict[str, Any]] = []
     must_survive = must_survive_turn(state)
     for card in hand:
         if not card.get("can_play", True):
@@ -89,7 +89,7 @@ def build_legal_actions(state: dict) -> Optional[List[Dict[str, Any]]]:
             pass
         idx = card.get("index")
         name = card.get("name") or card.get("id") or "?"
-        body: Dict[str, Any] = {"action": "play_card", "card_index": idx}
+        body: dict[str, Any] = {"action": "play_card", "card_index": idx}
         lethal = play_card_would_lethal(state, body)
         label = f"play_card index={idx} {name}"
         from plugins.sts2.combat_brain import _card_is_block

@@ -6,7 +6,7 @@ import re
 import unicodedata
 from html import unescape
 from html.parser import HTMLParser
-from typing import Any, Dict, List, Optional, Set
+from typing import Any
 from urllib.parse import unquote
 
 _STRIP_TAGS = re.compile(r"<[^>]+>")
@@ -18,10 +18,10 @@ def _clean_text(text: str) -> str:
     return _WS.sub(" ", text).strip()
 
 
-def extract_wiki_links(html: str) -> List[str]:
+def extract_wiki_links(html: str) -> list[str]:
     """Return page titles from /wiki/... hrefs."""
-    titles: List[str] = []
-    seen: Set[str] = set()
+    titles: list[str] = []
+    seen: set[str] = set()
     for m in re.finditer(r'href="(/wiki/([^"#?]+))"', html or ""):
         raw = unquote(m.group(2))
         title = raw.replace("_", " ")
@@ -49,13 +49,13 @@ def extract_wiki_links(html: str) -> List[str]:
 class _TableCollector(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
-        self.tables: List[List[List[str]]] = []
+        self.tables: list[list[list[str]]] = []
         self._in_table = False
         self._in_row = False
         self._in_cell = False
-        self._cur_table: List[List[str]] = []
-        self._cur_row: List[str] = []
-        self._cell_parts: List[str] = []
+        self._cur_table: list[list[str]] = []
+        self._cur_row: list[str] = []
+        self._cell_parts: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list) -> None:
         t = tag.lower()
@@ -103,15 +103,15 @@ def _guess_game_id(title: str, html: str) -> str:
     return slug or "UNKNOWN"
 
 
-def _parse_intent_row(cells: List[str]) -> Optional[Dict[str, Any]]:
+def _parse_intent_row(cells: list[str]) -> dict[str, Any] | None:
     if len(cells) < 2:
         return None
     name = cells[0]
     if not name or name in ("意图", "行动", "名称", "技能"):
         return None
     rest = " | ".join(cells[1:])
-    row: Dict[str, Any] = {"name": name, "raw": rest}
-    low = rest.lower()
+    row: dict[str, Any] = {"name": name, "raw": rest}
+    rest.lower()
     if any(k in rest for k in ("攻击", "伤害", "damage", "bite", "slash")):
         row["type"] = "attack"
     elif any(k in rest for k in ("格挡", "block", "防御")):
@@ -136,7 +136,7 @@ def parse_monster_html(
     html: str,
     *,
     wiki_url: str = "",
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Structured monster record from wiki HTML."""
     collector = _TableCollector()
     try:
@@ -144,9 +144,9 @@ def parse_monster_html(
     except Exception:
         pass
 
-    hp_solo: Optional[str] = None
-    intents: List[Dict[str, Any]] = []
-    infobox: Dict[str, str] = {}
+    hp_solo: str | None = None
+    intents: list[dict[str, Any]] = []
+    infobox: dict[str, str] = {}
 
     for table in collector.tables:
         header = " ".join(table[0]) if table else ""
@@ -180,7 +180,7 @@ def parse_monster_html(
     game_id = normalize_enemy_id(title)
     if not re.match(r"^[A-Z][A-Z0-9_]{2,}$", game_id):
         game_id = _guess_game_id(title, html)
-    entry: Dict[str, Any] = {
+    entry: dict[str, Any] = {
         "id": game_id,
         "wiki_title": title,
         "name_zh": title,
@@ -205,7 +205,7 @@ def parse_monster_html(
     return attach_behavior_loop(entry)
 
 
-def title_to_game_id(title: str, aliases: Optional[Dict[str, str]] = None) -> str:
+def title_to_game_id(title: str, aliases: dict[str, str] | None = None) -> str:
     if aliases and title in aliases:
         return aliases[title]
     return _guess_game_id(title, "")

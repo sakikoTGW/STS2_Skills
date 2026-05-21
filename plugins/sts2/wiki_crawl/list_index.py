@@ -5,18 +5,16 @@ from __future__ import annotations
 import json
 import logging
 import re
-import time
 import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 from plugins.sts2.wiki_crawl.crawler import (
     bundled_dir,
     crawl_page,
     load_page_facts,
-    user_dir,
 )
 from plugins.sts2.wiki_crawl.parser import extract_summary
 
@@ -35,7 +33,7 @@ _EVENTS_LIST = "Slay_the_Spire_2:Events_List"
 _RELICS_LIST = "Slay_the_Spire_2:Relics_List"
 
 
-def _api_parse(page: str, prop: str = "wikitext|links") -> Dict[str, Any]:
+def _api_parse(page: str, prop: str = "wikitext|links") -> dict[str, Any]:
     params = urllib.parse.urlencode(
         {"action": "parse", "page": page, "format": "json", "prop": prop}
     )
@@ -44,10 +42,10 @@ def _api_parse(page: str, prop: str = "wikitext|links") -> Dict[str, Any]:
         return json.loads(resp.read().decode("utf-8")).get("parse") or {}
 
 
-def fetch_list_links(list_page: str) -> List[str]:
+def fetch_list_links(list_page: str) -> list[str]:
     """Return full page titles from a list page's parse links."""
     parse = _api_parse(list_page, "links")
-    out: List[str] = []
+    out: list[str] = []
     for link in parse.get("links") or []:
         title = str(link.get("*") or "")
         if not title.startswith("Slay the Spire 2:"):
@@ -72,17 +70,17 @@ def _norm_id(name: str) -> str:
     return re.sub(r"[^A-Z0-9]+", "_", name.upper()).strip("_")
 
 
-def parse_event_page(wikitext: str, page_title: str) -> Dict[str, Any]:
+def parse_event_page(wikitext: str, page_title: str) -> dict[str, Any]:
     """Extract == Options == frames and TS outcome lines."""
     name = page_title.split(":")[-1].replace("_", " ")
-    options: List[Dict[str, Any]] = []
+    options: list[dict[str, Any]] = []
     opt_block = re.search(r"== Options ==(.*?)(?=\n== |\Z)", wikitext, re.S)
     if opt_block:
         block = opt_block.group(1)
         for m in re.finditer(r"\{\{Frame\|([^}]+)\}\}(.*?)(?=\{\{Frame\||\Z)", block, re.S):
             label = m.group(1).strip()
             body = m.group(2)
-            ts_lines: List[str] = []
+            ts_lines: list[str] = []
             for tag in re.findall(r"\{\{TS\|[^}]+\}\}", body):
                 if "||" in tag:
                     text = tag.split("||", 1)[-1].rstrip("}").strip()
@@ -112,7 +110,7 @@ def parse_event_page(wikitext: str, page_title: str) -> Dict[str, Any]:
     }
 
 
-def parse_relic_page(wikitext: str, page_title: str) -> Dict[str, Any]:
+def parse_relic_page(wikitext: str, page_title: str) -> dict[str, Any]:
     name = page_title.split(":")[-1].replace("_", " ")
     rarity = ""
     for label in ("Common", "Uncommon", "Rare", "Shop", "Boss", "Ancient", "Event", "Special"):
@@ -139,7 +137,7 @@ def _safe_filename(page_title: str) -> str:
     return re.sub(r"[^\w.-]+", "_", short)
 
 
-def _title_variants(page_title: str) -> List[str]:
+def _title_variants(page_title: str) -> list[str]:
     out = [page_title]
     if ":" in page_title:
         ns, name = page_title.split(":", 1)
@@ -175,14 +173,14 @@ def _get_wikitext(page_title: str, *, crawl_missing: bool) -> str:
 
 def build_events_catalog(
     *,
-    max_pages: Optional[int] = None,
+    max_pages: int | None = None,
     crawl_missing: bool = True,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     titles = fetch_list_links(_EVENTS_LIST)
     if max_pages:
         titles = titles[:max_pages]
-    entries: Dict[str, Any] = {}
-    errors: List[str] = []
+    entries: dict[str, Any] = {}
+    errors: list[str] = []
     for title in titles:
         wt = _get_wikitext(title, crawl_missing=crawl_missing)
         if not wt:
@@ -201,15 +199,15 @@ def build_events_catalog(
 
 def build_relics_index(
     *,
-    max_pages: Optional[int] = None,
+    max_pages: int | None = None,
     crawl_missing: bool = True,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     titles = fetch_list_links(_RELICS_LIST)
     if max_pages:
         titles = titles[:max_pages]
-    entries: Dict[str, Any] = {}
-    by_rarity: Dict[str, List[str]] = {}
-    errors: List[str] = []
+    entries: dict[str, Any] = {}
+    by_rarity: dict[str, list[str]] = {}
+    errors: list[str] = []
     for i, title in enumerate(titles):
         wt = _get_wikitext(title, crawl_missing=crawl_missing)
         if not wt and (i + 1) % 50 == 0:
@@ -247,8 +245,8 @@ def build_relics_index(
 
 
 def write_catalogs(
-    events: Dict[str, Any],
-    relics: Dict[str, Any],
+    events: dict[str, Any],
+    relics: dict[str, Any],
     *,
     game_flow_root: Path,
     mech_root: Path,

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Callable, Dict, List, Optional, Set, Tuple
+from typing import Any
 
 from plugins.sts2.config import load_sts2_config
 from plugins.sts2.knowledge import fetch_and_store, has_entry
@@ -11,10 +11,10 @@ from plugins.sts2.notes import merge_strategy_rules
 
 logger = logging.getLogger(__name__)
 
-_CardRef = Tuple[str, str, str]  # kind, id, display name
+_CardRef = tuple[str, str, str]  # kind, id, display name
 
 
-def _card_ref(card: dict) -> Optional[_CardRef]:
+def _card_ref(card: dict) -> _CardRef | None:
     if not isinstance(card, dict):
         return None
     cid = str(card.get("id") or "").strip()
@@ -24,7 +24,7 @@ def _card_ref(card: dict) -> Optional[_CardRef]:
     return ("cards", cid.upper(), name)
 
 
-def _relic_ref(relic: dict) -> Optional[_CardRef]:
+def _relic_ref(relic: dict) -> _CardRef | None:
     if not isinstance(relic, dict):
         return None
     rid = str(relic.get("id") or relic.get("relic_id") or "").strip()
@@ -34,12 +34,12 @@ def _relic_ref(relic: dict) -> Optional[_CardRef]:
     return ("relics", rid.upper(), name)
 
 
-def collect_unknown_items(state: dict) -> List[_CardRef]:
+def collect_unknown_items(state: dict) -> list[_CardRef]:
     """Items in current state not yet in local knowledge/."""
-    seen: Set[Tuple[str, str]] = set()
-    out: List[_CardRef] = []
+    seen: set[tuple[str, str]] = set()
+    out: list[_CardRef] = []
 
-    def add(ref: Optional[_CardRef]) -> None:
+    def add(ref: _CardRef | None) -> None:
         if not ref:
             return
         kind, cid, _name = ref
@@ -89,10 +89,10 @@ def collect_unknown_items(state: dict) -> List[_CardRef]:
 def curate_from_state(
     state: dict,
     *,
-    use_llm: Optional[bool] = None,
-    max_items: Optional[int] = None,
+    use_llm: bool | None = None,
+    max_items: int | None = None,
     merge_rules: bool = True,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Fetch wiki for unseen cards/relics; optional strategy rule merge."""
     cfg = load_sts2_config()
     if not cfg.get("auto_curate_knowledge", True):
@@ -112,7 +112,7 @@ def curate_from_state(
     if use_llm is None:
         use_llm = bool(cfg.get("knowledge_use_llm", True))
 
-    rules_added: List[str] = []
+    rules_added: list[str] = []
     curated = 0
     for kind, cid, name in unknowns:
         entry, rule = fetch_and_store(kind, cid, query=name, use_llm=bool(use_llm))

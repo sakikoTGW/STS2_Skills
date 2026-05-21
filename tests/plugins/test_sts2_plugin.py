@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 import pytest
 
@@ -1382,7 +1382,7 @@ def test_learn_coach_asks_when_no_block(sts2_env):
         **start,
         "player": {**start["player"], "hp": 40, "block": 0, "energy": 0},
     }
-    curr = {
+    {
         **start,
         "battle": {**start["battle"], "turn": "enemy"},
     }
@@ -1430,7 +1430,7 @@ def test_visibility_play_card_commentary(sts2_env):
 
 
 def test_bootstrap_learning_store(sts2_env):
-    from plugins.sts2.lessons import bootstrap_learning_store, read_recent_outcomes
+    from plugins.sts2.lessons import bootstrap_learning_store
     from plugins.sts2.notes import read_strategy
     from plugins.sts2.storage import strategy_path
 
@@ -2168,8 +2168,8 @@ def test_coach_channel_poll_and_thinking(sts2_env):
 
 
 def test_marathon_study_always_blocked(sts2_env, monkeypatch):
-    from plugins.sts2.autoplay import get_controller
     from plugins.sts2 import play_mode as pm
+    from plugins.sts2.autoplay import get_controller
     from plugins.sts2.tools import handle_sts2_autoplay
 
     monkeypatch.setattr(pm, "marathon_forbidden", lambda: True)
@@ -2441,7 +2441,7 @@ def test_run_objective_in_combat_brief(sts2_env):
 
 
 def test_combat_fsm_snapshots_five_zones(sts2_env):
-    from plugins.sts2.combat_state_machine import get_combat_fsm, format_zone_snapshots
+    from plugins.sts2.combat_state_machine import get_combat_fsm
 
     get_combat_fsm().reset()
     state = _combat_fsm_base_state()

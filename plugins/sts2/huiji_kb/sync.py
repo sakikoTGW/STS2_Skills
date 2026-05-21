@@ -5,11 +5,11 @@ from __future__ import annotations
 import logging
 import re
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from plugins.sts2.huiji_kb.client import HuijiWikiClient, HuijiWikiError
 from plugins.sts2.huiji_kb.parse import parse_monster_html
-from plugins.sts2.huiji_kb.store import import_enemy_entry, kb_stats, save_user_store
+from plugins.sts2.huiji_kb.store import kb_stats, save_user_store
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +17,7 @@ INDEX_TITLE = "怪物"
 DEFAULT_CATEGORIES = ("怪物", "第一幕怪物", "第二幕怪物", "第三幕怪物")
 
 
-def _cookie_default() -> Optional[Path]:
+def _cookie_default() -> Path | None:
     from plugins.sts2.storage import sts2_home
 
     p = sts2_home() / "huiji_cookies.txt"
@@ -27,9 +27,9 @@ def _cookie_default() -> Optional[Path]:
 def discover_titles(
     client: HuijiWikiClient,
     *,
-    categories: Optional[List[str]] = None,
-) -> List[str]:
-    titles: List[str] = []
+    categories: list[str] | None = None,
+) -> list[str]:
+    titles: list[str] = []
     seen: set[str] = set()
     cats = categories or list(DEFAULT_CATEGORIES)
     for cat in cats:
@@ -54,10 +54,10 @@ def discover_titles(
 def sync_from_api(
     *,
     cookie_file: str | Path | None = None,
-    categories: Optional[List[str]] = None,
+    categories: list[str] | None = None,
     max_pages: int = 200,
     delay_sec: float = 0.4,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     cookie = cookie_file or _cookie_default()
     client = HuijiWikiClient(cookie_file=cookie, delay_sec=delay_sec)
     titles = discover_titles(client, categories=categories)
@@ -66,8 +66,8 @@ def sync_from_api(
             "未能列出任何怪物页。请配置 cookies 或使用 --html-dir 导入。"
         )
 
-    entries: Dict[str, Dict[str, Any]] = {}
-    errors: List[str] = []
+    entries: dict[str, dict[str, Any]] = {}
+    errors: list[str] = []
     for i, title in enumerate(titles[:max_pages]):
         try:
             html = client.parse_page(title)
@@ -90,11 +90,11 @@ def sync_from_api(
     }
 
 
-def sync_from_html_dir(html_dir: str | Path) -> Dict[str, Any]:
+def sync_from_html_dir(html_dir: str | Path) -> dict[str, Any]:
     root = Path(html_dir)
     if not root.is_dir():
         raise FileNotFoundError(str(root))
-    entries: Dict[str, Dict[str, Any]] = {}
+    entries: dict[str, dict[str, Any]] = {}
     for fp in sorted(root.glob("*.html")):
         html = fp.read_text(encoding="utf-8", errors="replace")
         title = fp.stem.replace("_", " ")
@@ -116,7 +116,7 @@ def sync_from_html_dir(html_dir: str | Path) -> Dict[str, Any]:
     return {"ok": bool(entries), "synced": len(entries), "stats": kb_stats()}
 
 
-def merge_into_knowledge_yaml(*, act: Optional[int] = None) -> int:
+def merge_into_knowledge_yaml(*, act: int | None = None) -> int:
     """Push huiji entries into ~/.hermes/sts2/knowledge/enemies.yaml for agent."""
     from plugins.sts2.huiji_kb.store import list_enemies, to_knowledge_entry
     from plugins.sts2.knowledge import upsert_entry

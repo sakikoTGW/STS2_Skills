@@ -1,0 +1,31 @@
+name: Feature request
+description: Suggest an improvement or new integration
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: dropdown
+    id: host
+    attributes:
+      label: Host (if relevant)
+      options:
+        - Standalone / MCP
+        - Hermes Agent
+        - OpenClaw
+        - AstrBot
+        - Other
+  - type: input
+    id: version
+    attributes:
+      label: STS2_Skills version
+      placeholder: e.g. 1.0.5 or git commit

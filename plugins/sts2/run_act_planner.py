@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from typing import List
-
 from plugins.sts2.run_objective import _hp_ratio, map_route_objective_lines
 
 

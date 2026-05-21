@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-import os
-
 
 def test_normalize_character_aliases():
     from plugins.sts2.character_choice import (

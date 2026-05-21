@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from plugins.sts2.safe_parse import normalize_options, option_label
 
@@ -140,7 +140,7 @@ def describe_situation(state: dict) -> str:
     if not state:
         return "(无状态)"
     st = str(state.get("state_type") or "unknown")
-    lines: List[str] = []
+    lines: list[str] = []
     if st in _COMBAT:
         try:
             from plugins.sts2.combat_survival_gate import survival_alert_line
@@ -319,7 +319,7 @@ def describe_action(state: dict, body: dict) -> str:
     return f"{action} {body}"
 
 
-def _find_hand_card(state: dict, index: Any) -> Optional[dict]:
+def _find_hand_card(state: dict, index: Any) -> dict | None:
     if index is None:
         return None
     try:
@@ -337,7 +337,7 @@ def format_turn_commentary(
     body: dict,
     *,
     act_ok: bool = True,
-    post_state: Optional[dict] = None,
+    post_state: dict | None = None,
     err_msg: str = "",
 ) -> str:
     """Full turn line: situation + action + result (for live feed / chat)."""
@@ -362,7 +362,7 @@ def describe_delta(before: dict, after: dict) -> str:
     trace = format_action_trace(before, after)
     if trace:
         return trace
-    lines: List[str] = []
+    lines: list[str] = []
     bst = before.get("state_type")
     ast = after.get("state_type")
     if bst != ast:

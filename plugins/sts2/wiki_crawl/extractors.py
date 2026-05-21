@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 
 def _strip(line: str) -> str:
@@ -13,9 +13,9 @@ def _strip(line: str) -> str:
     return line.strip()
 
 
-def extract_price_ranges(wikitext: str) -> Dict[str, List[int]]:
+def extract_price_ranges(wikitext: str) -> dict[str, list[int]]:
     """*'''Common''': 48-53 Gold → common: [48, 53]."""
-    out: Dict[str, List[int]] = {}
+    out: dict[str, list[int]] = {}
     key_map = {
         "common": "card_common",
         "uncommon": "card_uncommon",
@@ -59,9 +59,9 @@ def extract_price_ranges(wikitext: str) -> Dict[str, List[int]]:
     return out
 
 
-def extract_weight_percents(wikitext: str) -> Dict[str, float]:
+def extract_weight_percents(wikitext: str) -> dict[str, float]:
     """* '''Common Potion:''' 65%"""
-    out: Dict[str, float] = {}
+    out: dict[str, float] = {}
     for line in wikitext.split("\n"):
         if "%" not in line:
             continue
@@ -88,9 +88,9 @@ def extract_weight_percents(wikitext: str) -> Dict[str, float]:
     return out
 
 
-def extract_card_removal(wikitext: str) -> Dict[str, Any]:
+def extract_card_removal(wikitext: str) -> dict[str, Any]:
     """Card Removal Service paragraph."""
-    out: Dict[str, Any] = {}
+    out: dict[str, Any] = {}
     m = re.search(
         r"price starts at (\d+).*?\{\{Asc\|6\|(\d+)",
         wikitext,
@@ -114,8 +114,8 @@ def extract_card_removal(wikitext: str) -> Dict[str, Any]:
     return out
 
 
-def extract_relic_blacklist(wikitext: str) -> List[str]:
-    ids: List[str] = []
+def extract_relic_blacklist(wikitext: str) -> list[str]:
+    ids: list[str] = []
     for m in re.finditer(r"\{\{R\|([^|]+)\|\|2\}\}", wikitext):
         name = m.group(1).strip()
         if name and name not in ids:
@@ -128,7 +128,7 @@ def extract_relic_blacklist(wikitext: str) -> List[str]:
     )
     if not blk:
         return []
-    section_ids: List[str] = []
+    section_ids: list[str] = []
     for m in re.finditer(r"\{\{R\|([^|]+)\|\|2\}\}", blk.group(1)):
         rid = m.group(1).strip().upper().replace(" ", "_")
         if rid not in section_ids:
@@ -136,9 +136,9 @@ def extract_relic_blacklist(wikitext: str) -> List[str]:
     return section_ids
 
 
-def extract_act_entity_pools(wikitext: str, entity_label: str) -> Dict[str, List[str]]:
+def extract_act_entity_pools(wikitext: str, entity_label: str) -> dict[str, list[str]]:
     """Parse == Act N Elites/Bosses == blocks for link=Slay_the_Spire_2:Name."""
-    pools: Dict[str, List[str]] = {}
+    pools: dict[str, list[str]] = {}
     pattern = rf"== Act (\d+) {re.escape(entity_label)} ==(.*?)(?=\n== Act |\n== [^=]|\Z)"
     for m in re.finditer(pattern, wikitext, re.S):
         act = m.group(1)
@@ -147,7 +147,7 @@ def extract_act_entity_pools(wikitext: str, entity_label: str) -> Dict[str, List
     return pools
 
 
-def _split_act1_regions(names: List[str]) -> Dict[str, List[str]]:
+def _split_act1_regions(names: list[str]) -> dict[str, list[str]]:
     if len(names) >= 6:
         return {"Overgrowth": names[:3], "Underdocks": names[3:6]}
     if len(names) >= 3:
@@ -155,9 +155,9 @@ def _split_act1_regions(names: List[str]) -> Dict[str, List[str]]:
     return {}
 
 
-def extract_elite_pools(wikitext: str) -> Dict[str, Any]:
+def extract_elite_pools(wikitext: str) -> dict[str, Any]:
     """Act elite names from == Act N Elites == sections."""
-    rewards: Dict[str, Any] = {}
+    rewards: dict[str, Any] = {}
     gm = re.search(r"(\d+)-(\d+)\s*\(\{\{Asc\|3\|(\d+)-(\d+)", wikitext)
     if gm:
         rewards["gold_range"] = [int(gm.group(1)), int(gm.group(2))]
@@ -170,15 +170,15 @@ def extract_elite_pools(wikitext: str) -> Dict[str, Any]:
         rules.append("same_elite_not_twice_in_a_row")
     if "all 3 different Elites" in wikitext:
         rules.append("must_see_all_three_before_repeat")
-    out: Dict[str, Any] = {"rewards": rewards, "act_pools": pools, "spawn_rules": rules}
+    out: dict[str, Any] = {"rewards": rewards, "act_pools": pools, "spawn_rules": rules}
     if pools.get("1"):
         out["act1_by_region"] = _split_act1_regions(pools["1"])
     return out
 
 
-def parse_bosses_page(wikitext: str) -> Dict[str, Any]:
+def parse_bosses_page(wikitext: str) -> dict[str, Any]:
     pools = extract_act_entity_pools(wikitext, "Bosses")
-    rewards: Dict[str, Any] = {"drops": ["gold", "rare_card_choice", "potion_maybe"]}
+    rewards: dict[str, Any] = {"drops": ["gold", "rare_card_choice", "potion_maybe"]}
     gm = re.search(
         r"rewarded with (\d+) \(\{\{Asc\|3\|(\d+)",
         wikitext,
@@ -196,7 +196,7 @@ def parse_bosses_page(wikitext: str) -> Dict[str, Any]:
     relics = []
     for m in re.finditer(r"\{\{R\|([^|]+)\|\|2\}\}.*?(?:Boss|Pantograph|Stone Cracker|Lava Rock)", wikitext):
         relics.append(m.group(1).strip().upper().replace(" ", "_"))
-    out: Dict[str, Any] = {
+    out: dict[str, Any] = {
         "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Bosses",
         "act_pools": pools,
         "rewards": rewards,
@@ -211,8 +211,8 @@ def parse_bosses_page(wikitext: str) -> Dict[str, Any]:
     return out
 
 
-def parse_events_page(wikitext: str) -> Dict[str, Any]:
-    mp: List[str] = []
+def parse_events_page(wikitext: str) -> dict[str, Any]:
+    mp: list[str] = []
     blk = re.search(r"=== Multiplayer Events ===(.*?)(?:\n==|\Z)", wikitext, re.S)
     if blk:
         for m in re.finditer(r"\{\{E\|([^|]+)\|\|2\}\}", blk.group(1)):
@@ -233,8 +233,8 @@ def parse_events_page(wikitext: str) -> Dict[str, Any]:
     }
 
 
-def parse_treasure_from_map(wikitext: str) -> Dict[str, Any]:
-    out: Dict[str, Any] = {
+def parse_treasure_from_map(wikitext: str) -> dict[str, Any]:
+    out: dict[str, Any] = {
         "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Map_Locations#Treasure_Room",
     }
     gm = re.search(
@@ -250,8 +250,8 @@ def parse_treasure_from_map(wikitext: str) -> Dict[str, Any]:
     return out
 
 
-def parse_potions_page(wikitext: str) -> Dict[str, Any]:
-    out: Dict[str, Any] = {
+def parse_potions_page(wikitext: str) -> dict[str, Any]:
+    out: dict[str, Any] = {
         "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Potions",
         "default_slots": 3,
         "ascension_4_slots": 2,
@@ -275,8 +275,8 @@ def parse_potions_page(wikitext: str) -> Dict[str, Any]:
     return out
 
 
-def parse_relic_catalog(wikitext: str) -> Dict[str, Any]:
-    starters: Dict[str, Dict[str, str]] = {}
+def parse_relic_catalog(wikitext: str) -> dict[str, Any]:
+    starters: dict[str, dict[str, str]] = {}
     for m in re.finditer(
         r"\|\s*(Ironclad|Silent|Regent|Necrobinder|Defect)\s*\n\|\{\{R\|([^|]+)\|\|2\}\}\s*\n\|\{\{R\|([^|]+)\|\|2\}\}",
         wikitext,
@@ -308,9 +308,9 @@ def parse_relic_catalog(wikitext: str) -> Dict[str, Any]:
     }
 
 
-def parse_neow_page(wikitext: str) -> Dict[str, Any]:
-    curse: List[Dict[str, str]] = []
-    positive: List[Dict[str, str]] = []
+def parse_neow_page(wikitext: str) -> dict[str, Any]:
+    curse: list[dict[str, str]] = []
+    positive: list[dict[str, str]] = []
     pool = None
     for line in wikitext.split("\n"):
         if "=== Curse Pool ===" in line:
@@ -343,12 +343,12 @@ def parse_neow_page(wikitext: str) -> Dict[str, Any]:
     }
 
 
-def extract_power_damage_multiplier(wikitext: str, power_name: str) -> Optional[float]:
+def extract_power_damage_multiplier(wikitext: str, power_name: str) -> float | None:
     """e.g. Vulnerable: increased by 50% → 1.5"""
     patterns = [
         rf"{re.escape(power_name)}.*?(\d+)%\s+more",
-        rf"increased by (\d+)%",
-        rf"decreased by (\d+)%",
+        r"increased by (\d+)%",
+        r"decreased by (\d+)%",
     ]
     low = wikitext.lower()
     for pat in patterns:
@@ -366,7 +366,7 @@ def extract_power_damage_multiplier(wikitext: str, power_name: str) -> Optional[
     return None
 
 
-def parse_merchant_page(wikitext: str) -> Dict[str, Any]:
+def parse_merchant_page(wikitext: str) -> dict[str, Any]:
     removal = extract_card_removal(wikitext)
     return {
         "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:The_Merchant",
@@ -391,8 +391,8 @@ def parse_merchant_page(wikitext: str) -> Dict[str, Any]:
     }
 
 
-def _merchant_relic_interactions(wikitext: str) -> List[Dict[str, Any]]:
-    items: List[Dict[str, Any]] = []
+def _merchant_relic_interactions(wikitext: str) -> list[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
     if "Membership Card" in wikitext:
         items.append({"id": "MEMBERSHIP_CARD", "effect": "all_prices_multiplier", "value": 0.5})
     if "The Courier" in wikitext:
@@ -420,6 +420,6 @@ def _merchant_relic_interactions(wikitext: str) -> List[Dict[str, Any]]:
     return items
 
 
-def parse_elites_page(wikitext: str) -> Dict[str, Any]:
+def parse_elites_page(wikitext: str) -> dict[str, Any]:
     base = extract_elite_pools(wikitext)
     return {"wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Elites", **base}

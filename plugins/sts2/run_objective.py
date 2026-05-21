@@ -2,10 +2,8 @@
 
 from __future__ import annotations
 
-from typing import List
 
-
-def run_objective_lines(state: dict) -> List[str]:
+def run_objective_lines(state: dict) -> list[str]:
     """Context-aware run goals (floor/act/hp) for brief + LLM."""
     run = state.get("run") or {}
     p = state.get("player") or {}
@@ -44,7 +42,7 @@ def format_run_objective_block(state: dict) -> str:
     return "\n".join(run_objective_lines(state) + [""] + extra)
 
 
-def _planning_questions() -> List[str]:
+def _planning_questions() -> list[str]:
     return [
         "【局内规划·出牌前自问】",
         "1) 这场战斗还要几回合？按意图循环，下 2～3 回合哪回合必须格挡/哪回合可输出？",
@@ -82,7 +80,7 @@ def _hp_ratio(state: dict) -> float:
         return 1.0
 
 
-def map_route_objective_lines(state: dict) -> List[str]:
+def map_route_objective_lines(state: dict) -> list[str]:
     """Map screen: path choice serves run clear + HP budget, not greed."""
     run = state.get("run") or {}
     try:
@@ -111,7 +109,7 @@ def map_route_objective_lines(state: dict) -> List[str]:
     return lines
 
 
-def map_route_planning_questions(state: dict, options: List[dict]) -> List[str]:
+def map_route_planning_questions(state: dict, options: list[dict]) -> list[str]:
     """Multi-step path thinking before choose_map_node."""
     run = state.get("run") or {}
     try:
@@ -148,7 +146,7 @@ def map_route_planning_questions(state: dict, options: List[dict]) -> List[str]:
     return lines
 
 
-def format_map_run_objective_block(state: dict, options: List[dict] | None = None) -> str:
+def format_map_run_objective_block(state: dict, options: list[dict] | None = None) -> str:
     opts = options or []
     return "\n".join(
         map_route_objective_lines(state)

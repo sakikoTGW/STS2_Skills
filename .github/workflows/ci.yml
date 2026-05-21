@@ -29,8 +29,8 @@ jobs:
       - name: Repo metadata (version alignment)
         run: python tests/test_repo_meta.py
 
-      - name: Ruff (tests + scripts; expand to plugins/sts2 incrementally)
-        run: ruff check tests scripts plugins/sts2/version.py plugins/sts2/sts2mcp_install.py plugins/sts2/config.py
+      - name: Ruff
+        run: ruff check plugins/sts2 scripts tests
 
       - name: Pytest
         run: pytest

@@ -1,6 +1,8 @@
 """Validate/fix actions against live state before POST (fewer illegal clicks)."""
 from __future__ import annotations
-from typing import Any, Dict, Optional
+
+from typing import Any
+
 _COMBAT = frozenset({"monster", "elite", "boss"})
 
 
@@ -253,7 +255,7 @@ def _validate_action_inner(state: dict, body: dict) -> dict:
         return {"action": "proceed"}
     return body
 def _fallback(state: dict) -> dict:
-    from plugins.sts2.decision import _rule_action, _coerce_action, decide_combat
+    from plugins.sts2.decision import _coerce_action, _rule_action, decide_combat
     st = str(state.get("state_type") or "")
     if st == "hand_select":
         from plugins.sts2.hand_select_brain import decide_hand_select
@@ -399,7 +401,7 @@ def _fix_claim_reward(state: dict, body: dict) -> dict:
         treasure_claim_body,
         treasure_claimables,
     )
-    st = str(state.get("state_type") or "")
+    str(state.get("state_type") or "")
     if is_treasure_context(state):
         items = treasure_claimables(state)
         unclaimed = [it for it in items if not it.get("claimed") and not it.get("obtained")]
@@ -447,7 +449,7 @@ def _fix_card_reward(state: dict, body: dict) -> dict:
 def _fix_select_card(state: dict, body: dict) -> dict:
     from plugins.sts2.card_pick_brain import card_select_should_confirm, rule_card_select_fallback
     from plugins.sts2.reward_cards import offer_reward_cards
-    cs = state.get("card_select") or {}
+    state.get("card_select") or {}
     if card_select_should_confirm(state):
         return {"action": "confirm_selection"}
     cards = offer_reward_cards(state)

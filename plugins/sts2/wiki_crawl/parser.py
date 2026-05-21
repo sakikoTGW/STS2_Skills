@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List
+from typing import Any
 
 
 def _strip_wiki_noise(text: str) -> str:
@@ -17,7 +17,7 @@ def _strip_wiki_noise(text: str) -> str:
 
 def extract_summary(wikitext: str, *, max_chars: int = 1200) -> str:
     """First substantive paragraph(s) after infobox/templates."""
-    lines: List[str] = []
+    lines: list[str] = []
     for raw in wikitext.split("\n"):
         line = _strip_wiki_noise(raw).strip()
         if not line or line.startswith("|") or line.startswith("!"):
@@ -37,7 +37,7 @@ def extract_summary(wikitext: str, *, max_chars: int = 1200) -> str:
     return out[:max_chars].strip()
 
 
-def extract_section_bullets(wikitext: str, section_hint: str, *, limit: int = 8) -> List[str]:
+def extract_section_bullets(wikitext: str, section_hint: str, *, limit: int = 8) -> list[str]:
     """Grab bullet lines under a == Section == heading."""
     pattern = re.compile(
         rf"==+\s*{re.escape(section_hint)}[^=]*==+\s*(.*?)(?=\n==|\Z)",
@@ -57,9 +57,9 @@ def extract_section_bullets(wikitext: str, section_hint: str, *, limit: int = 8)
     return bullets
 
 
-def extract_tables_simple(wikitext: str) -> List[List[str]]:
+def extract_tables_simple(wikitext: str) -> list[list[str]]:
     """Wiki table rows as list of cell strings."""
-    rows: List[List[str]] = []
+    rows: list[list[str]] = []
     for line in wikitext.split("\n"):
         if not line.strip().startswith("|"):
             continue
@@ -74,9 +74,9 @@ def extract_tables_simple(wikitext: str) -> List[List[str]]:
     return rows
 
 
-def page_to_facts(page_title: str, wikitext: str) -> Dict[str, Any]:
+def page_to_facts(page_title: str, wikitext: str) -> dict[str, Any]:
     short = page_title.split(":")[-1] if ":" in page_title else page_title
-    facts: Dict[str, Any] = {
+    facts: dict[str, Any] = {
         "page": page_title,
         "short_name": short,
         "summary": extract_summary(wikitext),

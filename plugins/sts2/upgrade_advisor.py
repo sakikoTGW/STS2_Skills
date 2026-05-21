@@ -6,7 +6,6 @@ import json
 import re
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
 
 _PRIORITY_PATH = Path(__file__).resolve().parent / "references" / "upgrade_priority.json"
 
@@ -27,7 +26,7 @@ def _char(state: dict) -> str:
     return "IRONCLAD"
 
 
-def _floor_act(state: dict) -> Tuple[int, int]:
+def _floor_act(state: dict) -> tuple[int, int]:
     run = state.get("run") or {}
     try:
         return int(run.get("floor") or 0), max(1, int(run.get("act") or 1))
@@ -50,7 +49,7 @@ def _desc_delta_hint(card: dict) -> str:
     desc = str(card.get("description") or card.get("raw_description") or "")
     up = str(card.get("upgraded_description") or "")
     blob = f"{desc} {up}"
-    hints: List[str] = []
+    hints: list[str] = []
     for pat, msg in (
         (r"\+(\d+)\s*点?格挡", "格挡+\\1"),
         (r"获得\s*(\d+)\s*点?格挡", "格挡+\\1"),
@@ -132,9 +131,9 @@ def score_upgrade(card: dict, state: dict) -> float:
 
 
 def rank_upgrade_candidates(
-    cards: List[dict], state: dict, *, limit: int = 10
-) -> List[Tuple[dict, float, str]]:
-    ranked: List[Tuple[dict, float, str]] = []
+    cards: list[dict], state: dict, *, limit: int = 10
+) -> list[tuple[dict, float, str]]:
+    ranked: list[tuple[dict, float, str]] = []
     for c in cards:
         if not isinstance(c, dict):
             continue
@@ -145,7 +144,7 @@ def rank_upgrade_candidates(
     return ranked[:limit]
 
 
-def format_upgrade_brief(state: dict, cards: List[dict], *, context: str = "") -> str:
+def format_upgrade_brief(state: dict, cards: list[dict], *, context: str = "") -> str:
     """Inject into play_brief for smith / card_select / hand_select upgrade."""
     if not cards:
         return "【敲牌】无候选卡列表。"
@@ -200,7 +199,7 @@ def format_upgrade_brief(state: dict, cards: List[dict], *, context: str = "") -
 
 def format_rest_site_brief(state: dict) -> str:
     """Heal vs smith vs other — includes whether deck has good upgrade target."""
-    from plugins.sts2.safe_parse import normalize_options, option_label, option_enabled
+    from plugins.sts2.safe_parse import normalize_options, option_enabled, option_label
 
     rs = state.get("rest_site") or {}
     raw = rs.get("options") or state.get("options") or []
@@ -228,7 +227,7 @@ def format_rest_site_brief(state: dict) -> str:
     ]
 
     # Deck cards that could be upgraded if we pick smith
-    deck_cards: List[dict] = []
+    deck_cards: list[dict] = []
     player = state.get("player") or {}
     for key in ("deck", "master_deck", "cards"):
         for c in player.get(key) or []:
@@ -281,7 +280,7 @@ def is_upgrade_screen(state: dict) -> bool:
     return False
 
 
-def collect_upgrade_candidates(state: dict) -> List[dict]:
+def collect_upgrade_candidates(state: dict) -> list[dict]:
     from plugins.sts2.reward_cards import offer_reward_cards
 
     if str(state.get("state_type") or "") == "hand_select":

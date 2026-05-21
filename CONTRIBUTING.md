@@ -9,7 +9,7 @@ python -m venv .venv
 .\.venv\Scripts\activate
 pip install -e ".[mcp,dev]"
 pytest
-ruff check plugins scripts tests
+ruff check plugins/sts2 scripts tests
 ```
 
 已安装 `make` 时也可：
@@ -32,20 +32,21 @@ make lint
 | 版本号 | `pyproject.toml` → `[project].version`（唯一来源） |
 | 同步元数据 | `scripts/sync-version.ps1` |
 | STS2MCP 版本 | `compat.yaml`（固定 tag，不用 `latest`） |
-| CI | `.github/workflows/ci.yml` |
-| 发布 | 维护者本地执行 `scripts/release.ps1` + `gh` |
+| CI | `.github/workflows/ci.yml`（ruff 全量 `plugins/sts2` + pytest） |
+| 发布 | 推送 tag `v*` 触发 `.github/workflows/release.yml`；也可本地 `scripts/release.ps1` |
 
 发版流程概要：
 
 ```powershell
-# 1. 更新 pyproject.toml 版本与 CHANGELOG.md
+# 1. 更新 pyproject.toml 版本与 CHANGELOG.md [Unreleased] → [x.y.z]
 ./scripts/sync-version.ps1
 git add -A
 git commit -m "chore: release v1.0.x"
-git tag v1.0.x
 git push origin main
+git tag v1.0.x
 git push origin v1.0.x
-./scripts/release.ps1
+# GitHub Actions 会自动跑测试并上传源码 zip 到 Releases
+# 需要 sts2skill.exe 时仍可在本地: ./scripts/release.ps1
 ```
 
 不要把 token 或密码写进仓库；用 `gh auth login` 或系统凭据即可。
@@ -56,4 +57,4 @@ git push origin v1.0.x
 
 ## 报告 Bug
 
-Issue 请尽量包含：Python 版本、`sts2 status` 输出、`compat.yaml` 中的 STS2MCP tag、是否同时启用多个驱动（MCP + autoplay 等）。
+Issue 请尽量包含：Python 版本、`sts2 doctor` 或 `sts2 status` 输出、`compat.yaml` 中的 STS2MCP tag、是否同时启用多个驱动（MCP + autoplay 等）。模板见 `.github/ISSUE_TEMPLATE/`。

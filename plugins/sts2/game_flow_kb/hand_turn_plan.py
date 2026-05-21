@@ -2,15 +2,13 @@
 
 from __future__ import annotations
 
-from typing import List
-
+from plugins.sts2.mechanics_kb.context import combat_runtime
 from plugins.sts2.mechanics_kb.damage_engine import (
     DamageContext,
     card_applies_vulnerable_turns,
     compute_attack_damage,
     compute_block_from_card,
 )
-from plugins.sts2.mechanics_kb.context import combat_runtime
 
 
 def _cost(card: dict) -> int:

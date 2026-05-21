@@ -7,17 +7,16 @@ import logging
 import re
 import threading
 from collections import deque
-from datetime import datetime, timezone
-from pathlib import Path
-from typing import Any, Deque, Dict, List, Optional
+from datetime import UTC, datetime
+from typing import Any
 
 from plugins.sts2.storage import sts2_home
 
 logger = logging.getLogger(__name__)
 
 _LOCK = threading.Lock()
-_LAST_STATE: Optional[dict] = None
-_ACTIONS: Deque[dict] = deque(maxlen=24)
+_LAST_STATE: dict | None = None
+_ACTIONS: deque[dict] = deque(maxlen=24)
 _CORRECTIONS_PATH = sts2_home() / "coach_corrections.jsonl"
 
 
@@ -42,7 +41,7 @@ def _use_llm_reflect() -> bool:
     return bool(load_sts2_config().get("manual_learn_use_llm", True))
 
 
-def _state_key(state: Optional[dict]) -> str:
+def _state_key(state: dict | None) -> str:
     if not state:
         return ""
     run = state.get("run") or {}
@@ -63,7 +62,7 @@ def record_action(body: dict) -> None:
         _ACTIONS.append(dict(body))
 
 
-def record_coach_message(text: str) -> Optional[Dict[str, Any]]:
+def record_coach_message(text: str) -> dict[str, Any] | None:
     """User/TUI correction — episodic memory, optional approve/reject commands."""
     raw = (text or "").strip()
     if not raw:
@@ -76,7 +75,7 @@ def record_coach_message(text: str) -> Optional[Dict[str, Any]]:
     if not _manual_learn_enabled():
         return None
 
-    row = {"ts": datetime.now(timezone.utc).isoformat(), "text": raw[:2000]}
+    row = {"ts": datetime.now(UTC).isoformat(), "text": raw[:2000]}
     try:
         _CORRECTIONS_PATH.parent.mkdir(parents=True, exist_ok=True)
         with _CORRECTIONS_PATH.open("a", encoding="utf-8") as fh:
@@ -111,10 +110,10 @@ def record_coach_message(text: str) -> Optional[Dict[str, Any]]:
     return {"recorded": True, "kind": "coach_correction"}
 
 
-def read_recent_coach_corrections(*, limit: int = 5) -> List[str]:
+def read_recent_coach_corrections(*, limit: int = 5) -> list[str]:
     if not _CORRECTIONS_PATH.is_file():
         return []
-    lines: List[str] = []
+    lines: list[str] = []
     try:
         for line in _CORRECTIONS_PATH.read_text(encoding="utf-8").splitlines():
             line = line.strip()
@@ -132,7 +131,7 @@ def read_recent_coach_corrections(*, limit: int = 5) -> List[str]:
     return lines[-limit:]
 
 
-def parse_learn_command(text: str) -> Optional[Dict[str, Any]]:
+def parse_learn_command(text: str) -> dict[str, Any] | None:
     """Chat: 采纳规则1 / 采纳全部 / 拒绝规则2"""
     s = (text or "").strip()
     if not s:
@@ -171,8 +170,8 @@ def parse_learn_command(text: str) -> Optional[Dict[str, Any]]:
 def tick(
     nxt: dict,
     *,
-    action: Optional[dict] = None,
-) -> Dict[str, Any]:
+    action: dict | None = None,
+) -> dict[str, Any]:
     """Call after get_state / sts2_act with fresh game state."""
     global _LAST_STATE
     if not _manual_learn_enabled() or not isinstance(nxt, dict):
@@ -187,7 +186,7 @@ def tick(
         begin_run()
 
     prev = _LAST_STATE
-    out: Dict[str, Any] = {"skipped": False}
+    out: dict[str, Any] = {"skipped": False}
     key_prev, key_nxt = _state_key(prev), _state_key(nxt)
     if prev and key_prev != key_nxt:
         accumulate_step_reward(0.05 if action else 0.0, nxt, act_ok=True)
@@ -231,7 +230,7 @@ def reset_session() -> None:
         _ACTIONS.clear()
 
 
-def _notify_reflection(ref: Dict[str, Any]) -> None:
+def _notify_reflection(ref: dict[str, Any]) -> None:
     from plugins.sts2.evolution_loop import read_pending
 
     pending = read_pending()
@@ -267,7 +266,7 @@ def build_learn_context(*, max_chars: int = 2200) -> str:
     if not _manual_learn_enabled():
         return ""
 
-    parts: List[str] = []
+    parts: list[str] = []
 
     corrections = read_recent_coach_corrections(limit=4)
     if corrections:

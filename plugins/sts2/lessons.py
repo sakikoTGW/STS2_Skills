@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import json
 import logging
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from plugins.sts2.notes import append_hot_note, merge_strategy_rules, read_strategy
 from plugins.sts2.storage import sts2_home
@@ -23,7 +23,7 @@ def run_history_path() -> Path:
     return path
 
 
-def bootstrap_learning_store(*, ascension: int = 1) -> Dict[str, Any]:
+def bootstrap_learning_store(*, ascension: int = 1) -> dict[str, Any]:
     """Ensure strategy + history exist so study mode can learn from step one."""
     from plugins.sts2.storage import strategy_dir
 
@@ -51,7 +51,7 @@ def bootstrap_learning_store(*, ascension: int = 1) -> Dict[str, Any]:
     return {"bootstrapped": True, "rules": len(rules)}
 
 
-def _hp(player: Any) -> Optional[int]:
+def _hp(player: Any) -> int | None:
     if not isinstance(player, dict):
         return None
     try:
@@ -80,8 +80,8 @@ def _character(run: Any, player: Any) -> str:
 
 
 def detect_outcome_label(
-    prev: Optional[Dict[str, Any]],
-    nxt: Dict[str, Any],
+    prev: dict[str, Any] | None,
+    nxt: dict[str, Any],
 ) -> tuple[bool, str]:
     """Return (should_record, label)."""
     nxt_type = str(nxt.get("state_type") or "")
@@ -110,7 +110,7 @@ def detect_outcome_label(
 
 
 def _last_actions_summary(recent_actions: list) -> str:
-    bits: List[str] = []
+    bits: list[str] = []
     for act in recent_actions[-6:]:
         if not isinstance(act, dict):
             continue
@@ -126,8 +126,8 @@ def _last_actions_summary(recent_actions: list) -> str:
 
 def build_lesson_rule(
     label: str,
-    prev: Optional[Dict[str, Any]],
-    nxt: Dict[str, Any],
+    prev: dict[str, Any] | None,
+    nxt: dict[str, Any],
     recent_actions: list,
 ) -> str:
     """One-line rule guaranteed to land in strategy.yaml."""
@@ -194,12 +194,12 @@ def build_lesson_rule(
 
 def record_outcome(
     label: str,
-    prev: Optional[Dict[str, Any]],
-    nxt: Dict[str, Any],
+    prev: dict[str, Any] | None,
+    nxt: dict[str, Any],
     *,
     recent_actions: list | None = None,
     llm_summary: str = "",
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """Persist structured lesson + strategy rule (always writes at least one rule)."""
     recent_actions = recent_actions or []
     run = nxt.get("run") or (prev or {}).get("run") or {}
@@ -207,7 +207,7 @@ def record_outcome(
     rule = build_lesson_rule(label, prev, nxt, recent_actions)
 
     row = {
-        "ts": datetime.now(timezone.utc).isoformat(),
+        "ts": datetime.now(UTC).isoformat(),
         "label": label,
         "floor": floor,
         "character": _character(run, nxt.get("player")),
@@ -240,10 +240,10 @@ def record_outcome(
 
 
 def record_action_failure(
-    state: Dict[str, Any],
-    action: Dict[str, Any],
+    state: dict[str, Any],
+    action: dict[str, Any],
     err_msg: str,
-) -> Optional[Dict[str, Any]]:
+) -> dict[str, Any] | None:
     """Log failed clicks; promote to strategy after repeated same error."""
     err = str(err_msg or "").strip()
     if not err:
@@ -252,7 +252,7 @@ def record_action_failure(
     floor = _floor(run)
     act_name = str(action.get("action") or "?")
     row = {
-        "ts": datetime.now(timezone.utc).isoformat(),
+        "ts": datetime.now(UTC).isoformat(),
         "label": "action_failure",
         "floor": floor,
         "character": _character(run, state.get("player")),
@@ -297,11 +297,11 @@ def record_action_failure(
     }
 
 
-def read_recent_outcomes(limit: int = 12) -> List[Dict[str, Any]]:
+def read_recent_outcomes(limit: int = 12) -> list[dict[str, Any]]:
     path = run_history_path()
     if not path.is_file():
         return []
-    rows: List[Dict[str, Any]] = []
+    rows: list[dict[str, Any]] = []
     try:
         for line in path.read_text(encoding="utf-8").splitlines():
             line = line.strip()
@@ -341,13 +341,13 @@ def should_avoid_elite_early() -> bool:
     return False
 
 
-def lessons_for_screen(state: dict) -> List[str]:
+def lessons_for_screen(state: dict) -> list[str]:
     """Strategy rules relevant to current screen (combat vs macro)."""
     st = str(state.get("state_type") or "")
     if st in _COMBAT:
         return lessons_for_combat(state)
     rules = read_strategy().get("rules") or []
-    out: List[str] = []
+    out: list[str] = []
     for r in rules[-8:]:
         text = str(r).strip()
         if text and text not in out:
@@ -359,10 +359,10 @@ def lessons_for_screen(state: dict) -> List[str]:
     return out[-6:]
 
 
-def lessons_for_combat(state: dict) -> List[str]:
+def lessons_for_combat(state: dict) -> list[str]:
     """Rules that should change combat heuristics."""
     rules = read_strategy().get("rules") or []
-    out: List[str] = []
+    out: list[str] = []
     for r in rules:
         text = str(r)
         low = text.lower()
@@ -402,7 +402,7 @@ def lessons_summary_for_prompt() -> str:
     """Short block for LLM + logging at autoplay start."""
     outcomes = read_recent_outcomes(5)
     rules = (read_strategy().get("rules") or [])[-6:]
-    parts: List[str] = []
+    parts: list[str] = []
     if rules:
         parts.append("跨局规则:\n" + "\n".join(f"- {r}" for r in rules))
     if outcomes:
@@ -415,14 +415,14 @@ def lessons_summary_for_prompt() -> str:
     return "\n".join(parts).strip()
 
 
-def finalize_trajectory(path: Path | None) -> Dict[str, Any]:
+def finalize_trajectory(path: Path | None) -> dict[str, Any]:
     """Scan trajectory for death/game_over if reflect missed it."""
     if path is None or not path.is_file():
         return {"skipped": True}
 
-    prev: Optional[Dict[str, Any]] = None
-    recent: List[Dict[str, Any]] = []
-    last_state: Optional[Dict[str, Any]] = None
+    prev: dict[str, Any] | None = None
+    recent: list[dict[str, Any]] = []
+    last_state: dict[str, Any] | None = None
 
     try:
         for line in path.read_text(encoding="utf-8").splitlines():
@@ -432,7 +432,6 @@ def finalize_trajectory(path: Path | None) -> Dict[str, Any]:
             if row.get("type") != "step":
                 continue
             st = row.get("state_type")
-            fake_state = {"state_type": st, "run": {}}
             act = row.get("action")
             if isinstance(act, dict):
                 recent.append(act)

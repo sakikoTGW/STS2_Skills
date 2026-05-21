@@ -5,8 +5,9 @@ from __future__ import annotations
 import os
 import shutil
 import sys
+from collections.abc import Callable
 from pathlib import Path
-from typing import Any, Callable, List, Optional
+from typing import Any
 
 import yaml
 
@@ -277,7 +278,7 @@ def patch_llm(sync_fn: Callable[..., str]) -> None:
     import plugins.sts2.llm_util as lu  # noqa: WPS433
 
     def _patched(
-        messages: List[dict],
+        messages: list[dict],
         *,
         max_tokens: int = 500,
         temperature: float = 0.3,
@@ -293,7 +294,7 @@ def patch_llm(sync_fn: Callable[..., str]) -> None:
     def call_llm(
         _provider: str,
         *,
-        messages: List[dict],
+        messages: list[dict],
         max_tokens: int = 500,
         temperature: float = 0.3,
         **_: Any,

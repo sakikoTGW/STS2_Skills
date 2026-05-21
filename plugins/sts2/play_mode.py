@@ -4,17 +4,10 @@
 
 from __future__ import annotations
 
-
-
-import os
-
 from contextlib import contextmanager
 
 from plugins.sts2.host_env import env_disabled, env_flag
 from plugins.sts2.study_mode import is_study_mode, set_study_mode
-
-
-
 
 
 def marathon_forbidden() -> bool:

@@ -4,11 +4,10 @@ from __future__ import annotations
 
 import json
 import logging
-from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 from plugins.sts2.mechanics_kb.brief import validate_wiki_examples
-from plugins.sts2.mechanics_kb.store import bundled_dir, user_dir
+from plugins.sts2.mechanics_kb.store import user_dir
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +22,7 @@ _WIKI_MECHANICS_PAGES = [
 ]
 
 
-def verify_bundled_examples() -> Dict[str, Any]:
+def verify_bundled_examples() -> dict[str, Any]:
     results = validate_wiki_examples()
     failed = [r for r in results if not r.get("ok")]
     return {
@@ -34,7 +33,7 @@ def verify_bundled_examples() -> Dict[str, Any]:
     }
 
 
-def sync_from_wiki(*, max_pages: int = 20) -> Dict[str, Any]:
+def sync_from_wiki(*, max_pages: int = 20) -> dict[str, Any]:
     """Best-effort fetch; writes raw snippets + runs wiki_crawl integrate."""
     from plugins.sts2 import client as sts2_client
 
@@ -53,7 +52,7 @@ def sync_from_wiki(*, max_pages: int = 20) -> Dict[str, Any]:
         fp = out_dir / f"{page}.json"
         fp.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
         synced.append(page)
-    integrate_report: Dict[str, Any] = {}
+    integrate_report: dict[str, Any] = {}
     try:
         from plugins.sts2.wiki_crawl.integrate import integrate_powers_from_wiki
 

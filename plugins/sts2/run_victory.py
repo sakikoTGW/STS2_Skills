@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Dict, Optional, Tuple
 
 _VICTORY_FILE = "FULL_RUN_CLEARED.txt"
 _MILESTONE_PREFIX = "ACT{}_MILESTONE.txt"
@@ -83,7 +82,7 @@ def detect_full_run_victory(state: dict) -> bool:
 
 def detect_act_milestone(
     state: dict, *, last_act: int
-) -> Optional[Tuple[int, str]]:
+) -> tuple[int, str] | None:
     """If user just cleared act N (entered act N+1), return (N, message)."""
     if not isinstance(state, dict):
         return None

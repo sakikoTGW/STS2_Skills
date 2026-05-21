@@ -2,12 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
-
 from plugins.sts2.decision import _CARD_PRIORITY, _knowledge_reward_adjustment
 
 
-def _upgrade_score(card: dict, state: Optional[dict] = None) -> float:
+def _upgrade_score(card: dict, state: dict | None = None) -> float:
     if state:
         try:
             from plugins.sts2.upgrade_advisor import score_upgrade
@@ -40,7 +38,7 @@ def decide_hand_select(state: dict) -> dict:
     if hs.get("can_confirm", False):
         return {"action": "combat_confirm_selection"}
 
-    cards: List[dict] = [c for c in (hs.get("cards") or []) if isinstance(c, dict)]
+    cards: list[dict] = [c for c in (hs.get("cards") or []) if isinstance(c, dict)]
     if not cards:
         return {"action": "combat_confirm_selection"}
 

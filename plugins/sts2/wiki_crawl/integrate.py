@@ -5,10 +5,11 @@ from __future__ import annotations
 import json
 import logging
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from plugins.sts2.wiki_crawl.crawler import bundled_dir as crawl_bundled_dir
-from plugins.sts2.wiki_crawl.crawler import load_page_facts, user_dir as crawl_user_dir
+from plugins.sts2.wiki_crawl.crawler import load_page_facts
+from plugins.sts2.wiki_crawl.crawler import user_dir as crawl_user_dir
 from plugins.sts2.wiki_crawl.extractors import (
     extract_power_damage_multiplier,
     parse_bosses_page,
@@ -84,7 +85,7 @@ def _write_json(path: Path, data: Any) -> None:
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def _merge_merchant_defaults(data: Dict[str, Any]) -> Dict[str, Any]:
+def _merge_merchant_defaults(data: dict[str, Any]) -> dict[str, Any]:
     defaults = _default_merchant()
     for key in ("prices", "weights", "inventory", "agent_hints"):
         if not data.get(key) and defaults.get(key):
@@ -94,7 +95,7 @@ def _merge_merchant_defaults(data: Dict[str, Any]) -> Dict[str, Any]:
     return data
 
 
-def integrate_merchant(*, write: bool = True) -> Dict[str, Any]:
+def integrate_merchant(*, write: bool = True) -> dict[str, Any]:
     wt = _fetch_wikitext("Slay_the_Spire_2:The_Merchant")
     data = parse_merchant_page(wt) if wt else _default_merchant()
     data = _merge_merchant_defaults(data)
@@ -103,7 +104,7 @@ def integrate_merchant(*, write: bool = True) -> Dict[str, Any]:
     return data
 
 
-def _default_merchant() -> Dict[str, Any]:
+def _default_merchant() -> dict[str, Any]:
     return {
         "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:The_Merchant",
         "prices": {
@@ -142,7 +143,7 @@ def _default_merchant() -> Dict[str, Any]:
     }
 
 
-def integrate_elites(*, write: bool = True) -> Dict[str, Any]:
+def integrate_elites(*, write: bool = True) -> dict[str, Any]:
     wt = _fetch_wikitext("Slay_the_Spire_2:Elites")
     data = parse_elites_page(wt) if wt else {}
     if not data.get("act_pools"):
@@ -152,7 +153,7 @@ def integrate_elites(*, write: bool = True) -> Dict[str, Any]:
     return data
 
 
-def _default_elites() -> Dict[str, Any]:
+def _default_elites() -> dict[str, Any]:
     return {
         "wiki": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Elites",
         "rewards": {
@@ -183,7 +184,7 @@ def _default_elites() -> Dict[str, Any]:
     }
 
 
-def integrate_shop_relics(*, write: bool = True) -> Dict[str, Any]:
+def integrate_shop_relics(*, write: bool = True) -> dict[str, Any]:
     wt = _fetch_wikitext("Slay_the_Spire_2:The_Merchant")
     merchant = parse_merchant_page(wt) if wt else _default_merchant()
     entries = list(merchant.get("relic_interactions") or [])
@@ -193,7 +194,7 @@ def integrate_shop_relics(*, write: bool = True) -> Dict[str, Any]:
     return data
 
 
-def integrate_core_cards(*, write: bool = True) -> Dict[str, Any]:
+def integrate_core_cards(*, write: bool = True) -> dict[str, Any]:
     cards = dict(_CORE_CARDS)
     for cid, ent in list(cards.items()):
         wiki_page = ent.get("wiki", "")
@@ -213,9 +214,9 @@ def _integrate_json(
     parser,
     page: str,
     *,
-    default: Optional[Dict[str, Any]] = None,
+    default: dict[str, Any] | None = None,
     write: bool = True,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     wt = _fetch_wikitext(page)
     data = parser(wt) if wt else dict(default or {})
     if default:
@@ -227,7 +228,7 @@ def _integrate_json(
     return data
 
 
-def integrate_bosses(*, write: bool = True) -> Dict[str, Any]:
+def integrate_bosses(*, write: bool = True) -> dict[str, Any]:
     default = json.loads((_GAME_FLOW_ROOT / "bosses.json").read_text(encoding="utf-8"))
     return _integrate_json(
         "bosses.json",
@@ -238,7 +239,7 @@ def integrate_bosses(*, write: bool = True) -> Dict[str, Any]:
     )
 
 
-def integrate_events(*, write: bool = True) -> Dict[str, Any]:
+def integrate_events(*, write: bool = True) -> dict[str, Any]:
     default = json.loads((_GAME_FLOW_ROOT / "events.json").read_text(encoding="utf-8"))
     return _integrate_json(
         "events.json",
@@ -249,10 +250,10 @@ def integrate_events(*, write: bool = True) -> Dict[str, Any]:
     )
 
 
-def integrate_chests(*, write: bool = True) -> Dict[str, Any]:
+def integrate_chests(*, write: bool = True) -> dict[str, Any]:
     default = json.loads((_GAME_FLOW_ROOT / "chests.json").read_text(encoding="utf-8"))
 
-    def _parse(wt: str) -> Dict[str, Any]:
+    def _parse(wt: str) -> dict[str, Any]:
         d = parse_treasure_from_map(wt)
         d["agent_hints"] = default.get("agent_hints")
         return d
@@ -264,7 +265,7 @@ def integrate_chests(*, write: bool = True) -> Dict[str, Any]:
     return data
 
 
-def integrate_potions(*, write: bool = True) -> Dict[str, Any]:
+def integrate_potions(*, write: bool = True) -> dict[str, Any]:
     default = json.loads((_GAME_FLOW_ROOT / "potions.json").read_text(encoding="utf-8"))
     return _integrate_json(
         "potions.json",
@@ -275,7 +276,7 @@ def integrate_potions(*, write: bool = True) -> Dict[str, Any]:
     )
 
 
-def integrate_relic_catalog(*, write: bool = True) -> Dict[str, Any]:
+def integrate_relic_catalog(*, write: bool = True) -> dict[str, Any]:
     default = json.loads(
         (_GAME_FLOW_ROOT / "relic_catalog.json").read_text(encoding="utf-8")
     )
@@ -288,7 +289,7 @@ def integrate_relic_catalog(*, write: bool = True) -> Dict[str, Any]:
     )
 
 
-def integrate_neow(*, write: bool = True) -> Dict[str, Any]:
+def integrate_neow(*, write: bool = True) -> dict[str, Any]:
     default = json.loads((_GAME_FLOW_ROOT / "neow.json").read_text(encoding="utf-8"))
     wt = _fetch_wikitext("Slay_the_Spire_2:Neow")
     data = parse_neow_page(wt) if wt else dict(default)
@@ -301,7 +302,7 @@ def integrate_neow(*, write: bool = True) -> Dict[str, Any]:
     return data
 
 
-def integrate_buffs_from_wiki(*, write: bool = True) -> Dict[str, Any]:
+def integrate_buffs_from_wiki(*, write: bool = True) -> dict[str, Any]:
     buffs_path = _MECH_ROOT / "powers" / "buffs.json"
     raw = json.loads(buffs_path.read_text(encoding="utf-8"))
     enriched = []
@@ -319,11 +320,11 @@ def integrate_buffs_from_wiki(*, write: bool = True) -> Dict[str, Any]:
     return {"enriched": enriched}
 
 
-def integrate_powers_from_wiki(*, write: bool = True) -> Dict[str, Any]:
+def integrate_powers_from_wiki(*, write: bool = True) -> dict[str, Any]:
     """Enrich debuffs.json with wiki_summary; verify multipliers."""
     debuffs_path = _MECH_ROOT / "powers" / "debuffs.json"
     raw = json.loads(debuffs_path.read_text(encoding="utf-8"))
-    report: Dict[str, Any] = {"verified": [], "skipped": [], "enriched": []}
+    report: dict[str, Any] = {"verified": [], "skipped": [], "enriched": []}
     for ent in raw.get("entries") or []:
         pid = str(ent.get("id") or "")
         spec = _POWER_WIKI_PAGES.get(pid)
@@ -390,10 +391,10 @@ def update_catalogs() -> None:
 def integrate_catalogs(
     *,
     write: bool = True,
-    max_events: Optional[int] = None,
-    max_relics: Optional[int] = None,
+    max_events: int | None = None,
+    max_relics: int | None = None,
     crawl_missing: bool = True,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     from plugins.sts2.wiki_crawl.list_index import (
         build_events_catalog,
         build_relics_index,
@@ -443,7 +444,7 @@ def integrate_catalogs(
     }
 
 
-def integrate_all(*, write: bool = True) -> Dict[str, Any]:
+def integrate_all(*, write: bool = True) -> dict[str, Any]:
     out = {
         "merchant": integrate_merchant(write=write),
         "elites": integrate_elites(write=write),

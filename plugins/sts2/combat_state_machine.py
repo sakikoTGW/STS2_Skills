@@ -9,7 +9,7 @@ import hashlib
 import json
 import logging
 import time
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 from plugins.sts2.combat_brain import combat_should_wait
 
@@ -30,10 +30,10 @@ def _is_player_phase(state: dict) -> bool:
 _COMBAT = frozenset({"monster", "elite", "boss", "hand_select"})
 _ZONES = ("player", "enemies", "hand", "discard", "exhaust")
 
-_machine: Optional["CombatStateMachine"] = None
+_machine: CombatStateMachine | None = None
 
 
-def get_combat_fsm() -> "CombatStateMachine":
+def get_combat_fsm() -> CombatStateMachine:
     global _machine
     if _machine is None:
         _machine = CombatStateMachine()
@@ -47,8 +47,8 @@ def _int(v: Any, default: int = 0) -> int:
         return default
 
 
-def _powers_tuple(powers: Any) -> Tuple[Tuple[str, int], ...]:
-    out: List[Tuple[str, int]] = []
+def _powers_tuple(powers: Any) -> tuple[tuple[str, int], ...]:
+    out: list[tuple[str, int]] = []
     for p in powers or []:
         if not isinstance(p, dict):
             continue
@@ -58,8 +58,8 @@ def _powers_tuple(powers: Any) -> Tuple[Tuple[str, int], ...]:
     return tuple(sorted(out))
 
 
-def _relics_tuple(relics: Any) -> Tuple[str, ...]:
-    names: List[str] = []
+def _relics_tuple(relics: Any) -> tuple[str, ...]:
+    names: list[str] = []
     for r in relics or []:
         if isinstance(r, dict):
             names.append(str(r.get("name") or r.get("id") or "?"))
@@ -68,7 +68,7 @@ def _relics_tuple(relics: Any) -> Tuple[str, ...]:
     return tuple(sorted(names))
 
 
-def _intent_slot(it: dict) -> Tuple[str, str, int, int]:
+def _intent_slot(it: dict) -> tuple[str, str, int, int]:
     from plugins.sts2.combat_brain import _parse_intent_damage
 
     typ = str(it.get("type") or "")
@@ -78,7 +78,7 @@ def _intent_slot(it: dict) -> Tuple[str, str, int, int]:
     return (typ, label, dmg, hits)
 
 
-def _kb_slot_for_enemy(e: dict, offset: int) -> Optional[Tuple[str, str, int, int]]:
+def _kb_slot_for_enemy(e: dict, offset: int) -> tuple[str, str, int, int] | None:
     try:
         from plugins.sts2.huiji_kb.loops import kb_predicted_slot
         from plugins.sts2.huiji_kb.store import lookup_enemy
@@ -93,7 +93,7 @@ def _kb_slot_for_enemy(e: dict, offset: int) -> Optional[Tuple[str, str, int, in
     return None
 
 
-def _predicted_slot(key: str, offset: int, enemy: Optional[dict] = None) -> Tuple[str, str, int, int]:
+def _predicted_slot(key: str, offset: int, enemy: dict | None = None) -> tuple[str, str, int, int]:
     """Fill T+1/T+2 from KB behavior loop, else intent history heuristic."""
     if enemy and offset >= 1:
         slot = _kb_slot_for_enemy(enemy, offset)
@@ -119,10 +119,10 @@ def _predicted_slot(key: str, offset: int, enemy: Optional[dict] = None) -> Tupl
         return ("predicted", f"T+{offset}:样本不足", 0, 1)
 
 
-def _enemy_intents_three(e: dict) -> Tuple[Tuple[str, str, int, int], ...]:
+def _enemy_intents_three(e: dict) -> tuple[tuple[str, str, int, int], ...]:
     """Up to 3 intent slots: API multi-intent + predicted fill."""
     raw = [x for x in (e.get("intents") or []) if isinstance(x, dict)][:3]
-    slots: List[Tuple[str, str, int, int]] = [_intent_slot(it) for it in raw]
+    slots: list[tuple[str, str, int, int]] = [_intent_slot(it) for it in raw]
     key = str(e.get("entity_id") or e.get("id") or e.get("name") or "?")
     off = 0
     while len(slots) < 3:
@@ -138,7 +138,7 @@ def _enemy_intents_three(e: dict) -> Tuple[Tuple[str, str, int, int], ...]:
     return tuple(slots[:3])
 
 
-def snapshot_player(state: dict) -> Tuple[Any, ...]:
+def snapshot_player(state: dict) -> tuple[Any, ...]:
     p = state.get("player") or {}
     return (
         _int(p.get("hp", p.get("current_hp", 0))),
@@ -160,8 +160,8 @@ def snapshot_player(state: dict) -> Tuple[Any, ...]:
     )
 
 
-def snapshot_enemies(state: dict) -> Tuple[Any, ...]:
-    rows: List[Tuple[Any, ...]] = []
+def snapshot_enemies(state: dict) -> tuple[Any, ...]:
+    rows: list[tuple[Any, ...]] = []
     for e in (state.get("battle") or {}).get("enemies") or []:
         if not isinstance(e, dict):
             continue
@@ -187,8 +187,8 @@ def snapshot_enemies(state: dict) -> Tuple[Any, ...]:
     return tuple(sorted(rows))
 
 
-def _pile_cards(pile: Any) -> Tuple[Tuple[str, str, int], ...]:
-    out: List[Tuple[str, str, int]] = []
+def _pile_cards(pile: Any) -> tuple[tuple[str, str, int], ...]:
+    out: list[tuple[str, str, int]] = []
     for c in pile or []:
         if not isinstance(c, dict):
             continue
@@ -202,16 +202,16 @@ def _pile_cards(pile: Any) -> Tuple[Tuple[str, str, int], ...]:
     return tuple(out)
 
 
-def snapshot_hand(state: dict) -> Tuple[Any, ...]:
+def snapshot_hand(state: dict) -> tuple[Any, ...]:
     return _pile_cards((state.get("player") or {}).get("hand"))
 
 
-def snapshot_discard(state: dict) -> Tuple[Any, ...]:
+def snapshot_discard(state: dict) -> tuple[Any, ...]:
     p = state.get("player") or {}
     return _pile_cards(p.get("discard_pile") or p.get("discard"))
 
 
-def snapshot_exhaust(state: dict) -> Tuple[Any, ...]:
+def snapshot_exhaust(state: dict) -> tuple[Any, ...]:
     p = state.get("player") or {}
     return _pile_cards(p.get("exhaust_pile") or p.get("exhaust"))
 
@@ -240,7 +240,7 @@ def _battle_key(state: dict) -> str:
     return f"f{run.get('floor')}|{','.join(ids)}"
 
 
-def _format_player_snap(t: Tuple[Any, ...]) -> List[str]:
+def _format_player_snap(t: tuple[Any, ...]) -> list[str]:
     hp, mx, blk, en, strn, dex, pows, rels, pots = t
     lines = [
         f"HP {hp}/{mx} | 格挡{blk} | 能量{en}",
@@ -256,15 +256,15 @@ def _format_player_snap(t: Tuple[Any, ...]) -> List[str]:
     return lines
 
 
-def _format_intent_slot(slot: Tuple[str, str, int, int], turn_label: str) -> str:
+def _format_intent_slot(slot: tuple[str, str, int, int], turn_label: str) -> str:
     typ, label, dmg, hits = slot
     hit_s = f"×{hits}" if hits > 1 else ""
     dmg_s = f" 伤{dmg}" if dmg else ""
     return f"    {turn_label}: {typ}/{label}{dmg_s}{hit_s}"
 
 
-def _format_enemies_snap(t: Tuple[Any, ...]) -> List[str]:
-    lines: List[str] = []
+def _format_enemies_snap(t: tuple[Any, ...]) -> list[str]:
+    lines: list[str] = []
     for row in t:
         eid, name, hp, mx, blk, pows, intents3, mech, facing = row
         lines.append(f"  {name}({eid}) HP{hp}/{mx} 格挡{blk}" + (f" 朝向{facing}" if facing else ""))
@@ -277,7 +277,7 @@ def _format_enemies_snap(t: Tuple[Any, ...]) -> List[str]:
     return lines
 
 
-def _format_pile_snap(label: str, cards: Tuple[Tuple[str, str, int], ...], *, tail: int = 12) -> List[str]:
+def _format_pile_snap(label: str, cards: tuple[tuple[str, str, int], ...], *, tail: int = 12) -> list[str]:
     if not cards:
         return [f"  ({label}空)"]
     show = cards[-tail:] if len(cards) > tail else cards
@@ -286,7 +286,7 @@ def _format_pile_snap(label: str, cards: Tuple[Tuple[str, str, int], ...], *, ta
     return [f"  {label}: " + ", ".join(names) + extra]
 
 
-def format_zone_snapshots(state: dict, snaps: Dict[str, Tuple[Any, ...]]) -> str:
+def format_zone_snapshots(state: dict, snaps: dict[str, tuple[Any, ...]]) -> str:
     lines = ["【战斗状态机·五区快照】"]
     if "player" in snaps:
         lines.append("▸ 我方")
@@ -306,7 +306,7 @@ def format_zone_snapshots(state: dict, snaps: Dict[str, Tuple[Any, ...]]) -> str
     return "\n".join(lines)
 
 
-def _diff_player(a: Tuple, b: Tuple) -> str:
+def _diff_player(a: tuple, b: tuple) -> str:
     labels = ("HP", "maxHP", "格挡", "能量", "力量", "敏捷", "Buff", "遗物", "药水")
     bits = []
     for i, lab in enumerate(labels):
@@ -315,13 +315,13 @@ def _diff_player(a: Tuple, b: Tuple) -> str:
     return "；".join(bits) if bits else "无变化"
 
 
-def _diff_pile(a: Tuple, b: Tuple, name: str) -> str:
+def _diff_pile(a: tuple, b: tuple, name: str) -> str:
     if a == b:
         return ""
     return f"{name}: {len(a)}张 → {len(b)}张"
 
 
-def zone_delta_text(zone: str, prev: Tuple[Any, ...], cur: Tuple[Any, ...]) -> str:
+def zone_delta_text(zone: str, prev: tuple[Any, ...], cur: tuple[Any, ...]) -> str:
     if prev == cur:
         return ""
     if zone == "player":
@@ -338,7 +338,7 @@ class CombatStateMachine:
 
     def __init__(self) -> None:
         self._battle_key = ""
-        self._zones: Dict[str, Tuple[Any, ...]] = {}
+        self._zones: dict[str, tuple[Any, ...]] = {}
         self._last_think_ts = 0.0
         self._last_think_fp = ""
 
@@ -351,7 +351,7 @@ class CombatStateMachine:
     def _in_combat(self, state: dict) -> bool:
         return str(state.get("state_type") or "") in _COMBAT
 
-    def tick(self, state: dict) -> Dict[str, Any]:
+    def tick(self, state: dict) -> dict[str, Any]:
         """Update FSM; return metadata for sts2_get_state / play_brief."""
         from plugins.sts2.config import load_sts2_config
 
@@ -388,11 +388,11 @@ class CombatStateMachine:
         except Exception:
             pass
 
-        cur_snaps: Dict[str, Tuple[Any, ...]] = {
+        cur_snaps: dict[str, tuple[Any, ...]] = {
             z: _ZONE_SNAPSHOTTERS[z](state) for z in _ZONES
         }
-        changed: List[str] = []
-        deltas: Dict[str, str] = {}
+        changed: list[str] = []
+        deltas: dict[str, str] = {}
         first_frame = not self._zones
 
         for z in _ZONES:
@@ -421,7 +421,7 @@ class CombatStateMachine:
         except Exception:
             pass
 
-        out: Dict[str, Any] = {
+        out: dict[str, Any] = {
             "enabled": True,
             "in_combat": True,
             "battle_key": bk,
@@ -480,9 +480,9 @@ class CombatStateMachine:
         state: dict,
         cfg: dict,
         fp: str,
-        changed: List[str],
-        deltas: Dict[str, str],
-    ) -> Optional[Dict[str, Any]]:
+        changed: list[str],
+        deltas: dict[str, str],
+    ) -> dict[str, Any] | None:
         from plugins.sts2.play_mode import llm_play_enabled
 
         if not llm_play_enabled():
@@ -519,9 +519,9 @@ class CombatStateMachine:
         state: dict,
         cfg: dict,
         fp: str,
-        changed: List[str],
-        deltas: Dict[str, str],
-    ) -> Optional[Dict[str, Any]]:
+        changed: list[str],
+        deltas: dict[str, str],
+    ) -> dict[str, Any] | None:
         from plugins.sts2.play_mode import llm_play_enabled
 
         if not llm_play_enabled():
@@ -565,7 +565,7 @@ class CombatStateMachine:
             return {"ok": False, "error": str(exc)}
 
 
-def _fsm_memory_prefix(zone_note: str, changed: List[str]) -> str:
+def _fsm_memory_prefix(zone_note: str, changed: list[str]) -> str:
     from plugins.sts2.run_objective import fsm_memory_run_hint
 
     return (
@@ -577,7 +577,7 @@ def _fsm_memory_prefix(zone_note: str, changed: List[str]) -> str:
     )
 
 
-def attach_combat_fsm(state: dict) -> Dict[str, Any]:
+def attach_combat_fsm(state: dict) -> dict[str, Any]:
     """Run FSM tick; return combat_fsm dict (mutates play_brief if present)."""
     meta = get_combat_fsm().tick(state)
     if not meta.get("enabled") or not meta.get("in_combat"):
@@ -585,7 +585,7 @@ def attach_combat_fsm(state: dict) -> Dict[str, Any]:
 
     snap = meta.get("snapshot_text") or ""
     think = meta.get("think") or {}
-    blocks: List[str] = [snap]
+    blocks: list[str] = [snap]
     if meta.get("think_required"):
         zones = ", ".join(_ZONE_LABELS.get(z, z) for z in meta.get("changed_zones") or [])
         blocks.append(f"【状态机】{zones} 已变化 → 须重新思考出牌")
