@@ -10,6 +10,7 @@ Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see 
 ### Changed
 
 - GUI installer (`sts2skill.exe`): remove starting-character picker; auto-detect Steam game dir, host data dir, and STS2_Skills path; optional advanced Python row
+- GUI installer: if skills/mod/host MCP/pip already match selected paths, skip reinstall (optional force reinstall)
 
 ## [1.0.6] - 2026-05-21
 

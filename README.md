@@ -61,6 +61,7 @@ pip install "git+https://github.com/sakikoTGW/STS2_Skills.git[mcp]"
 1. 选择 **宿主**（独立 / Hermes / OpenClaw / AstrBot）
 2. **自动检测** Steam 游戏目录、常见宿主数据目录与 STS2_Skills 安装路径（也可 **浏览** 手动改）
 3. 将内嵌的 STS2_Skills 与 STS2MCP 模组 **解压到对应路径**，并写入 MCP、插件与 `config.yaml`（**开局角色** 在 config / WebUI 里配置，安装时不必选）
+4. 若检测到 **路径、模组、宿主 MCP、Python 导入** 均已对齐，则 **跳过重复安装**（可勾选「强制重新安装」）
 
 命令行备选：`python scripts/sts2_setup_wizard.py` 或 `sts2 install-wizard`（需已有 Python 环境）。
 

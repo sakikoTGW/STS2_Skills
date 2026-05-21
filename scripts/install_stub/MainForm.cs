@@ -35,6 +35,14 @@ internal sealed class MainForm : Form
     private readonly Button _btnPythonBrowse = new() { AutoSize = true };
 
     private readonly Button _btnAutoDetect = new() { AutoSize = true, Height = 32 };
+    private readonly Label _lblStatus = new()
+    {
+        AutoSize = false,
+        ForeColor = Color.DarkGreen,
+        MaximumSize = new Size(560, 80),
+        Dock = DockStyle.Top,
+    };
+    private readonly CheckBox _chkForce = new() { AutoSize = true };
 
     private readonly GroupBox _logGroup = new() { Padding = new Padding(10) };
     private readonly TextBox _txtLog = new()
@@ -77,6 +85,10 @@ internal sealed class MainForm : Form
         _btnSkillsBrowse.Click += (_, _) => BrowseFolder(_txtSkillsPath, _lblSkillsPath.Text);
         _btnPythonBrowse.Click += (_, _) => BrowsePython();
         _btnAutoDetect.Click += (_, _) => RunAutoDetect(refreshHostDerived: true);
+        _chkForce.CheckedChanged += (_, _) => UpdateReadinessUi();
+        _txtHostPath.TextChanged += (_, _) => UpdateReadinessUi();
+        _txtGamePath.TextChanged += (_, _) => UpdateReadinessUi();
+        _txtSkillsPath.TextChanged += (_, _) => UpdateReadinessUi();
         _btnInstall.Click += async (_, _) => await RunInstallAsync();
         _btnExit.Click += (_, _) => Close();
 
@@ -165,6 +177,16 @@ internal sealed class MainForm : Form
         pathsTable.SetColumnSpan(detectFlow, 3);
         row++;
 
+        pathsTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        pathsTable.Controls.Add(_lblStatus, 0, row);
+        pathsTable.SetColumnSpan(_lblStatus, 3);
+        row++;
+
+        pathsTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        pathsTable.Controls.Add(_chkForce, 0, row);
+        pathsTable.SetColumnSpan(_chkForce, 3);
+        row++;
+
         _pathsGroup.Controls.Add(pathsTable);
 
         _advancedGroup.Dock = DockStyle.Top;
@@ -243,12 +265,13 @@ internal sealed class MainForm : Form
         _btnSkillsBrowse.Text = I18n.Browse;
         _btnPythonBrowse.Text = I18n.Browse;
         _btnAutoDetect.Text = I18n.AutoDetect;
+        _chkForce.Text = I18n.ForceReinstall;
         _btnInstall.Text = I18n.Install;
         _btnExit.Text = I18n.Exit;
         _logGroup.Text = I18n.LogGroup;
         _advancedGroup.Text = I18n.AdvancedGroup;
 
-        OnHostChanged(updateHintsOnly: true);
+        UpdateReadinessUi();
     }
 
     private void OnHostChanged(bool updateHintsOnly = false)
@@ -271,6 +294,52 @@ internal sealed class MainForm : Form
 
         var py = _txtPython.Text.Trim();
         _advancedGroup.Visible = string.IsNullOrEmpty(py) || !File.Exists(py);
+        UpdateReadinessUi();
+    }
+
+    private InstallOptions CurrentOptions() => new(
+        CurrentHost(),
+        _txtHostPath.Text.Trim(),
+        _txtGamePath.Text.Trim(),
+        _txtSkillsPath.Text.Trim(),
+        _txtPython.Text.Trim());
+
+    private void UpdateReadinessUi()
+    {
+        if (!ValidateInputs(silent: true))
+        {
+            _lblStatus.ForeColor = Color.Gray;
+            _lblStatus.Text = I18n.StatusNeedInstall;
+            _btnInstall.Enabled = true;
+            _btnInstall.Text = I18n.Install;
+            return;
+        }
+
+        var ready = EnvironmentProbe.Probe(CurrentOptions());
+        if (ready.AllReady && !_chkForce.Checked)
+        {
+            _lblStatus.ForeColor = Color.DarkGreen;
+            _lblStatus.Text = I18n.StatusReady + Environment.NewLine
+                + $"  · {ready.SkillsDetail}" + Environment.NewLine
+                + $"  · {ready.ModDetail}" + Environment.NewLine
+                + $"  · {ready.HostDetail}";
+            _btnInstall.Enabled = false;
+            _btnInstall.Text = I18n.Install;
+        }
+        else
+        {
+            _lblStatus.ForeColor = Color.DarkOrange;
+            var missing = new List<string>();
+            if (!ready.SkillsReady) missing.Add(ready.SkillsDetail);
+            if (!ready.ModReady) missing.Add(ready.ModDetail);
+            if (!ready.HostReady) missing.Add(ready.HostDetail);
+            if (!ready.PipReady) missing.Add(ready.PipDetail);
+            _lblStatus.Text = missing.Count == 0
+                ? I18n.StatusNeedInstall
+                : I18n.StatusNeedInstall + Environment.NewLine + "  · " + string.Join(Environment.NewLine + "  · ", missing);
+            _btnInstall.Enabled = true;
+            _btnInstall.Text = I18n.Install;
+        }
     }
 
     private void BrowseFolder(TextBox target, string purpose)
@@ -292,7 +361,10 @@ internal sealed class MainForm : Form
                 dlg.InitialDirectory = fallback;
         }
         if (dlg.ShowDialog(this) == DialogResult.OK)
+        {
             target.Text = dlg.SelectedPath;
+            UpdateReadinessUi();
+        }
     }
 
     private void BrowsePython()
@@ -304,7 +376,10 @@ internal sealed class MainForm : Form
             CheckFileExists = true,
         };
         if (dlg.ShowDialog(this) == DialogResult.OK)
+        {
             _txtPython.Text = dlg.FileName;
+            UpdateReadinessUi();
+        }
     }
 
     private void AppendLog(string line)
@@ -317,23 +392,26 @@ internal sealed class MainForm : Form
         _txtLog.AppendText(line + Environment.NewLine);
     }
 
-    private bool ValidateInputs()
+    private bool ValidateInputs(bool silent = false)
     {
         var hostDir = _txtHostPath.Text.Trim();
         if (!Directory.Exists(hostDir))
         {
-            MessageBox.Show(this, I18n.ErrHostPath, I18n.AppTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (!silent)
+                MessageBox.Show(this, I18n.ErrHostPath, I18n.AppTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return false;
         }
         var game = _txtGamePath.Text.Trim();
         if (!PathHelper.LooksLikeGameDir(game))
         {
-            MessageBox.Show(this, I18n.ErrGamePath, I18n.AppTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (!silent)
+                MessageBox.Show(this, I18n.ErrGamePath, I18n.AppTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return false;
         }
         if (string.IsNullOrWhiteSpace(_txtSkillsPath.Text))
         {
-            MessageBox.Show(this, I18n.ErrSkillsPath, I18n.AppTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (!silent)
+                MessageBox.Show(this, I18n.ErrSkillsPath, I18n.AppTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return false;
         }
         return true;
@@ -347,6 +425,14 @@ internal sealed class MainForm : Form
         RunAutoDetect(refreshHostDerived: false);
         if (!ValidateInputs())
             return;
+
+        var opt = CurrentOptions();
+        var ready = EnvironmentProbe.Probe(opt);
+        if (ready.AllReady && !_chkForce.Checked)
+        {
+            MessageBox.Show(this, I18n.StatusReady, I18n.AppTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
+        }
 
         var asm = Assembly.GetExecutingAssembly();
         var resName = asm.GetManifestResourceNames()
@@ -363,13 +449,6 @@ internal sealed class MainForm : Form
         _txtLog.Clear();
         AppendLog(I18n.Installing);
 
-        var opt = new InstallOptions(
-            CurrentHost(),
-            _txtHostPath.Text.Trim(),
-            _txtGamePath.Text.Trim(),
-            _txtSkillsPath.Text.Trim(),
-            _txtPython.Text.Trim());
-
         try
         {
             await Task.Run(() =>
@@ -380,7 +459,7 @@ internal sealed class MainForm : Form
                 {
                     Directory.CreateDirectory(temp);
                     var payloadRoot = Deployer.ExtractPayloadZip(stream, temp);
-                    Deployer.DeployAll(opt, payloadRoot, AppendLog);
+                    Deployer.DeployAll(opt, payloadRoot, _chkForce.Checked, AppendLog);
                 }
                 finally
                 {
@@ -393,7 +472,9 @@ internal sealed class MainForm : Form
                 }
             });
 
-            MessageBox.Show(this, I18n.DoneBody, I18n.DoneTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            UpdateReadinessUi();
+            if (EnvironmentProbe.Probe(CurrentOptions()).AllReady)
+                MessageBox.Show(this, I18n.DoneBody, I18n.DoneTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         catch (Exception ex)
         {

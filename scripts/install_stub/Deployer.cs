@@ -28,21 +28,52 @@ internal static class Deployer
         return Directory.Exists(inner) ? inner : extractDir;
     }
 
-    public static void DeployAll(InstallOptions opt, string payloadRoot, Action<string>? log = null)
+    public static void DeployAll(InstallOptions opt, string payloadRoot, bool force, Action<string>? log = null)
     {
         void L(string msg) => log?.Invoke(msg);
 
-        L($"{I18n.StepExtract} → {opt.SkillsDir}");
-        CopyTree(payloadRoot, opt.SkillsDir);
+        var ready = EnvironmentProbe.Probe(opt);
+        if (!force && ready.AllReady)
+        {
+            L(I18n.EnvAlreadyReady);
+            L($"  · {ready.SkillsDetail}");
+            L($"  · {ready.ModDetail}");
+            L($"  · {ready.HostDetail}");
+            L($"  · {ready.PipDetail}");
+            return;
+        }
 
-        L($"{I18n.StepMod} → {Path.Combine(opt.GameDir, "mods")}");
-        InstallMod(payloadRoot, opt.GameDir, L);
+        if (force || !ready.SkillsReady)
+        {
+            L($"{I18n.StepExtract} → {opt.SkillsDir}");
+            CopyTree(payloadRoot, opt.SkillsDir);
+        }
+        else
+            L(I18n.StepExtractSkip);
 
-        L($"{I18n.StepHost}: {opt.Host}");
-        RunHostSetup(opt, L);
+        if (force || !ready.ModReady)
+        {
+            L($"{I18n.StepMod} → {Path.Combine(opt.GameDir, "mods")}");
+            InstallMod(payloadRoot, opt.GameDir, L);
+        }
+        else
+            L(I18n.StepModSkip);
 
-        L(I18n.StepPip);
-        TryPipInstall(opt, L);
+        if (force || !ready.HostReady)
+        {
+            L($"{I18n.StepHost}: {opt.Host}");
+            RunHostSetup(opt, L);
+        }
+        else
+            L(I18n.StepHostSkip);
+
+        if (force || !ready.PipReady)
+        {
+            L(I18n.StepPip);
+            TryPipInstall(opt, L);
+        }
+        else
+            L(I18n.StepPipSkip);
     }
 
     private static void CopyTree(string src, string dst)
