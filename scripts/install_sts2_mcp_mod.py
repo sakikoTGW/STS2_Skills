@@ -3,21 +3,10 @@
 
 from __future__ import annotations
 
-import json
+import argparse
 import os
 import sys
-import urllib.request
 from pathlib import Path
-
-REPO = "Gennadiyev/STS2MCP"
-RELEASE_API = f"https://api.github.com/repos/{REPO}/releases/latest"
-
-
-def _download(url: str, dest: Path) -> None:
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    req = urllib.request.Request(url, headers={"User-Agent": "hermes-agent"})
-    with urllib.request.urlopen(req, timeout=120) as resp:
-        dest.write_bytes(resp.read())
 
 
 def _find_game_dir() -> Path:
@@ -27,7 +16,6 @@ def _find_game_dir() -> Path:
         if (path / "SlayTheSpire2.exe").is_file():
             return path
 
-    # Repo helper after PYTHONPATH includes project root
     root = Path(__file__).resolve().parents[1]
     if str(root) not in sys.path:
         sys.path.insert(0, str(root))
@@ -52,31 +40,33 @@ def _save_hint(game_dir: Path) -> None:
         hint.write_text(str(game_dir), encoding="utf-8")
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(description="Install pinned STS2MCP mod into the game")
+    ap.add_argument(
+        "--tag",
+        default=None,
+        help="STS2MCP release tag (default: compat.yaml sts2mcp_release_tag)",
+    )
+    ap.add_argument("--game-dir", default=None, help="Slay the Spire 2 install directory")
+    args = ap.parse_args(argv)
+
+    if args.game_dir:
+        os.environ["STS2_GAME_DIR"] = args.game_dir
+
+    root = Path(__file__).resolve().parents[1]
+    if str(root) not in sys.path:
+        sys.path.insert(0, str(root))
+
+    from plugins.sts2.sts2mcp_install import download_mod_assets
+
     game_dir = _find_game_dir()
     mods_dir = game_dir / "mods"
-    mods_dir.mkdir(parents=True, exist_ok=True)
-
-    req = urllib.request.Request(RELEASE_API, headers={"User-Agent": "hermes-agent"})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        release = json.loads(resp.read().decode("utf-8"))
-
-    assets = {a["name"]: a["browser_download_url"] for a in release.get("assets", [])}
-    for name in ("STS2_MCP.dll", "STS2_MCP.json"):
-        if name not in assets:
-            print(f"Missing asset {name} in release {release.get('tag_name')}", file=sys.stderr)
-            return 1
-
-    print(f"Game: {game_dir}")
-    print(f"Release: {release.get('tag_name')}")
-    for name in ("STS2_MCP.dll", "STS2_MCP.json"):
-        dest = mods_dir / name
-        print(f"Downloading {name} ...")
-        _download(assets[name], dest)
-
+    tag = download_mod_assets(mods_dir, tag=args.tag)
     _save_hint(game_dir)
+    print(f"Game: {game_dir}")
+    print(f"STS2MCP: {tag}")
     print(f"Installed to {mods_dir}")
-    print("Enable the mod in-game (Settings -> Mods), then: curl http://127.0.0.1:15526/")
+    print("Enable the mod in-game (Settings -> Mods), then: sts2 ping")
     return 0
 
 

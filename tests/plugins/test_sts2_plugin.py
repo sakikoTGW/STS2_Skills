@@ -2077,6 +2077,10 @@ def test_auto_repair_api_down_stops_study(sts2_env, monkeypatch):
     from plugins.sts2.auto_repair import attempt_auto_repair
     from plugins.sts2.autoplay import get_controller
 
+    monkeypatch.setattr(
+        "plugins.sts2.config.load_sts2_config",
+        lambda: {"auto_repair": True},
+    )
     ctrl = get_controller()
     monkeypatch.setattr(
         ctrl,

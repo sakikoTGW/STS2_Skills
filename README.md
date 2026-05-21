@@ -216,15 +216,14 @@ config.example.yaml    # 配置示例
 ## 开发
 
 ```bash
-pip install -e ".[mcp]"
-pytest tests/ -q
+pip install -e ".[mcp,dev]"
+pytest
+ruff check plugins scripts tests
 ```
 
-从 [hermes-agent](https://github.com/NousResearch/hermes-agent) 单体仓库重新打包：
+维护流程见 [CONTRIBUTING.md](CONTRIBUTING.md)：版本只改 `pyproject.toml`，用 `./scripts/sync-version.ps1` 同步元数据，发版用 `./scripts/release.ps1`（需本机 `gh auth login`）。
 
-```bash
-python scripts/build_sts2_github_release.py --zip --github-user sakikoTGW
-```
+从 [hermes-agent](https://github.com/NousResearch/hermes-agent) 单体仓库同步 `plugins/sts2` 后，在本仓跑测试并提交 PR。
 
 ## 知识库维护
 

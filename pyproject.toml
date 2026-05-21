@@ -3,13 +3,13 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "hermes-sts2"
-version = "1.0.3"
+name = "sts2-skills"
+version = "1.0.4"
 description = "Slay the Spire 2 agent bridge — STS2MCP tools for Hermes, OpenClaw, and AstrBot"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "Hermes STS2 contributors" }]
+authors = [{ name = "STS2_Skills contributors" }]
 keywords = ["sts2", "slay-the-spire", "mcp", "hermes", "openclaw", "astrbot", "gaming"]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -23,18 +23,23 @@ classifiers = [
 ]
 dependencies = [
   "pyyaml>=6.0",
-  "requests>=2.31",
+  "requests>=2.31,<3",
 ]
 
 [project.optional-dependencies]
-mcp = ["mcp>=1.0"]
+mcp = ["mcp>=1.0,<2"]
 hermes = ["hermes-agent>=0.13"]
-llm = ["openai>=1.0"]
+llm = ["openai>=1.0,<2"]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.8",
+]
 
 [project.urls]
-Homepage = "https://github.com/sakikoTGW/hermes-sts2"
-Repository = "https://github.com/sakikoTGW/hermes-sts2"
-Issues = "https://github.com/sakikoTGW/hermes-sts2/issues"
+Homepage = "https://github.com/sakikoTGW/STS2_Skills"
+Repository = "https://github.com/sakikoTGW/STS2_Skills"
+Issues = "https://github.com/sakikoTGW/STS2_Skills/issues"
+Changelog = "https://github.com/sakikoTGW/STS2_Skills/blob/main/CHANGELOG.md"
 
 [project.scripts]
 sts2 = "plugins.sts2.cli_standalone:main"
@@ -50,3 +55,17 @@ include = ["plugins*"]
   "references/**/*",
   "integrations/**/*",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["plugins", "scripts", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]

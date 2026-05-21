@@ -1,11 +1,17 @@
-# 创建 GitHub Release 并上传 zip（需已 git push 权限 / gh 已登录）
+# 已弃用：请使用 scripts/release.ps1（从 pyproject.toml 读版本 + CHANGELOG）
+# 创建 GitHub Release 并上传 zip（需 gh 已登录）
 param(
-    [string]$Tag = "v1.2.0",
+    [string]$Tag = "",
     [string]$Repo = "sakikoTGW/STS2_Skills",
     [string]$ZipPath = ""
 )
 $ErrorActionPreference = "Stop"
-$root = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
+Write-Warning "Deprecated: use ./scripts/release.ps1"
+$root = Split-Path $PSScriptRoot -Parent
+if (-not $Tag) {
+    & "$PSScriptRoot/release.ps1"
+    exit $LASTEXITCODE
+}
 if (-not $ZipPath) {
     $ZipPath = Join-Path $root "dist\STS2_Skills-$Tag.zip"
 }

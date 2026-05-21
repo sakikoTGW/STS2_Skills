@@ -5,7 +5,21 @@ from __future__ import annotations
 from typing import Any, Dict
 
 from plugins.sts2 import client as sts2_client
-from tools.registry import tool_error, tool_result
+
+try:
+    from tools.registry import tool_error, tool_result
+except ImportError:  # standalone sts2-skills without hermes-agent on PYTHONPATH
+
+    def tool_result(**kwargs: Any) -> str:
+        import json
+
+        return json.dumps(kwargs, ensure_ascii=False, default=str)
+
+    def tool_error(message: str, **kwargs: Any) -> str:
+        import json
+
+        payload = {"success": False, "error": message, **kwargs}
+        return json.dumps(payload, ensure_ascii=False, default=str)
 
 _PLAY_LOOP = (
     "On-demand LLM autopilot: sts2_autoplay action=run (until FULL_RUN_CLEARED). "
