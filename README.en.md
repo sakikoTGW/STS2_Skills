@@ -219,7 +219,6 @@ Respect [wiki.gg](https://slaythespire.wiki.gg) terms. Do not commit cookies or 
 
 MIT — see [LICENSE](LICENSE). Game assets and the STS2MCP mod are not included in this repository.
 
-## Preview
 
 <p align="center">
   <img src="docs/images/readme-screenshot.jpg" alt="STS2 runtime preview" width="720">
