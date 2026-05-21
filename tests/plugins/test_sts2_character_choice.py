@@ -12,6 +12,8 @@ def test_normalize_character_aliases():
         resolve_character_setting,
     )
 
+    assert normalize_character("IRONCLAD") == "IRONCLAD"
+    assert normalize_character("ironclad") == "IRONCLAD"
     assert normalize_character(0) == "IRONCLAD"
     assert normalize_character(1) == "SILENT"
     assert normalize_character("2") == "DEFECT"
