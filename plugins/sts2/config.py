@@ -209,11 +209,22 @@ def mcp_server_config() -> dict[str, Any]:
     else:
         command, args = sys.executable, ["-m", "plugins.sts2.mcp_server"]
 
+    from plugins.sts2.integrations.mcp_config import generic_mcp_block, hermes_mcp_block
+    from plugins.sts2.platform_home import detect_runtime_host
+
+    host = detect_runtime_host()
+    if host == "hermes":
+        block = hermes_mcp_block()
+    elif host in ("openclaw", "astrbot"):
+        block = generic_mcp_block(platform=host)
+    else:
+        block = generic_mcp_block(platform="generic")
+
     return {
         "enabled": True,
         "command": command,
         "args": args,
-        "env": {
+        "env": block.get("env") or {
             "STS2_MCP_BASE_URL": str(load_sts2_config().get("base_url", DEFAULT_BASE_URL)),
         },
         "timeout": 120,

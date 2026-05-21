@@ -24,18 +24,25 @@ def _config_candidates() -> list[Path]:
 
     home = Path.home()
     add(home / ".config" / "sts2" / "config.yaml")
+    try:
+        from plugins.sts2.platform_home import (
+            default_sts2_config_path,
+            resolve_astrbot_data_dir,
+            resolve_openclaw_home,
+        )
+
+        add(default_sts2_config_path("standalone"))
+        add(resolve_openclaw_home() / "sts2" / "config.yaml")
+        add(resolve_astrbot_data_dir() / "sts2" / "config.yaml")
+    except Exception:
+        pass
     add(home / ".hermes" / "config.yaml")
     try:
-        from plugins.sts2.paths import resolve_astrbot_data_dir, sts2_runtime_bases
+        from hermes_constants import get_hermes_home
 
-        add(resolve_astrbot_data_dir() / "sts2" / "config.yaml")
-        for base in sts2_runtime_bases():
-            sts2_base = base if base.name == "sts2" else base / "sts2"
-            add(sts2_base / "config.yaml")
+        add(get_hermes_home() / "sts2" / "config.yaml")
     except Exception:
-        ab = (os.environ.get("ASTRBOT_DATA") or "").strip()
-        if ab:
-            add(Path(ab).expanduser() / "sts2" / "config.yaml")
+        pass
     return candidates
 
 

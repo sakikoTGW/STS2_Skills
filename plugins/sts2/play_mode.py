@@ -10,8 +10,7 @@ import os
 
 from contextlib import contextmanager
 
-
-
+from plugins.sts2.host_env import env_disabled, env_flag
 from plugins.sts2.study_mode import is_study_mode, set_study_mode
 
 
@@ -22,30 +21,10 @@ def marathon_forbidden() -> bool:
 
     """Block background marathon unless user explicitly allows autopilot."""
 
-    if os.environ.get("HERMES_STS2_NO_MARATHON", "").strip().lower() in (
-
-        "1",
-
-        "true",
-
-        "yes",
-
-    ):
-
+    if env_flag("HERMES_STS2_NO_MARATHON", "STS2_NO_MARATHON"):
         return True
-
-    if os.environ.get("HERMES_STS2_MANUAL", "").strip().lower() in (
-
-        "1",
-
-        "true",
-
-        "yes",
-
-    ):
-
+    if env_flag("HERMES_STS2_MANUAL", "STS2_MANUAL"):
         return True
-
     return False
 
 
@@ -55,14 +34,14 @@ def marathon_forbidden() -> bool:
 def mount_mode() -> bool:
     """挂载模式：主 Agent 边聊边打至通关，无后台 autopilot。"""
 
-    for key in (
+    return env_flag(
         "HERMES_STS2_MOUNT_MODE",
+        "STS2_MOUNT_MODE",
         "HERMES_STS2_CHAT_THROUGH",
+        "STS2_CHAT_THROUGH",
         "HERMES_STS2_CHAT_MARATHON",
-    ):
-        if os.environ.get(key, "").strip().lower() in ("1", "true", "yes"):
-            return True
-    return False
+        "STS2_CHAT_MARATHON",
+    )
 
 
 def chat_through_mode() -> bool:
@@ -80,11 +59,7 @@ def agent_play_mode() -> bool:
 
     if mount_mode():
         return True
-    return os.environ.get("HERMES_STS2_AGENT_PLAY", "").strip().lower() in (
-        "1",
-        "true",
-        "yes",
-    )
+    return env_flag("HERMES_STS2_AGENT_PLAY", "STS2_AGENT_PLAY")
 
 
 
@@ -94,10 +69,8 @@ def llm_play_enabled() -> bool:
 
     """Auxiliary LLM for plugin brains when needed."""
 
-    if os.environ.get("HERMES_STS2_LLM_PLAY", "1").strip() in ("0", "false", "no"):
-
+    if env_disabled("HERMES_STS2_LLM_PLAY", "STS2_LLM_PLAY"):
         return False
-
     return True
 
 
@@ -120,16 +93,7 @@ def llm_marathon_allowed() -> bool:
 
         return False
 
-    if os.environ.get("HERMES_STS2_LLM_AUTOPILOT", "").strip().lower() in (
-
-        "1",
-
-        "true",
-
-        "yes",
-
-    ):
-
+    if env_flag("HERMES_STS2_LLM_AUTOPILOT", "STS2_LLM_AUTOPILOT"):
         return True
 
     try:
@@ -160,9 +124,7 @@ def autopilot_enabled() -> bool:
 
         return False
 
-    raw = os.environ.get("HERMES_STS2_AUTOPILOT", "").strip().lower()
-
-    return raw in ("1", "true", "yes")
+    return env_flag("HERMES_STS2_AUTOPILOT", "STS2_AUTOPILOT")
 
 
 

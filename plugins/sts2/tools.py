@@ -600,11 +600,24 @@ def handle_sts2_setup_status(args: Dict[str, Any], **kwargs: Any) -> str:
     except Exception:
         mode_info = {}
 
+    from plugins.sts2.platform_home import detect_runtime_host, resolve_sts2_home
+
+    host = detect_runtime_host()
+    sts2_home = resolve_sts2_home(config_log_dir=str(cfg.get("log_dir") or ""))
+    integration_hints = {
+        "hermes": "hermes sts2 setup && hermes sts2 install-mod",
+        "openclaw": "sts2 integration-config --platform openclaw",
+        "astrbot": "sts2 integration-config --platform astrbot --json-only",
+        "standalone": "sts2 integration-config --platform generic",
+    }
+
     out: Dict[str, Any] = dict(
         success=True,
         base_url=cfg.get("base_url"),
         commentary=cfg.get("commentary"),
         autoplay=cfg.get("autoplay"),
+        runtime_host=host,
+        sts2_home=str(sts2_home),
         sts2_mode=mode_info,
         mode_banner=mode_info.get("banner", ""),
         game_dir=str(game) if game else None,
@@ -614,7 +627,7 @@ def handle_sts2_setup_status(args: Dict[str, Any], **kwargs: Any) -> str:
         http_ping_message=ping_message,
         mcp_server_configured=mcp_configured,
         skill="slay-the-spire-2",
-        cli_hint="hermes sts2 setup && hermes sts2 install-mod",
+        cli_hint=integration_hints.get(host, integration_hints["standalone"]),
     )
     try:
         from plugins.sts2.play_mode import mount_mode

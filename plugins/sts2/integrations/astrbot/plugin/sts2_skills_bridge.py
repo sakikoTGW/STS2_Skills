@@ -166,9 +166,18 @@ def write_astrbot_sts2_config(plugin_cfg: dict, *, use_llm: bool) -> Path:
     )
     os.environ["STS2_CONFIG_PATH"] = str(cfg_path)
     os.environ["STS2_HOME"] = str(sts2_home)
-    os.environ["HERMES_HOME"] = str(sts2_home)
     os.environ["ASTRBOT_DATA"] = str(data)
     return cfg_path
+
+
+def _set_play_env(suffix: str, value: str) -> None:
+    for prefix in ("HERMES_STS2_", "STS2_"):
+        os.environ[f"{prefix}{suffix}"] = value
+
+
+def _unset_play_env(suffix: str) -> None:
+    for prefix in ("HERMES_STS2_", "STS2_"):
+        os.environ.pop(f"{prefix}{suffix}", None)
 
 
 def apply_astrbot_runtime(plugin_cfg: dict, *, use_llm: bool) -> None:
@@ -179,14 +188,14 @@ def apply_astrbot_runtime(plugin_cfg: dict, *, use_llm: bool) -> None:
         (plugin_cfg.get("base_url") or _DEFAULT_BASE_URL).rstrip("/"),
     )
     write_astrbot_sts2_config(plugin_cfg, use_llm=use_llm)
-    os.environ["HERMES_STS2_AGENT_PLAY"] = "0"
-    os.environ["HERMES_STS2_NO_MARATHON"] = "0"
+    _set_play_env("AGENT_PLAY", "0")
+    _set_play_env("NO_MARATHON", "0")
     if use_llm:
-        os.environ["HERMES_STS2_LLM_PLAY"] = "1"
-        os.environ["HERMES_STS2_LLM_AUTOPILOT"] = "1"
+        _set_play_env("LLM_PLAY", "1")
+        _set_play_env("LLM_AUTOPILOT", "1")
     else:
-        os.environ["HERMES_STS2_LLM_PLAY"] = "0"
-        os.environ.pop("HERMES_STS2_LLM_AUTOPILOT", None)
+        _set_play_env("LLM_PLAY", "0")
+        _unset_play_env("LLM_AUTOPILOT")
 
 
 def ensure_skills(
@@ -336,31 +345,16 @@ def force_unpause_controller(ctrl: Any) -> None:
 
 
 def mcp_server_block(plugin_cfg: dict) -> dict[str, Any]:
-    root = skills_root_from_cfg(plugin_cfg)
     import sys as _sys
 
-    py = plugin_cfg.get("mcp_python") or _sys.executable
-    base = (plugin_cfg.get("base_url") or _DEFAULT_BASE_URL).rstrip("/")
-    data = astrbot_data_dir(plugin_cfg)
-    sts2_home = data / "sts2"
-    env: dict[str, str] = {
-        "STS2_MCP_BASE_URL": base,
-        "STS2_HOME": str(sts2_home),
-        "ASTRBOT_DATA": str(data),
-    }
-    char_raw = plugin_cfg.get("character", 0)
-    try:
-        sys.path.insert(0, str(root))
-        from plugins.sts2.character_choice import resolve_character_setting
+    from plugins.sts2.integrations.mcp_config import astrbot_mcp_block
 
-        char_index, _ = resolve_character_setting(char_raw)
-        env["STS2_CHARACTER"] = str(char_index)
-    except Exception:
-        if char_raw is not None and str(char_raw).strip() != "":
-            env["STS2_CHARACTER"] = str(char_raw).strip()
-    env["STS2_CONFIG_PATH"] = str(sts2_home / "config.yaml")
-    return {
-        "command": str(py),
-        "args": [str(root / "scripts" / "sts2_mcp_bridge.py")],
-        "env": env,
-    }
+    data = astrbot_data_dir(plugin_cfg)
+    root = skills_root_from_cfg(plugin_cfg)
+    return astrbot_mcp_block(
+        repo_root=root,
+        python=str(plugin_cfg.get("mcp_python") or _sys.executable),
+        base_url=plugin_cfg.get("base_url"),
+        sts2_home=str(data / "sts2"),
+        astrbot_data=str(data),
+    )

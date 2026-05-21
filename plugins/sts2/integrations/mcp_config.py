@@ -19,33 +19,78 @@ def mcp_bridge_script(*, repo_root: Path | None = None) -> Path:
 
 
 def _default_sts2_home(platform: str) -> str:
-    home = Path.home()
+    from plugins.sts2.platform_home import resolve_sts2_home
+
     if platform == "openclaw":
-        oc = (os.environ.get("OPENCLAW_HOME") or "").strip()
-        base = Path(oc).expanduser() if oc else home / ".openclaw"
-        return str(base / "sts2")
-    if platform == "astrbot":
-        data = (os.environ.get("ASTRBOT_DATA") or "").strip()
-        base = Path(data).expanduser() if data else home / "AstrBot" / "data"
-        return str(base / "sts2")
-    from hermes_constants import display_hermes_home
+        os.environ.setdefault(
+            "OPENCLAW_HOME",
+            str(resolve_openclaw_home()),
+        )
+    elif platform == "astrbot":
+        os.environ.setdefault(
+            "ASTRBOT_DATA",
+            str(resolve_astrbot_data_dir()),
+        )
+    return str(resolve_sts2_home())
 
-    return f"{display_hermes_home()}/sts2"
+
+def resolve_openclaw_home(explicit: str = "") -> Path:
+    from plugins.sts2.platform_home import resolve_openclaw_home as _resolve
+
+    return _resolve(explicit)
 
 
-def _mcp_env(*, platform: str, base_url: str, sts2_home: str | None) -> dict[str, str]:
+def resolve_astrbot_data_dir(explicit: str = "") -> Path:
+    from plugins.sts2.platform_home import resolve_astrbot_data_dir as _resolve
+
+    return _resolve(explicit)
+
+
+def _mcp_env(
+    *,
+    platform: str,
+    base_url: str,
+    sts2_home: str | None,
+    astrbot_data: str | None = None,
+    openclaw_home: str | None = None,
+) -> dict[str, str]:
+    from plugins.sts2.character_choice import resolve_character_setting
+
+    home_path = Path(sts2_home or _default_sts2_home(platform))
     env: dict[str, str] = {
         "STS2_MCP_BASE_URL": base_url.rstrip("/"),
-        "STS2_HOME": sts2_home or _default_sts2_home(platform),
+        "STS2_HOME": str(home_path),
     }
+    cfg_file = home_path / "config.yaml"
+    if cfg_file.is_file():
+        env["STS2_CONFIG_PATH"] = str(cfg_file)
+
     if platform == "openclaw":
-        oc = (os.environ.get("OPENCLAW_HOME") or "").strip()
-        if oc:
-            env["OPENCLAW_HOME"] = oc
-    if platform == "astrbot":
-        data = (os.environ.get("ASTRBOT_DATA") or "").strip()
-        if data:
-            env["ASTRBOT_DATA"] = data
+        oc = (openclaw_home or os.environ.get("OPENCLAW_HOME") or "").strip()
+        if not oc:
+            oc = str(resolve_openclaw_home())
+        env["OPENCLAW_HOME"] = oc
+    elif platform == "astrbot":
+        data = (astrbot_data or os.environ.get("ASTRBOT_DATA") or "").strip()
+        if not data:
+            data = str(resolve_astrbot_data_dir())
+        env["ASTRBOT_DATA"] = data
+
+    char_raw = (os.environ.get("STS2_CHARACTER") or "").strip()
+    if not char_raw:
+        try:
+            from plugins.sts2.host_config import load_sts2_section
+
+            char_raw = str(load_sts2_section().get("character", ""))
+        except Exception:
+            char_raw = ""
+    if char_raw:
+        try:
+            idx, _ = resolve_character_setting(char_raw)
+            env["STS2_CHARACTER"] = str(idx)
+        except Exception:
+            env["STS2_CHARACTER"] = char_raw.strip()
+
     return env
 
 
@@ -56,6 +101,8 @@ def generic_mcp_block(
     python: str | None = None,
     base_url: str | None = None,
     sts2_home: str | None = None,
+    astrbot_data: str | None = None,
+    openclaw_home: str | None = None,
 ) -> dict[str, Any]:
     """Stdio MCP block (OpenAI/Cursor/AstrBot WebUI/OpenClaw ``mcp.servers`` shape)."""
     from plugins.sts2.client import DEFAULT_BASE_URL
@@ -71,6 +118,8 @@ def generic_mcp_block(
             platform=platform,
             base_url=base_url or cfg_url,
             sts2_home=sts2_home,
+            astrbot_data=astrbot_data,
+            openclaw_home=openclaw_home,
         ),
     }
 
@@ -81,6 +130,10 @@ def openclaw_mcp_block(**kwargs: Any) -> dict[str, Any]:
 
 def astrbot_mcp_block(**kwargs: Any) -> dict[str, Any]:
     return generic_mcp_block(platform="astrbot", **kwargs)
+
+
+def hermes_mcp_block(**kwargs: Any) -> dict[str, Any]:
+    return generic_mcp_block(platform="hermes", **kwargs)
 
 
 def openclaw_mcp_set_command(**kwargs: Any) -> str:
@@ -117,7 +170,7 @@ def format_integration_doc(platform: str, **kwargs: Any) -> str:
                 "```",
                 "",
                 "Or add under `mcp.servers.sts2` in OpenClaw config.",
-                "Enable the bundled skill from `plugins/sts2/integrations/openclaw/skills/`.",
+                "Skill: `plugins/sts2/integrations/openclaw/skills/slay-the-spire-2/`.",
             ]
         )
     elif platform == "astrbot":
@@ -127,12 +180,20 @@ def format_integration_doc(platform: str, **kwargs: Any) -> str:
                 "## AstrBot WebUI",
                 "",
                 "Settings → MCP → Add server → paste the JSON above.",
+                "Python env: `pip install mcp`.",
                 "",
-                "Requires AstrBot ≥ 3.5 with MCP enabled. Install `mcp` in the same Python env:",
-                "`pip install mcp` (or `pip install 'hermes-agent[mcp]'`).",
+                "Skill: `plugins/sts2/integrations/astrbot/skills/slay-the-spire-2/`.",
+                "Star plugin (optional): `integrations/astrbot/plugin/`.",
+            ]
+        )
+    elif platform == "hermes":
+        lines.extend(
+            [
                 "",
-                "Bundle skill: copy `plugins/sts2/integrations/astrbot/skills/slay-the-spire-2/`",
-                "into your AstrBot `data/plugins/<your-plugin>/skills/` or workspace skills folder.",
+                "## Hermes",
+                "",
+                "`hermes sts2 setup` — enables native `sts2_*` tools and `mcp_servers.sts2`.",
+                "Skill: `skills/slay-the-spire-2/`.",
             ]
         )
     else:

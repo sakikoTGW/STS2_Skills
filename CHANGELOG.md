@@ -24,6 +24,7 @@ Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see 
 
 ### Changed
 
+- Host integrations: unified `platform_home` / MCP env (`STS2_CONFIG_PATH`, `STS2_CHARACTER`); standalone `~/.config/sts2` fallback; `STS2_*` aliases for play-mode flags; AstrBot bridge no longer sets `HERMES_HOME`
 - Docs: tighten README / CONTRIBUTING / integration guides; drop internal or preachy wording
 - Tests: Hermes `agent` stub, MCP config assertion, reward-skip policy expectations; doc phrase guard in `test_repo_meta`
 

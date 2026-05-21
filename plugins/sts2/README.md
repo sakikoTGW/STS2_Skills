@@ -68,7 +68,11 @@ sts2-mcp
 | `trajectories/` | 对局 JSONL |
 | `knowledge/` | 同步的 Wiki 数据 |
 
-解析顺序：`sts2.log_dir` → `STS2_HOME` → `OPENCLAW_HOME/sts2` → `ASTRBOT_DATA/sts2` → `HERMES_HOME/sts2`。
+解析顺序：`sts2.log_dir` → `STS2_HOME` → `OPENCLAW_HOME/sts2` → `ASTRBOT_DATA/sts2` → `~/.config/sts2` → Hermes `~/.hermes/sts2`。
+
+生成 MCP 配置：`sts2 integration-config --platform openclaw|astrbot|hermes|generic`（可选 `--sts2-home`、`--openclaw-home`、`--astrbot-data`）。
+
+OpenClaw / AstrBot 下可用 `STS2_*` 环境变量（与 `HERMES_STS2_*` 等价），例如 `STS2_LLM_PLAY=0`、`STS2_AGENT_PLAY=1`。
 
 ## 知识库
 

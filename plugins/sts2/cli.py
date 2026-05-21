@@ -36,8 +36,11 @@ def register_cli(subparser: argparse.ArgumentParser) -> None:
     ic.add_argument(
         "--repo-root",
         default=None,
-        help="Hermes repo root (default: auto-detect from plugin path)",
+        help="STS2_Skills repo root (default: auto-detect)",
     )
+    ic.add_argument("--sts2-home", default=None, help="Override STS2_HOME for MCP env")
+    ic.add_argument("--openclaw-home", default=None, help="Override OPENCLAW_HOME")
+    ic.add_argument("--astrbot-data", default=None, help="Override ASTRBOT_DATA")
     subs.add_parser("ping", help="Ping STS2MCP HTTP API (game must be running)")
     subs.add_parser("status", help="Show game path, mod dir, config, connectivity")
     subs.add_parser("mode", help="Show STS2 play mode (一口气代打 vs 聊天手操)")
@@ -284,23 +287,27 @@ def _cmd_integration_config(args: argparse.Namespace) -> int:
     platform = getattr(args, "platform", "generic") or "generic"
     repo = Path(args.repo_root).expanduser() if getattr(args, "repo_root", None) else repo_root_from_plugin()
     kwargs = {"repo_root": repo}
+    if getattr(args, "sts2_home", None):
+        kwargs["sts2_home"] = args.sts2_home
+    if getattr(args, "openclaw_home", None):
+        kwargs["openclaw_home"] = args.openclaw_home
+    if getattr(args, "astrbot_data", None):
+        kwargs["astrbot_data"] = args.astrbot_data
     if getattr(args, "json_only", False):
+        from plugins.sts2.integrations.mcp_config import hermes_mcp_block
+
         if platform == "openclaw":
             block = openclaw_mcp_block(**kwargs)
         elif platform == "astrbot":
             block = astrbot_mcp_block(**kwargs)
         elif platform == "hermes":
-            block = mcp_server_config()
+            block = hermes_mcp_block(**kwargs)
         else:
             block = generic_mcp_block(**kwargs)
         print(json.dumps(block, indent=2, ensure_ascii=False))
         return 0
     if platform == "hermes":
-        print(format_integration_doc("generic", **kwargs))
-        print("## Hermes native tools\n")
-        print("Run `hermes sts2 setup` — enables `sts2_*` tools + `mcp_servers.sts2`.")
-        print(f"Config home: {display_hermes_home()}/config.yaml")
-        print("Skill: `skills/gaming/slay-the-spire-2` (bundled).")
+        print(format_integration_doc("hermes", **kwargs))
         return 0
     print(format_integration_doc(platform, **kwargs))
     return 0
