@@ -33,20 +33,21 @@ make lint
 | 同步元数据 | `scripts/sync-version.ps1` |
 | STS2MCP 版本 | `compat.yaml`（固定 tag，不用 `latest`） |
 | CI | `.github/workflows/ci.yml`（ruff 全量 `plugins/sts2` + pytest） |
-| 发布 | 推送 tag `v*` 触发 `.github/workflows/release.yml`；也可本地 `scripts/release.ps1` |
+| 发布说明 | `RELEASE_NOTES_vX.Y.Z.md`（格式见 `RELEASE_NOTES_v1.0.3.md`） |
+| 发布 | 推送 tag `v*` → Actions 上传 zip + `sts2skill.exe`；或本地 `scripts/release.ps1` |
 
 发版流程概要：
 
 ```powershell
-# 1. 更新 pyproject.toml 版本与 CHANGELOG.md [Unreleased] → [x.y.z]
+# 1. pyproject 版本 + CHANGELOG + RELEASE_NOTES_v1.0.x.md（含版本策略 / 变更 / 下载表）
 ./scripts/sync-version.ps1
+python scripts/build_install_exe.py   # 本地核对 exe 可选
 git add -A
 git commit -m "chore: release v1.0.x"
 git push origin main
 git tag v1.0.x
 git push origin v1.0.x
-# GitHub Actions 会自动跑测试并上传源码 zip 到 Releases
-# 需要 sts2skill.exe 时仍可在本地: ./scripts/release.ps1
+# Actions: STS2_Skills-v1.0.x.zip + sts2skill.exe，正文用 RELEASE_NOTES_v1.0.x.md
 ```
 
 不要把 token 或密码写进仓库；用 `gh auth login` 或系统凭据即可。

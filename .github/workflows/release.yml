@@ -4,15 +4,26 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to publish (e.g. v1.0.6)"
+        required: true
+        default: "v1.0.6"
 
 permissions:
   contents: write
+
+env:
+  RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
 
 jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_TAG }}
 
       - uses: actions/setup-python@v5
         with:
@@ -35,34 +46,73 @@ jobs:
       - name: Verify version matches tag
         shell: bash
         run: |
-          TAG="${GITHUB_REF_NAME#v}"
+          TAG="${RELEASE_TAG#v}"
           VER=$(python -c "import re; t=open('pyproject.toml').read(); m=re.search(r'^version = \"([^\"]+)\"', t, re.M); print(m.group(1))")
-          test "$VER" = "$TAG" || { echo "Tag $GITHUB_REF_NAME != pyproject $VER"; exit 1; }
+          test "$VER" = "$TAG" || { echo "Tag ${RELEASE_TAG} != pyproject $VER"; exit 1; }
+        env:
+          RELEASE_TAG: ${{ env.RELEASE_TAG }}
 
-  build-assets:
+      - name: Release notes file exists
+        shell: bash
+        run: |
+          VER="${RELEASE_TAG#v}"
+          test -f "RELEASE_NOTES_v${VER}.md" || { echo "Missing RELEASE_NOTES_v${VER}.md (see RELEASE_NOTES_v1.0.3.md)"; exit 1; }
+        env:
+          RELEASE_TAG: ${{ env.RELEASE_TAG }}
+
+  build-zip:
     needs: verify
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_TAG }}
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
       - name: Build source zip
-        run: python scripts/build_release_assets.py "${{ github.ref_name }}"
+        run: python scripts/build_release_assets.py "${{ env.RELEASE_TAG }}"
 
-      - name: Upload source artifact
+      - name: Upload source zip
         uses: actions/upload-artifact@v4
         with:
           name: release-zip
-          path: dist/STS2_Skills-${{ github.ref_name }}.zip
+          path: dist/STS2_Skills-${{ env.RELEASE_TAG }}.zip
+
+  build-exe:
+    needs: verify
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_TAG }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Build sts2skill.exe
+        run: python scripts/build_install_exe.py
+
+      - name: Upload installer exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-exe
+          path: sts2skill.exe
 
   publish:
-    needs: build-assets
+    needs: [build-zip, build-exe]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_TAG }}
 
       - name: Download zip
         uses: actions/download-artifact@v4
@@ -70,23 +120,29 @@ jobs:
           name: release-zip
           path: dist
 
-      - name: Extract release notes from CHANGELOG
-        id: notes
+      - name: Download exe
+        uses: actions/download-artifact@v4
+        with:
+          name: release-exe
+          path: .
+
+      - name: Prepare release notes
         shell: bash
         run: |
-          VER="${GITHUB_REF_NAME#v}"
-          awk -v ver="$VER" '
-            /^## \[/ { if ($0 ~ "\\[" ver "\\]") { found=1; next } else if (found) exit }
-            found { print }
-          ' CHANGELOG.md > release_notes.md
-          if [ ! -s release_notes.md ]; then
-            echo "Release ${{ github.ref_name }} — see CHANGELOG.md" > release_notes.md
-          fi
+          VER="${RELEASE_TAG#v}"
+          cp "RELEASE_NOTES_v${VER}.md" release_notes.md
+        env:
+          RELEASE_TAG: ${{ env.RELEASE_TAG }}
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/STS2_Skills-${{ github.ref_name }}.zip
+          tag_name: ${{ env.RELEASE_TAG }}
+          files: |
+            dist/STS2_Skills-${{ env.RELEASE_TAG }}.zip
+            sts2skill.exe
           body_path: release_notes.md
           generate_release_notes: false
           draft: false
+          make_latest: true
+          overwrite_files: true

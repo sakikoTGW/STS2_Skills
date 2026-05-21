@@ -45,6 +45,17 @@ def test_astrbot_metadata_version() -> None:
     assert meta.get("version") == _pyproject_version()
 
 
+def test_release_notes_for_current_version() -> None:
+    ver = _pyproject_version()
+    path = ROOT / f"RELEASE_NOTES_v{ver}.md"
+    assert path.is_file(), f"missing {path.name} (template: RELEASE_NOTES_v1.0.3.md)"
+    text = path.read_text(encoding="utf-8")
+    assert "## 版本策略" in text
+    assert "## 下载" in text
+    assert f"STS2_Skills-v{ver}.zip" in text
+    assert "sts2skill.exe" in text
+
+
 def test_compat_pins_sts2mcp_tag() -> None:
     import yaml
 

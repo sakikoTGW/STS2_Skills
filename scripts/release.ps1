@@ -27,12 +27,18 @@ python "$PSScriptRoot/build_release_assets.py" $Tag
 $zip = Join-Path $root "dist/STS2_Skills-$Tag.zip"
 if (-not (Test-Path $zip)) { throw "Missing $zip" }
 
-$notesFile = Join-Path $root "CHANGELOG.md"
-$notes = if (Test-Path $notesFile) {
-    $raw = Get-Content $notesFile -Raw -Encoding UTF8
-    if ($raw -match "(?ms)## \[$([regex]::Escape($ver))\].*?(?=## \[|\z)") { $Matches[0].Trim() }
-    else { "Release $Tag — see CHANGELOG.md" }
-} else { "Release $Tag" }
+$notesPath = Join-Path $root "RELEASE_NOTES_$Tag.md"
+if (-not (Test-Path $notesPath)) { $notesPath = Join-Path $root "RELEASE_NOTES_v$ver.md" }
+if (Test-Path $notesPath) {
+    $notes = Get-Content $notesPath -Raw -Encoding UTF8
+} else {
+    $notesFile = Join-Path $root "CHANGELOG.md"
+    $notes = if (Test-Path $notesFile) {
+        $raw = Get-Content $notesFile -Raw -Encoding UTF8
+        if ($raw -match "(?ms)## \[$([regex]::Escape($ver))\].*?(?=## \[|\z)") { $Matches[0].Trim() }
+        else { "Release $Tag — see CHANGELOG.md" }
+    } else { "Release $Tag" }
+}
 
 $gh = Get-Command gh -ErrorAction SilentlyContinue
 if (-not $gh) { throw "Install GitHub CLI: https://cli.github.com/" }
