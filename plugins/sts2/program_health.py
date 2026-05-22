@@ -195,16 +195,12 @@ def _try_safe_heal(kind: str, message: str, context: dict[str, Any]) -> bool:
     if kind != "driver_busy" and "driver busy" not in low:
         return False
     try:
-        from plugins.sts2.process_lock import holder_pid, release
+        from plugins.sts2.process_lock import clear_stale_lock, release
         from plugins.sts2.storage import sts2_home
 
         for name in (".autoplay.lock", ".supervisor.lock"):
             lock = sts2_home() / name
-            if not lock.is_file():
-                continue
-            pid = holder_pid(lock)
-            if pid is None:
-                lock.unlink(missing_ok=True)
+            if clear_stale_lock(lock):
                 release()
         from plugins.sts2 import driver_lock
 

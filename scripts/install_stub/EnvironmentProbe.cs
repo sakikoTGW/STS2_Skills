@@ -199,8 +199,8 @@ internal static class EnvironmentProbe
         detail = "";
         if (string.IsNullOrWhiteSpace(opt.PythonPath) || !File.Exists(opt.PythonPath))
         {
-            detail = I18n.ProbePipSkip;
-            return true;
+            detail = I18n.ProbePipMissing;
+            return false;
         }
         if (!CheckSkills(opt.SkillsDir, out _))
         {

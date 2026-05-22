@@ -75,6 +75,47 @@ def holder_pid(path: Path) -> int | None:
     return None
 
 
+def lock_holder_stale(path: Path) -> bool:
+    """True when lock file is missing, corrupt, dead holder, or same-process orphan."""
+    path = Path(path)
+    if not path.is_file():
+        return False
+    pid = holder_pid(path)
+    if pid is None:
+        return True
+    if not _pid_alive(pid):
+        return True
+    if pid == os.getpid():
+        try:
+            from plugins.sts2 import driver_lock
+
+            return driver_lock.active_mode() != "autoplay"
+        except Exception:
+            return True
+    return False
+
+
+def foreign_lock_held(path: Path) -> bool:
+    """Another live process holds the lock file."""
+    path = Path(path)
+    if not path.is_file():
+        return False
+    pid = holder_pid(path)
+    return pid is not None and pid != os.getpid() and _pid_alive(pid)
+
+
+def clear_stale_lock(path: Path) -> bool:
+    """Remove lock file only when holder is stale; never steal a live foreign lock."""
+    path = Path(path)
+    if not lock_holder_stale(path):
+        return False
+    try:
+        path.unlink(missing_ok=True)
+    except OSError:
+        return False
+    return True
+
+
 def try_acquire(path: Path, *, label: str = "") -> bool:
     """Acquire lock file; return False if another live process holds it."""
     global _lock_path, _lock_fh
