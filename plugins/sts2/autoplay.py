@@ -123,11 +123,11 @@ class AutoplayController:
             if not self._status.running and not self._status.studying:
                 driver_lock.release("autoplay")
                 try:
-                    from plugins.sts2.process_lock import release as release_pl
+                    from plugins.sts2.process_lock import clear_stale_lock, release as release_pl
                     from plugins.sts2.storage import sts2_home
 
                     release_pl()
-                    (sts2_home() / ".autoplay.lock").unlink(missing_ok=True)
+                    clear_stale_lock(sts2_home() / ".autoplay.lock")
                 except OSError:
                     pass
             if not driver_lock.acquire("autoplay"):

@@ -69,6 +69,18 @@ def manual_act_blocked() -> str | None:
         pass
     if is_internal_act():
         return None
+    try:
+        from plugins.sts2.process_lock import foreign_lock_held
+        from plugins.sts2.storage import sts2_home
+
+        lock = sts2_home() / ".autoplay.lock"
+        if foreign_lock_held(lock):
+            return (
+                "sts2_act blocked: autoplay lock held by another process "
+                "(stop the other Hermes/autoplay first)."
+            )
+    except Exception:
+        pass
     with _lock:
         if _mode:
             return (
