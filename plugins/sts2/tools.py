@@ -243,10 +243,11 @@ def _prepare_manual_act() -> str | None:
     elif st.get("studying") or st.get("running"):
         if cfg.get("pause_autopilot_on_manual_act", True):
             ctrl.pause(reason="用户/主 Agent 手操接管")
+            release_all_driver_locks()
         else:
             ctrl.stop()
             release_all_driver_locks()
-    else:
+    elif driver_lock.active_mode() is None:
         release_all_driver_locks()
     set_manual_mode(not agent_play_mode())
     return None
@@ -256,14 +257,14 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
     from plugins.sts2 import driver_lock
     from plugins.sts2.config import enforce_single_driver_enabled
 
+    err = _prepare_manual_act()
+    if err:
+        return tool_error(err)
+
     if enforce_single_driver_enabled():
         blocked = driver_lock.manual_act_blocked()
         if blocked:
             return tool_error(blocked)
-
-    err = _prepare_manual_act()
-    if err:
-        return tool_error(err)
 
     action = str(args.get("action") or "").strip()
     if not action:

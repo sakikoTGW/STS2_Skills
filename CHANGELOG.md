@@ -7,6 +7,11 @@ Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see 
 
 ## [Unreleased]
 
+### Fixed
+
+- `sts2_act` during running autoplay: pause background driver and release lock before single-driver check (restores `pause_autopilot_on_manual_act`)
+- GUI installer probe: missing Python no longer marks pip as “ready” (avoids false “environment complete”)
+
 ### Changed
 
 - GUI installer (`sts2skill.exe`): remove starting-character picker; auto-detect Steam game dir, host data dir, and STS2_Skills path; optional advanced Python row
