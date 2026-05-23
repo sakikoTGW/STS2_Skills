@@ -40,14 +40,20 @@ def _isolate_sts2_home(tmp_path, monkeypatch):
 
 @pytest.fixture(autouse=True)
 def _reset_sts2_driver_lock():
-    """Avoid cross-test driver lock pollution."""
+    """Avoid cross-test driver lock / autoplay status pollution."""
     from plugins.sts2 import driver_lock
+    from plugins.sts2.autoplay import AutoplayStatus, get_controller
 
     for mode in ("autoplay", "manual", "watch", "learn"):
         driver_lock.release(mode)
+    ctrl = get_controller()
+    with ctrl._lock:
+        ctrl._status = AutoplayStatus()
     yield
     for mode in ("autoplay", "manual", "watch", "learn"):
         driver_lock.release(mode)
+    with ctrl._lock:
+        ctrl._status = AutoplayStatus()
 
 
 @pytest.fixture

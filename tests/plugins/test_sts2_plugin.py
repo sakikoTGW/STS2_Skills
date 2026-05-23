@@ -158,14 +158,46 @@ def test_safe_fallback_map_not_end_turn(sts2_env, monkeypatch):
 
 def test_driver_lock_blocks_manual_act(sts2_env):
     from plugins.sts2 import driver_lock
+    from plugins.sts2.autoplay import get_controller
     from plugins.sts2.tools import handle_sts2_act
 
+    with get_controller()._lock:
+        get_controller()._status.running = False
+        get_controller()._status.paused = False
     driver_lock.acquire("autoplay")
     try:
         raw = handle_sts2_act({"action": "end_turn"})
         data = json.loads(raw)
         assert data.get("success") is False or "error" in data
         assert "blocked" in str(data.get("error", raw)).lower()
+    finally:
+        driver_lock.release("autoplay")
+
+
+def test_manual_act_pauses_running_autoplay(sts2_env, monkeypatch):
+    from plugins.sts2 import driver_lock
+    from plugins.sts2.autoplay import get_controller
+    from plugins.sts2.tools import handle_sts2_act
+
+    captured: dict = {}
+
+    def fake_post(body):
+        captured["body"] = body
+        return 200, {"status": "ok"}
+
+    monkeypatch.setattr("plugins.sts2.client.post_singleplayer_action", fake_post)
+    ctrl = get_controller()
+    with ctrl._lock:
+        ctrl._status.running = True
+        ctrl._status.paused = False
+    assert driver_lock.acquire("autoplay")
+    try:
+        raw = handle_sts2_act({"action": "end_turn"})
+        data = json.loads(raw)
+        assert data.get("success") is True
+        assert captured["body"]["action"] == "end_turn"
+        assert ctrl.status()["paused"] is True
+        assert driver_lock.active_mode() is None
     finally:
         driver_lock.release("autoplay")
 
