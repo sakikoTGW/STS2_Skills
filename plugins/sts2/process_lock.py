@@ -75,6 +75,14 @@ def holder_pid(path: Path) -> int | None:
     return None
 
 
+def live_holder_pid(path: Path) -> int | None:
+    """PID from lock file only when that process is still alive."""
+    pid = holder_pid(path)
+    if pid is not None and _pid_alive(pid):
+        return pid
+    return None
+
+
 def try_acquire(path: Path, *, label: str = "") -> bool:
     """Acquire lock file; return False if another live process holds it."""
     global _lock_path, _lock_fh

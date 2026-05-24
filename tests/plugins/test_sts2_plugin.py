@@ -170,6 +170,27 @@ def test_driver_lock_blocks_manual_act(sts2_env):
         driver_lock.release("autoplay")
 
 
+def test_start_study_does_not_steal_live_autoplay_lock(sts2_env, monkeypatch):
+    """Another live process holding .autoplay.lock must not be cleared by stale recovery."""
+    from plugins.sts2.autoplay import AutoplayStatus, get_controller
+    from plugins.sts2.storage import sts2_home
+
+    ctrl = get_controller()
+    ctrl.stop()
+    ctrl._status = AutoplayStatus()
+    monkeypatch.setattr("plugins.sts2.play_mode.rule_marathon_allowed", lambda: True)
+    lock = sts2_home() / ".autoplay.lock"
+    lock.parent.mkdir(parents=True, exist_ok=True)
+    lock.write_text("424242\nautoplay\n", encoding="utf-8")
+    monkeypatch.setattr("plugins.sts2.process_lock._pid_alive", lambda pid: pid == 424242)
+
+    result = ctrl.start_study(max_steps=1, announce=False)
+    assert result.get("success") is False
+    assert "busy" in str(result.get("error", "")).lower()
+    assert lock.is_file()
+    assert "424242" in lock.read_text(encoding="utf-8")
+
+
 def test_combat_scorer_prefers_attack_on_buff(sts2_env):
     from plugins.sts2.combat_scorer import decide_combat_scored
 
