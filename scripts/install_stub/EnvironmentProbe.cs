@@ -102,15 +102,17 @@ internal static class EnvironmentProbe
     {
         var hint = Path.Combine(sts2Home, "game_dir.txt");
         if (!File.Exists(hint))
-            return true;
+            return false;
         try
         {
             var saved = File.ReadAllText(hint).Trim();
+            if (string.IsNullOrWhiteSpace(saved))
+                return false;
             return string.Equals(Norm(saved), Norm(gameDir), StringComparison.OrdinalIgnoreCase);
         }
         catch
         {
-            return true;
+            return false;
         }
     }
 

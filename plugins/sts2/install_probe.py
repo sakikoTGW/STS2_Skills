@@ -71,10 +71,11 @@ def check_host(
 
     home = _sts2_home(host, hp)
     hint = home / "game_dir.txt"
-    if hint.is_file():
-        saved = hint.read_text(encoding="utf-8").strip()
-        if saved and _norm(saved) != _norm(game_dir):
-            return False, "game_dir mismatch"
+    if not hint.is_file():
+        return False, "game_dir hint missing"
+    saved = hint.read_text(encoding="utf-8").strip()
+    if not saved or _norm(saved) != _norm(game_dir):
+        return False, "game_dir mismatch"
 
     bridge_s = str(bridge).replace("\\", "/")
     skills_s = _norm(skills)
