@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from plugins.sts2.install_probe import check_skills, probe_install
+from plugins.sts2.install_probe import check_pip, check_skills, probe_install
 
 
 def test_check_skills_repo_root():
@@ -12,6 +12,13 @@ def test_check_skills_repo_root():
     ok, detail = check_skills(root)
     assert ok is True
     assert detail == "ok"
+
+
+def test_check_pip_rejects_missing_python(tmp_path):
+    root = Path(__file__).resolve().parents[2]
+    ok, detail = check_pip(root, python=str(tmp_path / "no_such_python.exe"))
+    assert ok is False
+    assert detail
 
 
 def test_probe_install_repo_as_standalone(tmp_path):
