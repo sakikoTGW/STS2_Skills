@@ -47,7 +47,7 @@ internal static class I18n
     public static string ProbeHostGameMismatch => T("缓存游戏路径与当前选择不一致", "Cached game path differs from selection");
     public static string ProbePipOk => T("Python 可导入 plugins.sts2", "Python can import plugins.sts2");
     public static string ProbePipMissing => T("需 pip install -e", "Needs pip install -e");
-    public static string ProbePipSkip => T("未检测 Python（跳过 pip）", "Python not set (pip skipped)");
+    public static string ProbePipNoPython => T("未配置 Python（无法验证 pip）", "Python not configured (pip unchecked)");
     public static string ProbePipNeedSkills => T("需先安装 STS2_Skills", "Install STS2_Skills first");
     public static string StepExtractSkip => T("[跳过] STS2_Skills 已存在", "[skip] STS2_Skills already present");
     public static string StepModSkip => T("[跳过] 模组已安装", "[skip] Mod already installed");
