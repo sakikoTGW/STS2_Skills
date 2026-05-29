@@ -14,6 +14,13 @@ def test_check_skills_repo_root():
     assert detail == "ok"
 
 
+def test_check_pip_bad_interpreter(tmp_path):
+    root = Path(__file__).resolve().parents[2]
+    ok, detail = check_pip(root, python=str(tmp_path / "missing-python"))
+    assert ok is False
+    assert detail
+
+
 def test_probe_install_repo_as_standalone(tmp_path):
     root = Path(__file__).resolve().parents[2]
     game = tmp_path / "game"
