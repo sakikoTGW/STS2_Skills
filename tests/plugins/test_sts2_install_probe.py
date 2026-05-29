@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from plugins.sts2.install_probe import check_skills, probe_install
+from plugins.sts2.install_probe import check_pip, check_skills, probe_install
 
 
 def test_check_skills_repo_root():
