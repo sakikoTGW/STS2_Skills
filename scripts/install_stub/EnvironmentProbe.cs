@@ -197,10 +197,11 @@ internal static class EnvironmentProbe
     private static bool CheckPip(InstallOptions opt, out string detail)
     {
         detail = "";
+        // Missing Python is not "pip ready" — otherwise AllReady blocks install while MCP cannot run.
         if (string.IsNullOrWhiteSpace(opt.PythonPath) || !File.Exists(opt.PythonPath))
         {
             detail = I18n.ProbePipSkip;
-            return true;
+            return false;
         }
         if (!CheckSkills(opt.SkillsDir, out _))
         {
