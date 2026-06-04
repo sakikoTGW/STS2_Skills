@@ -29,7 +29,12 @@ def check_skills(skills_dir: str | Path) -> tuple[bool, str]:
     root = Path(skills_dir).expanduser()
     if not root.is_dir():
         return False, "skills_dir missing"
-    for rel in ("pyproject.toml", "plugins/sts2/cli.py", "scripts/sts2_mcp_bridge.py"):
+    for rel in (
+        "pyproject.toml",
+        "plugins/sts2/cli.py",
+        "scripts/sts2_host_setup_cli.py",
+        "scripts/sts2_mcp_bridge.py",
+    ):
         if not (root / rel).is_file():
             return False, "skills incomplete"
     return True, "ok"
