@@ -7,6 +7,12 @@ Versioning: [Semantic Versioning](https://semver.org/) on the `1.0.x` line (see 
 
 ## [Unreleased]
 
+### Fixed
+
+- GUI installer incremental deploy: require `game_dir.txt` to match the selected game folder (avoid skipping host setup while the plugin still resolves another install via Steam discovery)
+- GUI installer: treat missing Python as not pip-ready so install is not disabled while MCP dependencies are absent
+- `start_study` stale lock recovery no longer deletes `.autoplay.lock` held by another live process (prevents dual autopilot drivers)
+
 ### Changed
 
 - GUI installer (`sts2skill.exe`): remove starting-character picker; auto-detect Steam game dir, host data dir, and STS2_Skills path; optional advanced Python row

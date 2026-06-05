@@ -102,15 +102,17 @@ internal static class EnvironmentProbe
     {
         var hint = Path.Combine(sts2Home, "game_dir.txt");
         if (!File.Exists(hint))
-            return true;
+            return false;
         try
         {
             var saved = File.ReadAllText(hint).Trim();
+            if (string.IsNullOrWhiteSpace(saved))
+                return false;
             return string.Equals(Norm(saved), Norm(gameDir), StringComparison.OrdinalIgnoreCase);
         }
         catch
         {
-            return true;
+            return false;
         }
     }
 
@@ -200,7 +202,7 @@ internal static class EnvironmentProbe
         if (string.IsNullOrWhiteSpace(opt.PythonPath) || !File.Exists(opt.PythonPath))
         {
             detail = I18n.ProbePipSkip;
-            return true;
+            return false;
         }
         if (!CheckSkills(opt.SkillsDir, out _))
         {
