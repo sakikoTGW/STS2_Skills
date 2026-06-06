@@ -35,6 +35,7 @@ internal static class Deployer
         var ready = EnvironmentProbe.Probe(opt);
         if (!force && ready.AllReady)
         {
+            PersistGameDirHint(opt);
             L(I18n.EnvAlreadyReady);
             L($"  · {ready.SkillsDetail}");
             L($"  · {ready.ModDetail}");
@@ -74,6 +75,33 @@ internal static class Deployer
         }
         else
             L(I18n.StepPipSkip);
+
+        PersistGameDirHint(opt);
+    }
+
+    private static string Sts2Home(string host, string hostPath) => host switch
+    {
+        "openclaw" or "astrbot" or "hermes" => Path.Combine(hostPath, "sts2"),
+        _ => hostPath,
+    };
+
+    private static void PersistGameDirHint(InstallOptions opt)
+    {
+        if (!PathHelper.LooksLikeGameDir(opt.GameDir))
+            return;
+        try
+        {
+            var home = Sts2Home(opt.Host, opt.HostPath);
+            Directory.CreateDirectory(home);
+            var hint = Path.Combine(home, "game_dir.txt");
+            var full = Path.GetFullPath(opt.GameDir)
+                .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+            File.WriteAllText(hint, full, Encoding.UTF8);
+        }
+        catch
+        {
+            /* best-effort */
+        }
     }
 
     private static void CopyTree(string src, string dst)
