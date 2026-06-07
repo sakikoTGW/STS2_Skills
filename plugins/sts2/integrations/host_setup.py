@@ -86,15 +86,13 @@ def sts2_home_for_host(
     return Path.home() / ".config" / "sts2"
 
 
-def write_sts2_config(
+def _default_sts2_section(
     *,
     host: str,
-    sts2_home: Path,
-    character_index: int,
     base_url: str = DEFAULT_BASE_URL,
+    character_index: int = 0,
     extra: dict[str, Any] | None = None,
-) -> Path:
-    sts2_home.mkdir(parents=True, exist_ok=True)
+) -> dict[str, Any]:
     enforce = ENFORCE_SINGLE_DRIVER_BY_HOST.get(host, True)
     section: dict[str, Any] = {
         "base_url": base_url.rstrip("/"),
@@ -125,7 +123,45 @@ def write_sts2_config(
         )
     if extra:
         section.update(extra)
+    return section
+
+
+def write_sts2_config(
+    *,
+    host: str,
+    sts2_home: Path,
+    character_index: int | None = None,
+    base_url: str = DEFAULT_BASE_URL,
+    extra: dict[str, Any] | None = None,
+) -> Path:
+    sts2_home.mkdir(parents=True, exist_ok=True)
+    defaults = _default_sts2_section(
+        host=host,
+        base_url=base_url,
+        character_index=character_index if character_index is not None else 0,
+        extra=extra,
+    )
+    enforce = ENFORCE_SINGLE_DRIVER_BY_HOST.get(host, True)
     cfg_path = sts2_home / "config.yaml"
+    existing_section: dict[str, Any] = {}
+    if cfg_path.is_file():
+        try:
+            raw = yaml.safe_load(cfg_path.read_text(encoding="utf-8")) or {}
+            if isinstance(raw, dict):
+                prev = raw.get("sts2")
+                if isinstance(prev, dict):
+                    existing_section = dict(prev)
+        except (OSError, yaml.YAMLError):
+            pass
+
+    if existing_section:
+        # Re-run / incremental deploy: keep user tuning; refresh host policy only.
+        section = {**defaults, **existing_section, "enforce_single_driver": enforce}
+        if character_index is not None:
+            section["character"] = character_index
+    else:
+        section = defaults
+
     cfg_path.write_text(
         yaml.safe_dump({"sts2": section}, allow_unicode=True, sort_keys=False),
         encoding="utf-8",
@@ -296,7 +332,7 @@ def update_astrbot_plugin_config(
     *,
     repo: Path,
     python: str,
-    character_index: int,
+    character_index: int | None = None,
     game_dir: str = "",
 ) -> Path:
     cfg_path = astrbot_data / "config" / "astrbot_plugin_sts2_agent_config.json"
@@ -309,15 +345,15 @@ def update_astrbot_plugin_config(
                 plug = loaded
         except json.JSONDecodeError:
             pass
-    plug.update(
-        {
-            "skills_root": str(repo),
-            "astrbot_data_dir": str(astrbot_data),
-            "base_url": DEFAULT_BASE_URL,
-            "character": character_index,
-            "mcp_python": python,
-        }
-    )
+    plug_updates: dict[str, Any] = {
+        "skills_root": str(repo),
+        "astrbot_data_dir": str(astrbot_data),
+        "base_url": DEFAULT_BASE_URL,
+        "mcp_python": python,
+    }
+    if character_index is not None:
+        plug_updates["character"] = character_index
+    plug.update(plug_updates)
     if game_dir:
         plug["game_dir"] = game_dir
     elif not plug.get("game_dir"):
@@ -360,7 +396,7 @@ def _enable_hermes_mcp(cfg: dict[str, Any]) -> None:
 
 def setup_hermes_native(
     *,
-    character_index: int,
+    character_index: int | None = None,
     repo: Path | None = None,
 ) -> SetupResult | None:
     """Use ``hermes_cli`` when available; returns None if Hermes CLI is not installed."""
@@ -392,7 +428,8 @@ def setup_hermes_native(
     )
     sts2 = cfg.setdefault("sts2", {})
     if isinstance(sts2, dict):
-        sts2["character"] = character_index
+        if character_index is not None:
+            sts2["character"] = character_index
         sts2["pause_on_ask"] = False
         sts2["ask_user_on"] = []
         sts2["enforce_single_driver"] = True
@@ -429,7 +466,7 @@ def setup_host(
     *,
     repo_root_path: str | Path | None = None,
     python: str | None = None,
-    character_index: int = 0,
+    character_index: int | None = None,
     game_dir: str = "",
     sts2_home: str | Path | None = None,
     openclaw_home: str | Path | None = None,
@@ -479,7 +516,7 @@ def setup_host(
             env = {**os.environ, "STS2_GAME_DIR": game_dir}
             proc = subprocess.run([py, str(script)], env=env, cwd=str(repo), check=False)
             if proc.returncode != 0:
-                result.warnings.append("install-mod 退出码非 0")
+                result.warnings.append("install-mod 失败：退出码非 0")
             else:
                 result.messages.append(f"mod installed for {game_dir}")
         else:
@@ -510,15 +547,15 @@ def setup_host(
                 raw = loaded
         sts2 = raw.setdefault("sts2", {})
         if isinstance(sts2, dict):
-            sts2.update(
-                {
-                    "base_url": DEFAULT_BASE_URL,
-                    "character": character_index,
-                    "pause_on_ask": False,
-                    "ask_user_on": [],
-                    "enforce_single_driver": True,
-                }
-            )
+            hermes_updates: dict[str, Any] = {
+                "base_url": DEFAULT_BASE_URL,
+                "pause_on_ask": False,
+                "ask_user_on": [],
+                "enforce_single_driver": True,
+            }
+            if character_index is not None:
+                hermes_updates["character"] = character_index
+            sts2.update(hermes_updates)
         hermes_cfg.write_text(
             yaml.safe_dump(raw, allow_unicode=True, sort_keys=False),
             encoding="utf-8",
