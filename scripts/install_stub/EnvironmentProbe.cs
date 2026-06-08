@@ -33,11 +33,41 @@ internal static class EnvironmentProbe
     private static string Norm(string path) =>
         Path.GetFullPath(path).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
 
+    private static bool IsPathBoundary(char c) =>
+        c == '\0' || c == '"' || c == '\'' || c == ' ' || c == ',' || c == ']' || c == '}'
+        || c == '\\' || c == '/';
+
+    private static bool IsPathContinuation(char c) =>
+        char.IsLetterOrDigit(c) || c is '_' or '-' or '.';
+
+    /// <summary>
+    /// Match a normalized path inside config text without prefix false positives
+    /// (e.g. STS2_Skills vs STS2_Skills_old).
+    /// </summary>
     private static bool PathMatches(string haystack, string needle)
     {
         if (string.IsNullOrWhiteSpace(haystack) || string.IsNullOrWhiteSpace(needle))
             return false;
-        return haystack.Contains(Norm(needle), StringComparison.OrdinalIgnoreCase);
+        var normNeedle = Norm(needle).Replace('\\', '/');
+        if (string.IsNullOrEmpty(normNeedle))
+            return false;
+        var hay = haystack.Replace('\\', '/');
+        var start = 0;
+        while (start <= hay.Length - normNeedle.Length)
+        {
+            var idx = hay.IndexOf(normNeedle, start, StringComparison.OrdinalIgnoreCase);
+            if (idx < 0)
+                return false;
+            var before = idx == 0 ? '\0' : hay[idx - 1];
+            var afterIdx = idx + normNeedle.Length;
+            var after = afterIdx >= hay.Length ? '\0' : hay[afterIdx];
+            if ((IsPathBoundary(before) || before is '\\' or '/')
+                && (IsPathBoundary(after) || after is '\\' or '/')
+                && !(IsPathContinuation(before) || IsPathContinuation(after)))
+                return true;
+            start = idx + 1;
+        }
+        return false;
     }
 
     private static bool CheckSkills(string skillsDir, out string detail)
@@ -110,7 +140,7 @@ internal static class EnvironmentProbe
         }
         catch
         {
-            return true;
+            return false;
         }
     }
 
@@ -199,8 +229,8 @@ internal static class EnvironmentProbe
         detail = "";
         if (string.IsNullOrWhiteSpace(opt.PythonPath) || !File.Exists(opt.PythonPath))
         {
-            detail = I18n.ProbePipSkip;
-            return true;
+            detail = I18n.ProbePipMissing;
+            return false;
         }
         if (!CheckSkills(opt.SkillsDir, out _))
         {

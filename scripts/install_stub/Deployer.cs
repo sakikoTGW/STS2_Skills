@@ -78,9 +78,23 @@ internal static class Deployer
 
     private static void CopyTree(string src, string dst)
     {
-        if (Directory.Exists(dst))
-            Directory.Delete(dst, true);
-        CopyDirectoryRecursive(src, dst);
+        var parent = Path.GetDirectoryName(dst);
+        if (string.IsNullOrEmpty(parent))
+            throw new InvalidOperationException($"Invalid destination: {dst}");
+        var staging = Path.Combine(parent, $".{Path.GetFileName(dst)}.staging-{Guid.NewGuid():N}");
+        try
+        {
+            CopyDirectoryRecursive(src, staging);
+            if (Directory.Exists(dst))
+                Directory.Delete(dst, true);
+            Directory.Move(staging, dst);
+        }
+        catch
+        {
+            if (Directory.Exists(staging))
+                Directory.Delete(staging, true);
+            throw;
+        }
     }
 
     private static void CopyDirectoryRecursive(string src, string dst)

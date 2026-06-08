@@ -162,18 +162,27 @@ def copy_skill(skill_dst: Path, repo: Path) -> bool:
     return False
 
 
+class ConfigParseError(ValueError):
+    """Existing host config exists but cannot be parsed."""
+
+
 def _load_config_file(path: Path) -> dict[str, Any]:
+    if not path.is_file():
+        return {}
     raw = path.read_text(encoding="utf-8")
     try:
         data = json.loads(raw)
-        return data if isinstance(data, dict) else {}
+        if isinstance(data, dict):
+            return data
     except json.JSONDecodeError:
         pass
     try:
         data = yaml.safe_load(raw)
-        return data if isinstance(data, dict) else {}
+        if isinstance(data, dict):
+            return data
     except yaml.YAMLError:
-        return {}
+        pass
+    raise ConfigParseError(f"existing config unreadable: {path}")
 
 
 def _save_config_file(path: Path, data: dict[str, Any]) -> None:
@@ -255,10 +264,12 @@ def merge_astrbot_mcp(astrbot_data: Path, block: dict[str, Any]) -> Path:
     if mcp_json.is_file():
         try:
             loaded = json.loads(mcp_json.read_text(encoding="utf-8"))
-            if isinstance(loaded, dict):
-                data = loaded
-        except json.JSONDecodeError:
-            pass
+        except json.JSONDecodeError as exc:
+            raise ConfigParseError(f"existing mcp_server.json unreadable: {mcp_json}") from exc
+        if isinstance(loaded, dict):
+            data = loaded
+        else:
+            raise ConfigParseError(f"existing mcp_server.json is not an object: {mcp_json}")
     servers = data.setdefault("mcpServers", {})
     if not isinstance(servers, dict):
         servers = {}
@@ -542,7 +553,11 @@ def setup_host(
         oc = resolve_openclaw_home(str(openclaw_home or ""))
         os.environ["OPENCLAW_HOME"] = str(oc)
         block = openclaw_mcp_block(openclaw_home=str(oc), **block_kwargs)
-        path, how = merge_openclaw_mcp(openclaw_home=oc, block=block)
+        try:
+            path, how = merge_openclaw_mcp(openclaw_home=oc, block=block)
+        except ConfigParseError as exc:
+            result.warnings.append(str(exc))
+            return result
         result.messages.append(how)
         if path:
             result.messages.append(str(path))
@@ -561,7 +576,11 @@ def setup_host(
         deploy_astrbot_plugin(data, repo)
         result.messages.append(f"plugin: {data / 'plugins' / 'astrbot_plugin_sts2_agent'}")
         block = astrbot_mcp_block(astrbot_data=str(data), **block_kwargs)
-        mcp_path = merge_astrbot_mcp(data, block)
+        try:
+            mcp_path = merge_astrbot_mcp(data, block)
+        except ConfigParseError as exc:
+            result.warnings.append(str(exc))
+            return result
         result.messages.append(f"MCP: {mcp_path}")
         plug_cfg = update_astrbot_plugin_config(
             data,
