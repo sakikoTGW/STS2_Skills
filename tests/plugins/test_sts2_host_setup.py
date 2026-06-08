@@ -43,6 +43,38 @@ def test_write_sts2_config_enforce_by_host(tmp_path):
     assert raw2["enforce_single_driver"] is True
 
 
+def test_merge_astrbot_mcp_refuses_corrupt_existing(tmp_path):
+    from plugins.sts2.integrations.host_setup import ConfigParseError, merge_astrbot_mcp
+
+    data = tmp_path / "astrbot"
+    data.mkdir()
+    mcp = data / "mcp_server.json"
+    mcp.write_text("{not valid json", encoding="utf-8")
+    block = {"command": "python", "args": ["/repo/scripts/sts2_mcp_bridge.py"]}
+    try:
+        merge_astrbot_mcp(data, block)
+        assert False, "expected ConfigParseError"
+    except ConfigParseError:
+        pass
+    assert mcp.read_text(encoding="utf-8") == "{not valid json"
+
+
+def test_merge_openclaw_mcp_refuses_corrupt_existing(tmp_path):
+    from plugins.sts2.integrations.host_setup import ConfigParseError, merge_openclaw_mcp
+
+    oc = tmp_path / "openclaw"
+    oc.mkdir()
+    cfg = oc / "openclaw.json"
+    cfg.write_text("{broken", encoding="utf-8")
+    block = {"command": "python", "args": ["/repo/scripts/sts2_mcp_bridge.py"]}
+    try:
+        merge_openclaw_mcp(openclaw_home=oc, block=block, prefer_cli=False)
+        assert False, "expected ConfigParseError"
+    except ConfigParseError:
+        pass
+    assert cfg.read_text(encoding="utf-8") == "{broken"
+
+
 def test_setup_standalone_writes_mcp_hint(tmp_path, monkeypatch):
     from plugins.sts2.integrations.host_setup import setup_host
 

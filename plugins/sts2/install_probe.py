@@ -25,6 +25,38 @@ def _norm(path: str | Path) -> str:
     return str(Path(path).expanduser().resolve())
 
 
+def _path_boundary(ch: str) -> bool:
+    return ch in ('\0', '"', "'", " ", ",", "]", "}", "\\", "/")
+
+
+def _path_continuation(ch: str) -> bool:
+    return ch.isalnum() or ch in "_-."
+
+
+def _path_in_text(text: str, path: str | Path) -> bool:
+    """Match a path in config text without prefix false positives."""
+    norm = _norm(path).replace("\\", "/")
+    if not norm:
+        return False
+    hay = text.replace("\\", "/")
+    start = 0
+    while start <= len(hay) - len(norm):
+        idx = hay.lower().find(norm.lower(), start)
+        if idx < 0:
+            return False
+        before = hay[idx - 1] if idx > 0 else "\0"
+        after_idx = idx + len(norm)
+        after = hay[after_idx] if after_idx < len(hay) else "\0"
+        if (
+            (_path_boundary(before) or before in ("\\", "/"))
+            and (_path_boundary(after) or after in ("\\", "/"))
+            and not (_path_continuation(before) or _path_continuation(after))
+        ):
+            return True
+        start = idx + 1
+    return False
+
+
 def check_skills(skills_dir: str | Path) -> tuple[bool, str]:
     root = Path(skills_dir).expanduser()
     if not root.is_dir():
@@ -72,18 +104,18 @@ def check_host(
     home = _sts2_home(host, hp)
     hint = home / "game_dir.txt"
     if hint.is_file():
-        saved = hint.read_text(encoding="utf-8").strip()
+        try:
+            saved = hint.read_text(encoding="utf-8").strip()
+        except OSError:
+            return False, "game_dir unreadable"
         if saved and _norm(saved) != _norm(game_dir):
             return False, "game_dir mismatch"
-
-    bridge_s = str(bridge).replace("\\", "/")
-    skills_s = _norm(skills)
 
     def _text_has(path: Path) -> bool:
         if not path.is_file():
             return False
         text = path.read_text(encoding="utf-8", errors="ignore")
-        return bridge_s in text or skills_s in text
+        return _path_in_text(text, bridge) or _path_in_text(text, skills)
 
     if host == "astrbot":
         mcp = hp / "mcp_server.json"
