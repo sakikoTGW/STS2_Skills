@@ -381,7 +381,7 @@ def _cmd_setup(args: argparse.Namespace) -> int:
     if host not in ("standalone", "hermes", "openclaw", "astrbot"):
         host = "standalone"
 
-    char_index = 0
+    char_index: int | None = None
     if getattr(args, "character", None) is not None:
         char_index, _ = resolve_character_setting(args.character)
 

@@ -28,6 +28,26 @@ from plugins.sts2.platform_home import (
 
 DEFAULT_BASE_URL = "http://127.0.0.1:15526"
 
+# User-tuned gameplay keys — keep on incremental host setup / reinstall.
+_PRESERVE_ON_SETUP = frozenset(
+    {
+        "autoplay",
+        "commentary",
+        "study_marathon",
+        "loop_runs",
+        "autopilot_until_victory",
+        "step_interval_seconds",
+        "study_use_llm",
+        "study_card_pick_llm",
+        "study_combat_play_llm",
+        "study_rules_fallback",
+        "pause_autopilot_on_manual_act",
+        "auto_repair",
+        "hermes_may_patch_code",
+        "combat_fsm_enabled",
+    }
+)
+
 # AstrBot: MCP + optional Star plugin may both drive; OpenClaw/Hermes/standalone: one driver.
 ENFORCE_SINGLE_DRIVER_BY_HOST: dict[str, bool] = {
     "standalone": True,
@@ -86,6 +106,17 @@ def sts2_home_for_host(
     return Path.home() / ".config" / "sts2"
 
 
+def _load_sts2_section(cfg_path: Path) -> dict[str, Any]:
+    if not cfg_path.is_file():
+        return {}
+    try:
+        loaded = yaml.safe_load(cfg_path.read_text(encoding="utf-8")) or {}
+        prev = loaded.get("sts2")
+        return dict(prev) if isinstance(prev, dict) else {}
+    except Exception:
+        return {}
+
+
 def write_sts2_config(
     *,
     host: str,
@@ -95,6 +126,8 @@ def write_sts2_config(
     extra: dict[str, Any] | None = None,
 ) -> Path:
     sts2_home.mkdir(parents=True, exist_ok=True)
+    cfg_path = sts2_home / "config.yaml"
+    prev = _load_sts2_section(cfg_path)
     enforce = ENFORCE_SINGLE_DRIVER_BY_HOST.get(host, True)
     section: dict[str, Any] = {
         "base_url": base_url.rstrip("/"),
@@ -125,9 +158,12 @@ def write_sts2_config(
         )
     if extra:
         section.update(extra)
-    cfg_path = sts2_home / "config.yaml"
+    merged = {**prev, **section}
+    for key in _PRESERVE_ON_SETUP:
+        if key in prev:
+            merged[key] = prev[key]
     cfg_path.write_text(
-        yaml.safe_dump({"sts2": section}, allow_unicode=True, sort_keys=False),
+        yaml.safe_dump({"sts2": merged}, allow_unicode=True, sort_keys=False),
         encoding="utf-8",
     )
     os.environ["STS2_CONFIG_PATH"] = str(cfg_path)
@@ -429,7 +465,7 @@ def setup_host(
     *,
     repo_root_path: str | Path | None = None,
     python: str | None = None,
-    character_index: int = 0,
+    character_index: int | None = None,
     game_dir: str = "",
     sts2_home: str | Path | None = None,
     openclaw_home: str | Path | None = None,
@@ -447,6 +483,10 @@ def setup_host(
         openclaw_home=openclaw_home,
         astrbot_data=astrbot_data,
     )
+    prev_sts2 = _load_sts2_section(home / "config.yaml")
+    if character_index is None:
+        raw_char = prev_sts2.get("character")
+        character_index = int(raw_char) if isinstance(raw_char, int) else 0
     cfg_path = write_sts2_config(
         host=host,
         sts2_home=home,

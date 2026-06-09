@@ -106,6 +106,8 @@ def check_pip(skills_dir: str | Path, python: str | None = None) -> tuple[bool, 
     import subprocess
     import sys
 
+    if python is not None and not str(python).strip():
+        return False, "python not set"
     py = python or sys.executable
     skills = Path(skills_dir).expanduser()
     if not skills.is_dir():
