@@ -43,6 +43,53 @@ def test_write_sts2_config_enforce_by_host(tmp_path):
     assert raw2["enforce_single_driver"] is True
 
 
+def test_write_sts2_config_preserves_user_tuning(tmp_path):
+    import yaml
+    from plugins.sts2.integrations.host_setup import write_sts2_config
+
+    home = tmp_path / "sts2"
+    home.mkdir()
+    cfg = home / "config.yaml"
+    cfg.write_text(
+        yaml.safe_dump(
+            {
+                "sts2": {
+                    "character": 3,
+                    "autoplay": True,
+                    "study_marathon": False,
+                    "base_url": "http://127.0.0.1:15526",
+                }
+            },
+            allow_unicode=True,
+        ),
+        encoding="utf-8",
+    )
+    write_sts2_config(host="openclaw", sts2_home=home, character_index=0)
+    raw = yaml.safe_load(cfg.read_text(encoding="utf-8"))["sts2"]
+    assert raw["character"] == 0
+    assert raw["autoplay"] is True
+    assert raw["study_marathon"] is False
+    assert raw["enforce_single_driver"] is True
+
+
+def test_setup_host_preserves_character_when_unspecified(tmp_path, monkeypatch):
+    import yaml
+    from plugins.sts2.integrations.host_setup import setup_host
+
+    monkeypatch.setattr("pathlib.Path.home", lambda: tmp_path)
+    monkeypatch.delenv("STS2_HOME", raising=False)
+    home = tmp_path / ".config" / "sts2"
+    home.mkdir(parents=True)
+    (home / "config.yaml").write_text(
+        yaml.safe_dump({"sts2": {"character": 4, "autoplay": True}}, allow_unicode=True),
+        encoding="utf-8",
+    )
+    setup_host("standalone", skip_pip=True, install_mod=False)
+    raw = yaml.safe_load((home / "config.yaml").read_text(encoding="utf-8"))["sts2"]
+    assert raw["character"] == 4
+    assert raw["autoplay"] is True
+
+
 def test_setup_standalone_writes_mcp_hint(tmp_path, monkeypatch):
     from plugins.sts2.integrations.host_setup import setup_host
 
