@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace InstallLauncher;
 
@@ -40,6 +41,25 @@ internal static class EnvironmentProbe
         return haystack.Contains(Norm(needle), StringComparison.OrdinalIgnoreCase);
     }
 
+    private static string? ReadInstalledVersion(string skillsDir)
+    {
+        var pp = Path.Combine(skillsDir, "pyproject.toml");
+        if (!File.Exists(pp))
+            return null;
+        try
+        {
+            var m = Regex.Match(
+                File.ReadAllText(pp),
+                @"^version\s*=\s*""([^""]+)""",
+                RegexOptions.Multiline);
+            return m.Success ? m.Groups[1].Value : null;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
     private static bool CheckSkills(string skillsDir, out string detail)
     {
         detail = "";
@@ -63,6 +83,17 @@ internal static class EnvironmentProbe
                 detail = I18n.ProbeSkillsIncomplete;
                 return false;
             }
+        }
+        var installed = ReadInstalledVersion(root);
+        if (string.IsNullOrWhiteSpace(installed))
+        {
+            detail = I18n.ProbeSkillsIncomplete;
+            return false;
+        }
+        if (!string.Equals(installed, InstallerVersion.Value, StringComparison.Ordinal))
+        {
+            detail = $"{I18n.ProbeSkillsVersionMismatch} ({installed} != {InstallerVersion.Value})";
+            return false;
         }
         detail = I18n.ProbeSkillsOk;
         return true;
@@ -200,7 +231,7 @@ internal static class EnvironmentProbe
         if (string.IsNullOrWhiteSpace(opt.PythonPath) || !File.Exists(opt.PythonPath))
         {
             detail = I18n.ProbePipSkip;
-            return true;
+            return false;
         }
         if (!CheckSkills(opt.SkillsDir, out _))
         {

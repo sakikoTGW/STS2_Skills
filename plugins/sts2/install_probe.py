@@ -1,6 +1,7 @@
 """Probe whether STS2_Skills environment is already installed for a host."""
 from __future__ import annotations
 
+import re
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -25,13 +26,39 @@ def _norm(path: str | Path) -> str:
     return str(Path(path).expanduser().resolve())
 
 
-def check_skills(skills_dir: str | Path) -> tuple[bool, str]:
+def read_installed_version(skills_dir: str | Path) -> str | None:
+    root = Path(skills_dir).expanduser()
+    pp = root / "pyproject.toml"
+    if not pp.is_file():
+        return None
+    m = re.search(
+        r'^version\s*=\s*"([^"]+)"',
+        pp.read_text(encoding="utf-8"),
+        re.MULTILINE,
+    )
+    return m.group(1) if m else None
+
+
+def check_skills(
+    skills_dir: str | Path,
+    *,
+    expected_version: str | None = None,
+) -> tuple[bool, str]:
     root = Path(skills_dir).expanduser()
     if not root.is_dir():
         return False, "skills_dir missing"
     for rel in ("pyproject.toml", "plugins/sts2/cli.py", "scripts/sts2_mcp_bridge.py"):
         if not (root / rel).is_file():
             return False, "skills incomplete"
+    if expected_version is None:
+        from plugins.sts2.version import package_version
+
+        expected_version = package_version()
+    installed = read_installed_version(root)
+    if not installed:
+        return False, "skills version unknown"
+    if installed != expected_version:
+        return False, f"skills version mismatch ({installed} != {expected_version})"
     return True, "ok"
 
 
@@ -106,6 +133,8 @@ def check_pip(skills_dir: str | Path, python: str | None = None) -> tuple[bool, 
     import subprocess
     import sys
 
+    if python is not None and not str(python).strip():
+        return False, "python not set"
     py = python or sys.executable
     skills = Path(skills_dir).expanduser()
     if not skills.is_dir():
@@ -131,8 +160,10 @@ def probe_install(
     game_dir: str | Path,
     skills_dir: str | Path,
     python: str | None = None,
+    *,
+    expected_version: str | None = None,
 ) -> InstallReadiness:
-    sk, sd = check_skills(skills_dir)
+    sk, sd = check_skills(skills_dir, expected_version=expected_version)
     mo, md = check_mod(game_dir)
     ho, hd = check_host(host, host_path, skills_dir, game_dir)
     pi, pd = check_pip(skills_dir, python)
