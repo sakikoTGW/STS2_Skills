@@ -13,7 +13,9 @@ internal static class I18n
     public static string T(string zh, string en) => Current == Lang.Zh ? zh : en;
 
     public static string AppTitle => T("STS2_Skills 安装程序", "STS2_Skills Setup");
-    public static string VersionLine => T("版本 1.0.6", "Version 1.0.6");
+    public static string VersionLine => T(
+        $"版本 {InstallerVersion.Value}",
+        $"Version {InstallerVersion.Value}");
     public static string LangLabel => T("语言", "Language");
     public static string LangZh => "中文";
     public static string LangEn => "English";
@@ -38,6 +40,9 @@ internal static class I18n
     public static string ProbeSkillsOk => T("STS2_Skills 已安装", "STS2_Skills present");
     public static string ProbeSkillsMissing => T("未找到 STS2_Skills", "STS2_Skills missing");
     public static string ProbeSkillsIncomplete => T("STS2_Skills 目录不完整", "STS2_Skills folder incomplete");
+    public static string ProbeSkillsVersionMismatch => T(
+        "STS2_Skills 版本与安装包不一致",
+        "STS2_Skills version differs from installer");
     public static string ProbeModOk => T("STS2MCP 模组已安装", "STS2MCP mod present");
     public static string ProbeModMissing => T("未找到 STS2MCP 模组", "STS2MCP mod missing");
     public static string ProbeModNoGame => T("游戏目录无效", "Invalid game folder");

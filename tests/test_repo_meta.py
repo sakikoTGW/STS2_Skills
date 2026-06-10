@@ -45,6 +45,15 @@ def test_astrbot_metadata_version() -> None:
     assert meta.get("version") == _pyproject_version()
 
 
+def test_installer_cs_version_matches_pyproject() -> None:
+    text = (ROOT / "scripts" / "install_stub" / "InstallerVersion.cs").read_text(
+        encoding="utf-8"
+    )
+    m = re.search(r'Value\s*=\s*"([^"]+)"', text)
+    assert m, "InstallerVersion.cs missing Value constant"
+    assert m.group(1) == _pyproject_version()
+
+
 def test_release_notes_for_current_version() -> None:
     ver = _pyproject_version()
     path = ROOT / f"RELEASE_NOTES_v{ver}.md"
