@@ -28,6 +28,36 @@ def test_merge_openclaw_mcp_into_json(tmp_path):
     assert data["mcp"]["servers"]["sts2"]["transport"] == "stdio"
 
 
+def test_write_sts2_config_preserves_user_settings(tmp_path):
+    import yaml
+    from plugins.sts2.integrations.host_setup import write_sts2_config
+
+    home = tmp_path / "sts2"
+    home.mkdir()
+    cfg = home / "config.yaml"
+    cfg.write_text(
+        yaml.safe_dump(
+            {
+                "sts2": {
+                    "autoplay": True,
+                    "study_use_llm": False,
+                    "character": 3,
+                    "base_url": "http://custom:9999",
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    write_sts2_config(host="openclaw", sts2_home=home)
+    raw = yaml.safe_load(cfg.read_text(encoding="utf-8"))["sts2"]
+    assert raw["autoplay"] is True
+    assert raw["study_use_llm"] is False
+    assert raw["character"] == 3
+    assert raw["base_url"] == "http://custom:9999"
+    assert raw["enforce_single_driver"] is True
+
+
 def test_write_sts2_config_enforce_by_host(tmp_path):
     import yaml
     from plugins.sts2.integrations.host_setup import write_sts2_config
