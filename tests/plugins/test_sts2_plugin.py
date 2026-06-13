@@ -77,6 +77,19 @@ def test_act_builds_body(sts2_env, monkeypatch):
     assert captured["body"]["card_index"] == 1
 
 
+def test_act_reports_failure_on_api_error(sts2_env, monkeypatch):
+    from plugins.sts2.tools import handle_sts2_act
+
+    monkeypatch.setattr(
+        "plugins.sts2.client.post_singleplayer_action",
+        lambda body: (400, {"status": "error", "message": "invalid card_index"}),
+    )
+    raw = handle_sts2_act({"action": "play_card", "card_index": 99})
+    data = json.loads(raw)
+    assert data["success"] is False
+    assert data["status"] == "error"
+
+
 def test_find_game_dir_uses_cache(sts2_env, monkeypatch):
     from plugins.sts2.paths import find_game_dir
 
