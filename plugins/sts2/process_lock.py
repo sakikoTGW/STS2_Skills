@@ -75,6 +75,25 @@ def holder_pid(path: Path) -> int | None:
     return None
 
 
+def clear_if_stale(path: Path) -> bool:
+    """Remove lock file only when no live holder owns it (by PID in file).
+
+    Returns True if the path is absent or was cleared; False if a live process
+    still holds the lock (do not unlink — avoids stealing another process flock).
+    """
+    path = Path(path)
+    if not path.is_file():
+        return True
+    pid = holder_pid(path)
+    if pid is not None and _pid_alive(pid):
+        return False
+    try:
+        path.unlink(missing_ok=True)
+    except OSError:
+        return False
+    return True
+
+
 def try_acquire(path: Path, *, label: str = "") -> bool:
     """Acquire lock file; return False if another live process holds it."""
     global _lock_path, _lock_fh

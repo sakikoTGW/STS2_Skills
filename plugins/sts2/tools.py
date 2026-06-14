@@ -531,8 +531,9 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
             pass
 
     if isinstance(payload, dict):
+        ok = status == 200 and str(payload.get("status") or "").lower() == "ok"
         return tool_result(
-            success=True,
+            success=ok,
             http_status=status,
             **payload,
             **extra,

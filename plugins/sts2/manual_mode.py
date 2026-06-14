@@ -39,10 +39,10 @@ def release_all_driver_locks() -> None:
 
     driver_lock.release("autoplay")
     try:
-        from plugins.sts2.process_lock import release as release_pl
+        from plugins.sts2.process_lock import clear_if_stale, release as release_pl
 
         release_pl()
-        (sts2_home() / ".autoplay.lock").unlink(missing_ok=True)
-        (sts2_home() / ".supervisor.lock").unlink(missing_ok=True)
+        for name in (".autoplay.lock", ".supervisor.lock"):
+            clear_if_stale(sts2_home() / name)
     except OSError:
         pass
