@@ -75,6 +75,32 @@ def holder_pid(path: Path) -> int | None:
     return None
 
 
+def foreign_holder_pid(path: Path) -> int | None:
+    """PID of another live process holding the lock, or None."""
+    path = Path(path)
+    if not path.is_file():
+        return None
+    pid = holder_pid(path)
+    if pid is None or pid == os.getpid():
+        return None
+    return pid if _pid_alive(pid) else None
+
+
+def clear_if_stale(path: Path) -> bool:
+    """Remove lock file only when holder PID is missing or dead. Returns True if removed."""
+    path = Path(path)
+    if not path.is_file():
+        return False
+    pid = holder_pid(path)
+    if pid is not None and _pid_alive(pid):
+        return False
+    try:
+        path.unlink(missing_ok=True)
+        return True
+    except OSError:
+        return False
+
+
 def try_acquire(path: Path, *, label: str = "") -> bool:
     """Acquire lock file; return False if another live process holds it."""
     global _lock_path, _lock_fh
