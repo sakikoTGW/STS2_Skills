@@ -37,8 +37,33 @@ internal static class EnvironmentProbe
     {
         if (string.IsNullOrWhiteSpace(haystack) || string.IsNullOrWhiteSpace(needle))
             return false;
-        return haystack.Contains(Norm(needle), StringComparison.OrdinalIgnoreCase);
+        var norm = Norm(needle);
+        foreach (var variant in new[] { norm, norm.Replace('/', '\\') })
+        {
+            if (string.IsNullOrEmpty(variant))
+                continue;
+            var start = 0;
+            while (true)
+            {
+                var idx = haystack.IndexOf(variant, start, StringComparison.OrdinalIgnoreCase);
+                if (idx < 0)
+                    break;
+                var end = idx + variant.Length;
+                if (PathBoundaryOk(haystack, idx, end))
+                    return true;
+                start = idx + 1;
+            }
+        }
+        return false;
     }
+
+    private static bool PathBoundaryOk(string text, int start, int end) =>
+        (start == 0 || IsPathBoundary(text[start - 1]))
+        && (end == text.Length || IsPathBoundary(text[end]));
+
+    private static bool IsPathBoundary(char c) =>
+        c is '/' or '\\' or '"' or '\'' or ',' or ':' or ' ' or '\t' or '\r' or '\n'
+            or '{' or '}' or '[' or ']';
 
     private static bool CheckSkills(string skillsDir, out string detail)
     {

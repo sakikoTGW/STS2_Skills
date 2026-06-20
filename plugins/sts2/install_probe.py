@@ -25,6 +25,32 @@ def _norm(path: str | Path) -> str:
     return str(Path(path).expanduser().resolve())
 
 
+def _path_boundary_chars() -> frozenset[str]:
+    return frozenset('/\\"\',: \t\n\r{}[]')
+
+
+def _path_referenced_in_text(text: str, path: str | Path) -> bool:
+    """True when *path* appears as a whole path token, not a prefix substring."""
+    norm = _norm(path).replace("\\", "/")
+    if not norm:
+        return False
+    variants = {norm, norm.replace("/", "\\")}
+    bounds = _path_boundary_chars()
+    for needle in variants:
+        start = 0
+        while True:
+            idx = text.find(needle, start)
+            if idx < 0:
+                break
+            end = idx + len(needle)
+            before_ok = idx == 0 or text[idx - 1] in bounds
+            after_ok = end == len(text) or text[end] in bounds
+            if before_ok and after_ok:
+                return True
+            start = idx + 1
+    return False
+
+
 def check_skills(skills_dir: str | Path) -> tuple[bool, str]:
     root = Path(skills_dir).expanduser()
     if not root.is_dir():
@@ -76,14 +102,11 @@ def check_host(
         if saved and _norm(saved) != _norm(game_dir):
             return False, "game_dir mismatch"
 
-    bridge_s = str(bridge).replace("\\", "/")
-    skills_s = _norm(skills)
-
     def _text_has(path: Path) -> bool:
         if not path.is_file():
             return False
         text = path.read_text(encoding="utf-8", errors="ignore")
-        return bridge_s in text or skills_s in text
+        return _path_referenced_in_text(text, bridge) or _path_referenced_in_text(text, skills)
 
     if host == "astrbot":
         mcp = hp / "mcp_server.json"
