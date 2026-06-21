@@ -73,6 +73,18 @@ class AutoplayController:
         self._lesson_cast_fps: set[str] = set()
         self._potion_fail_streak = 0
 
+    def _worker_thread_active(self) -> bool:
+        return self._thread is not None and self._thread.is_alive()
+
+    def _session_active(self) -> bool:
+        with self._lock:
+            flag_busy = (
+                self._status.running
+                or self._status.watching
+                or self._status.learning
+            )
+        return flag_busy or self._worker_thread_active()
+
     def set_emit(self, fn: EmitFn | None) -> None:
         self._emit = fn
 
@@ -114,7 +126,7 @@ class AutoplayController:
         set_manual_mode(False)
         cfg = load_sts2_config()
         with self._lock:
-            if self._status.running or self._status.watching or self._status.learning:
+            if self._session_active():
                 return {"success": False, "error": "sts2 session already active"}
         from plugins.sts2.config import enforce_single_driver_enabled
 
@@ -123,11 +135,10 @@ class AutoplayController:
             if not self._status.running and not self._status.studying:
                 driver_lock.release("autoplay")
                 try:
-                    from plugins.sts2.process_lock import release as release_pl
+                    from plugins.sts2.process_lock import clear_if_stale
                     from plugins.sts2.storage import sts2_home
 
-                    release_pl()
-                    (sts2_home() / ".autoplay.lock").unlink(missing_ok=True)
+                    clear_if_stale(sts2_home() / ".autoplay.lock")
                 except OSError:
                     pass
             if not driver_lock.acquire("autoplay"):
@@ -226,7 +237,7 @@ class AutoplayController:
     def _start_rule_loop(self, *, max_steps: int | None = None, user_hint: str = "") -> dict[str, Any]:
         cfg = load_sts2_config()
         with self._lock:
-            if self._status.running or self._status.watching or self._status.learning:
+            if self._session_active():
                 return {"success": False, "error": "sts2 session already active"}
         from plugins.sts2.config import enforce_single_driver_enabled
 
@@ -311,6 +322,9 @@ class AutoplayController:
             self._status.studying = False
             self._status.paused = False
             self._status.pause_reason = ""
+        thread = self._thread
+        if thread is not None and thread.is_alive():
+            thread.join(timeout=30)
         self._coach = None
         from plugins.sts2.study_mode import set_study_mode
 
@@ -344,7 +358,7 @@ class AutoplayController:
         from plugins.sts2.learn_coach import LearnCoach
 
         with self._lock:
-            if self._status.running or self._status.watching or self._status.learning:
+            if self._session_active():
                 return {"success": False, "error": "sts2 session already active"}
         with self._lock:
             self._stop.clear()
@@ -377,7 +391,7 @@ class AutoplayController:
     def start_watch(self) -> dict[str, Any]:
         """Poll game state and narrate changes (user plays manually; no sts2_act)."""
         with self._lock:
-            if self._status.running or self._status.watching or self._status.learning:
+            if self._session_active():
                 return {"success": False, "error": "sts2 session already active"}
         with self._lock:
             self._stop.clear()
