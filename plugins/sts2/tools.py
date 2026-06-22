@@ -531,6 +531,21 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
             pass
 
     if isinstance(payload, dict):
+        act_ok = status == 200 and payload.get("status") == "ok"
+        if not act_ok:
+            err = (
+                payload.get("message")
+                or payload.get("error")
+                or f"sts2_act failed (HTTP {status})"
+            )
+            err_fields = {k: v for k, v in payload.items() if k not in ("message", "error")}
+            return tool_error(
+                str(err),
+                success=False,
+                http_status=status,
+                **err_fields,
+                **extra,
+            )
         return tool_result(
             success=True,
             http_status=status,

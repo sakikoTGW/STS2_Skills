@@ -67,6 +67,18 @@ def manual_act_blocked() -> str | None:
             return None
     except Exception:
         pass
+    try:
+        from plugins.sts2.process_lock import foreign_holder_pid
+        from plugins.sts2.storage import sts2_home
+
+        foreign = foreign_holder_pid(sts2_home() / ".autoplay.lock")
+        if foreign is not None:
+            return (
+                f"sts2_act blocked: autoplay held by process {foreign} (file lock). "
+                "Stop the other STS2 session first — do not alternate sts2_act with autoplay."
+            )
+    except Exception:
+        pass
     if is_internal_act():
         return None
     with _lock:
