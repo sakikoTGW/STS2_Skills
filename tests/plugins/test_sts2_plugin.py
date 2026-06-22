@@ -77,6 +77,19 @@ def test_act_builds_body(sts2_env, monkeypatch):
     assert captured["body"]["card_index"] == 1
 
 
+def test_act_reports_api_error_payload(sts2_env, monkeypatch):
+    from plugins.sts2.tools import handle_sts2_act
+
+    monkeypatch.setattr(
+        "plugins.sts2.client.post_singleplayer_action",
+        lambda _body: (200, {"status": "error", "message": "invalid card_index"}),
+    )
+    raw = handle_sts2_act({"action": "play_card", "card_index": 99})
+    data = json.loads(raw)
+    assert data.get("success") is False
+    assert "invalid card_index" in str(data.get("error", ""))
+
+
 def test_find_game_dir_uses_cache(sts2_env, monkeypatch):
     from plugins.sts2.paths import find_game_dir
 
@@ -167,6 +180,25 @@ def test_driver_lock_blocks_manual_act(sts2_env):
         assert data.get("success") is False or "error" in data
         assert "blocked" in str(data.get("error", raw)).lower()
     finally:
+        driver_lock.release("autoplay")
+
+
+def test_manual_act_blocked_by_foreign_file_lock(sts2_env, monkeypatch):
+    from plugins.sts2 import driver_lock
+    from plugins.sts2.storage import sts2_home
+    from plugins.sts2.tools import handle_sts2_act
+
+    lock = sts2_home() / ".autoplay.lock"
+    lock.parent.mkdir(parents=True, exist_ok=True)
+    lock.write_text("424242\nautoplay\n", encoding="utf-8")
+    monkeypatch.setattr("plugins.sts2.process_lock._pid_alive", lambda pid: pid == 424242)
+    try:
+        raw = handle_sts2_act({"action": "end_turn"})
+        data = json.loads(raw)
+        assert data.get("success") is False
+        assert "424242" in str(data.get("error", ""))
+    finally:
+        lock.unlink(missing_ok=True)
         driver_lock.release("autoplay")
 
 

@@ -119,15 +119,13 @@ class AutoplayController:
         from plugins.sts2.config import enforce_single_driver_enabled
 
         if enforce_single_driver_enabled(cfg) and not driver_lock.acquire("autoplay"):
-            # Recover from stale in-process lock after crashed study thread
-            if not self._status.running and not self._status.studying:
+            if not self._session_active():
                 driver_lock.release("autoplay")
                 try:
-                    from plugins.sts2.process_lock import release as release_pl
+                    from plugins.sts2.process_lock import clear_if_stale
                     from plugins.sts2.storage import sts2_home
 
-                    release_pl()
-                    (sts2_home() / ".autoplay.lock").unlink(missing_ok=True)
+                    clear_if_stale(sts2_home() / ".autoplay.lock")
                 except OSError:
                     pass
             if not driver_lock.acquire("autoplay"):
@@ -276,6 +274,18 @@ class AutoplayController:
             out["lessons_loaded"] = True
         return out
 
+    def _session_active(self) -> bool:
+        with self._lock:
+            if not (
+                self._status.running
+                or self._status.watching
+                or self._status.learning
+                or self._status.studying
+            ):
+                return False
+            t = self._thread
+            return t is not None and t.is_alive()
+
     def pause(self, *, reason: str = "") -> dict[str, Any]:
         with self._lock:
             self._status.paused = True
@@ -304,13 +314,17 @@ class AutoplayController:
 
     def stop(self) -> dict[str, Any]:
         self._stop.set()
+        thread: threading.Thread | None = None
         with self._lock:
+            thread = self._thread
             self._status.running = False
             self._status.watching = False
             self._status.learning = False
             self._status.studying = False
             self._status.paused = False
             self._status.pause_reason = ""
+        if thread is not None and thread.is_alive():
+            thread.join(timeout=5.0)
         self._coach = None
         from plugins.sts2.study_mode import set_study_mode
 
