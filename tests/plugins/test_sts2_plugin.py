@@ -77,6 +77,32 @@ def test_act_builds_body(sts2_env, monkeypatch):
     assert captured["body"]["card_index"] == 1
 
 
+def test_act_reports_api_error_as_failure(sts2_env, monkeypatch):
+    from plugins.sts2.tools import handle_sts2_act
+
+    monkeypatch.setattr(
+        "plugins.sts2.client.post_singleplayer_action",
+        lambda body: (200, {"status": "error", "message": "Unknown action: foo"}),
+    )
+    raw = handle_sts2_act({"action": "end_turn"})
+    data = json.loads(raw)
+    assert data["success"] is False
+    assert data.get("status") == "error"
+
+
+def test_act_non_200_is_failure(sts2_env, monkeypatch):
+    from plugins.sts2.tools import handle_sts2_act
+
+    monkeypatch.setattr(
+        "plugins.sts2.client.post_singleplayer_action",
+        lambda body: (400, {"status": "error", "message": "bad request"}),
+    )
+    raw = handle_sts2_act({"action": "end_turn"})
+    data = json.loads(raw)
+    assert data["success"] is False
+    assert data["http_status"] == 400
+
+
 def test_find_game_dir_uses_cache(sts2_env, monkeypatch):
     from plugins.sts2.paths import find_game_dir
 
