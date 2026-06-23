@@ -223,6 +223,19 @@ def handle_sts2_observe(args: dict[str, Any], **kwargs: Any) -> str:
     )
 
 
+def _action_http_ok(status: int, payload: Any) -> bool:
+    """Match autoplay/card_pick_force: HTTP 200 unless body explicitly reports error."""
+    if status != 200:
+        return False
+    if isinstance(payload, dict):
+        ps = payload.get("status")
+        if ps == "error":
+            return False
+        if ps is not None:
+            return ps == "ok"
+    return True
+
+
 def _prepare_manual_act() -> str | None:
     """Pause or stop background autopilot before manual sts2_act."""
     from plugins.sts2 import driver_lock
@@ -530,14 +543,11 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
         except Exception:
             pass
 
+    ok = _action_http_ok(status, payload)
     if isinstance(payload, dict):
-        return tool_result(
-            success=True,
-            http_status=status,
-            **payload,
-            **extra,
-        )
-    return tool_result(success=status == 200, http_status=status, data=payload, **extra)
+        merged = {**payload, **extra, "http_status": status, "success": ok}
+        return tool_result(**merged)
+    return tool_result(success=ok, http_status=status, data=payload, **extra)
 
 
 def handle_sts2_wiki_search(args: dict[str, Any], **kwargs: Any) -> str:
