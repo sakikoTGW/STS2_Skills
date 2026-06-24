@@ -78,8 +78,11 @@ internal static class Deployer
 
     private static void CopyTree(string src, string dst)
     {
-        if (Directory.Exists(dst))
-            Directory.Delete(dst, true);
+        var srcFull = Path.GetFullPath(src).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+        var dstFull = Path.GetFullPath(dst).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+        if (string.Equals(srcFull, dstFull, StringComparison.OrdinalIgnoreCase))
+            return;
+        // Merge into destination; never wipe the whole tree (standalone host == skills dir).
         CopyDirectoryRecursive(src, dst);
     }
 
