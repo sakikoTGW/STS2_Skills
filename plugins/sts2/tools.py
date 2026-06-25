@@ -80,6 +80,18 @@ def _attach_play_context(payload: dict, *, action: dict | None = None) -> dict:
     return payload
 
 
+def _action_http_ok(status: int, payload: Any) -> bool:
+    """STS2MCP may return HTTP 200 with status:error in the JSON body."""
+    if status != 200:
+        return False
+    if isinstance(payload, dict):
+        if payload.get("status") == "error":
+            return False
+        if payload.get("success") is False:
+            return False
+    return True
+
+
 def _http_result(status: int, payload: Any, *, ok_statuses: tuple[int, ...] = (200,)) -> str:
     if status in ok_statuses:
         if isinstance(payload, dict):
@@ -531,13 +543,22 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
             pass
 
     if isinstance(payload, dict):
-        return tool_result(
-            success=True,
-            http_status=status,
-            **payload,
-            **extra,
+        ok = _action_http_ok(status, payload)
+        if ok:
+            return tool_result(success=True, http_status=status, **payload, **extra)
+        body = {**payload, **extra}
+        err_msg = str(
+            body.pop("message", None)
+            or body.pop("error", None)
+            or "STS2MCP action rejected"
         )
-    return tool_result(success=status == 200, http_status=status, data=payload, **extra)
+        return tool_error(err_msg, http_status=status, **body)
+    return tool_result(
+        success=_action_http_ok(status, payload),
+        http_status=status,
+        data=payload,
+        **extra,
+    )
 
 
 def handle_sts2_wiki_search(args: dict[str, Any], **kwargs: Any) -> str:
