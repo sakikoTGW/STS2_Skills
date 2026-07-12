@@ -80,13 +80,24 @@ def _attach_play_context(payload: dict, *, action: dict | None = None) -> dict:
     return payload
 
 
+def _action_http_ok(status: int, payload: Any, *, ok_statuses: tuple[int, ...] = (200,)) -> bool:
+    """True when HTTP succeeded and STS2MCP body did not report status=error."""
+    if status not in ok_statuses:
+        return False
+    if isinstance(payload, dict) and str(payload.get("status") or "").lower() == "error":
+        return False
+    return True
+
+
 def _http_result(status: int, payload: Any, *, ok_statuses: tuple[int, ...] = (200,)) -> str:
-    if status in ok_statuses:
+    if _action_http_ok(status, payload, ok_statuses=ok_statuses):
         if isinstance(payload, dict):
             return tool_result(success=True, http_status=status, **payload)
         return tool_result(success=True, http_status=status, data=payload)
     if isinstance(payload, dict) and payload.get("message"):
-        return tool_error(payload.get("message"), http_status=status, **payload)
+        msg = str(payload.get("message") or payload.get("error") or "STS2MCP request failed")
+        body = {k: v for k, v in payload.items() if k not in ("message", "error")}
+        return tool_error(msg, http_status=status, **body)
     return tool_error(f"STS2MCP request failed (HTTP {status})", http_status=status, body=payload)
 
 
@@ -530,14 +541,21 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
         except Exception:
             pass
 
+    ok = _action_http_ok(status, payload)
     if isinstance(payload, dict):
-        return tool_result(
-            success=True,
+        if not ok:
+            msg = str(payload.get("message") or payload.get("error") or "STS2MCP action failed")
+            body = {k: v for k, v in payload.items() if k not in ("message", "error")}
+            return tool_error(msg, http_status=status, **body, **extra)
+        return tool_result(success=True, http_status=status, **payload, **extra)
+    if not ok:
+        return tool_error(
+            f"STS2MCP action failed (HTTP {status})",
             http_status=status,
-            **payload,
+            data=payload,
             **extra,
         )
-    return tool_result(success=status == 200, http_status=status, data=payload, **extra)
+    return tool_result(success=True, http_status=status, data=payload, **extra)
 
 
 def handle_sts2_wiki_search(args: dict[str, Any], **kwargs: Any) -> str:
