@@ -77,6 +77,42 @@ def test_act_builds_body(sts2_env, monkeypatch):
     assert captured["body"]["card_index"] == 1
 
 
+def test_act_reports_api_error_as_failure(sts2_env, monkeypatch):
+    from plugins.sts2.tools import handle_sts2_act
+
+    monkeypatch.setattr(
+        "plugins.sts2.client.post_singleplayer_action",
+        lambda body: (200, {"status": "error", "message": "illegal action"}),
+    )
+    raw = handle_sts2_act({"action": "end_turn"})
+    data = json.loads(raw)
+    assert data.get("success") is False
+    assert "illegal action" in str(data.get("error", ""))
+
+
+def test_foreign_autoplay_lock_blocks_manual_act(sts2_env, monkeypatch):
+    import os
+
+    from plugins.sts2.storage import sts2_home
+    from plugins.sts2.tools import handle_sts2_act
+
+    lock = sts2_home() / ".autoplay.lock"
+    lock.parent.mkdir(parents=True, exist_ok=True)
+    lock.write_text(f"{os.getpid() + 99999}\nautoplay\n", encoding="utf-8")
+    monkeypatch.setattr(
+        "plugins.sts2.process_lock._pid_alive",
+        lambda pid: pid == os.getpid() + 99999,
+    )
+    try:
+        raw = handle_sts2_act({"action": "end_turn"})
+        data = json.loads(raw)
+        assert data.get("success") is False
+        assert "blocked" in str(data.get("error", raw)).lower()
+        assert lock.is_file()
+    finally:
+        lock.unlink(missing_ok=True)
+
+
 def test_find_game_dir_uses_cache(sts2_env, monkeypatch):
     from plugins.sts2.paths import find_game_dir
 
