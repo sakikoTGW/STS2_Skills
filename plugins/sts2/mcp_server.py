@@ -330,7 +330,13 @@ def _run() -> None:
 
         status, payload = sts2_client.post_singleplayer_action(body)
 
-        result = {"http_status": status, "result": payload}
+        from plugins.sts2.tools import _action_http_ok
+
+        result = {
+            "success": _action_http_ok(status, payload),
+            "http_status": status,
+            "result": payload,
+        }
 
         if status == 200:
 
