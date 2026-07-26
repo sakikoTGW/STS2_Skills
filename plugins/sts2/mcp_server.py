@@ -330,9 +330,13 @@ def _run() -> None:
 
         status, payload = sts2_client.post_singleplayer_action(body)
 
-        result = {"http_status": status, "result": payload}
+        result = {
+            "success": sts2_client.action_response_ok(status, payload),
+            "http_status": status,
+            "result": payload,
+        }
 
-        if status == 200:
+        if status == 200 and result["success"]:
 
             try:
 
