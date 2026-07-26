@@ -67,6 +67,19 @@ def _request(
         return status, {"raw": raw}
 
 
+def action_response_ok(status: int, payload: Any) -> bool:
+    """True when STS2MCP accepted the action (HTTP 200 + status ok)."""
+    if status != 200:
+        return False
+    if isinstance(payload, dict):
+        st = payload.get("status")
+        if st is not None and st != "ok":
+            return False
+        if payload.get("error"):
+            return False
+    return True
+
+
 def ping() -> dict[str, Any]:
     status, payload = _request("GET", "/")
     if status != 200:
