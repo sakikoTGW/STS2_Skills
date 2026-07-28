@@ -80,6 +80,19 @@ def _attach_play_context(payload: dict, *, action: dict | None = None) -> dict:
     return payload
 
 
+def _action_http_ok(status: int, payload: Any) -> bool:
+    """True when STS2MCP accepted the action (HTTP 200 + status ok)."""
+    if status != 200:
+        return False
+    if isinstance(payload, dict):
+        st = payload.get("status")
+        if st is not None and st != "ok":
+            return False
+        if payload.get("error"):
+            return False
+    return True
+
+
 def _http_result(status: int, payload: Any, *, ok_statuses: tuple[int, ...] = (200,)) -> str:
     if status in ok_statuses:
         if isinstance(payload, dict):
@@ -531,13 +544,31 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
             pass
 
     if isinstance(payload, dict):
+        if not _action_http_ok(status, payload):
+            err_body = {**payload, **extra}
+            msg = str(
+                err_body.pop("message", None)
+                or err_body.pop("error", None)
+                or "STS2 action rejected by game API"
+            )
+            return tool_error(
+                msg,
+                success=False,
+                http_status=status,
+                **err_body,
+            )
         return tool_result(
             success=True,
             http_status=status,
             **payload,
             **extra,
         )
-    return tool_result(success=status == 200, http_status=status, data=payload, **extra)
+    return tool_result(
+        success=_action_http_ok(status, payload),
+        http_status=status,
+        data=payload,
+        **extra,
+    )
 
 
 def handle_sts2_wiki_search(args: dict[str, Any], **kwargs: Any) -> str:
