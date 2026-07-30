@@ -77,6 +77,32 @@ def test_act_builds_body(sts2_env, monkeypatch):
     assert captured["body"]["card_index"] == 1
 
 
+def test_act_reports_api_error_as_failure(sts2_env, monkeypatch):
+    from plugins.sts2.tools import handle_sts2_act
+
+    monkeypatch.setattr(
+        "plugins.sts2.client.get_singleplayer_state",
+        lambda **kw: (200, {}),
+    )
+    monkeypatch.setattr(
+        "plugins.sts2.client.post_singleplayer_action",
+        lambda body: (200, {"status": "error", "message": "Not in play phase"}),
+    )
+    raw = handle_sts2_act({"action": "end_turn"})
+    data = json.loads(raw)
+    assert data.get("success") is False
+    assert "Not in play phase" in str(data.get("error", ""))
+
+
+def test_mcp_server_fastmcp_import_shim():
+    from plugins.sts2.mcp_server import _fastmcp_cls
+
+    cls = _fastmcp_cls()
+    server = cls("test")
+    assert hasattr(server, "tool")
+    assert hasattr(server, "run")
+
+
 def test_find_game_dir_uses_cache(sts2_env, monkeypatch):
     from plugins.sts2.paths import find_game_dir
 

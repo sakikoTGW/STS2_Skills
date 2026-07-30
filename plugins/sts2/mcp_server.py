@@ -49,23 +49,28 @@ def _observe_payload() -> dict:
 
 
 
-def _run() -> None:
-
+def _fastmcp_cls():
+    """MCP SDK v1: FastMCP; v2: MCPServer (same decorator/run surface)."""
     try:
-
         from mcp.server.fastmcp import FastMCP
 
-    except ImportError as exc:
+        return FastMCP
+    except ModuleNotFoundError:
+        try:
+            from mcp.server import MCPServer
 
-        sys.stderr.write(
+            return MCPServer
+        except ImportError as exc:
+            sys.stderr.write(
+                "sts2 MCP server requires the mcp package. "
+                "Install with: pip install 'sts2-skills[mcp]'\n"
+            )
+            raise SystemExit(1) from exc
 
-            "sts2 MCP server requires the mcp package. "
 
-            "Install with: pip install 'hermes-agent[mcp]'\n"
+def _run() -> None:
 
-        )
-
-        raise SystemExit(1) from exc
+    FastMCP = _fastmcp_cls()
 
 
 
@@ -328,11 +333,17 @@ def _run() -> None:
 
             body.update({k: v for k, v in parameters.items() if k != "action"})
 
+        from plugins.sts2.tools import _action_http_ok
+
         status, payload = sts2_client.post_singleplayer_action(body)
 
-        result = {"http_status": status, "result": payload}
+        result = {
+            "success": _action_http_ok(status, payload),
+            "http_status": status,
+            "result": payload,
+        }
 
-        if status == 200:
+        if _action_http_ok(status, payload):
 
             try:
 
