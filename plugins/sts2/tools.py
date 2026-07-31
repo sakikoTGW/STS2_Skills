@@ -28,6 +28,19 @@ _PLAY_LOOP = (
 )
 
 
+def _action_http_ok(status: int, payload: Any) -> bool:
+    """True when the game API accepted the action (HTTP 200 is not enough)."""
+    if status != 200:
+        return False
+    if isinstance(payload, dict):
+        api_status = payload.get("status")
+        if api_status is not None:
+            return api_status == "ok"
+        if payload.get("error"):
+            return False
+    return True
+
+
 def _check_sts2_available() -> bool:
     try:
         sts2_client.ping()
@@ -532,12 +545,12 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
 
     if isinstance(payload, dict):
         return tool_result(
-            success=True,
+            success=_action_http_ok(status, payload),
             http_status=status,
             **payload,
             **extra,
         )
-    return tool_result(success=status == 200, http_status=status, data=payload, **extra)
+    return tool_result(success=_action_http_ok(status, payload), http_status=status, data=payload, **extra)
 
 
 def handle_sts2_wiki_search(args: dict[str, Any], **kwargs: Any) -> str:
