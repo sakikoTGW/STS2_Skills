@@ -62,9 +62,17 @@ def is_internal_act() -> bool:
 def manual_act_blocked() -> str | None:
     # File-based kill switch: create ~/.hermes/sts2/.unlock to bypass
     try:
+        from plugins.sts2.process_lock import foreign_holder_pid
         from plugins.sts2.storage import sts2_home
+
         if (sts2_home() / ".unlock").is_file():
             return None
+        foreign = foreign_holder_pid(sts2_home() / ".autoplay.lock")
+        if foreign is not None:
+            return (
+                f"sts2_act blocked: autoplay lock held by pid {foreign} (single-driver). "
+                "Stop the other sts2 session first — do not alternate sts2_act with autoplay."
+            )
     except Exception:
         pass
     if is_internal_act():
