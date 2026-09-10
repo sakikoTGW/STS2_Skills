@@ -80,6 +80,17 @@ def _attach_play_context(payload: dict, *, action: dict | None = None) -> dict:
     return payload
 
 
+def _action_http_ok(status: int, payload: Any) -> bool:
+    """True when HTTP and STS2MCP action body indicate success."""
+    if status != 200:
+        return False
+    if isinstance(payload, dict):
+        body_status = payload.get("status")
+        if body_status is not None and body_status != "ok":
+            return False
+    return True
+
+
 def _http_result(status: int, payload: Any, *, ok_statuses: tuple[int, ...] = (200,)) -> str:
     if status in ok_statuses:
         if isinstance(payload, dict):
@@ -532,12 +543,12 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
 
     if isinstance(payload, dict):
         return tool_result(
-            success=True,
+            success=_action_http_ok(status, payload),
             http_status=status,
             **payload,
             **extra,
         )
-    return tool_result(success=status == 200, http_status=status, data=payload, **extra)
+    return tool_result(success=_action_http_ok(status, payload), http_status=status, data=payload, **extra)
 
 
 def handle_sts2_wiki_search(args: dict[str, Any], **kwargs: Any) -> str:
