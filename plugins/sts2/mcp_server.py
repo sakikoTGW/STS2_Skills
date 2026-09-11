@@ -328,11 +328,17 @@ def _run() -> None:
 
             body.update({k: v for k, v in parameters.items() if k != "action"})
 
+        from plugins.sts2.tools import _action_http_ok
+
         status, payload = sts2_client.post_singleplayer_action(body)
 
-        result = {"http_status": status, "result": payload}
+        result = {
+            "success": _action_http_ok(status, payload),
+            "http_status": status,
+            "result": payload,
+        }
 
-        if status == 200:
+        if _action_http_ok(status, payload):
 
             try:
 
