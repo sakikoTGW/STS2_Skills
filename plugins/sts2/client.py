@@ -12,6 +12,20 @@ DEFAULT_BASE_URL = "http://127.0.0.1:15526"
 DEFAULT_TIMEOUT = 15.0
 
 
+def action_response_ok(
+    status: int,
+    payload: Any,
+    *,
+    ok_statuses: tuple[int, ...] = (200,),
+) -> bool:
+    """True when HTTP status is OK and STS2MCP did not return status=error in body."""
+    if status not in ok_statuses:
+        return False
+    if isinstance(payload, dict) and payload.get("status") == "error":
+        return False
+    return True
+
+
 def get_base_url() -> str:
     from plugins.sts2.config import load_sts2_config
 
