@@ -75,4 +75,16 @@ def manual_act_blocked() -> str | None:
                 f"sts2_act blocked while sts2 {_mode} is active (single-driver). "
                 "Use sts2_autoplay action=stop first — do not alternate sts2_act with autoplay."
             )
+    try:
+        from plugins.sts2.process_lock import foreign_holder_pid
+        from plugins.sts2.storage import sts2_home
+
+        foreign = foreign_holder_pid(sts2_home() / ".autoplay.lock")
+        if foreign is not None:
+            return (
+                f"sts2_act blocked: autopilot lock held by pid {foreign} (single-driver). "
+                "Stop the other sts2 session first."
+            )
+    except Exception:
+        pass
     return None
