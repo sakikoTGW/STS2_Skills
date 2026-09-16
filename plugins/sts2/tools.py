@@ -81,12 +81,14 @@ def _attach_play_context(payload: dict, *, action: dict | None = None) -> dict:
 
 
 def _http_result(status: int, payload: Any, *, ok_statuses: tuple[int, ...] = (200,)) -> str:
-    if status in ok_statuses:
+    if sts2_client.action_response_ok(status, payload, ok_statuses=ok_statuses):
         if isinstance(payload, dict):
             return tool_result(success=True, http_status=status, **payload)
         return tool_result(success=True, http_status=status, data=payload)
-    if isinstance(payload, dict) and payload.get("message"):
-        return tool_error(payload.get("message"), http_status=status, **payload)
+    if isinstance(payload, dict):
+        msg = payload.get("message") or payload.get("error") or "STS2MCP action failed"
+        fields = {k: v for k, v in payload.items() if k not in ("message", "error")}
+        return tool_error(str(msg), http_status=status, **fields)
     return tool_error(f"STS2MCP request failed (HTTP {status})", http_status=status, body=payload)
 
 
@@ -530,14 +532,19 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
         except Exception:
             pass
 
+    ok = sts2_client.action_response_ok(status, payload)
     if isinstance(payload, dict):
-        return tool_result(
-            success=True,
-            http_status=status,
-            **payload,
-            **extra,
-        )
-    return tool_result(success=status == 200, http_status=status, data=payload, **extra)
+        if ok:
+            return tool_result(
+                success=True,
+                http_status=status,
+                **payload,
+                **extra,
+            )
+        msg = payload.get("message") or payload.get("error") or "STS2MCP action failed"
+        fields = {k: v for k, v in payload.items() if k not in ("message", "error")}
+        return tool_error(str(msg), http_status=status, **fields, **extra)
+    return tool_result(success=ok, http_status=status, data=payload, **extra)
 
 
 def handle_sts2_wiki_search(args: dict[str, Any], **kwargs: Any) -> str:
