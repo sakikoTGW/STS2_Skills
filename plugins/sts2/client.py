@@ -127,3 +127,14 @@ def get_profiles() -> tuple[int, Any]:
 
 def post_profiles(body: dict[str, Any]) -> tuple[int, Any]:
     return _request("POST", "/api/v1/profiles", body=body)
+
+
+def action_response_ok(status: int, payload: Any) -> bool:
+    """True only when STS2MCP accepted the action (HTTP 200 + status ok)."""
+    if status != 200:
+        return False
+    if isinstance(payload, dict):
+        st = payload.get("status")
+        if st is not None and st != "ok":
+            return False
+    return True
