@@ -530,14 +530,10 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
         except Exception:
             pass
 
+    ok = sts2_client.action_response_ok(status, payload)
     if isinstance(payload, dict):
-        return tool_result(
-            success=True,
-            http_status=status,
-            **payload,
-            **extra,
-        )
-    return tool_result(success=status == 200, http_status=status, data=payload, **extra)
+        return tool_result(http_status=status, **payload, **extra, success=ok)
+    return tool_result(success=ok, http_status=status, data=payload, **extra)
 
 
 def handle_sts2_wiki_search(args: dict[str, Any], **kwargs: Any) -> str:
