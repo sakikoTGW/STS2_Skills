@@ -119,15 +119,26 @@ class AutoplayController:
         from plugins.sts2.config import enforce_single_driver_enabled
 
         if enforce_single_driver_enabled(cfg) and not driver_lock.acquire("autoplay"):
+            from plugins.sts2.process_lock import clear_if_stale, foreign_holder_pid
+            from plugins.sts2.storage import sts2_home
+
+            lock_path = sts2_home() / ".autoplay.lock"
+            foreign = foreign_holder_pid(lock_path)
+            if foreign is not None:
+                return {
+                    "success": False,
+                    "error": (
+                        f"sts2 driver busy — another process (pid {foreign}) holds autoplay lock"
+                    ),
+                }
             # Recover from stale in-process lock after crashed study thread
             if not self._status.running and not self._status.studying:
                 driver_lock.release("autoplay")
                 try:
                     from plugins.sts2.process_lock import release as release_pl
-                    from plugins.sts2.storage import sts2_home
 
                     release_pl()
-                    (sts2_home() / ".autoplay.lock").unlink(missing_ok=True)
+                    clear_if_stale(lock_path)
                 except OSError:
                     pass
             if not driver_lock.acquire("autoplay"):
