@@ -36,13 +36,12 @@ def set_manual_mode(enabled: bool) -> None:
 
 def release_all_driver_locks() -> None:
     from plugins.sts2 import driver_lock
+    from plugins.sts2.process_lock import clear_if_stale, release as release_pl
 
     driver_lock.release("autoplay")
     try:
-        from plugins.sts2.process_lock import release as release_pl
-
         release_pl()
-        (sts2_home() / ".autoplay.lock").unlink(missing_ok=True)
-        (sts2_home() / ".supervisor.lock").unlink(missing_ok=True)
+        clear_if_stale(sts2_home() / ".autoplay.lock")
+        clear_if_stale(sts2_home() / ".supervisor.lock")
     except OSError:
         pass

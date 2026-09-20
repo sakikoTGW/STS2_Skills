@@ -65,6 +65,34 @@ def _unlock_fd(fd: int) -> None:
         pass
 
 
+def foreign_holder_pid(path: Path) -> int | None:
+    """PID of another live process holding the lock, or None if free/stale/ours."""
+    path = Path(path)
+    if not path.is_file():
+        return None
+    other = holder_pid(path)
+    if other is None or other == os.getpid():
+        return None
+    if _pid_alive(other):
+        return other
+    return None
+
+
+def clear_if_stale(path: Path) -> bool:
+    """Remove lock file only when no live foreign holder exists."""
+    path = Path(path)
+    if not path.is_file():
+        return True
+    foreign = foreign_holder_pid(path)
+    if foreign is not None:
+        return False
+    try:
+        path.unlink(missing_ok=True)
+        return True
+    except OSError:
+        return False
+
+
 def holder_pid(path: Path) -> int | None:
     try:
         text = Path(path).read_text(encoding="utf-8").strip().splitlines()
