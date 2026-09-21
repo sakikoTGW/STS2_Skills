@@ -84,6 +84,17 @@ def get_singleplayer_state(*, fmt: str = "json") -> tuple[int, Any]:
     )
 
 
+def action_response_ok(status: int, payload: Any) -> bool:
+    """True when HTTP succeeded and STS2MCP did not return status:error."""
+    if status != 200:
+        return False
+    if isinstance(payload, dict):
+        api_status = payload.get("status")
+        if api_status is not None and api_status != "ok":
+            return False
+    return True
+
+
 def post_singleplayer_action(body: dict[str, Any]) -> tuple[int, Any]:
     if "action" not in body:
         raise ValueError('POST body must include an "action" field')
