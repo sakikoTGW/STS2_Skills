@@ -77,6 +77,16 @@ def test_act_builds_body(sts2_env, monkeypatch):
     assert captured["body"]["card_index"] == 1
 
 
+def test_action_response_ok_rejects_non_ok_payload():
+    from plugins.sts2.client import action_response_ok
+
+    assert action_response_ok(200, {"status": "ok"}) is True
+    assert action_response_ok(200, {"status": "error", "message": "x"}) is False
+    assert action_response_ok(200, {"status": "failed"}) is False
+    assert action_response_ok(500, {"status": "ok"}) is False
+    assert action_response_ok(200, "raw") is True
+
+
 def test_act_reports_api_error_as_failure(sts2_env, monkeypatch):
     from plugins.sts2.tools import handle_sts2_act
 
