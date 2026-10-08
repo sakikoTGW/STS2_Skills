@@ -77,6 +77,30 @@ def test_act_builds_body(sts2_env, monkeypatch):
     assert captured["body"]["card_index"] == 1
 
 
+def test_act_skips_state_settle_on_api_error(sts2_env, monkeypatch):
+    from plugins.sts2.tools import handle_sts2_act
+
+    monkeypatch.setattr(
+        "plugins.sts2.client.get_singleplayer_state",
+        lambda **kw: (200, {"state_type": "COMBAT"}),
+    )
+    monkeypatch.setattr(
+        "plugins.sts2.client.post_singleplayer_action",
+        lambda body: (200, {"status": "error", "message": "invalid card_index"}),
+    )
+
+    def fail_settle(*a, **k):
+        raise AssertionError("must not settle after API error")
+
+    monkeypatch.setattr(
+        "plugins.sts2.state_settle.wait_for_settled_state",
+        fail_settle,
+    )
+    raw = handle_sts2_act({"action": "play_card", "card_index": 99})
+    data = json.loads(raw)
+    assert data["success"] is False
+
+
 def test_act_reports_api_error_as_failure(sts2_env, monkeypatch):
     from plugins.sts2.tools import handle_sts2_act
 
@@ -2043,6 +2067,35 @@ def test_autoplay_step_mock(sts2_env, monkeypatch):
     out = ctrl.step_once()
     assert out.get("success") is True
     assert out.get("skipped") or "▶" in (out.get("commentary") or "")
+
+
+def test_evolution_finalize_after_new_begin_run(sts2_env, monkeypatch):
+    from plugins.sts2.evolution_loop import begin_run, finalize_run
+
+    fixed = "20260101T120000.000001Z"
+
+    def fake_begin():
+        from plugins.sts2 import evolution_loop as el
+
+        el._RUN = {
+            "id": fixed,
+            "reward_sum": 0.0,
+            "steps": 0,
+            "fail_steps": 0,
+            "max_floor": 0,
+            "max_act": 1,
+            "started_at": fixed,
+        }
+        el._LAST_FINALIZED = ""
+        return fixed
+
+    monkeypatch.setattr("plugins.sts2.evolution_loop.begin_run", fake_begin)
+    begin_run()
+    fin1 = finalize_run(label="game_over", last_state={"run": {"floor": 10, "act": 1}})
+    assert not fin1.get("skipped")
+    begin_run()
+    fin2 = finalize_run(label="game_over", last_state={"run": {"floor": 20, "act": 1}})
+    assert not fin2.get("skipped")
 
 
 def test_evolution_gate_promotes_on_improvement(sts2_env):

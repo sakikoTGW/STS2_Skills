@@ -179,8 +179,10 @@ def write_pending(items: list[dict[str, Any]]) -> None:
 
 def begin_run() -> str:
     """Start per-run reward / floor tracking."""
-    rid = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
-    global _RUN
+    now = datetime.now(UTC)
+    rid = now.strftime("%Y%m%dT%H%M%S") + f".{now.microsecond:06d}Z"
+    global _RUN, _LAST_FINALIZED
+    _LAST_FINALIZED = ""
     _RUN = {
         "id": rid,
         "reward_sum": 0.0,
