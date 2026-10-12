@@ -190,7 +190,9 @@ class STS2Runner:
                             sts2_client.post_singleplayer_action, body
                         )
                         out = {
-                            "success": act_status == 200,
+                            "success": sts2_client.action_response_ok(
+                                act_status, act_payload
+                            ),
                             "commentary": _comm,
                             "action": body,
                             "state_type": st,
