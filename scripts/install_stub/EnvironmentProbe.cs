@@ -200,7 +200,7 @@ internal static class EnvironmentProbe
         if (string.IsNullOrWhiteSpace(opt.PythonPath) || !File.Exists(opt.PythonPath))
         {
             detail = I18n.ProbePipSkip;
-            return true;
+            return false;
         }
         if (!CheckSkills(opt.SkillsDir, out _))
         {
