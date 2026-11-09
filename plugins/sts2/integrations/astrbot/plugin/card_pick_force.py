@@ -71,9 +71,7 @@ async def run_card_flow_until_clear(
         act_status, act_payload = await asyncio.to_thread(
             sts2_client.post_singleplayer_action, body
         )
-        ok = act_status == 200
-        if isinstance(act_payload, dict) and act_payload.get("status") == "error":
-            ok = False
+        ok = sts2_client.action_response_ok(act_status, act_payload)
         last = {
             "success": ok,
             "commentary": comm,
@@ -115,9 +113,7 @@ def run_card_flow_until_clear_sync(
             break
 
         act_status, act_payload = sts2_client.post_singleplayer_action(body)
-        ok = act_status == 200
-        if isinstance(act_payload, dict) and act_payload.get("status") == "error":
-            ok = False
+        ok = sts2_client.action_response_ok(act_status, act_payload)
         last = {
             "success": ok,
             "commentary": comm,
