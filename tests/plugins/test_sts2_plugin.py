@@ -94,6 +94,45 @@ def test_act_reports_api_error_as_failure(sts2_env, monkeypatch):
     assert data.get("status") == "error"
 
 
+def test_act_api_error_skips_settle_and_card_pick(sts2_env, monkeypatch):
+    """HTTP 200 + status:error must not run post-act side effects (9ee107e gap)."""
+    from plugins.sts2.tools import handle_sts2_act
+
+    reward_state = {
+        "state_type": "card_reward",
+        "floor": 5,
+        "rewards": [{"type": "card", "cards": [{"id": "strike", "index": 0}]}],
+    }
+    monkeypatch.setattr(
+        "plugins.sts2.client.get_singleplayer_state",
+        lambda **kw: (200, dict(reward_state)),
+    )
+    monkeypatch.setattr(
+        "plugins.sts2.client.post_singleplayer_action",
+        lambda body: (200, {"status": "error", "message": "bad pick"}),
+    )
+    settle_calls: list[int] = []
+
+    def fake_settle(*_a, **_k):
+        settle_calls.append(1)
+        return reward_state, {"settled": True}
+
+    monkeypatch.setattr(
+        "plugins.sts2.state_settle.wait_for_settled_state", fake_settle
+    )
+    pick_calls: list[int] = []
+    monkeypatch.setattr(
+        "plugins.sts2.build_knowledge.record_card_pick",
+        lambda *_a, **_k: pick_calls.append(1),
+    )
+    raw = handle_sts2_act({"action": "select_card_reward", "card_index": 0})
+    data = json.loads(raw)
+    assert data["success"] is False
+    assert data.get("status") == "error"
+    assert not settle_calls
+    assert not pick_calls
+
+
 def test_find_game_dir_uses_cache(sts2_env, monkeypatch):
     from plugins.sts2.paths import find_game_dir
 
