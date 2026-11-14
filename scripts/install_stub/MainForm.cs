@@ -322,7 +322,8 @@ internal sealed class MainForm : Form
             _lblStatus.Text = I18n.StatusReady + Environment.NewLine
                 + $"  · {ready.SkillsDetail}" + Environment.NewLine
                 + $"  · {ready.ModDetail}" + Environment.NewLine
-                + $"  · {ready.HostDetail}";
+                + $"  · {ready.HostDetail}" + Environment.NewLine
+                + $"  · {ready.PipDetail}";
             _btnInstall.Enabled = false;
             _btnInstall.Text = I18n.Install;
         }

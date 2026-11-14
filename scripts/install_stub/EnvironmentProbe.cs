@@ -199,8 +199,10 @@ internal static class EnvironmentProbe
         detail = "";
         if (string.IsNullOrWhiteSpace(opt.PythonPath) || !File.Exists(opt.PythonPath))
         {
-            detail = I18n.ProbePipSkip;
-            return true;
+            // Missing/invalid Python must not count as pip-ready: otherwise AllReady blocks
+            // install and force-reinstall still skips pip (Deployer checks PipReady).
+            detail = I18n.ProbePipNoPython;
+            return false;
         }
         if (!CheckSkills(opt.SkillsDir, out _))
         {
