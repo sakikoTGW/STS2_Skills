@@ -465,7 +465,8 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
                 "禁止继续 end_turn：立即 sts2_get_state(summary=true)，按新手牌 index 重规划。"
             )
 
-    if status == 200:
+    ok = sts2_client.action_response_ok(status, payload)
+    if ok:
         try:
             from plugins.sts2.state_settle import wait_for_settled_state
 
@@ -530,7 +531,6 @@ def handle_sts2_act(args: dict[str, Any], **kwargs: Any) -> str:
         except Exception:
             pass
 
-    ok = sts2_client.action_response_ok(status, payload)
     if isinstance(payload, dict):
         return tool_result(
             success=ok,

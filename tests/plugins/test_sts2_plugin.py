@@ -88,10 +88,22 @@ def test_act_reports_api_error_as_failure(sts2_env, monkeypatch):
         "plugins.sts2.client.post_singleplayer_action",
         lambda body: (200, {"status": "error", "message": "invalid card_index"}),
     )
+    settle_called = {"n": 0}
+
+    def _no_settle(*_a, **_kw):
+        settle_called["n"] += 1
+        return {}, {"settled": True}
+
+    monkeypatch.setattr(
+        "plugins.sts2.state_settle.wait_for_settled_state",
+        _no_settle,
+    )
     raw = handle_sts2_act({"action": "play_card", "card_index": 99})
     data = json.loads(raw)
     assert data["success"] is False
     assert data.get("status") == "error"
+    assert settle_called["n"] == 0
+    assert "_fresh_state" not in data
 
 
 def test_find_game_dir_uses_cache(sts2_env, monkeypatch):
