@@ -994,11 +994,7 @@ class AutoplayController:
 
                     report_exception(exc, context={"where": "execute_action", "action": body})
                     return 0, {"error": str(exc)}, False
-                act_ok = (
-                    act_status == 200
-                    and isinstance(act_payload, dict)
-                    and act_payload.get("status") == "ok"
-                )
+                act_ok = sts2_client.action_response_ok(act_status, act_payload)
                 if act_ok or body.get("action") == "__wait__":
                     return act_status, act_payload, act_ok
                 status, fresh = sts2_client.get_singleplayer_state(fmt="json")
