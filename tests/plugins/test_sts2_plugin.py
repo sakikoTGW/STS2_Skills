@@ -92,6 +92,8 @@ def test_act_reports_api_error_as_failure(sts2_env, monkeypatch):
     data = json.loads(raw)
     assert data["success"] is False
     assert data.get("status") == "error"
+    assert "_fresh_state" not in data
+    assert "state_settle" not in data
 
 
 def test_find_game_dir_uses_cache(sts2_env, monkeypatch):
