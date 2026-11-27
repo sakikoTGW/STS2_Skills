@@ -80,6 +80,12 @@ def test_act_builds_body(sts2_env, monkeypatch):
 def test_act_reports_api_error_as_failure(sts2_env, monkeypatch):
     from plugins.sts2.tools import handle_sts2_act
 
+    settle_calls: list[int] = []
+
+    def fake_settle(*_a, **_k):
+        settle_calls.append(1)
+        return {"state_type": "COMBAT"}, {"settled": True}
+
     monkeypatch.setattr(
         "plugins.sts2.client.get_singleplayer_state",
         lambda **kw: (200, {"state_type": "COMBAT"}),
@@ -88,10 +94,16 @@ def test_act_reports_api_error_as_failure(sts2_env, monkeypatch):
         "plugins.sts2.client.post_singleplayer_action",
         lambda body: (200, {"status": "error", "message": "invalid card_index"}),
     )
+    monkeypatch.setattr(
+        "plugins.sts2.state_settle.wait_for_settled_state",
+        fake_settle,
+    )
     raw = handle_sts2_act({"action": "play_card", "card_index": 99})
     data = json.loads(raw)
     assert data["success"] is False
     assert data.get("status") == "error"
+    assert not settle_calls
+    assert "_fresh_state" not in data
 
 
 def test_find_game_dir_uses_cache(sts2_env, monkeypatch):
